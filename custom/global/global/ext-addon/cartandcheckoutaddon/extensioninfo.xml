@@ -18,7 +18,7 @@
 		<!-- you should add all required extensions to this list, except platform extensions which are automatically required -->         
 		<!--<requires-extension name="hmc"/>-->
 		<requires-extension name="addonsupport"/>
-		<requires-extension name="loginaddon"/>
+<!--		<requires-extension name="loginaddon"/>-->
 		<requires-extension name="jnjb2boutboundservice"/>
 		<requires-extension name="jnjb2bcore"/>
 
