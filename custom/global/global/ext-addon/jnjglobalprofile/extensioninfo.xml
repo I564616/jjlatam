@@ -18,6 +18,7 @@
 		<!-- you should add all required extensions to this list, except platform extensions which are automatically required -->         
 		<!--<requires-extension name="hmc"/>-->
 		<requires-extension name="addonsupport"/>
+        <requires-extension name="b2bacceleratorfacades"/>
 
 		<coremodule generated="true" manager="com.jnj.b2b.jnjglobalprofile.jalo.JnjglobalprofileManager" packageroot="com.jnj.b2b.jnjglobalprofile"/>
 
