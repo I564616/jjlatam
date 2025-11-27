@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry combineaccessrules="false" kind="src" path="/platform"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/b2bacceleratorfacades"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/jnjb2bcore"/>
+	<classpathentry exported="true" kind="lib" path="resources"/>
+	<classpathentry kind="src" output="eclipsebin/classes" path="src"/>
+	<classpathentry kind="src" output="eclipsebin/classes" path="testsrc"/>
+	<classpathentry kind="src" output="eclipsebin/classes" path="gensrc"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jnjb2boutboundservice"/>
+	<classpathentry kind="lib" path="/jnjb2bcore/lib/WebOrderingErrorHandling.jar"/>
+	<classpathentry kind="lib" path="/jnjb2bcore/lib/WebOrderingLogging.jar"/>
+	<classpathentry kind="lib" path="/jnjb2bcore/classes"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jnjutil"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/cmscockpit"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jnjgtb2boutboundservice"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

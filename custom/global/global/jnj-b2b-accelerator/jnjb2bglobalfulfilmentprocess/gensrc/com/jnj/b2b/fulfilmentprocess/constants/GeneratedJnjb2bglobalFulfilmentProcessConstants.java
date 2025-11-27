@@ -1,0 +1,33 @@
+/*
+ * ----------------------------------------------------------------
+ * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
+ * --- Generated at 31-Oct-2025, 12:25:16 pm                    ---
+ * ----------------------------------------------------------------
+ */
+package com.jnj.b2b.fulfilmentprocess.constants;
+
+/**
+ * @deprecated since ages - use constants in Model classes instead
+ */
+@Deprecated(since = "ages", forRemoval = false)
+@SuppressWarnings({"unused","cast"})
+public class GeneratedJnjb2bglobalFulfilmentProcessConstants
+{
+	public static final String EXTENSIONNAME = "jnjb2bglobalfulfilmentprocess";
+	public static class Attributes
+	{
+		public static class ConsignmentProcess
+		{
+			public static final String DONE = "done".intern();
+			public static final String WAITINGFORCONSIGNMENT = "waitingForConsignment".intern();
+			public static final String WAREHOUSECONSIGNMENTSTATE = "warehouseConsignmentState".intern();
+		}
+	}
+	
+	protected GeneratedJnjb2bglobalFulfilmentProcessConstants()
+	{
+		// private constructor
+	}
+	
+	
+}

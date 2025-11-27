@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/platform"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/acceleratorcms"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/b2bacceleratorservices"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/jnjb2bfulfilmentprocess"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/hmc"/>
+	<classpathentry exported="true" kind="lib" path="resources"/>
+	<classpathentry kind="src" output="eclipsebin/classes" path="src"/>
+	<classpathentry kind="src" output="eclipsebin/hmc/classes" path="hmc/src"/>
+	<classpathentry kind="src" output="eclipsebin/classes" path="testsrc"/>
+	<classpathentry kind="src" output="eclipsebin/classes" path="gensrc"/>
+	<classpathentry kind="lib" path="lib/WebOrderingErrorHandling.jar"/>
+	<classpathentry kind="lib" path="lib/WebOrderingLogging.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jnjutil"/>
+	<classpathentry kind="lib" path="lib/jsch-0.1.50.jar"/>
+	<classpathentry kind="lib" path="//jnjbebrfps01.eu.jnj.com/home$/sbaner48/Software/spring-ws-core-2.1.2.RELEASE.jar"/>
+	<classpathentry kind="src" path="/yb2bacceleratorcore"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/basecommerce"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/mediaconversion"/>
+	<classpathentry kind="output" path="eclipsebin/notused"/>
+</classpath>
