@@ -19,6 +19,7 @@
 		<!--<requires-extension name="hmc"/>-->
 		<requires-extension name="addonsupport"/>
         <requires-extension name="b2bacceleratorfacades"/>
+        <requires-extension name="jnjb2bglobalordertemplate"/>
 
 		<coremodule generated="true" manager="com.jnj.b2b.jnjglobalprofile.jalo.JnjglobalprofileManager" packageroot="com.jnj.b2b.jnjglobalprofile"/>
 
