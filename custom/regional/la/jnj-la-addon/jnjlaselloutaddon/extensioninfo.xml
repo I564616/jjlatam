@@ -18,8 +18,8 @@
 		<!-- you should add all required extensions to this list, except platform extensions which are automatically required -->         
 		<requires-extension name="addonsupport"/>
 		<requires-extension name="cartandcheckoutaddon"/>
-<!--		<requires-extension name="loginaddon"/>-->
-<!--		<requires-extension name="loginaddon"/>-->
+		<requires-extension name="loginaddon"/>
+		<requires-extension name="loginaddon"/>
 		<requires-extension name="jnjb2bcore"/>
 		<requires-extension name="jnjlab2bcore"/>
 		<requires-extension name="jnjlab2boutboundservice"/>
