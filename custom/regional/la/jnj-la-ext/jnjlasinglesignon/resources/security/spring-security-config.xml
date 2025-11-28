@@ -23,8 +23,9 @@
     <security:http security="none" pattern="/favicon.ico"/>
 
     <!-- Secured pages -->
+    <!-- Updating spring-security-saml2-service-provider to 6.4.x -->
     <security:http entry-point-ref="samlEntryPoint" authentication-manager-ref="samlAuthenticationManager"
-                   use-expressions="false">
+                   use-expressions="false" security-context-explicit-save="false">
         <security:intercept-url pattern="/**" access="IS_AUTHENTICATED_FULLY"/>
         <security:custom-filter before="FIRST" ref="samlMetadataFilter"/>
         <security:custom-filter before="BASIC_AUTH_FILTER" ref="saml2Filter"/>
@@ -97,8 +98,13 @@
     <bean id="openSamlLogoutResponseValidator"
           class="org.springframework.security.saml2.provider.service.authentication.logout.OpenSamlLogoutResponseValidator"/>
 
+<!--    <bean id="openSaml4LogoutResponseResolver"-->
+<!--          class="org.springframework.security.saml2.provider.service.web.authentication.logout.OpenSaml4LogoutResponseResolver">-->
+<!--        <constructor-arg ref="defaultRelyingPartyRegistrationResolver"/>-->
+<!--    </bean>-->
+    <!-- Updating spring-security-saml2-service-provider to 6.4.x -->
     <bean id="openSaml4LogoutResponseResolver"
-          class="org.springframework.security.saml2.provider.service.web.authentication.logout.OpenSaml4LogoutResponseResolver">
+          class="org.springframework.security.saml2.provider.service.web.authentication.logout.OpenSaml5LogoutResponseResolver">
         <constructor-arg ref="defaultRelyingPartyRegistrationResolver"/>
     </bean>
 
@@ -129,8 +135,13 @@
         <constructor-arg name="authenticationRequestFactory" ref="authenticationRequestFactory"/>
     </bean>
 
+<!--    <bean id="authenticationRequestContextResolver"-->
+<!--          class="org.springframework.security.saml2.provider.service.web.DefaultSaml2AuthenticationRequestContextResolver">-->
+<!--        <constructor-arg name="relyingPartyRegistrationResolver" ref="defaultRelyingPartyRegistrationResolverIdAware"/>-->
+<!--    </bean>-->
+    <!-- Updating spring-security-saml2-service-provider to 6.4.x -->
     <bean id="authenticationRequestContextResolver"
-          class="org.springframework.security.saml2.provider.service.web.DefaultSaml2AuthenticationRequestContextResolver">
+          class="org.springframework.security.saml2.provider.service.web.authentication.OpenSaml5AuthenticationRequestResolver">
         <constructor-arg name="relyingPartyRegistrationResolver" ref="defaultRelyingPartyRegistrationResolverIdAware"/>
     </bean>
 
