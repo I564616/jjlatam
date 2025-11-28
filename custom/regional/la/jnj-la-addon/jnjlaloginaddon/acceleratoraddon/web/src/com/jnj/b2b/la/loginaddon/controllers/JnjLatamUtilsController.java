@@ -14,16 +14,16 @@ import de.hybris.platform.core.model.order.OrderModel;
 import de.hybris.platform.core.model.security.PrincipalGroupModel;
 import de.hybris.platform.servicelayer.session.SessionService;
 import de.hybris.platform.servicelayer.user.UserService;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -55,7 +55,7 @@ public class JnjLatamUtilsController extends AbstractPageController {
     private static final String LATAM_UTILS_CONTROLLER = "UtilsController";
     private static final Class THIS_CLASS = JnjLatamUtilsController.class;
     
-    @RequestMapping(value = "/permissions", method = RequestMethod.GET)
+    @GetMapping("/permissions")
     @ResponseBody
     @RequireHardLogIn
     private List<String> getPermissions(final HttpServletRequest request){
@@ -69,7 +69,7 @@ public class JnjLatamUtilsController extends AbstractPageController {
         return mapAllGroupAttributes(groups);
     }
 
-    @RequestMapping(value = "/isRegistrationComplete", method = RequestMethod.GET)
+    @GetMapping("/isRegistrationComplete")
     @ResponseBody
     @RequireHardLogIn
     private String isRegistrationComplete(final HttpServletRequest request){
@@ -90,7 +90,7 @@ public class JnjLatamUtilsController extends AbstractPageController {
 
     }
 
-    @RequestMapping(value = "/message", method = RequestMethod.GET)
+    @GetMapping("/message")
     @ResponseBody
     private String getMessage(final HttpServletRequest request, @RequestParam("code") final String messageCode) throws BusinessException {
         final String methodName = "getMessage()";
@@ -99,7 +99,7 @@ public class JnjLatamUtilsController extends AbstractPageController {
         return messageFacadeUtil.getMessageTextForCode(messageCode);
     }
 
-    @RequestMapping(value = "/currentCountry", method = RequestMethod.GET)
+    @GetMapping("/currentCountry")
     @ResponseBody
     private String getCurrentCountry(final HttpServletRequest request){
         final String methodName = "getCurrentCountry()";
@@ -117,7 +117,7 @@ public class JnjLatamUtilsController extends AbstractPageController {
         return "";
     }
 
-    @RequestMapping(value = "/contactNumber", method = RequestMethod.GET)
+    @GetMapping("/contactNumber")
     @ResponseBody
     public String getCountryContactNumber(){
         final String methodName = "getCountryContactNumber()";
@@ -185,7 +185,7 @@ public class JnjLatamUtilsController extends AbstractPageController {
     }
     
     
-    @RequestMapping(value = "/comparePOTrackingId", method = RequestMethod.GET)
+    @GetMapping("/comparePOTrackingId")
     @ResponseBody
     private boolean comparePOTrackingId(@RequestParam("valToCompare") final String valToCompare)
     {

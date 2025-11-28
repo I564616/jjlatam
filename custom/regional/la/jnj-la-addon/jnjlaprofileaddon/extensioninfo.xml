@@ -20,7 +20,7 @@
 		<requires-extension name="jnjglobalprofile"/>
 		<requires-extension name="jnjlab2bfacades"/>
 		<requires-extension name="jnjlab2bcore"/>
-<!--		<requires-extension name="loginaddon"/>-->
+		<requires-extension name="loginaddon"/>
 
 		<coremodule generated="true" manager="com.jnj.b2b.la.jnjlaprofileaddon.jalo.JnjlaprofileaddonManager" packageroot="com.jnj.b2b.la.jnjlaprofileaddon"/>
 

@@ -1,6 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ attribute name="dateToFormat" required="true" type="java.util.Date"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
 
 <c:choose>
     <c:when test="${'en' eq sessionLanguage}">

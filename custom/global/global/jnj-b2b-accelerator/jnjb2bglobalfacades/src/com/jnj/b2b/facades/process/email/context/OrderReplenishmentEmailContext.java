@@ -23,8 +23,6 @@ import de.hybris.platform.core.model.user.CustomerModel;
 import de.hybris.platform.orderscheduling.model.CartToOrderCronJobModel;
 import de.hybris.platform.servicelayer.dto.converter.Converter;
 
-import org.springframework.beans.factory.annotation.Required;
-
 
 /**
  * Email context (velocity) for order replenishment.
@@ -63,7 +61,6 @@ public class OrderReplenishmentEmailContext extends AbstractEmailContext<Repleni
 		return scheduledCartConverter;
 	}
 
-	@Required
 	public void setScheduledCartConverter(final Converter<CartToOrderCronJobModel, ScheduledCartData> scheduledCartConverter)
 	{
 		this.scheduledCartConverter = scheduledCartConverter;

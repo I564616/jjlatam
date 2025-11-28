@@ -20,11 +20,10 @@ import de.hybris.platform.core.model.c2l.CountryModel;
 import de.hybris.platform.core.model.security.PrincipalGroupModel;
 import de.hybris.platform.core.model.user.UserModel;
 import de.hybris.platform.util.Config;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.core.AuthenticationException;
@@ -128,17 +127,14 @@ public class JnjLAAcceleratorAuthenticationProvider extends JnjAcceleratorAuthen
         throw new InsufficientAuthenticationException(message);
     }
 
-    @Required
     public void setCmsSiteService(final CMSSiteService cmsSiteService) {
         this.cmsSiteService = cmsSiteService;
     }
 
-    @Required
     public void setMessageFacade(final DefaultMessageFacade messageFacade) {
         this.messageFacade = messageFacade;
     }
 
-    @Required
     public void setCustomerService(JnjLatamCustomerService customerService) {
         this.customerService = customerService;
     }

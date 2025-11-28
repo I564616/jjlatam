@@ -2363,7 +2363,7 @@
 	<bean id="jnJGTMDDProductExportService" class="com.jnj.core.services.impl.DefaultJnJGTMDDProductExportService"/>
 	
 	<!-- END items-->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
     <property name="maxUploadSize" value="50000000"/>
 </bean>
 	

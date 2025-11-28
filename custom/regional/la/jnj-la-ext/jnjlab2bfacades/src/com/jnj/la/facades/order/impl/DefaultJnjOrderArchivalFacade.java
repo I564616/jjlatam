@@ -14,7 +14,6 @@ import com.jnj.la.core.services.JnjOrderArchivalService;
 import com.jnj.la.facades.order.JnjOrderArchivalFacade;
 import de.hybris.platform.servicelayer.model.ModelService;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Required;
 
 /**
  * Class responsible for handling archival orders fetching and deletion.
@@ -61,7 +60,6 @@ public class DefaultJnjOrderArchivalFacade implements JnjOrderArchivalFacade {
     /**
      * @param modelService the modelService to set
      */
-    @Required
     public void setModelService(final ModelService modelService) {
         this.modelService = modelService;
     }
@@ -76,7 +74,6 @@ public class DefaultJnjOrderArchivalFacade implements JnjOrderArchivalFacade {
     /**
      * @param jnjOrderArchivalService the jnjOrderArchivalService to set
      */
-    @Required
     public void setJnjOrderArchivalService(final JnjOrderArchivalService jnjOrderArchivalService) {
         this.jnjOrderArchivalService = jnjOrderArchivalService;
     }

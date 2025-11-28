@@ -42,10 +42,9 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
@@ -438,7 +437,6 @@ public class DefaultJnjSAPOrdersService implements JnjSAPOrdersService
 		return addressService;
 	}
 
-	@Required
 	public void setAddressService(final AddressService addressService)
 	{
 		this.addressService = addressService;
@@ -449,7 +447,6 @@ public class DefaultJnjSAPOrdersService implements JnjSAPOrdersService
 		return b2bUnitService;
 	}
 
-	@Required
 	public void setB2bUnitService(final B2BUnitService<CompanyModel, UserModel> b2bUnitService)
 	{
 		this.b2bUnitService = b2bUnitService;
@@ -460,7 +457,6 @@ public class DefaultJnjSAPOrdersService implements JnjSAPOrdersService
 		return b2BCommerceUnitService;
 	}
 
-	@Required
 	public void setB2BCommerceUnitService(final B2BCommerceUnitService b2bCommerceUnitService)
 	{
 		b2BCommerceUnitService = b2bCommerceUnitService;
@@ -471,7 +467,6 @@ public class DefaultJnjSAPOrdersService implements JnjSAPOrdersService
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
@@ -482,7 +477,6 @@ public class DefaultJnjSAPOrdersService implements JnjSAPOrdersService
 		return productService;
 	}
 
-	@Required
 	public void setProductService(final ProductService productService)
 	{
 		this.productService = productService;
@@ -493,7 +487,6 @@ public class DefaultJnjSAPOrdersService implements JnjSAPOrdersService
 		return commonI18NService;
 	}
 
-	@Required
 	public void setCommonI18NService(final CommonI18NService commonI18NService)
 	{
 		this.commonI18NService = commonI18NService;
@@ -504,7 +497,6 @@ public class DefaultJnjSAPOrdersService implements JnjSAPOrdersService
 		return jnjSAPOrdersDao;
 	}
 
-	@Required
 	public void setJnjSAPOrdersDao(final JnjSAPOrdersDao jnjSAPOrdersDao)
 	{
 		this.jnjSAPOrdersDao = jnjSAPOrdersDao;
@@ -515,7 +507,6 @@ public class DefaultJnjSAPOrdersService implements JnjSAPOrdersService
 		return eventService;
 	}
 
-	@Required
 	public void setEventService(final EventService eventService)
 	{
 		this.eventService = eventService;
@@ -526,7 +517,6 @@ public class DefaultJnjSAPOrdersService implements JnjSAPOrdersService
 		return baseSiteService;
 	}
 
-	@Required
 	public void setBaseSiteService(final BaseSiteService baseSiteService)
 	{
 		this.baseSiteService = baseSiteService;
@@ -537,7 +527,6 @@ public class DefaultJnjSAPOrdersService implements JnjSAPOrdersService
 		return baseStoreService;
 	}
 
-	@Required
 	public void setBaseStoreService(final BaseStoreService baseStoreService)
 	{
 		this.baseStoreService = baseStoreService;
@@ -551,7 +540,6 @@ public class DefaultJnjSAPOrdersService implements JnjSAPOrdersService
 		return catalogService;
 	}
 
-	@Required
 	public void setCatalogService(final CatalogService catalogService)
 	{
 		this.catalogService = catalogService;
@@ -563,7 +551,6 @@ public class DefaultJnjSAPOrdersService implements JnjSAPOrdersService
 		return catalogVersionService;
 	}
 
-	@Required
 	public void setCatalogVersionService(final CatalogVersionService catalogVersionService)
 	{
 		this.catalogVersionService = catalogVersionService;

@@ -6,7 +6,7 @@ package com.jnj.core.services.b2bunit.impl;
 import de.hybris.platform.b2b.services.impl.DefaultB2BUnitService;
 import de.hybris.platform.b2bcommercefacades.company.data.B2BUnitData;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 //import de.hybris.platform.b2bacceleratorservices.company.CompanyB2BCommerceService;
 import de.hybris.platform.core.model.ItemModel;
 import de.hybris.platform.core.model.user.AddressModel;
@@ -26,9 +26,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.BooleanUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 

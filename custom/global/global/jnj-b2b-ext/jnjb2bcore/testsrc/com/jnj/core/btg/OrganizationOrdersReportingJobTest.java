@@ -29,7 +29,7 @@ import de.hybris.platform.servicelayer.user.UserService;
 import java.util.Collections;
 import java.util.Date;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.junit.Before;
 import org.junit.Ignore;

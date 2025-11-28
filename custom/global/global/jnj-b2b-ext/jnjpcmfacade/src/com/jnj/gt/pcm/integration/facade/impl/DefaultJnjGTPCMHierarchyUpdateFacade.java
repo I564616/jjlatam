@@ -26,7 +26,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.gt.core.model.JnjGTPCMIntegrationCronJobModel;
 import com.jnj.gt.pcm.integration.constants.JnjpcmfacadeConstants;
@@ -201,7 +200,7 @@ public class DefaultJnjGTPCMHierarchyUpdateFacade extends DefaultJnjCCP360Integr
 		{
 			for (final JnjPCMGTProductDataLocalAttributes attributes : categoryName)
 			{
-				locale = new Locale(attributes.getLocale());
+				locale = Locale.of(attributes.getLocale());
 				categoryModel.setName(attributes.getAttrValue(), locale);
 			}
 			LOG.info("Category name updated successfuly for Category : " + categoryModel.getCode());
@@ -274,7 +273,7 @@ public class DefaultJnjGTPCMHierarchyUpdateFacade extends DefaultJnjCCP360Integr
 		{
 			categoryModel = new CategoryModel();
 			final List<PrincipalModel> allowedUserGroups = new ArrayList<>();
-			final Locale locale = new Locale(DEFAULT_LOCALE);
+			final Locale locale = Locale.of(DEFAULT_LOCALE);
 			allowedUserGroups.add(userService.getUserGroupForUID(CUSTOMERGROUP));
 			categoryModel.setCode(categoryCode);
 			categoryModel.setName(categoryName, locale);
@@ -385,7 +384,6 @@ public class DefaultJnjGTPCMHierarchyUpdateFacade extends DefaultJnjCCP360Integr
 		return catalogVersionService;
 	}
 
-	@Required
 	public void setCatalogVersionService(final CatalogVersionService catalogVersionService)
 	{
 		this.catalogVersionService = catalogVersionService;
@@ -397,7 +395,7 @@ public class DefaultJnjGTPCMHierarchyUpdateFacade extends DefaultJnjCCP360Integr
 		return modelService;
 	}
 
-	@Required @Override
+	@Override
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
@@ -408,7 +406,6 @@ public class DefaultJnjGTPCMHierarchyUpdateFacade extends DefaultJnjCCP360Integr
 		return userService;
 	}
 
-	@Required
 	public void setUserService(final UserService userService)
 	{
 		this.userService = userService;

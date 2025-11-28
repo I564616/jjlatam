@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -18,7 +19,7 @@ public class SimpleHttpLoader implements HttpLoader
 		URLConnection connection = null;
 		try
 		{
-			final URL url = new URL(urlS);
+			final URL url = URI.create(urlS).toURL();
 			connection = url.openConnection();
 
 			// jdk 1.4 workaround
@@ -70,7 +71,7 @@ public class SimpleHttpLoader implements HttpLoader
 		URLConnection connection = null;
 		try
 		{
-			final URL url = new URL(urlS);
+			final URL url = URI.create(urlS).toURL();
 			connection = url.openConnection();
 
 			connection.setDoOutput(true);
@@ -141,13 +142,13 @@ public class SimpleHttpLoader implements HttpLoader
 			if (readTimeoutMethod != null)
 			{
 				readTimeoutMethod.invoke(connection, new Object[]
-				{ new Integer(10000) });
+				{ Integer.valueOf(10000) });
 				System.out.println("Set timeout.");
 			}
 			if (connectTimeoutMethod != null)
 			{
 				connectTimeoutMethod.invoke(connection, new Object[]
-				{ new Integer(10000) });
+				{ Integer.valueOf(10000) });
 				System.out.println("Set timeout.");
 			}
 		}

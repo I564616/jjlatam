@@ -76,14 +76,13 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.util.Assert;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
@@ -262,7 +261,6 @@ public class DefaultJnjCustomerFacade extends DefaultCustomerFacade implements J
 		return b2BUserGroupsLookUpStrategy;
 	}
 
-	@Required
 	public void setB2BUserGroupsLookUpStrategy(final B2BUserGroupsLookUpStrategy b2BUserGroupsLookUpStrategy)
 	{
 		this.b2BUserGroupsLookUpStrategy = b2BUserGroupsLookUpStrategy;
@@ -1021,7 +1019,6 @@ public class DefaultJnjCustomerFacade extends DefaultCustomerFacade implements J
 	}
 
 	@Override
-	@Required
 	public void setCustomerAccountService(final CustomerAccountService customerAccountService)
 	{
 		this.customerAccountService = customerAccountService;
@@ -1034,7 +1031,6 @@ public class DefaultJnjCustomerFacade extends DefaultCustomerFacade implements J
 	}
 
 	@Override
-	@Required
 	public void setCommonI18NService(final CommonI18NService commonI18NService)
 	{
 		this.commonI18NService = commonI18NService;
@@ -1047,7 +1043,6 @@ public class DefaultJnjCustomerFacade extends DefaultCustomerFacade implements J
 	}
 
 	@Override
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
@@ -1060,7 +1055,6 @@ public class DefaultJnjCustomerFacade extends DefaultCustomerFacade implements J
 	}
 
 	@Override
-	@Required
 	public void setCustomerNameStrategy(final CustomerNameStrategy customerNameStrategy)
 	{
 		this.customerNameStrategy = customerNameStrategy;
@@ -1082,7 +1076,6 @@ public class DefaultJnjCustomerFacade extends DefaultCustomerFacade implements J
 	 * @param b2bUnitService
 	 *           the b2b unit service
 	 */
-	@Required
 	public void setB2bUnitService(final B2BUnitService<B2BUnitModel, B2BCustomerModel> b2bUnitService)
 	{
 		this.b2bUnitService = b2bUnitService;
@@ -1768,8 +1761,8 @@ public class DefaultJnjCustomerFacade extends DefaultCustomerFacade implements J
 	@Override
 	public void sendPasswordExpiryMail()
 	{
-		Integer lastInterval = new Integer(0);
-		Integer sendMailOnDay = new Integer(0);
+		Integer lastInterval = Integer.valueOf(0);
+		Integer sendMailOnDay = Integer.valueOf(0);
 		LOG.debug("START: Iterate.. List all JnjUsers");
 		if (jnjCustomerService.getAllJnjUsers().size() > 0)
 		{

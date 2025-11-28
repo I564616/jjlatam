@@ -22,8 +22,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Required;
-
 
 /**
  * Comparator for type {@link GenericVariantProductModel}.
@@ -102,7 +100,6 @@ public class GenericVariantProductModelComparator implements Comparator<GenericV
 		return variantValueCategoryModelPriorityComparator;
 	}
 
-	@Required
 	public void setVariantValueCategoryModelPriorityComparator(
 			final Comparator<VariantValueCategoryModel> variantValueCategoryModelPriorityComparator)
 	{

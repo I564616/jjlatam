@@ -10,7 +10,7 @@ package com.jnj.la.b2b.occ.validator;
 
 import com.jnj.exceptions.BusinessException;
 import com.jnj.la.core.services.JnJLaProductService;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 

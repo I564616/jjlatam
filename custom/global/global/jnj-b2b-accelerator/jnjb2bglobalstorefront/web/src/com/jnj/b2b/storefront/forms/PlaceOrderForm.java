@@ -16,7 +16,7 @@ package com.jnj.b2b.storefront.forms;
 import de.hybris.platform.b2bacceleratorfacades.order.data.B2BReplenishmentRecurrenceEnum;
 import de.hybris.platform.cronjob.enums.DayOfWeek;
 
-import javax.validation.constraints.AssertTrue;
+import jakarta.validation.constraints.AssertTrue;
 import java.util.Date;
 import java.util.List;
 

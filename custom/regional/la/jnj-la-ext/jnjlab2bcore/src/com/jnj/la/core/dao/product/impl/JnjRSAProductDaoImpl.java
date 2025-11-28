@@ -12,7 +12,6 @@ import java.util.Collections;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 import com.jnj.core.connector.JNJRSADBConnector;
@@ -73,7 +72,6 @@ public class JnjRSAProductDaoImpl implements JnjRSAProductDao
 		return rsaDBConnector;
 	}
 
-	@Required
 	public void setRsaDBConnector(final JNJRSADBConnector rsaDBConnector) {
 		this.rsaDBConnector = rsaDBConnector;
 	}
@@ -82,7 +80,6 @@ public class JnjRSAProductDaoImpl implements JnjRSAProductDao
 		return jnjLaCronjobUtil;
 	}
 
-	@Required
 	public void setJnjLaCronjobUtil(final JnJLaCronjobUtil jnjLaCronjobUtil) {
 		this.jnjLaCronjobUtil = jnjLaCronjobUtil;
 	}
@@ -91,7 +88,6 @@ public class JnjRSAProductDaoImpl implements JnjRSAProductDao
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	}
@@ -162,8 +158,8 @@ public class JnjRSAProductDaoImpl implements JnjRSAProductDao
 		
 		try
 		{
-			jnjProductSalesOrgs = rsaDBConnector.getJdbcTemplate().query(String.format(PRODUCT_SALESORG_QUERY, inSql), materialNum.toArray(), 
-					new BeanPropertyRowMapper<JnjRSAProductSalesOrgDTO>(JnjRSAProductSalesOrgDTO.class));
+			jnjProductSalesOrgs = rsaDBConnector.getJdbcTemplate().query(String.format(PRODUCT_SALESORG_QUERY, inSql), new BeanPropertyRowMapper<JnjRSAProductSalesOrgDTO>(JnjRSAProductSalesOrgDTO.class), 
+					materialNum.toArray());
 		}
 		catch (final Exception e)
 		{
@@ -185,8 +181,8 @@ public class JnjRSAProductDaoImpl implements JnjRSAProductDao
 		
 		try
 		{
-			jnjProductDescriptions = rsaDBConnector.getJdbcTemplate().query(String.format(PRODUCT_DESCRIPTION_QUERY, inSql), materialNum.toArray(),
-					new BeanPropertyRowMapper<JnjRSAProductDescriptionDTO>(JnjRSAProductDescriptionDTO.class));
+			jnjProductDescriptions = rsaDBConnector.getJdbcTemplate().query(String.format(PRODUCT_DESCRIPTION_QUERY, inSql), new BeanPropertyRowMapper<JnjRSAProductDescriptionDTO>(JnjRSAProductDescriptionDTO.class),
+					materialNum.toArray());
 			
 		}
 		catch (final Exception e)
@@ -209,8 +205,8 @@ public class JnjRSAProductDaoImpl implements JnjRSAProductDao
 		
 		try
 		{
-			jnjProductUnits = rsaDBConnector.getJdbcTemplate().query(String.format(PRODUCT_UNIT_QUERY, inSql), materialNum.toArray(), 
-					new BeanPropertyRowMapper<JnjRSAProductUnitDTO>(JnjRSAProductUnitDTO.class));
+			jnjProductUnits = rsaDBConnector.getJdbcTemplate().query(String.format(PRODUCT_UNIT_QUERY, inSql), new BeanPropertyRowMapper<JnjRSAProductUnitDTO>(JnjRSAProductUnitDTO.class), 
+					materialNum.toArray());
 			
 		}
 		catch (final Exception e)

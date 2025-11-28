@@ -7,7 +7,7 @@
  */
 package com.jnj.core.factory.order;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import de.hybris.platform.core.model.order.CartModel;
 import de.hybris.platform.order.impl.DefaultCartFactory;

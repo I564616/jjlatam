@@ -5,5 +5,5 @@
 // Generated on: 2014.01.14 at 03:15:50 PM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://itsusmpl00082.jnj.com/SG910_BtB_IN0498_SalesOrder_Global_Source_v1.webService:salesOrderWS")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://itsusmpl00082.jnj.com/SG910_BtB_IN0498_SalesOrder_Global_Source_v1.webService:salesOrderWS")
 package com.jnj.itsusmpl00082.sg910_btb_in0498_salesorder_global_source_v1_webservice.salesorderws;

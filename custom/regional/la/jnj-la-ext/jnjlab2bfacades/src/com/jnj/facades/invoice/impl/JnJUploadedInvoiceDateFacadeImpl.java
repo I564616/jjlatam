@@ -16,7 +16,6 @@ import com.jnj.la.core.data.JnJUploadedInvoiceDateData;
 import com.jnj.la.core.model.JnJUploadedInvoiceDateModel;
 import com.jnj.la.core.services.JnJUpdateInvoiceService;
 import de.hybris.platform.servicelayer.dto.converter.Converter;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -85,17 +84,14 @@ public class JnJUploadedInvoiceDateFacadeImpl implements JnJUploadedInvoiceDateF
         return model;
     }
 
-    @Required
     public void setUpdateInvoiceService(final JnJUpdateInvoiceService updateInvoiceService) {
         this.updateInvoiceService = updateInvoiceService;
     }
 
-    @Required
     public void setUploadedInvoiceDateConverter(Converter<JnJUploadedInvoiceDateModel, JnJUploadedInvoiceDateData> uploadedInvoiceDateConverter) {
         this.uploadedInvoiceDateConverter = uploadedInvoiceDateConverter;
     }
 
-    @Required
     public void setUploadedInvoiceDateDao(JnJUploadedInvoiceDateDao uploadedInvoiceDateDao) {
         this.uploadedInvoiceDateDao = uploadedInvoiceDateDao;
     }

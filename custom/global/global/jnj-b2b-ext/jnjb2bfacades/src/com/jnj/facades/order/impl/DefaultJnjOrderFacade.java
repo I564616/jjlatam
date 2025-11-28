@@ -33,10 +33,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
@@ -174,7 +173,6 @@ public class DefaultJnjOrderFacade extends DefaultB2BOrderFacade implements JnjO
 	 * @param jnjOrderService
 	 *           the jnjOrderService to set
 	 */
-	@Required
 	public void setJnjOrderService(final JnjOrderService jnjOrderService)
 	{
 		this.jnjOrderService = jnjOrderService;

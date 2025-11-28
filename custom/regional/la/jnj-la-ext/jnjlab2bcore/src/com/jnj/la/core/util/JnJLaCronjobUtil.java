@@ -7,7 +7,6 @@ package com.jnj.la.core.util;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -60,7 +59,6 @@ public class JnJLaCronjobUtil {
 		return rsaDBConnector;
 	}
 
-	@Required
 	public void setRsaDBConnector(final JNJRSADBConnector rsaDBConnector) {
 		this.rsaDBConnector = rsaDBConnector;
 	}

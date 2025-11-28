@@ -15,7 +15,6 @@ import de.hybris.platform.store.services.BaseStoreService;
 import java.util.Locale;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 import com.jnj.core.model.JnJB2bCustomerModel;
@@ -90,7 +89,6 @@ public class JnjGTContactUsEventListener extends AbstractSiteEventListener<JnjGT
 	 * @param modelService
 	 *           the modelService to set
 	 */
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
@@ -110,7 +108,6 @@ public class JnjGTContactUsEventListener extends AbstractSiteEventListener<JnjGT
 	 * @param businessProcessService
 	 *           the businessProcessService to set
 	 */
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;

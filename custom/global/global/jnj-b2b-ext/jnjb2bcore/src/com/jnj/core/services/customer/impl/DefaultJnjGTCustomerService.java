@@ -25,12 +25,12 @@ import java.util.stream.Collectors;
 
 import com.jnj.core.util.JnjSftpFileTransferUtil;
 import de.hybris.platform.b2b.company.B2BCommerceUnitService;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import de.hybris.platform.util.CSVConstants;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.RandomStringUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 

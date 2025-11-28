@@ -27,7 +27,7 @@ import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 //import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 import com.jnj.core.model.JnJB2bCustomerModel;
 import com.jnj.core.enums.AccessBy;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 
 /**

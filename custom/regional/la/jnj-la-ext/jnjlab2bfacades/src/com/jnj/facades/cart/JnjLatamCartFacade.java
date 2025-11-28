@@ -43,7 +43,7 @@ import com.jnj.facades.data.JnjOrderData;
 import com.jnj.facades.data.JnjValidateOrderData;
 import com.jnj.la.core.model.JnjIndirectPayerModel;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 
 /**

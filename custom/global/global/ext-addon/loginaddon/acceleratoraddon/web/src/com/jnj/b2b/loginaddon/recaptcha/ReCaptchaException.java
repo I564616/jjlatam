@@ -15,9 +15,12 @@
  */
 package com.jnj.b2b.loginaddon.recaptcha;
 
+import java.io.Serial;
+
 public class ReCaptchaException extends RuntimeException
 {
 
+	@Serial
 	private static final long serialVersionUID = -3975163868467332777L;
 
 	public ReCaptchaException(final String message)

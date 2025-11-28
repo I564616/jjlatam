@@ -5,9 +5,12 @@
  */
 package com.jnj.restservice.exception;
 
+import java.io.Serial;
+
 public class RestServiceException extends RuntimeException {
 
-    private static final long serialVersionUID = -8902795807754443499L;
+	@Serial
+	private static final long serialVersionUID = -8902795807754443499L;
 	private IErrorCode errorCode;
 
     public RestServiceException(final IErrorCode e, final Throwable t) {

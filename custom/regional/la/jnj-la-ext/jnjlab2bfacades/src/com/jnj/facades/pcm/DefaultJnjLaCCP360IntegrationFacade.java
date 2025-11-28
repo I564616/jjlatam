@@ -20,7 +20,7 @@ import de.hybris.platform.classification.features.Feature;
 import de.hybris.platform.classification.features.FeatureList;
 import de.hybris.platform.classification.features.FeatureValue;
 import de.hybris.platform.classification.features.LocalizedFeature;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.*;
 
@@ -81,7 +81,7 @@ public class DefaultJnjLaCCP360IntegrationFacade extends DefaultJnjCCP360Integra
     private LocalizedFeature addLocalizedFeature(final JnjGTClassificationData classificationData){
         ClassAttributeAssignmentModel classAttrAssignment = getJnjClassAttributeAssignmentService().getClassAttributeAssignment(classificationData.getFeatureName(), classificationData.getClassificationClass());
         if (null != classAttrAssignment) {
-            return new LocalizedFeature(classAttrAssignment, null, new Locale(classificationData.getLanguage()));
+            return new LocalizedFeature(classAttrAssignment, null, Locale.of(classificationData.getLanguage()));
         }
         return null;
     }
@@ -89,12 +89,12 @@ public class DefaultJnjLaCCP360IntegrationFacade extends DefaultJnjCCP360Integra
     private void addLocalizedFeatureValue(final JnJProductModel jnjProductModel,
                                           final JnjGTClassificationData classificationData, FeatureList featureList, final LocalizedFeature feature, boolean isNewFeature) {
         if (feature != null) {
-            FeatureValue value = feature.getValue(new Locale(classificationData.getLanguage()));
+            FeatureValue value = feature.getValue(Locale.of(classificationData.getLanguage()));
             if (value != null) {
                 value.setValue(classificationData.getFeatureValue());
             } else {
                 value = new FeatureValue(classificationData.getFeatureValue());
-                feature.addValue(value, new Locale(classificationData.getLanguage()));
+                feature.addValue(value, Locale.of(classificationData.getLanguage()));
             }
             if (isNewFeature) {
                 List<Feature> features = new ArrayList<>();

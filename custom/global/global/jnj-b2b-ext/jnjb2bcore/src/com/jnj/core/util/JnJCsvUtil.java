@@ -9,7 +9,7 @@
 package com.jnj.core.util;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

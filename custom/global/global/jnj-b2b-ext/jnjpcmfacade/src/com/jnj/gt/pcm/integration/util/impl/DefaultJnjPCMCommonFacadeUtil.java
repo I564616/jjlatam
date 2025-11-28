@@ -24,13 +24,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.conn.ssl.TrustStrategy;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.ssl.SSLContextBuilder;
+import org.apache.hc.core5.ssl.TrustStrategy;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
+import org.apache.hc.core5.ssl.SSLContextBuilder;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -146,7 +145,6 @@ public class DefaultJnjPCMCommonFacadeUtil implements JnjPCMCommonFacadeUtil
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService)
 	{
 		this.configurationService = configurationService;
@@ -157,7 +155,6 @@ public class DefaultJnjPCMCommonFacadeUtil implements JnjPCMCommonFacadeUtil
 		return catalogVersionService;
 	}
 
-	@Required
 	public void setCatalogVersionService(final CatalogVersionService catalogVersionService)
 	{
 		this.catalogVersionService = catalogVersionService;

@@ -30,7 +30,7 @@ import com.jnj.la.core.dto.JnjSellOutReportData;
 import com.jnj.la.core.model.JnjSellOutReportModel;
 import com.jnj.la.core.services.JnjSellOutReportsService;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 
 /**

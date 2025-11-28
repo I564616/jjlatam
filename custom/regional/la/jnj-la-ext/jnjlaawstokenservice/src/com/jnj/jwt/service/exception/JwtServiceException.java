@@ -11,11 +11,14 @@
  */
 package com.jnj.jwt.service.exception;
 
+import java.io.Serial;
+
 /**
  *
  */
 public class JwtServiceException extends RuntimeException
 {
+	@Serial
 	private static final long serialVersionUID = -8902795807754443499L;
 	private IErrorCode errorCode;
 

@@ -19,17 +19,16 @@ import de.hybris.platform.util.Config;
 import java.io.File;
 import java.util.List;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -160,7 +159,7 @@ public class JnjLatamOrderTemplatePageController extends JnjGTOrderTemplatePageC
 	/** The Constant TEMPLATE_DETAILS_EXCEL. */
 	public static final String TEMPLATE_DETAILS_EXCEL = "jnjLatamOrderTemplateDetailExcelView"; // jnjNAOrderTemplateDetailExcelView
 
-	@RequestMapping(value = "/laProductValidate", method = RequestMethod.POST)
+	@PostMapping("/laProductValidate")
 	@ResponseBody()
 	public String laProductValidate(final Model model, @RequestParam("productCode") final String productCode,
 			@RequestParam("qty") final String qtyString, final HttpSession session) {

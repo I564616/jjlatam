@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 
 import com.jnj.facades.data.JnjLaOrderEntryData;
 import com.jnj.facades.data.JnjScheduledLineData;

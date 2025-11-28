@@ -10,10 +10,10 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 
@@ -132,8 +132,8 @@ public class JnjContractDataPopulator implements Populator<JnjContractModel, Jnj
 		target.setActive(source.getActive());
 		target.setTotalItem(String.valueOf(source.getJnjContractEntries().size()));
 
-		final Double totalAmount = (source.getTotalAmount() == null) ? new Double("0.0") : source.getTotalAmount();
-		final Double balanceAmount = (source.getBalanceAmount() == null) ? new Double("0.0") : source.getBalanceAmount();
+		final Double totalAmount = (source.getTotalAmount() == null) ? Double.valueOf("0.0") : source.getTotalAmount();
+		final Double balanceAmount = (source.getBalanceAmount() == null) ? Double.valueOf("0.0") : source.getBalanceAmount();
 		final BigDecimal consumedAmt = BigDecimal.valueOf(totalAmount.doubleValue())
 				.subtract(BigDecimal.valueOf(balanceAmount.doubleValue()));
 		target.setConsumedAmount(Double.valueOf(consumedAmt.doubleValue()));

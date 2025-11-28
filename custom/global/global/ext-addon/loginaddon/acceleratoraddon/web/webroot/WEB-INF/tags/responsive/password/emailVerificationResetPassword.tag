@@ -1,7 +1,7 @@
 <%@ taglib prefix="messageLabel" uri="/WEB-INF/tld/message.tld"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <!-- Modal forgotPopup -->
 			<form:form id='recoverpasswordForm' action="javascript:;" method='post'>
 				<!-- Modal content-->

@@ -28,7 +28,7 @@ import com.jnj.facades.help.JnjGTContactUsFacade;
 import com.jnj.core.services.JnjGTContactUsService;
 import com.jnj.services.CMSSiteService;
 import com.jnj.utils.CommonUtil;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @author balinder.singh

@@ -2,13 +2,14 @@
 package com.jnj.outboundservice.nfe;
 
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import javax.xml.namespace.QName;
-import javax.xml.ws.Service;
-import javax.xml.ws.WebEndpoint;
-import javax.xml.ws.WebServiceClient;
-import javax.xml.ws.WebServiceException;
-import javax.xml.ws.WebServiceFeature;
+import jakarta.xml.ws.Service;
+import jakarta.xml.ws.WebEndpoint;
+import jakarta.xml.ws.WebServiceClient;
+import jakarta.xml.ws.WebServiceException;
+import jakarta.xml.ws.WebServiceFeature;
 
 
 /**
@@ -30,7 +31,7 @@ public class SG910BtBIN0501ElectronicNotaFiscalHybrisSourceV1WebservicesReceiveE
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/JNJLATEMWS/hybris/bin/custom/regional/la/jnj-la-ext/jnjlab2boutboundservice/resources/NFEQuery.xml");
+            url = URI.create("file:/C:/JNJLATEMWS/hybris/bin/custom/regional/la/jnj-la-ext/jnjlab2boutboundservice/resources/NFEQuery.xml").toURL();
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -75,7 +76,7 @@ public class SG910BtBIN0501ElectronicNotaFiscalHybrisSourceV1WebservicesReceiveE
     /**
      * 
      * @param features
-     *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     *     A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
      *     returns ReceiveElectronicNotaFiscalWSPortType
      */

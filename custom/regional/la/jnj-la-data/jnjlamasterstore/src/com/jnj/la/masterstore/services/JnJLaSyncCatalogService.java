@@ -9,7 +9,6 @@ import de.hybris.platform.catalog.model.synchronization.CatalogVersionSyncCronJo
 import de.hybris.platform.cronjob.model.CronJobModel;
 import de.hybris.platform.servicelayer.cronjob.CronJobService;
 import de.hybris.platform.servicelayer.model.ModelService;
-import org.springframework.beans.factory.annotation.Required;
 
 import static com.jnj.la.masterstore.constants.JnjlamasterstoreConstants.MAP_OF_COUNTRIES_ISO;
 import static com.jnj.la.masterstore.constants.JnjlamasterstoreConstants.SYNC_COUNTRY_CONT_STG_TO_ONLINE;
@@ -62,12 +61,10 @@ public class JnJLaSyncCatalogService {
         return MAP_OF_COUNTRIES_ISO.keySet().toArray(new String[0]);
     }
 
-    @Required
     public void setCronJobService(final CronJobService cronJobService) {
         this.cronJobService = cronJobService;
     }
 
-    @Required
     public void setModelService(final ModelService modelService) {
         this.modelService = modelService;
     }

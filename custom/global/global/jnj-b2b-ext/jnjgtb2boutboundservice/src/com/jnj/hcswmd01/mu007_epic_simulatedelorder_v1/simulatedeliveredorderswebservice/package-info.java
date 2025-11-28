@@ -5,5 +5,5 @@
 // Generated on: 2014.06.20 at 10:55:12 AM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_SimulateDelOrder_v1/simulateDeliveredOrdersWebservice")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_SimulateDelOrder_v1/simulateDeliveredOrdersWebservice")
 package com.jnj.hcswmd01.mu007_epic_simulatedelorder_v1.simulatedeliveredorderswebservice;

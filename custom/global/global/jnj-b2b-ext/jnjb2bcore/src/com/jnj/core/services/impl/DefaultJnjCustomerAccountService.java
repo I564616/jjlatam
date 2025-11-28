@@ -11,8 +11,6 @@ package com.jnj.core.services.impl;
 import de.hybris.platform.b2bacceleratorservices.customer.impl.DefaultB2BCustomerAccountService;
 import de.hybris.platform.b2bacceleratorservices.dao.B2BAcceleratorCartToOrderCronJobModelDao;
 
-import org.springframework.beans.factory.annotation.Required;
-
 
 /**
  * TODO:<class level comments are missing>.
@@ -32,7 +30,6 @@ public class DefaultJnjCustomerAccountService extends DefaultB2BCustomerAccountS
 	}
 
 	@Override
-	@Required
 	public void setB2bAcceleratorCartToOrderCronJobModelDao(
 			final B2BAcceleratorCartToOrderCronJobModelDao b2bAcceleratorCartToOrderCronJobModelDao)
 	{

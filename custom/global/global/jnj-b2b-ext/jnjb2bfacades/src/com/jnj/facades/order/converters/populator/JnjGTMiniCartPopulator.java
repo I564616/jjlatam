@@ -12,7 +12,7 @@ import de.hybris.platform.commercefacades.order.converters.populator.MiniCartPop
 import de.hybris.platform.commercefacades.order.data.CartData;
 import de.hybris.platform.core.model.order.CartModel;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 
 
 /**

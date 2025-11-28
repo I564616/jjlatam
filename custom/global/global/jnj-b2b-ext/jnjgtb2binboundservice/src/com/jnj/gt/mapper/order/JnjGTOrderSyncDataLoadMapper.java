@@ -43,11 +43,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -88,7 +88,6 @@ import com.jnj.gt.model.JnjGTIntOrderSchLineModel;
 import com.jnj.gt.service.common.JnjGTFeedService;
 import com.jnj.gt.service.order.JnjGTOrderFeedService;
 import com.jnj.gt.util.JnjGTInboundUtil;
-
 
 
 /**
@@ -1773,7 +1772,7 @@ public class JnjGTOrderSyncDataLoadMapper extends JnjAbstractMapper
 					final String sapOrderNumber = jnjGTIntHeaderModel.getSapOrderNumber();
 
 					OrderModel jnjGTOrder = null;
-					final Double cancelledLineItemPrice = new Double(0.0);
+					final Double cancelledLineItemPrice = Double.valueOf(0.0);
 					// Call To fetch the source system id
 					final String sourceSysId = JnjGTInboundUtil.fetchValidSourceSysId(jnjGTIntHeaderModel.getSourceSystemId());
 					final BaseSiteModel baseSiteModel = jnjGTOrderFeedService.getBaseSiteModelUsingSourceSysId(sourceSysId);

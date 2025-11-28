@@ -20,11 +20,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.services.JnJGTProductService;
 import com.jnj.core.model.JnJProductModel;
@@ -110,7 +109,6 @@ public class JnjGTStatusCodeValueProvider extends AbstractPropertyFieldValueProv
 		}
 	}
 
-	@Required
 	public void setFieldNameProvider(final FieldNameProvider fieldNameProvider)
 	{
 		this.fieldNameProvider = fieldNameProvider;
@@ -120,7 +118,6 @@ public class JnjGTStatusCodeValueProvider extends AbstractPropertyFieldValueProv
 	 * @param indexOnlyActive
 	 *           the indexOnlyActive to set
 	 */
-	@Required
 	public void setIndexOnlyActive(final Boolean indexOnlyActive)
 	{
 		this.indexOnlyActive = indexOnlyActive;

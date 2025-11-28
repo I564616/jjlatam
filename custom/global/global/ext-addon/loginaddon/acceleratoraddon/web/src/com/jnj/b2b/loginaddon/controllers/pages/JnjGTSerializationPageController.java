@@ -13,17 +13,18 @@ import java.util.List;
  * @author nsinha7
  *
  */
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jnj.b2b.loginaddon.constants.LoginaddonConstants;
@@ -50,7 +51,6 @@ import de.hybris.platform.servicelayer.session.SessionService;
 import de.hybris.platform.servicelayer.user.UserService;
 import de.hybris.platform.store.services.BaseStoreService;
 import de.hybris.platform.util.Config;
-
 
 
 @Controller("JnjGTSerializationPageController")
@@ -110,7 +110,7 @@ public class JnjGTSerializationPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String getSerialHome(final Model model,
 			@RequestParam(value = "firstTimeLogin", defaultValue = "false", required = false) final boolean firstTimeLogin,final HttpServletRequest request)
 			throws CMSItemNotFoundException
@@ -209,7 +209,7 @@ public class JnjGTSerializationPageController extends AbstractPageController
 	 * @param jnjGTSerializationForm
 	 * @return String
 	 */
-	@RequestMapping(method = RequestMethod.POST)
+	@PostMapping
 	public String verifySerial(final Model model, @ModelAttribute final JnjGTSerializationForm jnjGTSerializationForm){
 		
 		JnjGTSerialResponseData responseData = new JnjGTSerialResponseData();
@@ -245,7 +245,7 @@ public class JnjGTSerializationPageController extends AbstractPageController
 	 * @param jnjGTSerializationForm
 	 * @return String
 	 */
-	@RequestMapping(value = "/serializationResult", method = RequestMethod.POST)
+	@PostMapping("/serializationResult")
 	public String downloadSerializationSearchResults(final Model model, @ModelAttribute final JnjGTSerializationForm jnjGTSerializationForm ){
 		final String METHOD_NAME = "downloadSerializationSearchResults()";
 		final String mediaDirBase = Config.getParameter(Jnjb2bCoreConstants.MediaFolder.MEDIA_DIR_KEY);

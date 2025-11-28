@@ -18,7 +18,7 @@ import de.hybris.platform.commercefacades.order.CheckoutFacade;
 import de.hybris.platform.commercefacades.order.data.CartData;
 import com.jnj.b2b.storefront.controllers.pages.AbstractPageController;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 
 /**

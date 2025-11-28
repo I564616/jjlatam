@@ -7,7 +7,7 @@ package com.jnj.restservice.logic.handler;
 
 import java.util.LinkedList;
 import java.util.List;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response;
 
 
 public abstract class AbstractMasterResponseHandler implements IResponseHandler {

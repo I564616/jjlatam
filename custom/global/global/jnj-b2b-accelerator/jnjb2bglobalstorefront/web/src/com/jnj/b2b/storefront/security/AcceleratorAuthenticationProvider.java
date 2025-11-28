@@ -21,9 +21,8 @@ import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.platform.servicelayer.user.UserService;
 import de.hybris.platform.spring.security.CoreAuthenticationProvider;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
@@ -176,7 +175,6 @@ public class AcceleratorAuthenticationProvider extends CoreAuthenticationProvide
 		return bruteForceAttackCounter;
 	}
 
-	@Required
 	public void setBruteForceAttackCounter(BruteForceAttackCounter bruteForceAttackCounter)
 	{
 		this.bruteForceAttackCounter = bruteForceAttackCounter;
@@ -187,7 +185,6 @@ public class AcceleratorAuthenticationProvider extends CoreAuthenticationProvide
 		return userService;
 	}
 
-	@Required
 	public void setUserService(UserService userService)
 	{
 		this.userService = userService;
@@ -198,7 +195,6 @@ public class AcceleratorAuthenticationProvider extends CoreAuthenticationProvide
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(ModelService modelService)
 	{
 		this.modelService = modelService;

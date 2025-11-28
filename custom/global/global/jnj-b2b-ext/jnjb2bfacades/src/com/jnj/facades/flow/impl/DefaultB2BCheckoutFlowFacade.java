@@ -21,8 +21,6 @@ import com.jnj.core.checkout.flow.B2BCheckoutFlowStrategy;
 import com.jnj.core.checkout.pci.B2BCheckoutPciStrategy;
 import com.jnj.facades.flow.B2BCheckoutFlowFacade;
 
-import org.springframework.beans.factory.annotation.Required;
-
 
 /**
  * Default implementation of the {@link B2BCheckoutFlowFacade}. Delegates resolving the checkout flow to an injected
@@ -53,7 +51,6 @@ public class DefaultB2BCheckoutFlowFacade extends DefaultB2BCheckoutFacade imple
 		return checkoutFlowStrategy;
 	}
 
-	@Required
 	public void setCheckoutFlowStrategy(final B2BCheckoutFlowStrategy strategy)
 	{
 		this.checkoutFlowStrategy = strategy;
@@ -64,7 +61,6 @@ public class DefaultB2BCheckoutFlowFacade extends DefaultB2BCheckoutFacade imple
 		return this.b2BCheckoutPciStrategy;
 	}
 
-	@Required
 	public void setCheckoutPciStrategy(final B2BCheckoutPciStrategy strategy)
 	{
 		this.b2BCheckoutPciStrategy = strategy;

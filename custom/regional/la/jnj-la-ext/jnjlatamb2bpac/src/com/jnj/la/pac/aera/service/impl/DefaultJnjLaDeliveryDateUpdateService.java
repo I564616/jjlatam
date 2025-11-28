@@ -20,7 +20,6 @@ import org.slf4j.LoggerFactory;
 import com.gt.pac.aera.PacHiveException;
 import com.gt.pac.aera.model.JnjPacHiveEntryModel;
 import com.pac.aera.job.service.DefaultJnjDeliveryDateUpdateService;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.la.pac.aera.dao.JnjLaPacAeraDao;
 import de.hybris.platform.core.model.order.AbstractOrderEntryModel;
@@ -29,7 +28,7 @@ import org.apache.commons.lang3.Validate;
 
 import com.gt.pac.aera.JnJPacAeraResponse;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * This class is used to override GT logic for Delivery date update in hybris as per PAC date format.
@@ -227,7 +226,6 @@ public class DefaultJnjLaDeliveryDateUpdateService extends DefaultJnjDeliveryDat
 		return jnjlaPacAeraDao;
 	}
 
-	@Required
 	public void setJnjlaPacAeraDao(final JnjLaPacAeraDao jnjlaPacAeraDao) {
 		this.jnjlaPacAeraDao = jnjlaPacAeraDao;
 	}

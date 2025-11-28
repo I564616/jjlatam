@@ -4,9 +4,9 @@ import de.hybris.platform.acceleratorcms.component.renderer.CMSComponentRenderer
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.jsp.JspWriter;
+import jakarta.servlet.jsp.PageContext;
 
 import com.jnj.core.model.JnjParagraphComponentModel;
 

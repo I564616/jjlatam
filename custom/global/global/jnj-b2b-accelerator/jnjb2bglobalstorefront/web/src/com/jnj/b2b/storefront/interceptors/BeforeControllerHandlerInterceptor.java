@@ -15,20 +15,19 @@ package com.jnj.b2b.storefront.interceptors;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.HandlerInterceptor;
 
 import de.hybris.platform.servicelayer.session.SessionService;
 
 /**
  * A postHandle HandlerInterceptor that runs a number of BeforeViewHandlers before the view is rendered.
  */
-public class BeforeControllerHandlerInterceptor extends HandlerInterceptorAdapter
+public class BeforeControllerHandlerInterceptor implements HandlerInterceptor
 {
 	private final String INTERCEPTOR_ONCE_KEY = BeforeControllerHandlerInterceptor.class.getName();
 
@@ -49,7 +48,6 @@ public class BeforeControllerHandlerInterceptor extends HandlerInterceptorAdapte
 	}
 	
 
-	@Required
 	public void setBeforeControllerHandlers(final List<BeforeControllerHandler> beforeControllerHandlers)
 	{
 		this.beforeControllerHandlers = beforeControllerHandlers;

@@ -15,11 +15,11 @@ import com.jnj.restservice.logic.Response;
 import com.jnj.restservice.logic.handler.AbstractMasterResponseHandler;
 import org.apache.log4j.Logger;
 
-import javax.ws.rs.ProcessingException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation.Builder;
+import jakarta.ws.rs.ProcessingException;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.Invocation.Builder;
 import java.util.Map;
 
 public class DispatcherImpl<T> implements IDispatcher<T> {
@@ -49,7 +49,7 @@ public class DispatcherImpl<T> implements IDispatcher<T> {
         Map<String, Object> headerMap = restRequest.getHeaders();
         headerMap.entrySet().forEach(hEntry -> request.header(hEntry.getKey(), hEntry.getValue()));
 
-        javax.ws.rs.core.Response rawResponse = null;
+        jakarta.ws.rs.core.Response rawResponse = null;
         try {
             if(restRequest.getRequestType() == REQUEST_TYPE.POST) {
                 JsonNode postBody = restRequest.getJsonBody();

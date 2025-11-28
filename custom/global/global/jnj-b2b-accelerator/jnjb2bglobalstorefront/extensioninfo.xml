@@ -17,16 +17,16 @@
 		<requires-extension name="jnjlaresources"/>
 		<requires-extension name="jnjlaglobalreportsaddon"/>
 		<requires-extension name="jnjlaselloutaddon"/>
-<!--		<requires-extension name="jnjlaprofileaddon"/>-->
+		<requires-extension name="jnjlaprofileaddon"/>
 
 		<requires-extension name="jnjlaloginaddon"/>
 		<requires-extension name="jnjlacartandcheckoutaddon"/>
-<!--		<requires-extension name="loginaddon"/>-->
+		<requires-extension name="loginaddon"/>
 		<requires-extension name="cartandcheckoutaddon"/>
 		<requires-extension name="jnjb2bbrowseandsearch"/>
 		<requires-extension name="jnjb2bglobalordertemplate"/>
 		<requires-extension name="jnjglobalprofile"/>
-<!--		<requires-extension name="jnjglobalreports"/>-->
+		<requires-extension name="jnjglobalreports"/>
 		<requires-extension name="jnjglobalresources"/>
 		<requires-extension name="jnjlaordertemplateaddon"/>
 		<requires-extension name="jnjlabrowseandsearchaddon"/>

@@ -15,8 +15,6 @@ package com.jnj.b2b.core.checkout.pci.impl;
 
 import de.hybris.platform.acceleratorservices.enums.CheckoutPciOptionEnum;
 
-import org.springframework.beans.factory.annotation.Required;
-
 import com.jnj.b2b.core.checkout.pci.B2BCheckoutPciStrategy;
 
 
@@ -37,7 +35,6 @@ public class FixedB2BCheckoutPciStrategy implements B2BCheckoutPciStrategy
 		return this.subscriptionPciOption;
 	}
 
-	@Required
 	public void setSubscriptionPciOption(final CheckoutPciOptionEnum subscriptionPciOption)
 	{
 		this.subscriptionPciOption = subscriptionPciOption;

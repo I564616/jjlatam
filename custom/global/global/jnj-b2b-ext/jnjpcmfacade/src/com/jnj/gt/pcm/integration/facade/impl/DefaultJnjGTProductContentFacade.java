@@ -29,7 +29,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.model.JnJProductModel;
 import com.jnj.gt.core.model.JnjGTPCMIntegrationCronJobModel;
@@ -331,7 +330,6 @@ public class DefaultJnjGTProductContentFacade implements JnjGTProductContentFaca
 		return jnjCCP360IntegrationFacade;
 	}
 
-	@Required
 	public void setJnjCCP360IntegrationFacade(JnjCCP360IntegrationFacade jnjCCP360IntegrationFacade) {
 		this.jnjCCP360IntegrationFacade = jnjCCP360IntegrationFacade;
 	}
@@ -340,7 +338,6 @@ public class DefaultJnjGTProductContentFacade implements JnjGTProductContentFaca
 		return jnjPCMCommonFacadeUtil;
 	}
 
-	@Required
 	public void setJnjPCMCommonFacadeUtil(JnjPCMCommonFacadeUtil jnjPCMCommonFacadeUtil) {
 		this.jnjPCMCommonFacadeUtil = jnjPCMCommonFacadeUtil;
 	}
@@ -349,7 +346,6 @@ public class DefaultJnjGTProductContentFacade implements JnjGTProductContentFaca
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	}	
@@ -358,7 +354,6 @@ public class DefaultJnjGTProductContentFacade implements JnjGTProductContentFaca
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(ModelService modelService) {
 		this.modelService = modelService;
 	}

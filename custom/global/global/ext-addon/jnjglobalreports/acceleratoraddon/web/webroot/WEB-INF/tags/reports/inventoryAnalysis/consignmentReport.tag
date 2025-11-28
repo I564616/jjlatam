@@ -1,9 +1,9 @@
 <%@ taglib prefix="messageLabel" uri="/WEB-INF/tld/message.tld"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="format" tagdir="/WEB-INF/tags/shared/format"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions"%>
 <div class="row jnj-panel mainbody-container consignmentReportBlock rdiCont sectionBlock" id="Reportspage">
   <c:url value="/reports/inventoryAnalysis/consignmentInventory" var="consignmentInventory" />
   <input id="multipleText" type="hidden" value="<spring:message code='reports.backorder.multiple' />" /> <input id="selectedText" type="hidden"

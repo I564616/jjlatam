@@ -13,14 +13,14 @@ import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.Collection;
 
-import javax.el.ELContext;
-import javax.el.ExpressionFactory;
-import javax.el.ValueExpression;
-import javax.servlet.jsp.JspApplicationContext;
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.JspFactory;
-import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.tagext.TagSupport;
+import jakarta.el.ELContext;
+import jakarta.el.ExpressionFactory;
+import jakarta.el.ValueExpression;
+import jakarta.servlet.jsp.JspApplicationContext;
+import jakarta.servlet.jsp.JspException;
+import jakarta.servlet.jsp.JspFactory;
+import jakarta.servlet.jsp.JspWriter;
+import jakarta.servlet.jsp.tagext.TagSupport;
 
 import org.apache.log4j.Logger;
 import org.springframework.util.ObjectUtils;
@@ -61,7 +61,7 @@ public class JnjMessageTag extends TagSupport
 	 * @return the int
 	 * @throws JspException
 	 *            the jsp exception
-	 * @see javax.servlet.jsp.tagext.TagSupport#doStartTag()
+	 * @see jakarta.servlet.jsp.tagext.TagSupport#doStartTag()
 	 */
 	@Override
 	public int doStartTag() throws JspException
@@ -197,7 +197,7 @@ public class JnjMessageTag extends TagSupport
 	 * @return the int
 	 * @throws JspException
 	 *            the jsp exception
-	 * @see javax.servlet.jsp.tagext.TagSupport#doEndTag()
+	 * @see jakarta.servlet.jsp.tagext.TagSupport#doEndTag()
 	 */
 	@Override
 	public int doEndTag() throws JspException

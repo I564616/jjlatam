@@ -19,23 +19,22 @@ import de.hybris.platform.core.model.user.UserModel;
 import de.hybris.platform.servicelayer.session.SessionService;
 import de.hybris.platform.servicelayer.user.UserService;
 import de.hybris.platform.util.Config;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 
 /**
@@ -114,7 +113,7 @@ public class JnJGTLoginPageController extends LoginPageController
 	 * @throws CMSItemNotFoundException
 	 */
 	@Override
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String doLogin(@RequestHeader(value = "referer", required = false) final String referer,
 			@RequestParam(value = "error", defaultValue = "false") final boolean loginError,
 			@RequestParam(value = "passwordExpireToken", required = false) final String passwordExpireToken,
@@ -305,7 +304,7 @@ public class JnJGTLoginPageController extends LoginPageController
 	 *
 	 * @return expired password view
 	 */
-	@RequestMapping(value = "/passwordExpiredEmail", method = RequestMethod.GET)
+	@GetMapping("/passwordExpiredEmail")
 	public String getExpiredPasswordPopupViaEmail(
 			@RequestParam(value = "passwordExpireToken", required = true) final String passwordExpireToken,
 			@RequestParam(value = "email", required = true) final String email) {
@@ -430,7 +429,7 @@ public class JnJGTLoginPageController extends LoginPageController
 	 *
 	 * @return expired password view
 	 */
-	@RequestMapping(value = "/ecoHeartBeat", method = RequestMethod.POST)
+	@PostMapping("/ecoHeartBeat")
 	@ResponseBody
 	public String ecoHeartBeat() throws CMSItemNotFoundException {
 		final String METHOD_NAME = "ecoHeartBeat()";

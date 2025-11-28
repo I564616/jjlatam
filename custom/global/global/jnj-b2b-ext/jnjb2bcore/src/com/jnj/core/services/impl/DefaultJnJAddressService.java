@@ -20,12 +20,11 @@ import de.hybris.platform.util.Config;
 import java.util.Collections;
 import java.util.List;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 import com.jnj.core.dao.JnJAddressDao;

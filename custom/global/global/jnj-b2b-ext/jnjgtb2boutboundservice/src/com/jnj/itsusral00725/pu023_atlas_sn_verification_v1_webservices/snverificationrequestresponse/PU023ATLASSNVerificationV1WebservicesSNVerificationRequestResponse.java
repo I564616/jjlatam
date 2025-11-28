@@ -2,13 +2,14 @@
 package com.jnj.itsusral00725.pu023_atlas_sn_verification_v1_webservices.snverificationrequestresponse;
 
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import javax.xml.namespace.QName;
-import javax.xml.ws.Service;
-import javax.xml.ws.WebEndpoint;
-import javax.xml.ws.WebServiceClient;
-import javax.xml.ws.WebServiceException;
-import javax.xml.ws.WebServiceFeature;
+import jakarta.xml.ws.Service;
+import jakarta.xml.ws.WebEndpoint;
+import jakarta.xml.ws.WebServiceClient;
+import jakarta.xml.ws.WebServiceException;
+import jakarta.xml.ws.WebServiceFeature;
 
 
 /**
@@ -30,7 +31,7 @@ public class PU023ATLASSNVerificationV1WebservicesSNVerificationRequestResponse
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://gpsgisnad.jnj.com/ws/PU023_ATLAS_SN_Verification_v1.webservices:SNVerificationRequestResponse?WSDL");
+            url = URI.create("http://gpsgisnad.jnj.com/ws/PU023_ATLAS_SN_Verification_v1.webservices:SNVerificationRequestResponse?WSDL").toURL();
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -75,7 +76,7 @@ public class PU023ATLASSNVerificationV1WebservicesSNVerificationRequestResponse
     /**
      * 
      * @param features
-     *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     *     A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
      *     returns SNVerificationRequestResponsePortType
      */

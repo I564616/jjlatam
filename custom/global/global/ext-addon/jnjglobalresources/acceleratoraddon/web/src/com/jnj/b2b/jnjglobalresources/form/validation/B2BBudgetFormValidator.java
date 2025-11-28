@@ -18,9 +18,9 @@ import com.jnj.b2b.storefront.forms.B2BBudgetForm;
 
 import java.text.ParseException;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

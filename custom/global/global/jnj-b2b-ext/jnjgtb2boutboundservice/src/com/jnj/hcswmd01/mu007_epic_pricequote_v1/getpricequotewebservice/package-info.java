@@ -5,5 +5,5 @@
 // Generated on: 2014.07.08 at 12:35:55 PM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_PriceQuote_v1/getPriceQuoteWebservice")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_PriceQuote_v1/getPriceQuoteWebservice")
 package com.jnj.hcswmd01.mu007_epic_pricequote_v1.getpricequotewebservice;

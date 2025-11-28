@@ -54,7 +54,6 @@ import com.jnj.gt.pcm.integration.data.JnjPCMGTProductDataResponse;
 import com.jnj.gt.pcm.integration.facade.JnjCCP360IntegrationFacade;
 import com.jnj.gt.pcm.integration.util.JnjPCMCommonFacadeUtil;
 import com.jnj.gt.service.product.JnjGTProductFeedService;
-import org.springframework.beans.factory.annotation.Required;
 
 
 /**
@@ -448,9 +447,9 @@ public class DefaultJnjCCP360IntegrationFacade implements JnjCCP360IntegrationFa
 	{
 		if(language.contains("_")){
 				String[] lang = language.split("_");
-				return new Locale(lang[0],lang[1]);
+				return Locale.of(lang[0], lang[1]);
 		}else{
-			return new Locale(language.toLowerCase(Locale.ENGLISH));
+			return Locale.of(language.toLowerCase(Locale.ENGLISH));
 		}
 	}
 	
@@ -459,7 +458,6 @@ public class DefaultJnjCCP360IntegrationFacade implements JnjCCP360IntegrationFa
 		return jnjPCMCommonFacadeUtil;
 	}
 
-	@Required
 	public void setJnjPCMCommonFacadeUtil(final JnjPCMCommonFacadeUtil jnjPCMCommonFacadeUtil)
 	{
 		this.jnjPCMCommonFacadeUtil = jnjPCMCommonFacadeUtil;
@@ -470,7 +468,6 @@ public class DefaultJnjCCP360IntegrationFacade implements JnjCCP360IntegrationFa
 		return jnjCCP360IntegrationService;
 	}
 
-	@Required
 	public void setJnjCCP360IntegrationService(final JnjCCP360IntegrationService jnjCCP360IntegrationService)
 	{
 		this.jnjCCP360IntegrationService = jnjCCP360IntegrationService;
@@ -481,7 +478,6 @@ public class DefaultJnjCCP360IntegrationFacade implements JnjCCP360IntegrationFa
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService)
 	{
 		this.configurationService = configurationService;
@@ -491,7 +487,6 @@ public class DefaultJnjCCP360IntegrationFacade implements JnjCCP360IntegrationFa
 		return jnjGTProductFeedService;
 	}
 
-	@Required
 	public void setJnjGTProductFeedService(JnjGTProductFeedService jnjGTProductFeedService) {
 		this.jnjGTProductFeedService = jnjGTProductFeedService;
 	}
@@ -500,7 +495,6 @@ public class DefaultJnjCCP360IntegrationFacade implements JnjCCP360IntegrationFa
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(ModelService modelService) {
 		this.modelService = modelService;
 	}
@@ -509,7 +503,6 @@ public class DefaultJnjCCP360IntegrationFacade implements JnjCCP360IntegrationFa
 		return classificationService;
 	}
 
-	@Required
 	public void setClassificationService(ClassificationService classificationService) {
 		this.classificationService = classificationService;
 	}

@@ -27,13 +27,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.lang.BooleanUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.util.CollectionUtils;
 
 import com.jnj.core.constants.Jnjgtb2bMDDConstants;
@@ -641,7 +640,6 @@ public class JnjGTProductBasicPopulator<SOURCE extends ProductModel, TARGET exte
 		return productPricePopulator;
 	}
 
-	@Required
 	public void setProductPricePopulator(final Populator<ProductModel, ProductData> productPricePopulator)
 	{
 		this.productPricePopulator = productPricePopulator;

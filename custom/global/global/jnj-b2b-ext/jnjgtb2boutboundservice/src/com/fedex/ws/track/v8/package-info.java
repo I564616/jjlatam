@@ -5,5 +5,5 @@
 // Generated on: 2014.07.12 at 09:19:46 AM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://fedex.com/ws/track/v8", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://fedex.com/ws/track/v8", elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package com.fedex.ws.track.v8;

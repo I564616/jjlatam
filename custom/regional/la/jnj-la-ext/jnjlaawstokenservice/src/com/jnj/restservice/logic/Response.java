@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.ws.rs.client.ResponseProcessingException;
+import jakarta.ws.rs.client.ResponseProcessingException;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.log4j.Logger;
@@ -34,7 +34,7 @@ public class Response<T> {
     //enforce the creation of this Response object via parser
     private Response(){}
 
-    public static <T> Response<T> parse(final javax.ws.rs.core.Response rawResponse
+    public static <T> Response<T> parse(final jakarta.ws.rs.core.Response rawResponse
                                       , final Class<T> genericType
                                       , final AbstractMasterResponseHandler masterHandler) throws RestServiceException {
         LOG.debug("Parsing raw response...");

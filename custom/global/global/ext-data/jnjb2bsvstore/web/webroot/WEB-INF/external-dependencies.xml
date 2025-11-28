@@ -16,6 +16,9 @@
     <version>6.7.0.0-RC19</version>
 
     <packaging>jar</packaging>
+    <properties>
+        <maven.compiler.release>21</maven.compiler.release>
+    </properties>
 
     <dependencies>
         <dependency>

@@ -16,10 +16,9 @@ import de.hybris.platform.b2b.model.B2BUnitModel;
 import de.hybris.platform.core.enums.OrderStatus;
 import de.hybris.platform.core.model.order.OrderModel;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 import com.jnj.core.enums.JnjOrderTypesEnum;
 
 import java.util.ArrayList;
@@ -180,7 +179,6 @@ public class JnJLaConsolidatedEmailServiceImpl extends JnjLAEmailOrderStatusServ
     }
 
     @Override
-    @Required
     public void setConfigurationService(final ConfigurationService configurationService) {
         this.configurationService = configurationService;
     }

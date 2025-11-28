@@ -34,13 +34,12 @@ import com.jnj.b2b.storefront.web.view.UiExperienceViewResolver;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.servlet.ModelAndView;
 import de.hybris.platform.util.Config;
 
@@ -119,7 +118,6 @@ public class UiThemeResourceBeforeViewHandler implements BeforeViewHandler
 		return defaultThemeName;
 	}
 
-	@Required
 	public void setDefaultThemeName(final String defaultThemeName)
 	{
 		this.defaultThemeName = defaultThemeName;

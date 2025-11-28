@@ -5,5 +5,5 @@
 // Generated on: 2014.06.20 at 10:53:24 AM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_OrderReturn_v1/orderReturnWebservice")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_OrderReturn_v1/orderReturnWebservice")
 package com.jnj.hcswmd01.mu007_epic_orderreturn_v1.orderreturnwebservice;

@@ -34,16 +34,17 @@ import com.jnj.services.CMSSiteService;
 import de.hybris.platform.servicelayer.media.MediaService;
 import de.hybris.platform.catalog.CatalogVersionService;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -213,7 +214,7 @@ public class JnjGTSearchPageController extends SearchPageController
 
 
 	@Override
-	@RequestMapping(method = RequestMethod.GET, params = "!q")
+	@GetMapping( params = "!q")
 	public String textSearch(@RequestParam(value = "text", defaultValue = "") final String searchText,
 			final HttpServletRequest request, final Model model) throws CMSItemNotFoundException
 	{
@@ -468,7 +469,7 @@ public class JnjGTSearchPageController extends SearchPageController
 		}
 	}
 
-	@RequestMapping(value = "/getPrice", method = RequestMethod.GET)
+	@GetMapping("/getPrice")
 	@ResponseBody
 	protected String getProductPrice(final String productCode) throws SystemException, IntegrationException
 	{
@@ -489,7 +490,7 @@ public class JnjGTSearchPageController extends SearchPageController
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/autocomplete", method = RequestMethod.GET)
+	@GetMapping("/autocomplete")
 	public List<String> getAutocompleteSuggestions(@RequestParam("term") final String term)
 	{
 		final List<String> terms = new ArrayList<String>();
@@ -501,7 +502,7 @@ public class JnjGTSearchPageController extends SearchPageController
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/autocompleteSecure", method = RequestMethod.GET)
+	@GetMapping("/autocompleteSecure")
 	public List<String> getAutocompleteSuggestionsSecure(@RequestParam("term") final String term)
 	{
 		return getAutocompleteSuggestions(term);

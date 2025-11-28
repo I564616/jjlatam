@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.Map;
 
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.MessageSourceAccessor;
@@ -35,7 +35,6 @@ import com.lowagie.text.pdf.PdfPageEventHelper;
 import com.lowagie.text.pdf.PdfTemplate;
 import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.html.simpleparser.HTMLWorker;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -228,18 +227,15 @@ public class JnjLABackorderReportPdfView extends AbstractPdfView {
 	public ConfigurationService getConfigurationService() {
 		return configurationService;
 	}
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	} 
-	@Required
 	public void setI18nService(final I18NService i18nService) {
 		this.i18nService = i18nService;
 	}
 	public BackOrderReportUtils getBackOrderReportUtils() {
 		return backOrderReportUtils;
 	}
-	@Required
 	public void setBackOrderReportUtils(final BackOrderReportUtils backOrderReportUtils) {
 		this.backOrderReportUtils = backOrderReportUtils;
 	}

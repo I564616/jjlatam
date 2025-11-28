@@ -8,7 +8,6 @@ import de.hybris.platform.servicelayer.user.UserService;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 import com.jnj.exceptions.BusinessException;
@@ -62,7 +61,6 @@ public class JnjGTAddAccountEventListener extends AbstractSiteEventListener<JnjG
 		return businessProcessService;
 	}
 
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;
@@ -73,7 +71,6 @@ public class JnjGTAddAccountEventListener extends AbstractSiteEventListener<JnjG
 		return modelService;
 	}
 	
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;

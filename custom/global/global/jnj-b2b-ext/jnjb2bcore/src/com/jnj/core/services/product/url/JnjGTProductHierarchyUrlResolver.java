@@ -11,8 +11,6 @@ package com.jnj.core.services.product.url;
 import java.util.Collection;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Required;
-
 import de.hybris.platform.basecommerce.model.site.BaseSiteModel;
 import de.hybris.platform.category.model.CategoryModel;
 import de.hybris.platform.commerceservices.category.CommerceCategoryService;
@@ -38,7 +36,6 @@ public class JnjGTProductHierarchyUrlResolver extends AbstractUrlResolver<Catego
         return commerceCategoryService;
     }
 
-    @Required
     public void setCommerceCategoryService(final CommerceCategoryService commerceCategoryService)
     {
         this.commerceCategoryService = commerceCategoryService;
@@ -49,7 +46,6 @@ public class JnjGTProductHierarchyUrlResolver extends AbstractUrlResolver<Catego
         return baseSiteService;
     }
 
-    @Required
     public void setBaseSiteService(final BaseSiteService baseSiteService)
     {
         this.baseSiteService = baseSiteService;
@@ -60,7 +56,6 @@ public class JnjGTProductHierarchyUrlResolver extends AbstractUrlResolver<Catego
         return pattern;
     }
 
-    @Required
     public void setPattern(final String pattern)
     {
         this.pattern = pattern;

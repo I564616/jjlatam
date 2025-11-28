@@ -19,7 +19,7 @@ import com.jnj.la.core.constants.Jnjlab2bcoreConstants.Logging;
 import com.jnj.la.core.enums.JnJOrderColumnStatus;
 import com.jnj.la.core.util.JnjLaCommonUtil;
 import de.hybris.platform.util.Config;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

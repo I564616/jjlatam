@@ -15,9 +15,9 @@ package com.jnj.b2b.storefront.web.mvc;
 
 import com.jnj.b2b.storefront.constants.WebConstants;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.util.UrlPathHelper;
 
 /**

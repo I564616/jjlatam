@@ -6,7 +6,7 @@ package com.jnj.gt.outbound.mapper.impl;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

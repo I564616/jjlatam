@@ -6,6 +6,8 @@
  */
 package com.jnj.exceptions;
 
+import java.io.Serial;
+
 /**
  * The class <code>IntegrationException</code> and its subclasses are a form of <code>Throwable</code> that indicates
  * conditions that application might want to catch. Applications should throw instances of this class whenever any
@@ -17,6 +19,7 @@ package com.jnj.exceptions;
 public class IntegrationException extends Exception
 {
 	/** The Constant serialVersionUID. */
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	/**

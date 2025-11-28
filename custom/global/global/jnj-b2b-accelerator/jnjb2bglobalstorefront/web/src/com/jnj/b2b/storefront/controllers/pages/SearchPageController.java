@@ -37,15 +37,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -105,7 +106,7 @@ public class SearchPageController extends AbstractSearchPageController
 	@Resource(name = "cmsComponentService")
 	private CMSComponentService cmsComponentService;
 
-	@RequestMapping(method = RequestMethod.GET, params = "!q")
+	@GetMapping( params = "!q")
 	public String textSearch(@RequestParam(value = "text", defaultValue = StringUtils.EMPTY) final String searchText,
 			final HttpServletRequest request, final Model model) throws CMSItemNotFoundException
 	{
@@ -256,7 +257,7 @@ public class SearchPageController extends AbstractSearchPageController
 		return searchResult;
 	}
 
-	@RequestMapping(value = "/results", method = RequestMethod.GET)
+	@GetMapping("/results")
 	public String productListerSearchResults(@RequestParam("q") final String searchQuery,
 			@RequestParam(value = "page", defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
@@ -310,7 +311,7 @@ public class SearchPageController extends AbstractSearchPageController
 				|| isCreateOrderForm;
 	}
 
-	@RequestMapping(value = "/advanced", method = RequestMethod.GET)
+	@GetMapping("/advanced")
 	public String advanceSearchResults(
 			@RequestParam(value = "keywords", required = false, defaultValue = StringUtils.EMPTY) String keywords,
 			@RequestParam(value = "searchResultType", required = false, defaultValue = ADVANCED_SEARCH_RESULT_TYPE_CATALOG) final String searchResultType,

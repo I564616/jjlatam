@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.velocity.VelocityContext;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.MessageSource;
 
 import com.jnj.b2b.jnjglobalreports.forms.JnjGTBackorderReportForm;
@@ -142,15 +141,12 @@ public class BackOrderReportUtils {
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	} 
-	@Required
 	public void setI18nService(final I18NService i18nService) {
 		this.i18nService = i18nService;
 	}
-	@Required
 	public void setMessageSource(final MessageSource messageSource) {
 		this.messageSource = messageSource;
 	}
@@ -161,7 +157,6 @@ public class BackOrderReportUtils {
 		return siteBaseUrlResolutionService;
 	}
 
-	@Required
 	public void setSiteBaseUrlResolutionService(final SiteBaseUrlResolutionService siteBaseUrlResolutionService)
 	{
 		this.siteBaseUrlResolutionService = siteBaseUrlResolutionService;
@@ -171,7 +166,6 @@ public class BackOrderReportUtils {
 		return baseSiteService;
 	}
 
-	@Required
 	public void setBaseSiteService(BaseSiteService baseSiteService) {
 		this.baseSiteService = baseSiteService;
 	}

@@ -5,5 +5,5 @@
 // Generated on: 2014.06.26 at 09:34:03 AM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_ContractPrice_v1/getContractPriceWrapperWebservice")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_ContractPrice_v1/getContractPriceWrapperWebservice")
 package com.jnj.hcswmd01.mu007_epic_contractprice_v1.getcontractpricewrapperwebservice;

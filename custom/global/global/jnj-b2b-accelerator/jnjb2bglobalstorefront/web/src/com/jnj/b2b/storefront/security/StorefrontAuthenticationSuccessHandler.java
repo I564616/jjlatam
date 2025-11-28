@@ -24,11 +24,10 @@ import com.jnj.b2b.storefront.constants.WebConstants;
 import java.io.IOException;
 import java.util.Map;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
@@ -51,7 +50,6 @@ public class StorefrontAuthenticationSuccessHandler extends SavedRequestAwareAut
 		return uiExperienceService;
 	}
 
-	@Required
 	public void setUiExperienceService(final UiExperienceService uiExperienceService)
 	{
 		this.uiExperienceService = uiExperienceService;
@@ -84,7 +82,6 @@ public class StorefrontAuthenticationSuccessHandler extends SavedRequestAwareAut
 		return cartFacade;
 	}
 
-	@Required
 	public void setCartFacade(final CartFacade cartFacade)
 	{
 		this.cartFacade = cartFacade;
@@ -95,7 +92,6 @@ public class StorefrontAuthenticationSuccessHandler extends SavedRequestAwareAut
 		return sessionService;
 	}
 
-	@Required
 	public void setSessionService(final SessionService sessionService)
 	{
 		this.sessionService = sessionService;
@@ -106,7 +102,6 @@ public class StorefrontAuthenticationSuccessHandler extends SavedRequestAwareAut
 		return customerFacade;
 	}
 
-	@Required
 	public void setCustomerFacade(final CustomerFacade customerFacade)
 	{
 		this.customerFacade = customerFacade;
@@ -135,7 +130,6 @@ public class StorefrontAuthenticationSuccessHandler extends SavedRequestAwareAut
 		return forceDefaultTargetForUiExperienceLevel;
 	}
 
-	@Required
 	public void setForceDefaultTargetForUiExperienceLevel(
 			final Map<UiExperienceLevel, Boolean> forceDefaultTargetForUiExperienceLevel)
 	{
@@ -148,7 +142,6 @@ public class StorefrontAuthenticationSuccessHandler extends SavedRequestAwareAut
 		return bruteForceAttackCounter;
 	}
 
-	@Required
 	public void setBruteForceAttackCounter(final BruteForceAttackCounter bruteForceAttackCounter)
 	{
 		this.bruteForceAttackCounter = bruteForceAttackCounter;

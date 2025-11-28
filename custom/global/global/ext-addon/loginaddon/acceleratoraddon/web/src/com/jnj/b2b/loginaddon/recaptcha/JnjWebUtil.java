@@ -1,6 +1,6 @@
 package com.jnj.b2b.loginaddon.recaptcha;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 
 /**

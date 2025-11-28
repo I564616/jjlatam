@@ -15,7 +15,7 @@ import com.gt.pac.aera.PacHiveException;
 import com.gt.pac.aera.model.JnjPacHiveEntryModel;
 import de.hybris.platform.core.model.order.AbstractOrderEntryModel;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 
 /**

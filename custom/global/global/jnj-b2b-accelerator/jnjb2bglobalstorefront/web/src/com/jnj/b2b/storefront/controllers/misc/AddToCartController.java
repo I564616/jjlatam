@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.annotation.Resource;
-import javax.validation.Valid;
+import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 
 import com.google.common.collect.Lists;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
@@ -30,7 +30,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import de.hybris.platform.b2bacceleratorfacades.api.cart.CartFacade;
 import de.hybris.platform.b2bacceleratorfacades.product.data.CartEntryData;
@@ -76,7 +79,7 @@ public class AddToCartController extends AbstractController {
         binder.setAutoGrowCollectionLimit(Integer.MAX_VALUE);
     }
 
-    @RequestMapping(value = "/cart/add", method = RequestMethod.POST, produces = "application/json")
+    @PostMapping(value = "/cart/add", produces = "application/json")
     public String addToCart(@RequestParam("productCodePost") final String code, final Model model,
                             @Valid final AddToCartForm form, final BindingResult bindingErrors) {
         if (bindingErrors.hasErrors()) {
@@ -106,7 +109,7 @@ public class AddToCartController extends AbstractController {
     }
 
 
-    @RequestMapping(value = "/cart/addGrid", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/cart/addGrid", produces = MediaType.APPLICATION_JSON_VALUE)
     public final String addGridToCart(@RequestBody final AddToCartOrderForm form, final Model model) {
         List<OrderEntryData> orderEntries = getOrderEntryData(form.getCartEntries());
         final List<CartModificationData> modifications = cartFacade.addOrderEntryList(orderEntries);

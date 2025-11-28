@@ -17,14 +17,13 @@ import de.hybris.platform.core.model.security.PrincipalGroupModel;
 import de.hybris.platform.core.model.user.UserModel;
 import de.hybris.platform.site.BaseSiteService;
 import de.hybris.platform.util.Config;
-import org.apache.commons.collections.CollectionUtils;
-import org.springframework.beans.factory.annotation.Required;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.util.StringUtils;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -111,7 +110,7 @@ public class JnJLatamStorefrontAuthenticationSuccessHandler extends JnJStorefron
             targetUrl = calculateRelativeRedirectUrl(request.getContextPath(), "/login");
         }
 
-        if (org.apache.commons.lang.StringUtils.isNotBlank(targetUrl)) {
+        if (org.apache.commons.lang3.StringUtils.isNotBlank(targetUrl)) {
             String temp = targetUrl.substring(1);
             BaseSiteModel baseSiteModel = baseSiteService.getBaseSiteForUID(temp);
             if (null != baseSiteModel) {
@@ -160,12 +159,10 @@ public class JnJLatamStorefrontAuthenticationSuccessHandler extends JnJStorefron
         return LocalDate.now().minus(Config.getInt(LoginaddonConstants.Login.DAYS_BEFORE_PASSWORD_EXPIRES_KEY, DEFAULT_EXPIRES_DAYS), ChronoUnit.DAYS);
     }
 
-    @Required
     public void setBaseSiteService(BaseSiteService baseSiteService) {
         this.baseSiteService = baseSiteService;
     }
 
-    @Required
     public void setRequestUtil(RequestUtility requestUtil) {
         this.requestUtil = requestUtil;
     }

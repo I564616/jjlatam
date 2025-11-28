@@ -7,7 +7,7 @@
  */
 package com.jnj.core.handlers;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.model.JnJProductModel;
 
@@ -137,7 +136,6 @@ public class JnjGTParentFieldValueProvider extends AbstractPropertyFieldValuePro
 		}
 	}
 
-	@Required
 	public void setFieldNameProvider(final FieldNameProvider fieldNameProvider)
 	{
 		this.fieldNameProvider = fieldNameProvider;

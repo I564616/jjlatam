@@ -56,7 +56,7 @@ import de.hybris.platform.servicelayer.search.SearchResult;
 import de.hybris.platform.servicelayer.user.UserService;
 
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -520,7 +520,7 @@ public class JnjLAProductDataServiceImpl implements JnjLAProductDataService
 		{
 			if (StringUtils.equalsIgnoreCase(languageModel.getIsocode(), languageName))
 			{
-				return new Locale(languageName);
+				return Locale.of(languageName);
 			}
 		}
 		return null;

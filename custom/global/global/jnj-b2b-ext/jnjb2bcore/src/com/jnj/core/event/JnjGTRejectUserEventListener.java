@@ -20,7 +20,6 @@ import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.facades.MessageFacadeUtill;
 //import com.jnj.core.constants.Jnjb2bCoreConstants;
@@ -163,7 +162,6 @@ public class JnjGTRejectUserEventListener extends AbstractSiteEventListener<JnjG
 	 * @param modelService
 	 *           the modelService to set
 	 */
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
@@ -181,7 +179,6 @@ public class JnjGTRejectUserEventListener extends AbstractSiteEventListener<JnjG
 	 * @param businessProcessService
 	 *           the businessProcessService to set
 	 */
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;

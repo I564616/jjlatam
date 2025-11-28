@@ -17,7 +17,6 @@ import de.hybris.platform.core.model.user.UserModel;
 import de.hybris.platform.servicelayer.dto.converter.Converter;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.model.ContactUsProcessModel;
 
@@ -148,7 +147,6 @@ public class JnjContactUsEmailContext extends AbstractEmailContext<ContactUsProc
 	 * @param customerConverter
 	 *           the customerConverter to set
 	 */
-	@Required
 	public void setCustomerConverter(final Converter<UserModel, CustomerData> customerConverter)
 	{
 		this.customerConverter = customerConverter;

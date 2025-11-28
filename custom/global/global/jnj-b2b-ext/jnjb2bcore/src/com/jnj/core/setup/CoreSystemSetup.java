@@ -32,7 +32,7 @@ import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 //import com.jnj.core.constants.Jnjb2bCoreConstants;

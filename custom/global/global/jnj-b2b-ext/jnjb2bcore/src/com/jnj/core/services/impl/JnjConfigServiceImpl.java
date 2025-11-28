@@ -13,10 +13,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.dao.JnjConfigDao;
@@ -191,7 +190,6 @@ public class JnjConfigServiceImpl implements JnjConfigService
 	 * @param jnjConfigDao
 	 *           the jnjConfigDao to set
 	 */
-	@Required
 	public void setJnjConfigDao(final JnjConfigDao jnjConfigDao)
 	{
 		this.jnjConfigDao = jnjConfigDao;

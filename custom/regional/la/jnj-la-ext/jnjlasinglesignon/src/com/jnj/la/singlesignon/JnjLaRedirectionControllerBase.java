@@ -7,15 +7,15 @@ package com.jnj.la.singlesignon;
 
 import de.hybris.platform.samlsinglesignon.RedirectionControllerBase;
 import de.hybris.platform.util.Config;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.saml2.provider.service.authentication.Saml2AuthenticatedPrincipal;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.Optional;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import org.apache.log4j.Logger;
 import com.jnj.la.sso.service.JnJLABackofficeSSOService;
 import de.hybris.platform.samlsinglesignon.SAMLService;

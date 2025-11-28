@@ -23,8 +23,6 @@ import de.hybris.platform.core.model.user.CustomerModel;
 import de.hybris.platform.core.model.user.UserModel;
 import de.hybris.platform.servicelayer.dto.converter.Converter;
 
-import org.springframework.beans.factory.annotation.Required;
-
 
 /**
  * Velocity context for a customer email.
@@ -58,7 +56,6 @@ public class CustomerEmailContext extends AbstractEmailContext<StoreFrontCustome
 		return customerConverter;
 	}
 
-	@Required
 	public void setCustomerConverter(final Converter<UserModel, CustomerData> customerConverter)
 	{
 		this.customerConverter = customerConverter;

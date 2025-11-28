@@ -25,7 +25,7 @@ import com.jnj.la.core.dto.JnJLaProductDTO;
 import java.util.List;
 import java.util.ArrayList;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;

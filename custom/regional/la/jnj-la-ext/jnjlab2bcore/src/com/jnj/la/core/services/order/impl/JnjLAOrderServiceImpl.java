@@ -62,8 +62,8 @@ import de.hybris.platform.servicelayer.session.SessionService;
 import de.hybris.platform.store.BaseStoreModel;
 import de.hybris.platform.util.Config;
 import de.hybris.platform.site.BaseSiteService;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
@@ -80,7 +80,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -624,7 +623,7 @@ public class JnjLAOrderServiceImpl extends DefaultJnjGTOrderService implements J
 
 		JnjGTCoreUtil.logInfoMessage(Logging.SUBMIT_ORDER_EDI, methodName, "Source location fo the file: "+destainationDir, CURRENT_CLASS);
 		List<File> filesInFolder = null;
-		try (final Stream<Path> walk = Files.walk(Paths.get(destainationDir))) {
+		try (final Stream<Path> walk = Files.walk(Path.of(destainationDir))) {
 
             filesInFolder = walk.filter(Files::isRegularFile).map(Path::toFile)
 					.collect(Collectors.toList());

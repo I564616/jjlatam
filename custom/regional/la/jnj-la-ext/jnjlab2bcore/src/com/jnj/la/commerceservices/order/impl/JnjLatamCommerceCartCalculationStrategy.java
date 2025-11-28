@@ -28,7 +28,6 @@ import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.time.TimeService;
 import de.hybris.platform.site.BaseSiteService;
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -198,7 +197,6 @@ public class JnjLatamCommerceCartCalculationStrategy extends DefaultCommerceCart
 	}
 
 	@Override
-	@Required
 	public void setCalculationService(final CalculationService calculationService)
 	{
 		this.calculationService = calculationService;
@@ -212,7 +210,6 @@ public class JnjLatamCommerceCartCalculationStrategy extends DefaultCommerceCart
 	}
 
 	@Override
-	@Required
 	public void setPromotionsService(final PromotionsService promotionsService)
 	{
 		this.promotionsService = promotionsService;
@@ -225,7 +222,6 @@ public class JnjLatamCommerceCartCalculationStrategy extends DefaultCommerceCart
 	}
 
 	@Override
-	@Required
 	public void setTimeService(final TimeService timeService)
 	{
 		this.timeService = timeService;
@@ -238,7 +234,6 @@ public class JnjLatamCommerceCartCalculationStrategy extends DefaultCommerceCart
 	}
 
 	@Override
-	@Required
 	public void setBaseSiteService(final BaseSiteService baseSiteService)
 	{
 		this.baseSiteService = baseSiteService;
@@ -264,7 +259,6 @@ public class JnjLatamCommerceCartCalculationStrategy extends DefaultCommerceCart
 	}
 
 	@Override
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService)
 	{
 		this.configurationService = configurationService;

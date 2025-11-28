@@ -17,7 +17,7 @@ import com.jnj.restservice.logic.Response;
 public class DefaultErrorHandler implements IResponseHandler {
 
     @Override
-    public <T> void handle(final javax.ws.rs.core.Response rawResponse, final Response<T> restResponse, final Class<T> genericType) {
+    public <T> void handle(final jakarta.ws.rs.core.Response rawResponse, final Response<T> restResponse, final Class<T> genericType) {
         JsonNode responseNode = rawResponse.readEntity(JsonNode.class);
 
         JsonNode messageNode = responseNode.path("message");
@@ -32,7 +32,7 @@ public class DefaultErrorHandler implements IResponseHandler {
     }
 
     @Override
-    public <T> boolean canHandle(final javax.ws.rs.core.Response rawResponse, final Response<T> restResponse) {
+    public <T> boolean canHandle(final jakarta.ws.rs.core.Response rawResponse, final Response<T> restResponse) {
         return true;
     }
 

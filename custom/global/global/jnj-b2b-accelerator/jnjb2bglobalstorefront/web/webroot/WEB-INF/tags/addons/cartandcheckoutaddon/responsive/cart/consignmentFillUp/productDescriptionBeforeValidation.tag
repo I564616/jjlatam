@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags"%>
 <%@ taglib prefix="product" tagdir="/WEB-INF/tags/responsive/product"%>
 <%@ attribute name="entry" type="com.jnj.facades.data.JnjGTOrderEntryData" required="true"%>
@@ -8,7 +8,7 @@
 <%@ attribute name="showStatus" type="java.lang.Boolean" required="false"%>
 <%@ taglib prefix="label" uri="/WEB-INF/tld/message.tld"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions"%>
 <c:url value="${entry.product.url}" var="productUrl" />
 <c:url value="${entry.product.code}" var="productCode" />
 <!-- consignmentFillUp/productDescriptionBeforeValidation.tag -->

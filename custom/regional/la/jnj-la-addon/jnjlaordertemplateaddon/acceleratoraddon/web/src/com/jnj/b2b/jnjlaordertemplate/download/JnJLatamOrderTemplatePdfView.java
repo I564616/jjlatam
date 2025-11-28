@@ -25,8 +25,8 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;

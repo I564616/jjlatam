@@ -7,7 +7,7 @@ import de.hybris.platform.commercefacades.user.converters.populator.AddressPopul
 import de.hybris.platform.commercefacades.user.data.AddressData;
 import de.hybris.platform.core.model.user.AddressModel;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.facades.data.JnjGTAddressData;

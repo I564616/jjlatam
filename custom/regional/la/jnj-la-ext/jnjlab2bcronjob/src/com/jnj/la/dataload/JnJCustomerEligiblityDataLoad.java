@@ -9,7 +9,6 @@ import com.jnj.la.core.constants.Jnjlab2bcoreConstants;
 import com.jnj.la.core.util.JnjLaInterfaceOperationArchUtility;
 import com.jnj.la.dataload.mapper.JnjCustomerEligiblityDataLoadMapper;
 import de.hybris.platform.cronjob.model.CronJobModel;
-import org.springframework.beans.factory.annotation.Required;
 
 
 /**
@@ -204,7 +203,6 @@ public class JnJCustomerEligiblityDataLoad
 				methodName, Logging.HYPHEN + entryOrExit + Logging.HYPHEN + System.currentTimeMillis(), currentClass);
 	}
 
-	@Required
 	public void setInterfaceOperationArchUtility(final JnjLaInterfaceOperationArchUtility interfaceOperationArchUtility)
 	{
 		this.interfaceOperationArchUtility = interfaceOperationArchUtility;
@@ -218,7 +216,6 @@ public class JnJCustomerEligiblityDataLoad
 		return customerEligiblityDataLoadMapper;
 	}
 
-	@Required
 	public void setCustomerEligiblityDataLoadMapper(final JnjCustomerEligiblityDataLoadMapper customerEligiblityDataLoadMapper)
 	{
 		this.customerEligiblityDataLoadMapper = customerEligiblityDataLoadMapper;

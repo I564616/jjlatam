@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/addons/loginaddon/responsive/template" %>
 <%@ taglib prefix="cart" tagdir="/WEB-INF/tags/addons/cartandcheckoutaddon/responsive/cart"%>
 <%@ taglib prefix="quote" tagdir="/WEB-INF/tags/addons/cartandcheckoutaddon/responsive/cart/quote"%>
@@ -7,7 +7,7 @@
 <%@ taglib prefix="breadcrumb"	tagdir="/WEB-INF/tags/responsive/nav/breadcrumb"%>
 <%@ taglib prefix="label" uri="/WEB-INF/tld/addons/loginaddon/message.tld"%>
 <%@ taglib prefix="standardCart" tagdir="/WEB-INF/tags/addons/cartandcheckoutaddon/responsive/cart/standard"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
 
 <!-- breadcrumb : START -->
 <div class="breadCrumb">

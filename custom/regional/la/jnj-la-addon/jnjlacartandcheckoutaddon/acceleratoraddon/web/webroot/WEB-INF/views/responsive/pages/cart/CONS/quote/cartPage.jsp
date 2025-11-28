@@ -1,5 +1,5 @@
 <%@ page trimDirectiveWhitespaces="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/responsive/template"%>
 <%@ taglib prefix="cart" tagdir="/WEB-INF/tags/responsive/cart"%>
 <%@ taglib prefix="quote" tagdir="/WEB-INF/tags/responsive/cart/quote"%>

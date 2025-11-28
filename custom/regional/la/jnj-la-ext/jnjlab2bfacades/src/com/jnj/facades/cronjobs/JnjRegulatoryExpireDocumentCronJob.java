@@ -19,7 +19,6 @@ import de.hybris.platform.servicelayer.exceptions.ModelRemovalException;
 import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.platform.tx.Transaction;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 import java.util.List;
 
 
@@ -68,7 +67,6 @@ public class JnjRegulatoryExpireDocumentCronJob extends AbstractJobPerformable<J
 		return jnjLaudoFacade;
 	}
 
-	@Required
 	public void setJnjLaudoFacade(JnjLaudoFacade jnjLaudoFacade) {
 		this.jnjLaudoFacade = jnjLaudoFacade;
 	}
@@ -76,7 +74,6 @@ public class JnjRegulatoryExpireDocumentCronJob extends AbstractJobPerformable<J
 	public ModelService getExpireDocumentModelService() {
 		return expireDocumentModelService;
 	}
-	@Required
 	public void setExpireDocumentModelService(ModelService expireDocumentModelService) {
 		this.expireDocumentModelService = expireDocumentModelService;
 	}

@@ -9,8 +9,6 @@ import de.hybris.platform.core.model.user.CustomerModel;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Required;
-
 import com.jnj.core.dao.search.CustomerProductCodeSearchDao;
 import com.jnj.core.services.search.CustomerProductCodeSearchService;
 
@@ -51,7 +49,6 @@ public class DefaultCustomerProductCodeSearchService implements CustomerProductC
 	 * @param customerProductCodeSearchDao
 	 *           the customerProductCodeSearchDao to set
 	 */
-	@Required
 	public void setCustomerProductCodeSearchDao(final CustomerProductCodeSearchDao customerProductCodeSearchDao)
 	{
 		this.customerProductCodeSearchDao = customerProductCodeSearchDao;

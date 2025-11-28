@@ -5,5 +5,5 @@
 // Generated on: 2014.08.18 at 08:40:46 PM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://itsusmpl00082.jnj.com/SG910_BtBEPIC_IN2903_OrderCreate_HYBRIS_Source_v1.webservices:createOrder_WS")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://itsusmpl00082.jnj.com/SG910_BtBEPIC_IN2903_OrderCreate_HYBRIS_Source_v1.webservices:createOrder_WS")
 package com.jnj.itsusmpl00082.sg910_btbepic_in2903_ordercreate_hybris_source_v1_webservices.createorder_ws;

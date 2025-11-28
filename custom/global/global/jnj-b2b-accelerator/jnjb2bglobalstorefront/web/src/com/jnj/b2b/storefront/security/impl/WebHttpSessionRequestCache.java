@@ -15,14 +15,14 @@ package com.jnj.b2b.storefront.security.impl;
 
 import de.hybris.platform.servicelayer.session.SessionService;
 
+import java.io.Serial;
 import java.io.Serializable;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Required;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.PortResolver;
 import org.springframework.security.web.PortResolverImpl;
@@ -54,7 +54,6 @@ public class WebHttpSessionRequestCache extends HttpSessionRequestCache implemen
 	private boolean createSessionAllowed = true;
 	private SessionService sessionService;
 
-	@Required
 	public void setSessionService(final SessionService sessionService)
 	{
 		this.sessionService = sessionService;
@@ -112,6 +111,7 @@ public class WebHttpSessionRequestCache extends HttpSessionRequestCache implemen
 					/**
 					 * 
 					 */
+					@Serial
 					private static final long serialVersionUID = 990881L;
 					private final String contextPath = request.getContextPath();
 

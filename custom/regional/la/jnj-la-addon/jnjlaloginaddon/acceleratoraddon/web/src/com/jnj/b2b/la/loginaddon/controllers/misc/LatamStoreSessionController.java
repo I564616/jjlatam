@@ -5,7 +5,7 @@ import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 import com.jnj.core.util.JnjGTCoreUtil;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 public class LatamStoreSessionController extends StoreSessionController {
 

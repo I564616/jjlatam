@@ -41,7 +41,7 @@ public class JnjContactUsFacadeUnitTest
 		MockitoAnnotations.initMocks(this);
 		defaultjnjContactUsFacade = new DefaultJnjContactUsFacade();
 
-		Mockito.when(new Boolean(mockJnjContactUsServiceImpl.sendMessage(mockJnjContactUsDTO))).thenReturn(Boolean.TRUE);
+		Mockito.when(Boolean.valueOf(mockJnjContactUsServiceImpl.sendMessage(mockJnjContactUsDTO))).thenReturn(Boolean.TRUE);
 		ReflectionTestUtils.setField(defaultjnjContactUsFacade, "defaultjnjContactUsService", mockJnjContactUsServiceImpl);
 	}
 

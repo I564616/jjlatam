@@ -14,17 +14,17 @@ import com.jnj.facades.invoice.JnjLatamInvoiceFacade;
 import com.jnj.la.core.constants.Jnjlab2bcoreConstants;
 import com.jnj.la.core.constants.Jnjlab2bcoreConstants.Invoice.SearchOption;
 import de.hybris.platform.commerceservices.search.pagedata.SearchPageData;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 import static com.jnj.la.core.constants.Jnjlab2bcoreConstants.Invoice.SearchOption.NONE;
 
@@ -47,7 +47,7 @@ public class JnjLatamInvoiceHistoryPageController extends AbstractJnjLaBasePageC
     @Autowired
     private JnjLatamInvoiceControllerUtil invoiceUtil;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public String getInvoiceHistory(final Model model) {
         preparePage(model, INVOICE_HISTORY_CMS_PAGE, Jnjlab2bcoreConstants.INVOICE_HISTORY_PAGE_HEADING);
         populateDropDownOptions(model);
@@ -55,7 +55,7 @@ public class JnjLatamInvoiceHistoryPageController extends AbstractJnjLaBasePageC
         return INVOICE_HISTORY_PAGE;
     }
 
-    @RequestMapping(value ="/search", method = RequestMethod.GET)
+    @GetMapping("/search")
     public String search(
         @RequestParam(required = false, defaultValue = NONE) final String searchBy,
         @RequestParam(required = false) final String searchText,
@@ -81,7 +81,7 @@ public class JnjLatamInvoiceHistoryPageController extends AbstractJnjLaBasePageC
         return INVOICE_HISTORY_TABLE_PAGE;
     }
 
-    @RequestMapping(value ="/download", method = RequestMethod.GET)
+    @GetMapping("/download")
     public String download(
         @RequestParam(required = false, defaultValue = NONE) final String searchBy,
         @RequestParam(required = false) final String searchText,
@@ -100,7 +100,7 @@ public class JnjLatamInvoiceHistoryPageController extends AbstractJnjLaBasePageC
         return DownloadType.PDF.equals(downloadType) ? INVOICE_HISTORY_PDF_VIEW : INVOICE_HISTORY_EXCEL_VIEW;
     }
 
-    @RequestMapping(value ="/nfeFile", method = RequestMethod.GET)
+    @GetMapping("/nfeFile")
     public String nfeFile(
         @RequestParam final String invoiceNumber,
         final HttpServletResponse httpServletResponse,
@@ -111,7 +111,7 @@ public class JnjLatamInvoiceHistoryPageController extends AbstractJnjLaBasePageC
         return REDIRECT_PREFIX + INVOICE_HISTORY_REL_PATH;
     }
 
-    @RequestMapping(value = "/invoiceDocFile", method = RequestMethod.GET)
+    @GetMapping("/invoiceDocFile")
     public String invoiceDocFile(
         @RequestParam final String downloadType,
         @RequestParam final String invoiceNumber,

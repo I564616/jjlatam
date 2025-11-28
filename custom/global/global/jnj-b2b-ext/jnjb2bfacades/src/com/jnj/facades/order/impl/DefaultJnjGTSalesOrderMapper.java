@@ -20,12 +20,12 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.TimeoutException;
 
-import javax.annotation.Resource;
-import javax.xml.bind.JAXBElement;
+import jakarta.annotation.Resource;
+import jakarta.xml.bind.JAXBElement;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.BooleanUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -20,8 +20,6 @@ import de.hybris.platform.processengine.BusinessProcessService;
 import de.hybris.platform.servicelayer.event.impl.AbstractEventListener;
 import com.jnj.b2b.fulfilmentprocess.constants.Jnjb2bglobalFulfilmentProcessConstants;
 
-import org.springframework.beans.factory.annotation.Required;
-
 
 /**
  * Listener for pickup confirmation events.
@@ -36,7 +34,6 @@ public class PickupConfirmationEventListener extends AbstractEventListener<Picku
 		return businessProcessService;
 	}
 
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;

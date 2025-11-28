@@ -7,8 +7,8 @@
  */
 package com.jnj.core.dataload.mapper;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 

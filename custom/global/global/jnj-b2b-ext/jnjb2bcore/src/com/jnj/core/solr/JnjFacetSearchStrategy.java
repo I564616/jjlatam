@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
@@ -40,7 +40,6 @@ import org.apache.solr.client.solrj.SolrRequest.METHOD;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import de.hybris.platform.solrfacetsearch.model.SolrIndexModel;
 public class JnjFacetSearchStrategy extends DefaultFacetSearchStrategy{
 	
@@ -67,7 +66,6 @@ public class JnjFacetSearchStrategy extends DefaultFacetSearchStrategy{
 		return this.facetSearchContextFactory;
 	}
 
-	@Required
 	public void setFacetSearchContextFactory(FacetSearchContextFactory<FacetSearchContext> facetSearchContextFactory) {
 		this.facetSearchContextFactory = facetSearchContextFactory;
 	}
@@ -76,7 +74,6 @@ public class JnjFacetSearchStrategy extends DefaultFacetSearchStrategy{
 		return this.facetSearchQueryConverter;
 	}
 
-	@Required
 	public void setFacetSearchQueryConverter(Converter<SearchQueryConverterData, SolrQuery> facetSearchQueryConverter) {
 		this.facetSearchQueryConverter = facetSearchQueryConverter;
 	}
@@ -85,7 +82,6 @@ public class JnjFacetSearchStrategy extends DefaultFacetSearchStrategy{
 		return this.facetSearchResultConverter;
 	}
 
-	@Required
 	public void setFacetSearchResultConverter(
 			Converter<SearchResultConverterData, SearchResult> facetSearchResultConverter) {
 		this.facetSearchResultConverter = facetSearchResultConverter;

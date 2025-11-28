@@ -8,7 +8,7 @@ package com.jnj.facades.reports.converters.populator;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.DecimalFormat;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import de.hybris.platform.core.model.order.OrderEntryModel;
 

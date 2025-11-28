@@ -13,7 +13,6 @@ import de.hybris.platform.cronjob.enums.CronJobResult;
 import de.hybris.platform.cronjob.enums.CronJobStatus;
 import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
-import org.springframework.beans.factory.annotation.Required;
 
 public class JnjLaUpdateCarrierStatusJob extends AbstractJobPerformable<JnjIntegrationRSACronJobModel> {
 
@@ -30,7 +29,6 @@ public class JnjLaUpdateCarrierStatusJob extends AbstractJobPerformable<JnjInteg
         return new PerformResult(CronJobResult.SUCCESS, CronJobStatus.FINISHED);
     }
 
-    @Required
     public void setCarrierStatusService(final JnJUpdateCarrierStatusService carrierStatusService) {
         this.carrierStatusService = carrierStatusService;
     }

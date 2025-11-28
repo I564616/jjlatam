@@ -11,11 +11,10 @@ import de.hybris.platform.servicelayer.model.ModelService;
 
 import java.util.Date;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.dto.JnjGTDisputeItemInquiryDto;
 import com.jnj.core.dto.JnjGTDisputeOrderInquiryDto;
@@ -174,13 +173,11 @@ public class JnjGTDisputeInquiryEventListener extends AbstractSiteEventListener<
 		return true;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
 	}
 
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;

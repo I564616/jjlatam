@@ -3,7 +3,7 @@ package com.pac.aera.job.service;
 import com.gt.pac.aera.PacHiveException;
 import de.hybris.platform.core.model.order.AbstractOrderEntryModel;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * Service for working with PAC HIVE configuration.

@@ -14,7 +14,6 @@ import java.util.Collection;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.model.JnJProductModel;
 import com.jnj.core.model.JnjGTProductLotModel;
@@ -138,7 +137,6 @@ public class DefaultJnjGTLotMasterFeedService implements JnjGTLotMasterFeedServi
 	 * @param jnJProductService
 	 *           the jnJProductService to set
 	 */
-	@Required
 	public void setJnJProductService(final JnJProductService jnJProductService)
 	{
 		this.jnJProductService = jnJProductService;
@@ -156,7 +154,6 @@ public class DefaultJnjGTLotMasterFeedService implements JnjGTLotMasterFeedServi
 	 * @param modelService
 	 *           the modelService to set
 	 */
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;

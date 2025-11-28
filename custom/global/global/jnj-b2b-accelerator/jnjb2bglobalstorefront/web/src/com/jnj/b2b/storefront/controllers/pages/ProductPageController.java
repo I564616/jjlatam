@@ -49,13 +49,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
@@ -63,9 +63,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -79,6 +80,7 @@ import com.google.common.collect.Maps;
 @Controller
 @Scope("tenant")
 @RequireHardLogIn
+// FRAMEWORK_UPDATE - TODO - AntPathMatcher was replaced with PathPatternParser as the new default path parser in Spring 6. Adjust this path to the new matching rules or re-enable deprecated AntPathMatcher. Consult "Adapting to PathPatternParser new default URL Matcher" JDK21 Upgrade Step in SAP Help documentation.
 @RequestMapping(value = "/**/p")
 public class ProductPageController extends AbstractPageController
 {
@@ -142,7 +144,7 @@ public class ProductPageController extends AbstractPageController
 	}
 
 
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@GetMapping(PRODUCT_CODE_PATH_VARIABLE_PATTERN)
 	public String productDetail(@PathVariable("productCode") final String productCode, final Model model,
 			final HttpServletRequest request, final HttpServletResponse response) throws CMSItemNotFoundException,
 			UnsupportedEncodingException
@@ -167,7 +169,7 @@ public class ProductPageController extends AbstractPageController
 	}
 
 
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/orderForm", method = RequestMethod.GET)
+	@GetMapping(PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/orderForm")
 	public String productOrderForm(@PathVariable("productCode") final String productCode, final Model model,
 			final HttpServletRequest request, final HttpServletResponse response) throws CMSItemNotFoundException
 	{
@@ -188,7 +190,7 @@ public class ProductPageController extends AbstractPageController
 	}
 
 
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/futureStock", method = RequestMethod.GET)
+	@GetMapping(PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/futureStock")
 	public String productFutureStock(@PathVariable("productCode") final String productCode, final Model model,
 			final HttpServletRequest request, final HttpServletResponse response) throws CMSItemNotFoundException
 	{
@@ -217,8 +219,7 @@ public class ProductPageController extends AbstractPageController
 	}
 
 	@ResponseBody
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/grid/skusFutureStock", method =
-	{ RequestMethod.POST }, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/grid/skusFutureStock", produces = MediaType.APPLICATION_JSON_VALUE)
 	public final Map<String, Object> productSkusFutureStock(final FutureStockForm form, final Model model)
 	{
 		final String productCode = form.getProductCode();
@@ -250,7 +251,7 @@ public class ProductPageController extends AbstractPageController
 		return result;
 	}
 
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/zoomImages", method = RequestMethod.GET)
+	@GetMapping(PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/zoomImages")
 	public String showZoomImages(@PathVariable("productCode") final String productCode,
 			@RequestParam(value = "galleryPosition", required = false) final String galleryPosition, final Model model)
 	{
@@ -278,7 +279,7 @@ public class ProductPageController extends AbstractPageController
 		return ControllerConstants.Views.Fragments.Product.ZoomImagesPopup;
 	}
 
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/quickView", method = RequestMethod.GET)
+	@GetMapping(PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/quickView")
 	public String showQuickView(@PathVariable("productCode") final String productCode, final Model model,
 			final HttpServletRequest request)
 	{
@@ -292,7 +293,7 @@ public class ProductPageController extends AbstractPageController
 		return ControllerConstants.Views.Fragments.Product.QuickViewPopup;
 	}
 
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/review", method = RequestMethod.POST)
+	@PostMapping(PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/review")
 	public String postReview(@PathVariable final String productCode, @Valid final ReviewForm form, final BindingResult result,
 			final Model model, final HttpServletRequest request, final RedirectAttributes redirectAttrs)
 			throws CMSItemNotFoundException
@@ -319,7 +320,7 @@ public class ProductPageController extends AbstractPageController
 		return "redirect:" + productDataUrlResolver.resolve(productData);
 	}
 
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/reviewhtml/" + REVIEWS_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@GetMapping(PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/reviewhtml/" + REVIEWS_PATH_VARIABLE_PATTERN)
 	public String reviewHtml(@PathVariable("productCode") final String productCode,
 			@PathVariable("numberOfReviews") final String numberOfReviews, final Model model, final HttpServletRequest request)
 	{

@@ -1,6 +1,6 @@
 package com.jnj.b2b.storefront.util;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 
 /**

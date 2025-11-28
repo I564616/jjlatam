@@ -28,11 +28,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 
 
@@ -171,7 +170,6 @@ public class JnjGTProductPriceValueProvider extends AbstractPropertyFieldValuePr
 		}
 	}
 
-	@Required
 	public void setFieldNameProvider(final FieldNameProvider fieldNameProvider)
 	{
 		this.fieldNameProvider = fieldNameProvider;

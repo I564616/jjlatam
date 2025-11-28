@@ -10,8 +10,7 @@ import com.jnj.la.core.enums.JnJUploadedFileStatus;
 import com.jnj.la.core.model.JnJUploadedInvoiceDateModel;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
-import org.apache.commons.collections.CollectionUtils;
-import org.springframework.beans.factory.annotation.Required;
+import org.apache.commons.collections4.CollectionUtils;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -110,7 +109,6 @@ public class JnJUploadedInvoiceDateDaoImpl implements JnJUploadedInvoiceDateDao 
         return CollectionUtils.isNotEmpty(result) ? result.get(0) : null;
     }
 
-    @Required
     public void setFlexibleSearchService(FlexibleSearchService flexibleSearchService) {
         this.flexibleSearchService = flexibleSearchService;
     }

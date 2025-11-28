@@ -8,12 +8,11 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 import com.jnj.b2b.loginaddon.constants.LoginaddonConstants.Logging;
 import com.jnj.facade.util.JnjCommonFacadeUtil;
@@ -28,7 +27,7 @@ import java.io.File;
 import org.apache.log4j.Logger;
 import org.apache.velocity.Template;
 import org.apache.velocity.tools.generic.DateTool;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import com.lowagie.text.Document;
 import com.lowagie.text.html.simpleparser.HTMLWorker;
 import com.lowagie.text.pdf.PdfWriter;

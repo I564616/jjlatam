@@ -23,15 +23,14 @@ import de.hybris.platform.servicelayer.dto.converter.Converter;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.jsp.JspException;
+import jakarta.servlet.jsp.JspWriter;
+import jakarta.servlet.jsp.PageContext;
 
-import org.apache.commons.lang.BooleanUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.taglibs.standard.tag.common.core.UrlSupport;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.model.JnjLinkComponentModel;
 import com.jnj.b2b.storefront.tags.Functions;
@@ -49,7 +48,6 @@ public class JnjLinkComponentRenderer implements CMSComponentRenderer<JnjLinkCom
 		return productUrlConverter;
 	}
 
-	@Required
 	public void setProductUrlConverter(final Converter<ProductModel, ProductData> productUrlConverter)
 	{
 		this.productUrlConverter = productUrlConverter;
@@ -60,7 +58,6 @@ public class JnjLinkComponentRenderer implements CMSComponentRenderer<JnjLinkCom
 		return categoryUrlConverter;
 	}
 
-	@Required
 	public void setCategoryUrlConverter(final Converter<CategoryModel, CategoryData> categoryUrlConverter)
 	{
 		this.categoryUrlConverter = categoryUrlConverter;

@@ -26,12 +26,13 @@ import com.jnj.b2b.storefront.controllers.ControllerConstants;
 import java.util.Collections;
 import java.util.List;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -72,7 +73,7 @@ public class MiniCartController extends AbstractController
 	}
 
 
-	@RequestMapping(value = "/cart/miniCart/" + TOTAL_DISPLAY_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@GetMapping("/cart/miniCart/" + TOTAL_DISPLAY_PATH_VARIABLE_PATTERN)
 	public String getMiniCart(@PathVariable final String totalDisplay, final Model model)
 	{
 		final CartData cartData = cartFacade.getMiniCart();

@@ -15,7 +15,7 @@ import de.hybris.platform.servicelayer.search.SearchResult;
 
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 
 import com.jnj.constants.JNJFlexiQueries;
 import com.jnj.dao.CMSSiteDao;

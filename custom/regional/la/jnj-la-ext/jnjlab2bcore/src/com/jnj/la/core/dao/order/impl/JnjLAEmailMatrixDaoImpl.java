@@ -10,9 +10,8 @@ import com.jnj.la.core.model.JnjLAEmailMatrixModel;
 import de.hybris.platform.basecommerce.enums.OrderEntryStatus;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.List;
 
@@ -54,7 +53,6 @@ public class JnjLAEmailMatrixDaoImpl implements JnjLAEmailMatrixDao {
         }
     }
 
-    @Required
     public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService) {
         this.flexibleSearchService = flexibleSearchService;
     }

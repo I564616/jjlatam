@@ -39,9 +39,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -387,10 +387,10 @@ public class JnjLaEmailUtil
 
 			((JnjGTOrderData) populatedOrderData)
 					.setOrderType(messageService.getMessageForCode("text.template.ordertype." + orderModel.getOrderType().getCode(),
-							new Locale(orderModel.getUser().getSessionLanguage().getIsocode())));
+					Locale.of(orderModel.getUser().getSessionLanguage().getIsocode())));
 
 			messageData.setMyAccount(messageService.getMessageForCode("text.template.order.confirmation",
-					new Locale(orderModel.getUser().getSessionLanguage().getIsocode())));
+					Locale.of(orderModel.getUser().getSessionLanguage().getIsocode())));
 
 			final JnjGTOrderData laOrderData = (JnjGTOrderData) populatedOrderData;
 
@@ -402,7 +402,7 @@ public class JnjLaEmailUtil
 					final JnjLaOrderEntryData laOrderEntryForModification = (JnjLaOrderEntryData) laOrderEntry;
 					final String lineStatus = messageService.getMessageForCode(
 							"text.email.orderentry.status." + ((JnjLaOrderEntryData) laOrderEntry).getStatus(),
-							new Locale(orderModel.getUser().getSessionLanguage().getIsocode()));
+							Locale.of(orderModel.getUser().getSessionLanguage().getIsocode()));
 
 					laOrderEntryForModification.setStatus(lineStatus);
 					laOrderEntryForModification.setCatalogId(((JnjLaOrderEntryData) laOrderEntry).getCatalogId());
@@ -491,7 +491,7 @@ public class JnjLaEmailUtil
 		final OrderConfirmationMessageData messageData = new OrderConfirmationMessageData();
 		final String methodName = "createMessageData()";
 
-		final Locale locale = new Locale("en");
+		final Locale locale = Locale.of("en");
 
 		try
 		{

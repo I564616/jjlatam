@@ -16,10 +16,9 @@ package com.jnj.b2b.storefront.interceptors.beforeview;
 import com.jnj.b2b.storefront.filters.btg.support.BTGSegmentStrategy;
 import com.jnj.b2b.storefront.interceptors.BeforeViewHandler;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -39,7 +38,6 @@ public class BtgSegmentBeforeViewHandler implements BeforeViewHandler
 		return btgSegmentStrategy;
 	}
 
-	@Required
 	public void setBtgSegmentStrategy(final BTGSegmentStrategy btgSegmentStrategy)
 	{
 		this.btgSegmentStrategy = btgSegmentStrategy;

@@ -5,5 +5,5 @@
 // Generated on: 2017.05.25 at 12:41:06 PM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.jnj.com/aspac/processStockAndPriceRequestInput", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://www.jnj.com/aspac/processStockAndPriceRequestInput", elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package com.jnj.gt.aspac_epic_simulate_v1.simulatewebservice;

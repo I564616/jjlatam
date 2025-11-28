@@ -32,8 +32,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Required;
-
 
 /**
  * Populator for product price range.
@@ -51,7 +49,6 @@ public class ProductPriceRangePopulator<SOURCE extends ProductModel, TARGET exte
 		return priceService;
 	}
 
-	@Required
 	public void setPriceService(final PriceService priceService)
 	{
 		this.priceService = priceService;
@@ -62,7 +59,6 @@ public class ProductPriceRangePopulator<SOURCE extends ProductModel, TARGET exte
 		return priceDataFactory;
 	}
 
-	@Required
 	public void setPriceDataFactory(final PriceDataFactory priceDataFactory)
 	{
 		this.priceDataFactory = priceDataFactory;

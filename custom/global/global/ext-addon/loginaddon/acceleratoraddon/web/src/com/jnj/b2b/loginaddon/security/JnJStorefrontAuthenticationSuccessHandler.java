@@ -35,22 +35,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.Resource;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.annotation.Resource;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.security.web.util.UrlUtils;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import com.jnj.b2b.loginaddon.constants.LoginaddonConstants;
@@ -224,7 +224,7 @@ public class JnJStorefrontAuthenticationSuccessHandler extends SimpleUrlAuthenti
 
 		clearAuthenticationAttributes(request);
 		String savedUrl = requestUtil.getSavedRedirectUrl(request, response);
-		if(org.apache.commons.lang.StringUtils.isNotBlank(savedUrl)){
+		if(org.apache.commons.lang3.StringUtils.isNotBlank(savedUrl)){
 			targetUrl = savedUrl;
 		}
 		if(null==savedUrl){
@@ -232,7 +232,7 @@ public class JnJStorefrontAuthenticationSuccessHandler extends SimpleUrlAuthenti
 		}
 		targetUrl = calculateRelativeRedirectUrl(request.getContextPath(),targetUrl);
 		
-		if(org.apache.commons.lang.StringUtils.isNotBlank(targetUrl)){
+		if(org.apache.commons.lang3.StringUtils.isNotBlank(targetUrl)){
 			String temp = targetUrl.substring(1);
 			BaseSiteModel baseSiteModel = baseSiteService.getBaseSiteForUID(temp);
 			if(null!=baseSiteModel){
@@ -268,9 +268,9 @@ public class JnJStorefrontAuthenticationSuccessHandler extends SimpleUrlAuthenti
 			if (urlEncodingAttributes != null && !url.contains(urlEncodingAttributes)
 				&& modifiedContextPath.contains(urlEncodingAttributes))
 			{
-				modifiedContextPath = org.apache.commons.lang.StringUtils.remove(modifiedContextPath, urlEncodingAttributes);
+				modifiedContextPath = org.apache.commons.lang3.StringUtils.remove(modifiedContextPath, urlEncodingAttributes);
 			}
-			if (StringUtils.isEmpty(relUrl) || StringUtils.isEmpty(modifiedContextPath))
+			if (ObjectUtils.isEmpty(relUrl) || ObjectUtils.isEmpty(modifiedContextPath))
 			{
 				relUrl = "/";
 			}
@@ -462,7 +462,7 @@ public class JnJStorefrontAuthenticationSuccessHandler extends SimpleUrlAuthenti
 		if (CollectionUtils.isNotEmpty(categoryModels))
 		{
 			for (CategoryModel categoryModel : categoryModels) {
-				if(!StringUtils.isEmpty(categoryModel.getCode())){
+				if(!ObjectUtils.isEmpty(categoryModel.getCode())){
 					allowedFranchiseCommaSeparated.append("'"+categoryModel.getCode()+"'"+LoginaddonConstants.Register.COMMA_SEPARATOR);
 					allowedFranchiseNoQuotes.append(categoryModel.getCode()+LoginaddonConstants.Register.COMMA_SEPARATOR);
 				}
@@ -485,7 +485,6 @@ public class JnJStorefrontAuthenticationSuccessHandler extends SimpleUrlAuthenti
 		return sessionService;
 	}
 
-	@Required
 	public void setSessionService(final SessionService sessionService)
 	{
 		this.sessionService = sessionService;
@@ -496,7 +495,6 @@ public class JnJStorefrontAuthenticationSuccessHandler extends SimpleUrlAuthenti
 		return customerFacade;
 	}
 
-	@Required
 	public void setCustomerFacade(final CustomerFacade customerFacade)
 	{
 		this.customerFacade = customerFacade;
@@ -525,7 +523,6 @@ public class JnJStorefrontAuthenticationSuccessHandler extends SimpleUrlAuthenti
 		return forceDefaultTargetForUiExperienceLevel;
 	}
 
-	@Required
 	public void setForceDefaultTargetForUiExperienceLevel(
 		final Map<UiExperienceLevel, Boolean> forceDefaultTargetForUiExperienceLevel)
 	{
@@ -538,7 +535,6 @@ public class JnJStorefrontAuthenticationSuccessHandler extends SimpleUrlAuthenti
 		return bruteForceAttackCounter;
 	}
 
-	@Required
 	public void setBruteForceAttackCounter(final BruteForceAttackCounter bruteForceAttackCounter)
 	{
 		this.bruteForceAttackCounter = bruteForceAttackCounter;
@@ -616,7 +612,6 @@ public class JnJStorefrontAuthenticationSuccessHandler extends SimpleUrlAuthenti
 		return uiExperienceService;
 	}
 
-	@Required
 	public void setUiExperienceService(final UiExperienceService uiExperienceService)
 	{
 		this.uiExperienceService = uiExperienceService;

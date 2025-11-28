@@ -19,6 +19,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
@@ -27,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -122,7 +123,7 @@ public class JnjLatamInvoiceFacadeImpl implements JnjLatamInvoiceFacade
 					newURLOpentext = parseCdataValue(url.replace(hostOpenText, urlOpenText));
 					LOGGER.info(Jnjb2bFacadesConstants.Logging.GET_INVOICE_DOCUMENT + Logging.HYPHEN + "getInvoiceDocFile()"
 							+ Logging.HYPHEN + " Final OpenText URL: ##############" + newURLOpentext);
-					website = new URL(newURLOpentext);
+					website = URI.create(newURLOpentext).toURL();
 					rbc = Channels.newChannel(website.openStream());
 					fos = new FileOutputStream(invoiceDocFile);
 					fos.getChannel().transferFrom(rbc, 0, Jnjlab2bcoreConstants.BUFFER_SIZE);

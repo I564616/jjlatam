@@ -3,6 +3,7 @@
  */
 package com.jnj.b2b.cartandcheckoutaddon.forms;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
@@ -11,7 +12,8 @@ import java.util.List;
  * 
  */
 public class ProposedLineItemForm  implements Serializable {
-	 
+
+	@Serial
 	private static final long serialVersionUID = 1L;
 	private List<JnjAddToCartCartForm> jnjAddToCartCartFormList;
 	/**

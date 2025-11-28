@@ -47,10 +47,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 
@@ -403,7 +403,7 @@ public class JnjGTMockOrderDataPopulator extends OrderPopulator
 		target.setTotalPrice(createPrice(source, source.getTotalPrice()));
 		target.setSubTotal(createPrice(source, source.getSubtotal()));
 		target.setDeliveryCost(source.getDeliveryCost() != null ? createPrice(source, source.getDeliveryCost()) : createPrice(
-				source, new Double(0.00)));
+				source, Double.valueOf(0.00)));
 		target.setTotalPriceWithTax((createPrice(source, calcTotalWithTax(source))));
 
 		if (target instanceof JnjGTOrderData)

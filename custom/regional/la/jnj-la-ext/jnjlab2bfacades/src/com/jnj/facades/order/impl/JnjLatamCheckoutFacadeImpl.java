@@ -60,13 +60,13 @@ import com.jnj.la.core.util.JnjLaSftpFileTransferUtil;
 import com.jnj.facades.constants.Jnjb2bFacadesConstants;
 import com.jnj.la.core.services.order.JnjLAOrderService;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;

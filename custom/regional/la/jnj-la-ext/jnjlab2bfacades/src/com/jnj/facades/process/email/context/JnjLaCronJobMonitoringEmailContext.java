@@ -25,9 +25,8 @@ import java.util.Date;
 import java.util.TimeZone;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
@@ -161,7 +160,6 @@ public class JnjLaCronJobMonitoringEmailContext extends AbstractEmailContext<Bus
         return configurationService;
     }
 
-    @Required
     public void setConfigurationService(final ConfigurationService configurationService)
     {
         this.configurationService = configurationService;

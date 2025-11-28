@@ -19,7 +19,7 @@ import de.hybris.platform.servicelayer.search.SearchResult;
 import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * This Class is used to override DefaultJnjPacAeraDao  to add functionality to get OrphanPacHiveEntries 

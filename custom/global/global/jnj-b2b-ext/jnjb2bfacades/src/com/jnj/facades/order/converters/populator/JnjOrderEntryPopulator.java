@@ -15,10 +15,10 @@ import de.hybris.platform.core.model.order.AbstractOrderEntryModel;
 
 import java.math.BigDecimal;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.lang.BooleanUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jnj.facade.util.impl.JnjPriceDataFactory;

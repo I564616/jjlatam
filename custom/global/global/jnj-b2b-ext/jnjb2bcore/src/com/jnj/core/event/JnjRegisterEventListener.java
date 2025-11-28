@@ -17,7 +17,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 import com.jnj.core.dto.JnjRegisterData;
@@ -70,7 +69,6 @@ public class JnjRegisterEventListener extends AbstractSiteEventListener<JnjRegis
 		return businessProcessService;
 	}
 
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;
@@ -81,7 +79,6 @@ public class JnjRegisterEventListener extends AbstractSiteEventListener<JnjRegis
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;

@@ -6,17 +6,16 @@
 package com.jnj.b2b.storefront.security.filters;
 
 import org.apache.commons.httpclient.HttpsURL;
-import org.apache.http.client.utils.URIBuilder;
+import org.apache.hc.core5.net.URIBuilder;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.filter.GenericFilterBean;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Objects;
@@ -69,7 +68,6 @@ public class JnJRedirectFilter extends GenericFilterBean {
         }
     }
 
-    @Required
     public void setSecurePort(final String securePort) {
         try {
             this.securePort = Integer.valueOf(securePort);
@@ -78,7 +76,6 @@ public class JnJRedirectFilter extends GenericFilterBean {
         }
     }
 
-    @Required
     public void setRedirectionEnabled(final String redirectionEnabled) {
         this.redirectionEnabled = Boolean.valueOf(redirectionEnabled);
     }

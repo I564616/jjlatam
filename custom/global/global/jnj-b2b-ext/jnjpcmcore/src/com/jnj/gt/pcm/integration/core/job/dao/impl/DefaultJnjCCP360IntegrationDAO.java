@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
@@ -148,7 +147,6 @@ public class DefaultJnjCCP360IntegrationDAO implements JnjCCP360IntegrationDAO
 		return sessionService;
 	}
 
-	@Required
 	public void setSessionService(final SessionService sessionService)
 	{
 		this.sessionService = sessionService;
@@ -159,7 +157,6 @@ public class DefaultJnjCCP360IntegrationDAO implements JnjCCP360IntegrationDAO
 		return userService;
 	}
 
-	@Required
 	public void setUserService(final UserService userService)
 	{
 		this.userService = userService;
@@ -170,7 +167,6 @@ public class DefaultJnjCCP360IntegrationDAO implements JnjCCP360IntegrationDAO
 		return flexibleSearchService;
 	}
 
-	@Required
 	public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService)
 	{
 		this.flexibleSearchService = flexibleSearchService;

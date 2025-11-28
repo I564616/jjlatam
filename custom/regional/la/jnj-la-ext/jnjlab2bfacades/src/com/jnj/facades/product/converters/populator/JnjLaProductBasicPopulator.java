@@ -18,9 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.dto.JnjUomDTO;
@@ -191,7 +190,6 @@ public class JnjLaProductBasicPopulator<SOURCE extends ProductModel, TARGET exte
 	}
 
 	@Override
-	@Required
 	public void setCommerceCategoryService(final CommerceCategoryService commerceCategoryService)
 	{
 		this.commerceCategoryService = commerceCategoryService;

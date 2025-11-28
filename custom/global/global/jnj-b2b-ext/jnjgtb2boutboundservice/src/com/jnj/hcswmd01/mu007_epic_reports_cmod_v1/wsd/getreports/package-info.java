@@ -5,5 +5,5 @@
 // Generated on: 2014.11.14 at 05:02:08 PM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_Reports_CMOD_v1/wsd/getReports")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_Reports_CMOD_v1/wsd/getReports")
 package com.jnj.hcswmd01.mu007_epic_reports_cmod_v1.wsd.getreports;

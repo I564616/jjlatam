@@ -33,7 +33,7 @@ import de.hybris.platform.cms2.model.pages.AbstractPageModel;
 import de.hybris.platform.commercefacades.order.data.OrderData;
 import de.hybris.platform.order.InvalidCartException;
 import de.hybris.platform.util.Config;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -41,12 +41,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.jnj.b2b.storefront.controllers.util.GlobalMessages;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import org.springframework.beans.factory.annotation.Required;
 
 
 /**
@@ -376,7 +375,6 @@ public class JnjLatamCheckoutController extends JnjGTCheckoutController
         return configurationService;
     }
 
-    @Required
     public void setConfigurationService(ConfigurationService configurationService) {
         this.configurationService = configurationService;
     }

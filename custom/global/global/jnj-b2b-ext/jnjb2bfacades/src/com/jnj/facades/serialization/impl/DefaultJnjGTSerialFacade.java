@@ -4,7 +4,7 @@
 package com.jnj.facades.serialization.impl;
 
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import com.jnj.core.dto.JnjGTSerialResponseData;
 import com.jnj.core.dto.JnjGTSerializationForm;

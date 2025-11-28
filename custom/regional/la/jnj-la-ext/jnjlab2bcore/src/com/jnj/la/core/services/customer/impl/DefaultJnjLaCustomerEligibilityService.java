@@ -13,7 +13,6 @@ import com.jnj.la.core.services.customer.JnjLaCustomerEligibilityService;
 import de.hybris.platform.catalog.model.CatalogModel;
 import de.hybris.platform.catalog.model.CatalogVersionModel;
 import de.hybris.platform.category.model.CategoryModel;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.Set;
 
@@ -49,7 +48,6 @@ public class DefaultJnjLaCustomerEligibilityService extends DefaultJnjCustomerEl
 	 * @param customerLaEligiblityDao
 	 *           the customerLaEligiblityDao to set
 	 */
-	@Required
 	public void setCustomerLaEligiblityDao(final JnjLaCustomerEligiblityDao customerLaEligiblityDao)
 	{
 		this.customerLaEligiblityDao = customerLaEligiblityDao;

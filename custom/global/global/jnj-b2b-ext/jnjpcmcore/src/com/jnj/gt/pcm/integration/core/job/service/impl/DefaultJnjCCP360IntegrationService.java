@@ -18,16 +18,15 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
@@ -255,7 +254,7 @@ public class DefaultJnjCCP360IntegrationService implements JnjCCP360IntegrationS
 
 				try
 				{
-					Files.delete(Paths.get(metaDataOnlyCsvFileName));
+					Files.delete(Path.of(metaDataOnlyCsvFileName));
 				}
 				catch (final IOException iOException)
 				{
@@ -347,7 +346,6 @@ public class DefaultJnjCCP360IntegrationService implements JnjCCP360IntegrationS
 		return jnjCCP360IntegrationDao;
 	}
 	
-	@Required
 	public void setJnjCCP360IntegrationDao(final JnjCCP360IntegrationDAO jnjCCP360IntegrationDao)
 	{
 		this.jnjCCP360IntegrationDao = jnjCCP360IntegrationDao;
@@ -358,7 +356,6 @@ public class DefaultJnjCCP360IntegrationService implements JnjCCP360IntegrationS
 		return configurationService;
 	}
 	
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService)
 	{
 		this.configurationService = configurationService;
@@ -368,7 +365,6 @@ public class DefaultJnjCCP360IntegrationService implements JnjCCP360IntegrationS
 		return jnjGTP360CountryNameStrategy;
 	}
 	
-	@Required
 	public void setJnjGTP360CountryNameStrategy(final JnjGTP360CountryNameStrategy jnjGTP360CountryNameStrategy) {
 		this.jnjGTP360CountryNameStrategy = jnjGTP360CountryNameStrategy;
 	}	

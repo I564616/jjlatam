@@ -1,6 +1,6 @@
 <%@ tag language="java" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="label" uri="/WEB-INF/tld/message.tld"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div  class="col-lg-12 col-sm-12 col-md-12 col-xs-12 padding0 boxshadow">

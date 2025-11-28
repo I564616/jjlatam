@@ -13,7 +13,6 @@ import de.hybris.platform.processengine.BusinessProcessService;
 import de.hybris.platform.servicelayer.model.ModelService;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.model.ContactUsProcessModel;
 
@@ -84,7 +83,6 @@ public class JnjContactUsMessagingEventListener extends AbstractSiteEventListene
 	 *           the modelService to set
 	 * 
 	 */
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;

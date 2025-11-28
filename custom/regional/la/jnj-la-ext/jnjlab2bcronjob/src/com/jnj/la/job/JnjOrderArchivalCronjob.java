@@ -16,11 +16,10 @@ import de.hybris.platform.cronjob.enums.CronJobStatus;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,7 +81,6 @@ public class JnjOrderArchivalCronjob extends AbstractJobPerformable<JnjLaOrderAr
     /**
      * @param jnjOrderArchivalFacade the JnjOrderArchivalFacade to set
      */
-    @Required
     public void setJnjOrderArchivalFacade(final JnjOrderArchivalFacade jnjOrderArchivalFacade) {
         this.jnjOrderArchivalFacade = jnjOrderArchivalFacade;
     }
@@ -91,7 +89,6 @@ public class JnjOrderArchivalCronjob extends AbstractJobPerformable<JnjLaOrderAr
         return configurationService;
     }
 
-    @Required
     public void setConfigurationService(final ConfigurationService configurationService) {
         this.configurationService = configurationService;
     }

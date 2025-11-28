@@ -19,7 +19,7 @@
 		<requires-extension name="addonsupport"/>
 		<requires-extension name="jnjlab2bcore"/>
 		<requires-extension name="jnjlab2bfacades"/>
-<!--		<requires-extension name="loginaddon"/>-->
+		<requires-extension name="loginaddon"/>
 		<requires-extension name="jnjlaawstokenservice"/>
 		<requires-extension name="jnjlaordertemplateaddon"/>
 		<coremodule generated="true" manager="com.jnj.b2b.la.loginaddon.jalo.JnjlaloginaddonManager" packageroot="com.jnj.b2b.la.loginaddon"/>

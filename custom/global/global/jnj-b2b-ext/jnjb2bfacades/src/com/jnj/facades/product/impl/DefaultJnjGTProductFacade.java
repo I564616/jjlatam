@@ -13,12 +13,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import com.jnj.facades.data.JnjProductCarouselData;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
@@ -218,7 +217,6 @@ public class DefaultJnjGTProductFacade extends DefaultJnjProductFacade implement
 	 * @param jnjGtProductDataConverter
 	 *           the jnj na product data converter
 	 */
-	@Required
 	public void setJnjGtProductDataConverter(final Converter<JnJProductModel, JnjGTProductData> jnjGtProductDataConverter)
 	{
 		this.jnjGtProductDataConverter = jnjGtProductDataConverter;
@@ -299,7 +297,6 @@ public class DefaultJnjGTProductFacade extends DefaultJnjProductFacade implement
 	 * @param jnjGTCpsiaDataConverter
 	 *           the jnj na cpsia data converter
 	 */
-	@Required
 	public void setJnjGTCpsiaDataConverter(final Converter<JnjGTProductCpscDetailModel, JnjGTCpsiaData> jnjGTCpsiaDataConverter)
 	{
 		this.jnjGTCpsiaDataConverter = jnjGTCpsiaDataConverter;
@@ -321,7 +318,6 @@ public class DefaultJnjGTProductFacade extends DefaultJnjProductFacade implement
 	 * @param jnjGTCpsiaCertificateDataConverter
 	 *           the jnjGTCpsiaCertificateDataConverter to set
 	 */
-	@Required
 	public void setJnjGTCpsiaCertificateDataConverter(
 			final Converter<JnjGTProductCpscDetailModel, JnjGTCpsiaData> jnjGTCpsiaCertificateDataConverter)
 	{
@@ -523,7 +519,6 @@ public class DefaultJnjGTProductFacade extends DefaultJnjProductFacade implement
 	public Converter<JnJProductModel, JnjProductCarouselData> getJnjGTProductCarouselDataConverter() {
 		return jnjGTProductCarouselDataConverter;
 	}
-	@Required
 	public void setJnjGTProductCarouselDataConverter(
 			Converter<JnJProductModel, JnjProductCarouselData> jnjGTProductCarouselDataConverter) {
 		this.jnjGTProductCarouselDataConverter = jnjGTProductCarouselDataConverter;

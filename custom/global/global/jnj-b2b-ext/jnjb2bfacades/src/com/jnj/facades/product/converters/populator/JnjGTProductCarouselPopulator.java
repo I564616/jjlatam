@@ -19,9 +19,8 @@ import de.hybris.platform.commercefacades.product.data.ProductData;
 import de.hybris.platform.converters.Populator;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.servicelayer.dto.converter.ConversionException;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.util.Assert;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author nsinha7
@@ -77,7 +76,6 @@ public class JnjGTProductCarouselPopulator implements Populator<JnJProductModel,
 		return jnJGTProductService;
 	}
 
-	@Required
 	public void setJnJGTProductService(JnJGTProductService jnJGTProductService) {
 		this.jnJGTProductService = jnJGTProductService;
 	}
@@ -87,7 +85,6 @@ public class JnjGTProductCarouselPopulator implements Populator<JnJProductModel,
 		return jnjGTB2BUnitFacade;
 	}
 
-	@Required
 	public void setJnjGTB2BUnitFacade(JnjGTB2BUnitFacade jnjGTB2BUnitFacade) {
 		this.jnjGTB2BUnitFacade = jnjGTB2BUnitFacade;
 	}
@@ -97,7 +94,6 @@ public class JnjGTProductCarouselPopulator implements Populator<JnJProductModel,
 		return productPricePopulator;
 	}
 
-	@Required
 	public void setProductPricePopulator(Populator<ProductModel, ProductData> productPricePopulator) {
 		this.productPricePopulator = productPricePopulator;
 	}

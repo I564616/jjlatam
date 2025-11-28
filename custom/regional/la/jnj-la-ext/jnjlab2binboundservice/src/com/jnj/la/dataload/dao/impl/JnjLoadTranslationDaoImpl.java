@@ -21,7 +21,6 @@ import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 import com.jnj.core.connector.JNJRSADBConnector;
@@ -67,7 +66,6 @@ public class JnjLoadTranslationDaoImpl implements JnjLoadTranslationDao
 		return rsaDBConnector;
 	}
 
-	@Required
 	public void setRsaDBConnector(final JNJRSADBConnector rsaDBConnector) {
 		this.rsaDBConnector = rsaDBConnector;
 	}
@@ -76,7 +74,6 @@ public class JnjLoadTranslationDaoImpl implements JnjLoadTranslationDao
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	}
@@ -85,7 +82,6 @@ public class JnjLoadTranslationDaoImpl implements JnjLoadTranslationDao
 		return jnjLaCronjobUtil;
 	}
 	
-	@Required
 	public void setJnjLaCronjobUtil(final JnJLaCronjobUtil jnjLaCronjobUtil) {
 		this.jnjLaCronjobUtil = jnjLaCronjobUtil;
 	}

@@ -12,9 +12,9 @@ import de.hybris.platform.jnjb2boutboundservice.constants.Jnjb2boutboundserviceC
 import de.hybris.platform.jnjb2boutboundservice.constants.Jnjb2boutboundserviceConstants.Logging;
 import de.hybris.platform.util.Config;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.Marshaller;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.Marshaller;
 
 import org.apache.commons.httpclient.Credentials;
 import org.apache.commons.httpclient.UsernamePasswordCredentials;

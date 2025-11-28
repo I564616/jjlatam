@@ -8,6 +8,6 @@ package com.jnj.restservice.logic.handler;
 import com.jnj.restservice.logic.Response;
 
 public interface IResponseHandler {
-    public <T> void handle(javax.ws.rs.core.Response rawResponse, Response<T> restResponse, Class<T> genericType);
-    public <T> boolean canHandle(javax.ws.rs.core.Response rawResponse, Response<T> restResponse);
+    public <T> void handle(jakarta.ws.rs.core.Response rawResponse, Response<T> restResponse, Class<T> genericType);
+    public <T> boolean canHandle(jakarta.ws.rs.core.Response rawResponse, Response<T> restResponse);
 }

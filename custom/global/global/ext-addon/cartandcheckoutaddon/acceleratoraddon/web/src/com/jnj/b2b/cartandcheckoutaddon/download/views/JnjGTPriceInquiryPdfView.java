@@ -11,8 +11,8 @@ import java.util.Map;
 
 import com.jnj.core.util.JnJCommonUtil;
 import com.jnj.exceptions.BusinessException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.view.document.AbstractPdfView;

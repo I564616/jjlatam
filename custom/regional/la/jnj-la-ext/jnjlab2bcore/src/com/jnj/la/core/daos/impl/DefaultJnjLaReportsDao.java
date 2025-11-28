@@ -13,9 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.collections4.CollectionUtils;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.dao.reports.impl.DefaultJnjGTReportsDao;
@@ -235,7 +234,6 @@ public class DefaultJnjLaReportsDao extends DefaultJnjGTReportsDao implements Jn
 		return jnjGetCurrentDefaultB2BUnitUtil;
 	}
 
-	@Required
 	public void setJnjGetCurrentDefaultB2BUnitUtil(
 			final JnjGetCurrentDefaultB2BUnitUtil jnjGetCurrentDefaultB2BUnitUtil) {
 		this.jnjGetCurrentDefaultB2BUnitUtil = jnjGetCurrentDefaultB2BUnitUtil;
@@ -245,7 +243,6 @@ public class DefaultJnjLaReportsDao extends DefaultJnjGTReportsDao implements Jn
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(
 			final ConfigurationService configurationService) {
 		this.configurationService = configurationService;

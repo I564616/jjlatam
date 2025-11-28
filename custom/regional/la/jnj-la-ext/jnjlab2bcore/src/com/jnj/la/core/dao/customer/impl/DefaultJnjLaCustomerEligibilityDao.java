@@ -22,7 +22,6 @@ import com.jnj.la.core.dao.customer.JnjLaCustomerEligiblityDao;
 import com.jnj.la.core.dto.JnjLaCustomerEligiblityDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.jnj.core.util.JnjGTCoreUtil;
 import org.apache.log4j.Logger;
@@ -57,7 +56,6 @@ public class DefaultJnjLaCustomerEligibilityDao extends DefaultJnjCustomerEligib
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	}

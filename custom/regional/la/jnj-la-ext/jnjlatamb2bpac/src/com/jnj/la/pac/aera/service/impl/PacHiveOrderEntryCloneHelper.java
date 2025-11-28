@@ -14,7 +14,6 @@ import de.hybris.platform.servicelayer.config.ConfigurationService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Required;
 import java.util.List;
 
 /**
@@ -85,12 +84,10 @@ public class PacHiveOrderEntryCloneHelper extends OrderEntryCloneHelper
 		}
 	}
 	
-	@Required
 	public void setJnjLaDeliveryDateUpdateService(final DefaultJnjLaDeliveryDateUpdateService jnjLaDeliveryDateUpdateService) {
 		this.jnjLaDeliveryDateUpdateService = jnjLaDeliveryDateUpdateService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	}

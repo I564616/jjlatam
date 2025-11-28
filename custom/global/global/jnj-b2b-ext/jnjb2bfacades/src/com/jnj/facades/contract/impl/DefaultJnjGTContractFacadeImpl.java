@@ -9,9 +9,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import org.apache.log4j.Logger;
-import org.fest.util.Collections;
+import org.assertj.core.util.IterableUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
@@ -35,7 +35,6 @@ import de.hybris.platform.order.CartService;
 import de.hybris.platform.servicelayer.dto.converter.Converter;
 import de.hybris.platform.servicelayer.search.SearchResult;
 import de.hybris.platform.util.Config;
-
 
 
 /**
@@ -303,7 +302,7 @@ public class DefaultJnjGTContractFacadeImpl implements JnjGTContractFacade
 			totalNoOfRecords = searchResult.getTotalCount();
 
 			activeContracts = searchResult.getResult();
-			if (!(Collections.isEmpty(activeContracts)))
+			if (!(IterableUtil.isNullOrEmpty(activeContracts)))
 			{
 				LOGGER.info(Jnjb2bCoreConstants.Logging.CONTRACTS_FACADE + Logging.HYPHEN + GET_ALL_ACTIVE_CONTRACTS + Logging.HYPHEN
 						+ "Contracts with status [Active] fetched from Hybris.");
@@ -409,7 +408,7 @@ public class DefaultJnjGTContractFacadeImpl implements JnjGTContractFacade
 			totalNoOfRecords = searchResult.getTotalCount();
 
 			activeContracts = searchResult.getResult();
-			if (!(Collections.isEmpty(activeContracts)))
+			if (!(IterableUtil.isNullOrEmpty(activeContracts)))
 			{
 				LOGGER.info(Jnjb2bCoreConstants.Logging.CONTRACTS_FACADE + Logging.HYPHEN + METHOD_NAME + Logging.HYPHEN
 						+ "Contracts with status [Inactive] fetched from Hybris.");
@@ -535,7 +534,7 @@ public class DefaultJnjGTContractFacadeImpl implements JnjGTContractFacade
 			totalNoOfRecords = searchResult.getTotalCount();
 
 			activeContracts = searchResult.getResult();
-			if (!(Collections.isEmpty(activeContracts)))
+			if (!(IterableUtil.isNullOrEmpty(activeContracts)))
 			{
 				LOGGER.info(Jnjb2bCoreConstants.Logging.CONTRACTS_FACADE + Logging.HYPHEN + GET_ALL_ACTIVE_CONTRACTS + Logging.HYPHEN
 						+ "Contracts with status [Active] fetched from Hybris.");

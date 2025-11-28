@@ -27,19 +27,21 @@ import java.util.List;
 import java.io.File;
 import java.io.IOException;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -64,7 +66,7 @@ import com.jnj.b2b.jnjglobalordertemplate.constants.Jnjb2bglobalordertemplateCon
 import com.jnj.b2b.jnjglobalordertemplate.controllers.Jnjb2bglobalordertemplateControllerConstants;
 import com.jnj.b2b.storefront.constants.WebConstants;
 import com.jnj.core.constants.Jnjb2bCoreConstants;
- 
+
 /**
  * @author balinder.singh
  * 
@@ -199,7 +201,7 @@ public class JnjGTOrderTemplatePageController extends com.jnj.b2b.storefront.con
 	 * This method is used for fetching the template page by setting essential data in the model
 	 * 
 	 */
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String getTemplatePage(@RequestParam(value = PAGE_COUNT, defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "showinGroups", required = false) String showinGroup,
@@ -242,7 +244,7 @@ public class JnjGTOrderTemplatePageController extends com.jnj.b2b.storefront.con
 		return getView(Jnjb2bglobalordertemplateControllerConstants.Views.Pages.Template.TemplatePage);
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@PostMapping
 	public String getTemplatePagePost(@RequestParam(value = PAGE_COUNT, defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "showinGroups", required = false) String showinGroup,
@@ -299,7 +301,7 @@ public class JnjGTOrderTemplatePageController extends com.jnj.b2b.storefront.con
 		return getView(Jnjb2bglobalordertemplateControllerConstants.Views.Pages.Template.TemplatePage);
 	}
 
-	@RequestMapping(value = "/downloadData", method = RequestMethod.POST)
+	@PostMapping("/downloadData")
 	public String downloadTemplatePDFPagePost(@RequestParam(value = PAGE_COUNT, defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "showinGroups", required = false) String showinGroup,
@@ -418,7 +420,7 @@ public class JnjGTOrderTemplatePageController extends com.jnj.b2b.storefront.con
 	}
 
 
-	@RequestMapping(value = "/templateDetail/editTemplate/" + TEMPLATE_DETAIL_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.POST)
+	@PostMapping("/templateDetail/editTemplate/" + TEMPLATE_DETAIL_CODE_PATH_VARIABLE_PATTERN)
 	public @ResponseBody
 	String editTemplateDetail(final JnjGTTemplateDetailsForm templateEditForm)
 	{
@@ -430,7 +432,7 @@ public class JnjGTOrderTemplatePageController extends com.jnj.b2b.storefront.con
 		return null;
 	}
 
-	@RequestMapping(value = "/templateDetail/deleteTemplate/" + TEMPLATE_DETAIL_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@GetMapping("/templateDetail/deleteTemplate/" + TEMPLATE_DETAIL_CODE_PATH_VARIABLE_PATTERN)
 	public String getDeleteTemplateConfirmation(final Model model, @PathVariable("templateCode") final String templateCode)
 			throws CMSItemNotFoundException
 	{
@@ -445,7 +447,7 @@ public class JnjGTOrderTemplatePageController extends com.jnj.b2b.storefront.con
 
 	}
 
-	@RequestMapping(value = "/templateDetail/deleteTemplate/" + TEMPLATE_DETAIL_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.POST)
+	@PostMapping("/templateDetail/deleteTemplate/" + TEMPLATE_DETAIL_CODE_PATH_VARIABLE_PATTERN)
 	public String deleteTemplateDetail(@PathVariable("templateCode") final String templateCode,
 			final RedirectAttributes redirectModel)
 	{
@@ -547,7 +549,7 @@ public class JnjGTOrderTemplatePageController extends com.jnj.b2b.storefront.con
 		return jnjGTTemplateDetailsForm;
 	}
 
-	@RequestMapping(value = "/templateDetail/download/" + TEMPLATE_DETAIL_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.POST)
+	@PostMapping("/templateDetail/download/" + TEMPLATE_DETAIL_CODE_PATH_VARIABLE_PATTERN)
 	public String downloadTemplateDetailData(@PathVariable("templateCode") final String templateCode,
 			@RequestParam(value = PAGE_COUNT, defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "All") final ShowMode showMode,
@@ -791,7 +793,7 @@ public class JnjGTOrderTemplatePageController extends com.jnj.b2b.storefront.con
 	}
 
 
-	@RequestMapping(value = "/productValidate", method = RequestMethod.POST)
+	@PostMapping("/productValidate")
  	@ResponseBody()
 	public String productValidate(final Model model, @RequestParam("productCode") final String productCode,@RequestParam("qty") final String qtyString,
 			final HttpSession session){

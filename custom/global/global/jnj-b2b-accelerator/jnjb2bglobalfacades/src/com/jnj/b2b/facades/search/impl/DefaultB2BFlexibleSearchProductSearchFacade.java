@@ -30,8 +30,6 @@ import com.jnj.b2b.facades.search.AbstractB2BProductSearchFacade;
 import java.util.Collection;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Required;
-
 
 /**
  * B2B facade used for offering FlexibleSearch capabilities to the AdvancedSearch feature in B2B.
@@ -61,14 +59,12 @@ public class DefaultB2BFlexibleSearchProductSearchFacade<ITEM extends ProductDat
 		return productSearchPageData;
 	}
 
-	@Required
 	public void setFlexibleSearchPopulator(
 			final ConfigurablePopulator<SearchPageData, ProductSearchPageData, ProductOption> flexibleSearchPopulator)
 	{
 		this.flexibleSearchPopulator = flexibleSearchPopulator;
 	}
 
-	@Required
 	public void setB2bFlexibleSearchProductSearchService(final B2BProductSearchService b2bFlexibleSearchProductSearchService)
 	{
 		this.b2bFlexibleSearchProductSearchService = b2bFlexibleSearchProductSearchService;

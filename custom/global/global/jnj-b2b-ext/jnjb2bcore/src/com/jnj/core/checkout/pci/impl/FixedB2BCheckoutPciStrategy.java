@@ -19,8 +19,6 @@ import com.jnj.core.checkout.pci.B2BCheckoutPciStrategy;
 
 import de.hybris.platform.acceleratorservices.enums.CheckoutPciOptionEnum;
 
-import org.springframework.beans.factory.annotation.Required;
-
 
 /**
  * Uses fixed {@link B2BCheckoutPciOptionEnum} as result. Used most likely on the end of checkout PCI option strategy
@@ -36,7 +34,6 @@ public class FixedB2BCheckoutPciStrategy implements B2BCheckoutPciStrategy
 		return this.subscriptionPciOption;
 	}
 
-	@Required
 	public void setSubscriptionPciOption(final CheckoutPciOptionEnum subscriptionPciOption)
 	{
 		this.subscriptionPciOption = subscriptionPciOption;

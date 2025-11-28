@@ -28,17 +28,16 @@ import de.hybris.platform.commerceservices.customer.DuplicateUidException;
 import de.hybris.platform.core.model.security.PrincipalGroupModel;
 import de.hybris.platform.core.model.user.UserGroupModel;
 import de.hybris.platform.servicelayer.user.UserService;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -266,7 +265,7 @@ public class JnjLatamAccountPageController extends JnjGTAccountPageController
 		return REDIRECT_PREFIX + "/my-account/personalInformation";
 	}
 
-    @RequestMapping(value = "/laEmailPreferences", method = RequestMethod.POST)
+    @PostMapping("/laEmailPreferences")
     @RequireHardLogIn
 	public String saveEmailPreferences(final Model model, @Valid final JnjLaProfileForm jnjLaProfileForm, RedirectAttributes redirectAttributes) {
 		String methodName = "saveEmailPreferences()";

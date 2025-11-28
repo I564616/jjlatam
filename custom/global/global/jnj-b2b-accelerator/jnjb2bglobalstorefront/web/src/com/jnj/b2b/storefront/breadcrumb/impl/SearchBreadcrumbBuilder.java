@@ -29,10 +29,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Required;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.StringEscapeUtils;
 
 
 /**
@@ -63,7 +62,7 @@ public class SearchBreadcrumbBuilder
 		if (categoryCode == null)
 		{
 			final Breadcrumb breadcrumb = new Breadcrumb("/search?text=" + getEncodedUrl(searchText),
-					StringEscapeUtils.escapeHtml(searchText), (emptyBreadcrumbs ? LAST_LINK_CLASS : ""));
+					StringEscapeUtils.escapeHtml4(searchText), (emptyBreadcrumbs ? LAST_LINK_CLASS : ""));
 			breadcrumbs.add(breadcrumb);
 		}
 		else
@@ -137,7 +136,6 @@ public class SearchBreadcrumbBuilder
 		return commerceCategoryService;
 	}
 
-	@Required
 	public void setCommerceCategoryService(final CommerceCategoryService commerceCategoryService)
 	{
 		this.commerceCategoryService = commerceCategoryService;
@@ -148,7 +146,6 @@ public class SearchBreadcrumbBuilder
 		return categoryModelUrlResolver;
 	}
 
-	@Required
 	public void setCategoryModelUrlResolver(final UrlResolver<CategoryModel> categoryModelUrlResolver)
 	{
 		this.categoryModelUrlResolver = categoryModelUrlResolver;

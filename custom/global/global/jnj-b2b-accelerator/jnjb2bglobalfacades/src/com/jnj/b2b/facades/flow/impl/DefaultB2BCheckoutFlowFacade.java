@@ -19,8 +19,6 @@ import de.hybris.platform.b2bacceleratorfacades.order.impl.DefaultCheckoutFacade
 import de.hybris.platform.b2bacceleratorservices.order.checkout.flow.B2BCheckoutFlowStrategy;
 import de.hybris.platform.b2bacceleratorservices.order.checkout.pci.B2BCheckoutPciStrategy;
 
-import org.springframework.beans.factory.annotation.Required;
-
 import com.jnj.b2b.facades.flow.B2BCheckoutFlowFacade;
 
 
@@ -54,7 +52,6 @@ public class DefaultB2BCheckoutFlowFacade extends DefaultCheckoutFacade implemen
 		return checkoutFlowStrategy;
 	}
 
-	@Required
 	public void setCheckoutFlowStrategy(final B2BCheckoutFlowStrategy strategy)
 	{
 		this.checkoutFlowStrategy = strategy;
@@ -65,7 +62,6 @@ public class DefaultB2BCheckoutFlowFacade extends DefaultCheckoutFacade implemen
 		return this.b2BCheckoutPciStrategy;
 	}
 
-	@Required
 	public void setCheckoutPciStrategy(final B2BCheckoutPciStrategy strategy)
 	{
 		this.b2BCheckoutPciStrategy = strategy;

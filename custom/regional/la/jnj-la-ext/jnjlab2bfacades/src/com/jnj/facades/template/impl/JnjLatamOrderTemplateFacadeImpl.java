@@ -30,7 +30,7 @@ import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

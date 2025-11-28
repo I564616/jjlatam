@@ -25,16 +25,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -130,7 +131,7 @@ public class JnjSellOutReportController extends AbstractSearchPageController {
 	 * @throws CMSItemNotFoundException
 	 */
 	@AuthorizedUserGroup(value = SELLOUT_GROUP)
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String getSellOutReportsData(@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "sort", required = false) final String receivedSortCode,
 			@RequestParam(value = "isNewRequest", defaultValue = "true") final String isNewRequest,
@@ -213,7 +214,7 @@ public class JnjSellOutReportController extends AbstractSearchPageController {
 	}
 
 	@AuthorizedUserGroup(value = SELLOUT_GROUP)
-	@RequestMapping(value = "/selloutUpload", method = RequestMethod.POST)
+	@PostMapping("/selloutUpload")
 	public String uploadSellOutReport(@ModelAttribute(value = "uploadForm") final FileUploadForm form,
 			@RequestParam(value = SCROLL_POS, required = false, defaultValue = "") final String scrollPos,
 			@RequestParam(value = CURRENT_PAGE_SIZE, defaultValue = "5") final int pageSize, final BindingResult result,
@@ -310,7 +311,7 @@ public class JnjSellOutReportController extends AbstractSearchPageController {
 		return REDIRECT_PREFIX + Jnjb2bCoreConstants.SellOutReports.REDIRECT_TO_MAIN + IS_NEW_REQUEST_FALSE;
 	}
 
-	@RequestMapping(value = "/loadMore", method = RequestMethod.POST)
+	@PostMapping("/loadMore")
 	public String loadMore(@ModelAttribute("sellOutReportsForm") final JnjSellOutReportsForm form,
 			@RequestParam(value = SCROLL_POS, required = false, defaultValue = "") final String scrollPos,
 			final Model model) throws CMSItemNotFoundException {
@@ -331,7 +332,7 @@ public class JnjSellOutReportController extends AbstractSearchPageController {
 		return REDIRECT_PREFIX + Jnjb2bCoreConstants.SellOutReports.REDIRECT_TO_MAIN + IS_NEW_REQUEST_FALSE;
 	}
 
-	@RequestMapping(value = "/showMore", method = RequestMethod.POST)
+	@PostMapping("/showMore")
 	public String sellOutReportsFormShowN(
 			@ModelAttribute("jnjSellOutReportsForm") final JnjSellOutReportsForm jnjSellOutReportsForm,
 			final Model model) throws CMSItemNotFoundException {
@@ -351,7 +352,7 @@ public class JnjSellOutReportController extends AbstractSearchPageController {
 		return REDIRECT_PREFIX + Jnjb2bCoreConstants.SellOutReports.REDIRECT_TO_MAIN + IS_NEW_REQUEST_FALSE;
 	}
 
-	@RequestMapping(value = "/sort", method = RequestMethod.POST)
+	@PostMapping("/sort")
 	public String sortSellOutReportsData(@ModelAttribute("sellOutReportsForm") final JnjSellOutReportsForm form,
 			final Model model) throws CMSItemNotFoundException {
 		final String methodName = "sortSellOutReportsData()";

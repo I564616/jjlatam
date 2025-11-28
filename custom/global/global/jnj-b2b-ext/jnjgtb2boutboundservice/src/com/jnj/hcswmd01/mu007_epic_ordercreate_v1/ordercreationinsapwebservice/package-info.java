@@ -5,5 +5,5 @@
 // Generated on: 2014.07.18 at 12:46:33 PM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_OrderCreate_v1/orderCreationInSAPWebservice")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_OrderCreate_v1/orderCreationInSAPWebservice")
 package com.jnj.hcswmd01.mu007_epic_ordercreate_v1.ordercreationinsapwebservice;

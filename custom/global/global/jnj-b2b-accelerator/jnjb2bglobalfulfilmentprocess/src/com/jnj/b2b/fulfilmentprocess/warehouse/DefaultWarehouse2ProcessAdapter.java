@@ -24,8 +24,6 @@ import com.jnj.b2b.fulfilmentprocess.constants.Jnjb2bglobalFulfilmentProcessCons
 
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Required;
-
 
 public class DefaultWarehouse2ProcessAdapter implements Warehouse2ProcessAdapter
 {
@@ -56,7 +54,6 @@ public class DefaultWarehouse2ProcessAdapter implements Warehouse2ProcessAdapter
 		return statusMap;
 	}
 
-	@Required
 	public void setStatusMap(final Map<WarehouseConsignmentStatus, WarehouseConsignmentState> statusMap)
 	{
 		this.statusMap = statusMap;
@@ -67,7 +64,6 @@ public class DefaultWarehouse2ProcessAdapter implements Warehouse2ProcessAdapter
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
@@ -78,7 +74,6 @@ public class DefaultWarehouse2ProcessAdapter implements Warehouse2ProcessAdapter
 		return businessProcessService;
 	}
 
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;

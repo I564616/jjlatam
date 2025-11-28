@@ -6,9 +6,9 @@ import de.hybris.platform.servicelayer.dto.converter.ConversionException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jnj.core.model.JnJProductModel;

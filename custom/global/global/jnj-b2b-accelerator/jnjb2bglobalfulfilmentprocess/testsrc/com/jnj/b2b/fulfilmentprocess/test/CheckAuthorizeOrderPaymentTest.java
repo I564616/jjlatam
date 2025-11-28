@@ -27,7 +27,7 @@ import com.jnj.b2b.fulfilmentprocess.actions.order.CheckAuthorizeOrderPaymentAct
 
 import java.util.Arrays;
 
-import org.fest.assertions.Assertions;
+import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

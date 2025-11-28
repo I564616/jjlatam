@@ -21,7 +21,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.dto.JnjContactUsDTO;
@@ -187,7 +186,6 @@ public class DefaultJnjContactUsService implements JnjContactUsService
 	 * @param eventService
 	 *           the eventService to set
 	 */
-	@Required
 	public void setEventService(final EventService eventService)
 	{
 		this.eventService = eventService;
@@ -197,7 +195,6 @@ public class DefaultJnjContactUsService implements JnjContactUsService
 	 * @param baseStoreService
 	 *           the baseStoreService to set
 	 */
-	@Required
 	public void setBaseStoreService(final BaseStoreService baseStoreService)
 	{
 		this.baseStoreService = baseStoreService;
@@ -207,7 +204,6 @@ public class DefaultJnjContactUsService implements JnjContactUsService
 	 * @param baseSiteService
 	 *           the baseSiteService to set
 	 */
-	@Required
 	public void setBaseSiteService(final BaseSiteService baseSiteService)
 	{
 		this.baseSiteService = baseSiteService;
@@ -217,7 +213,6 @@ public class DefaultJnjContactUsService implements JnjContactUsService
 	 * @param commonI18NService
 	 *           the commonI18NService to set
 	 */
-	@Required
 	public void setCommonI18NService(final CommonI18NService commonI18NService)
 	{
 		this.commonI18NService = commonI18NService;
@@ -227,7 +222,6 @@ public class DefaultJnjContactUsService implements JnjContactUsService
 	 * @param userService
 	 *           the userService to set
 	 */
-	@Required
 	public void setUserService(final UserService userService)
 	{
 		this.userService = userService;

@@ -6,7 +6,7 @@
 <%@ attribute name="icon" required="false" type="java.lang.String"%>
 <%@ attribute name="panelClass" required="false" type="java.lang.String"%>
 <%@ attribute name="messagearguments" required="false" type="java.lang.String"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 
 <div class="panel-group hidden-xs hidden-sm"
 	style="margin: 5px 0 20px 0;">

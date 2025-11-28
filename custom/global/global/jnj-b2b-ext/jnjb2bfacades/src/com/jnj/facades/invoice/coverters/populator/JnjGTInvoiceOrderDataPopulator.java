@@ -16,10 +16,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.lang.StringUtils;
-import org.fest.util.Collections;
+import org.apache.commons.lang3.StringUtils;
+import org.assertj.core.util.IterableUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 
@@ -171,7 +171,7 @@ public class JnjGTInvoiceOrderDataPopulator implements Populator<JnjGTInvoiceMod
 	{
 		String billOfLading = null;
 		final Set<JnjGTShippingDetailsModel> shippingDetails = order.getShippingDetails();
-		if (!StringUtils.isEmpty(deliveryNum) && !Collections.isEmpty(shippingDetails))
+		if (!StringUtils.isEmpty(deliveryNum) && !IterableUtil.isNullOrEmpty(shippingDetails))
 		{
 			for (final JnjGTShippingDetailsModel shippingDetail : shippingDetails)
 			{

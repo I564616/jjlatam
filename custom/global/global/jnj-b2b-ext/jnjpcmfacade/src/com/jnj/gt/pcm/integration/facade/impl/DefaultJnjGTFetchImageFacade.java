@@ -35,12 +35,11 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -58,7 +57,7 @@ import com.jnj.gt.pcm.integration.data.JnjGTProductImageResponse;
 import com.jnj.gt.pcm.integration.facade.JnjGTFetchImageFacade;
 import com.jnj.gt.pcm.integration.util.JnjPCMCommonFacadeUtil;
 import com.jnj.gt.service.product.JnjGTProductFeedService;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 
 /**
  * This class contains implementation of pulling image data from P360 and saving it in the product model
@@ -580,7 +579,6 @@ public class DefaultJnjGTFetchImageFacade implements JnjGTFetchImageFacade
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
@@ -591,7 +589,6 @@ public class DefaultJnjGTFetchImageFacade implements JnjGTFetchImageFacade
 		return catalogVersionService;
 	}
 
-	@Required
 	public void setCatalogVersionService(final CatalogVersionService catalogVersionService)
 	{
 		this.catalogVersionService = catalogVersionService;
@@ -602,7 +599,6 @@ public class DefaultJnjGTFetchImageFacade implements JnjGTFetchImageFacade
 		return flexibleSearchService;
 	}
 
-	@Required
 	public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService)
 	{
 		this.flexibleSearchService = flexibleSearchService;
@@ -613,7 +609,6 @@ public class DefaultJnjGTFetchImageFacade implements JnjGTFetchImageFacade
 		return jnjPCMCommonFacadeUtil;
 	}
 
-	@Required
 	public void setJnjPCMCommonFacadeUtil(final JnjPCMCommonFacadeUtil jnjPCMCommonFacadeUtil)
 	{
 		this.jnjPCMCommonFacadeUtil = jnjPCMCommonFacadeUtil;
@@ -624,7 +619,6 @@ public class DefaultJnjGTFetchImageFacade implements JnjGTFetchImageFacade
 		return jnjGTProductFeedService;
 	}
 
-	@Required
 	public void setJnjGTProductFeedService(final JnjGTProductFeedService jnjGTProductFeedService)
 	{
 		this.jnjGTProductFeedService = jnjGTProductFeedService;
@@ -635,7 +629,6 @@ public class DefaultJnjGTFetchImageFacade implements JnjGTFetchImageFacade
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService)
 	{
 		this.configurationService = configurationService;
@@ -646,7 +639,6 @@ public class DefaultJnjGTFetchImageFacade implements JnjGTFetchImageFacade
 		return mediaService;
 	}
 
-	@Required
 	public void setMediaService(final MediaService mediaService)
 	{
 		this.mediaService = mediaService;

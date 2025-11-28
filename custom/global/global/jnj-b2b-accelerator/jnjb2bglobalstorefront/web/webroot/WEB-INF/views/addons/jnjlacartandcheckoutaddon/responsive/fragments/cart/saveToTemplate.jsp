@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <c:url value="/my-account/template" var="templatePageURL" />
 <div class='lightboxtemplate lightboxwidthsize1 sam saveorderastemplate'>
 	<h2>Save order as template</h2>

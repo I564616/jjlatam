@@ -15,7 +15,7 @@ import de.hybris.platform.commercefacades.user.data.AddressData;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
 

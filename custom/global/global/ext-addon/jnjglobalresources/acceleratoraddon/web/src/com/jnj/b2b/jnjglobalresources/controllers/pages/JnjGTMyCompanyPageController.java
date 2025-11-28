@@ -45,12 +45,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -59,10 +59,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
@@ -379,7 +378,7 @@ public class JnjGTMyCompanyPageController extends AbstractSearchPageController
 		return companyB2BCommerceFacade.getCurrentStore();
 	}
 
-	@RequestMapping(value = "/my-company", method = RequestMethod.GET)
+	@GetMapping("/my-company")
 	@RequireHardLogIn
 	public String myCompany(final Model model) throws CMSItemNotFoundException
 	{
@@ -390,7 +389,7 @@ public class JnjGTMyCompanyPageController extends AbstractSearchPageController
 		return getView(JnjglobalresourcesControllerConstants.Views.Pages.MyCompany.MyCompanyHomePage);
 	}
 	
-	@RequestMapping(value = "/my-company/organization-management", method = RequestMethod.GET)
+	@GetMapping("/my-company/organization-management")
 	@RequireHardLogIn
 	public String organizationManagement(final Model model) throws CMSItemNotFoundException
 	{

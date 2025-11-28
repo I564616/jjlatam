@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.jnj.gt.constants.Jnjgtb2binboundserviceConstants;
 import com.jnj.gt.dao.user.JnjGTUserFeedDao;

@@ -1,8 +1,8 @@
 <%@ tag language="java" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="label" uri="/WEB-INF/tld/message.tld"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 headertxt"><spring:message code="product.detail.specification.specification"/></div>
 <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 evencolor">
 	<div class="col-lg-3 col-md-3 col-sm-9 col-xs-12 boldtxt"><spring:message code="product.detail.specification.franchise"/></div>

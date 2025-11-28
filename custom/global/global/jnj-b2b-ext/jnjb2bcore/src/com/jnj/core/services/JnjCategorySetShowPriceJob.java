@@ -18,7 +18,6 @@ import de.hybris.platform.servicelayer.cronjob.PerformResult;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.exceptions.BusinessException;
 
@@ -87,7 +86,6 @@ public class JnjCategorySetShowPriceJob extends AbstractJobPerformable<CronJobMo
 		}
 	}
 
-	@Required
 	public void setCommerceCategoryService(final CommerceCategoryService commerceCategoryService)
 	{
 		this.commerceCategoryService = commerceCategoryService;

@@ -109,9 +109,9 @@ import de.hybris.platform.servicelayer.user.UserService;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.util.Config;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -124,9 +124,9 @@ import org.springframework.ui.Model;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -151,7 +151,7 @@ import static com.jnj.core.constants.Jnjb2bCoreConstants.Cart.INVALID_PRODUCTCOD
 import static com.jnj.la.core.constants.Jnjlab2bcoreConstants.MDD_SECTOR;
 
 import org.apache.log4j.Logger;
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 
 public class JnjLatamCartFacadeImpl extends DefaultCartFacade implements JnjLatamCartFacade
 {

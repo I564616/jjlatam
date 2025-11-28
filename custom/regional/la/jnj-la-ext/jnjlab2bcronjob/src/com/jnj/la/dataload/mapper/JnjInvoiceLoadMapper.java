@@ -20,10 +20,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.dto.JnJInvoiceDTO;
@@ -468,7 +467,6 @@ public class JnjInvoiceLoadMapper
 		return b2bUnitService;
 	}
 
-	@Required
 	public void setB2bUnitService(final B2BUnitService<CompanyModel, UserModel> b2bUnitService)
 	{
 		this.b2bUnitService = b2bUnitService;
@@ -479,7 +477,6 @@ public class JnjInvoiceLoadMapper
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;

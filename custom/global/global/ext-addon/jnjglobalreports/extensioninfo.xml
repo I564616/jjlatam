@@ -18,9 +18,8 @@
 		<!-- you should add all required extensions to this list, except platform extensions which are automatically required -->         
 		<!--<requires-extension name="hmc"/>-->
 		<requires-extension name="addonsupport"/>
-<!--		<requires-extension name="jnjb2bcore"/>-->
-        <requires-extension name="jnjb2bglobalstorefront"/>
-
+		<requires-extension name="jnjb2bcore"/>
+        <requires-extension name="jnjglobalprofile"/>
 		<coremodule generated="true" manager="com.jnj.b2b.jnjglobalreports.jalo.JnjglobalreportsManager" packageroot="com.jnj.b2b.jnjglobalreports"/>
 
 		<hmcmodule extensionclassname="com.jnj.b2b.jnjglobalreports.hmc.JnjglobalreportsHMCExtension"/>

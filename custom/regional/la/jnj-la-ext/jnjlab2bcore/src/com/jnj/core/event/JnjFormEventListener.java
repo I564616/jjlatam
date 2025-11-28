@@ -13,7 +13,6 @@ import de.hybris.platform.processengine.BusinessProcessService;
 import de.hybris.platform.servicelayer.model.ModelService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.HashMap;
 import java.util.List;
@@ -81,7 +80,6 @@ public class JnjFormEventListener extends AbstractSiteEventListener<JnjFormEmail
 		return businessProcessService;
 	}
 
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;
@@ -92,7 +90,6 @@ public class JnjFormEventListener extends AbstractSiteEventListener<JnjFormEmail
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;

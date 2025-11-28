@@ -1,7 +1,7 @@
 <%@ tag trimDirectiveWhitespaces="true"%>
 <%@ attribute name="orderData" required="true"
 	type="com.jnj.facades.data.JnjGTCutReportOrderData"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/addons/loginaddon/desktop/template"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="nav" tagdir="/WEB-INF/tags/addons/jnjb2bglobalordertemplate/desktop/nav"%>
@@ -19,7 +19,7 @@
 <%@ taglib prefix="common" tagdir="/WEB-INF/tags/desktop/common"%>
 <%@ taglib prefix="footer" tagdir="/WEB-INF/tags/desktop/common/footer"%>
 <%@ taglib prefix="report" tagdir="/WEB-INF/tags/addons/jnjglobalreports/reports/cutReport" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 
 <!--  AAOL-6138 changes start -->
 <c:set var="dateformat"> <spring:message code='date.dateformat'/></c:set>

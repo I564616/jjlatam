@@ -17,14 +17,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 
@@ -50,7 +51,7 @@ public class JnjLaClsPageController extends AbstractJnjLaBasePageController {
     @Autowired
     private JnJUploadedInvoiceDateFacade jnjUploadedInvoiceDateFacade;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public String loadPage(final Model model) {
         preparePage(model, CMS_PAGE, Jnjlab2bcoreConstants.CLS_PAGE_HEADING);
         model.addAttribute(PAGE_HEADER, jnjCommonFacadeUtil.getMessageFromImpex(Jnjlab2bcoreConstants.CLS_UPLOAD_DELIVERY_DATES_HEADING));
@@ -58,7 +59,7 @@ public class JnjLaClsPageController extends AbstractJnjLaBasePageController {
         return CLS_PAGE;
     }
 
-    @RequestMapping(value = "/delivery-dates-files", method = RequestMethod.POST)
+    @PostMapping("/delivery-dates-files")
     public String uploadFile(final RedirectAttributes model, @RequestParam(value = "deliveryDatesFile") final MultipartFile deliveryDatesFile) {
         try {
             jnjUploadedInvoiceDateFacade.uploadFile(deliveryDatesFile, getCurrentUser());
@@ -69,7 +70,7 @@ public class JnjLaClsPageController extends AbstractJnjLaBasePageController {
         return redirect(CLS_PATH);
     }
 
-    @RequestMapping(value = "/delivery-dates-files/{id}", method = RequestMethod.GET)
+    @GetMapping("/delivery-dates-files/{id}")
     public void downloadOriginalFile(final Model model, @PathVariable("id") final String id, final HttpServletResponse response) {
         try {
             File file = jnjUploadedInvoiceDateFacade.getUploadedFile(id);
@@ -79,7 +80,7 @@ public class JnjLaClsPageController extends AbstractJnjLaBasePageController {
         }
     }
 
-    @RequestMapping(value = "/delivery-dates-files/{id}/errors", method = RequestMethod.GET)
+    @GetMapping("/delivery-dates-files/{id}/errors")
     public void downloadErrorFile(final Model model, @PathVariable("id") final String id, final HttpServletResponse response) {
         try {
             File file = jnjUploadedInvoiceDateFacade.getErrorFile(id);

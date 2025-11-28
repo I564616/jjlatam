@@ -24,10 +24,9 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.JnJ.common.logging.MessageLoggerHelper;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 import com.jnj.core.dao.JnJCustomerDataDao;
@@ -91,7 +90,6 @@ public class DefaultJnJCustomerDataService implements JnJCustomerDataService
 		return jnJCustomerDataDao;
 	}
 
-	@Required
 	public void setJnJCustomerDataDao(final JnJCustomerDataDao jnJCustomerDataDao)
 	{
 		this.jnJCustomerDataDao = jnJCustomerDataDao;

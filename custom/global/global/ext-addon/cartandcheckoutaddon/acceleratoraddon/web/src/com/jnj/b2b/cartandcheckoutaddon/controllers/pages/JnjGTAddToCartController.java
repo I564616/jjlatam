@@ -31,11 +31,11 @@ import java.util.Map;
 
 import com.jnj.facades.cart.JnjGTCartFacade;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -44,9 +44,10 @@ import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -154,7 +155,7 @@ public class JnjGTAddToCartController extends AddToCartController
 		return catalogVersionService;
 	}
 
-	@RequestMapping(value = "/cart/add", method = RequestMethod.POST)
+	@PostMapping("/cart/add")
 	public String addToCart(final JnjAddToCartForm addToCartForm, final Model model)
 	{
 		validateParameterNotNull(addToCartForm, "Jnj Add to Cart form is Null.");
@@ -198,7 +199,7 @@ public class JnjGTAddToCartController extends AddToCartController
 	/*
 	 * This method is called when products are added to cart from a Template.
 	 */
-	@RequestMapping(value = "/cart/addTemplateToCart", method = RequestMethod.POST)
+	@PostMapping("/cart/addTemplateToCart")
 	public String addToCartTemplate(@RequestParam("prodIds") final String prodIds, final Model model)
 	{
 //		validateParameterNotNull(addToCartForm, "Jnj Add to Cart form is Null.");
@@ -367,7 +368,7 @@ public class JnjGTAddToCartController extends AddToCartController
 		return REDIRECT_PREFIX + "/cart";
 	}
 
-	@RequestMapping(value = "cart/update", method = RequestMethod.POST)
+	@PostMapping("cart/update")
 	@RequireHardLogIn
 	public String updateCartQuantities(@RequestParam("entryNumber") final long entryNumber, final Model model,
 			@Valid final UpdateQuantityForm form, final BindingResult bindingResult, final RedirectAttributes redirectModel)
@@ -541,7 +542,7 @@ public class JnjGTAddToCartController extends AddToCartController
 	 * @return
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "cart/updateAll", method = RequestMethod.POST)
+	@PostMapping("cart/updateAll")
 	public String updateMultipleCartQuantities(final RedirectAttributes redirectModel, final UpdateMultipleEntriesInCartForm form)
 			throws CMSItemNotFoundException
 	{
@@ -604,7 +605,7 @@ public class JnjGTAddToCartController extends AddToCartController
 		return REDIRECT_PREFIX + "/cart";
 	}
 
-	@RequestMapping(value = "/cart/addToCartFromQuote", method = RequestMethod.GET )
+	@GetMapping("/cart/addToCartFromQuote")
 	public String addToCartFromQuote(@RequestParam("orderNumber") final String orderNumber, final Model model)
 	{
 		
@@ -635,7 +636,7 @@ public class JnjGTAddToCartController extends AddToCartController
 	 * @throws CMSItemNotFoundException 
 	 */ 
 	@ResponseBody
-	@RequestMapping(value = "cart/removeCartItem", method = RequestMethod.GET, produces = "application/json")
+	@GetMapping(value = "cart/removeCartItem", produces = "application/json")
 	public String removeCartItem(final Model model,final HttpServletRequest request,
 			@RequestParam(value = "entryQuantityList", required = true) String strEntryQuantityList) throws CMSItemNotFoundException {
 		 
@@ -699,7 +700,7 @@ public class JnjGTAddToCartController extends AddToCartController
 		return returnMessage.toString();
 	}
 
-	@RequestMapping(value = "cart/updateProductLineItem", method = RequestMethod.POST, produces = "application/json")
+	@PostMapping(value = "cart/updateProductLineItem", produces = "application/json")
 	public @ResponseBody ProposedLineItemForm updateProductLineItem(final Model model, final HttpServletRequest request, 
 			@RequestBody ProposedLineItemForm proposedLineItemForm ) throws CMSItemNotFoundException {
 		LOG.info("updateProductLineItem method invoked");
@@ -727,7 +728,7 @@ public class JnjGTAddToCartController extends AddToCartController
 		
 	//AAOL-2405 end
 
-@RequestMapping(value = "/cart/consigmentReturnAddToCartUrl", method = RequestMethod.POST, produces = "application/json")
+@PostMapping(value = "/cart/consigmentReturnAddToCartUrl", produces = "application/json")
 public @ResponseBody ConsignmentReturnForm updateCartConsignmentReturn(final Model model, final HttpServletRequest request, 
 		@RequestBody ConsignmentReturnForm consignmentReturnForm ) throws CMSItemNotFoundException {
 	
@@ -745,7 +746,7 @@ public @ResponseBody ConsignmentReturnForm updateCartConsignmentReturn(final Mod
 	//return REDIRECT_PREFIX + "/cart";
 }
 
-@RequestMapping(value = "/cart/consigmentFillUpAddToCartUrl", method = RequestMethod.POST, produces = "application/json")
+@PostMapping(value = "/cart/consigmentFillUpAddToCartUrl", produces = "application/json")
 public @ResponseBody ConsignmentFillupForm updateCartConsignmentFillUp(final Model model, final HttpServletRequest request, 
 		@RequestBody ConsignmentFillupForm consignmentFillupForm ) throws CMSItemNotFoundException {
 
@@ -765,7 +766,7 @@ public @ResponseBody ConsignmentFillupForm updateCartConsignmentFillUp(final Mod
 	
 	}
 
-@RequestMapping(value = "/cart/consigmentChargeAddToCartUrl", method = RequestMethod.POST, produces = "application/json")
+@PostMapping(value = "/cart/consigmentChargeAddToCartUrl", produces = "application/json")
 public @ResponseBody ConsignmentChargeForm updateCartConsignmentCharge(final Model model, final HttpServletRequest request, 
 		@RequestBody ConsignmentChargeForm consignmentChargeForm) throws CMSItemNotFoundException {
 		final JnjGTCartData cartData =(JnjGTCartData) jnjGTCartFacade.getSessionCart();
@@ -802,7 +803,7 @@ private boolean updateBatchDetails(List<BatchDetailsForm> batchDetails) {
 	return isSuccess;
 }
 
-	@RequestMapping(value = "/cart/exportToExcel", method = RequestMethod.GET)
+	@GetMapping("/cart/exportToExcel")
 	public String consigmentFillUpExportToExcel(final ConsignmentFillupForm form, final RedirectAttributes redirectModel,final Model model ,  final HttpServletRequest request) throws CMSItemNotFoundException
 	{
 		final JnjGTCartData cartData =(JnjGTCartData) jnjGTCartFacade.getSessionCart();
@@ -810,7 +811,7 @@ private boolean updateBatchDetails(List<BatchDetailsForm> batchDetails) {
 		return  RESULT_EXCEL;
 	}
 	
-	@RequestMapping(value = "/cart/isObsoleteProduct", method = RequestMethod.GET, produces = "application/json")
+	@GetMapping(value = "/cart/isObsoleteProduct", produces = "application/json")
 	public @ResponseBody JnjGTCommonFormIOData  isObsoleteProduct(JnjGTCommonFormIOData jnjGTCommonFormIOData, final Model model, 
 			@RequestParam(value = "selectedProducts", required = false) String[] selectedProductIds, final HttpServletRequest request) throws CMSItemNotFoundException {
 		JnjGTCoreUtil.logInfoMessage("isObsoleteProduct", "isObsoleteProduct", Logging.BEGIN_OF_METHOD, JnjGTAddToCartController.class);
@@ -839,7 +840,7 @@ private boolean updateBatchDetails(List<BatchDetailsForm> batchDetails) {
 	}	*/ 
 	
 	
-	@RequestMapping(value = "/cart/checkReplacementProduct", method = RequestMethod.GET, produces = "application/json")
+	@GetMapping(value = "/cart/checkReplacementProduct", produces = "application/json")
 	public String checkReplacementProduct(final Model model, final HttpServletRequest request,
 			@RequestParam(value = "obsoleteProductList", required = true) String strObsoleteProductList) throws CMSItemNotFoundException {
 		 
@@ -866,7 +867,7 @@ private boolean updateBatchDetails(List<BatchDetailsForm> batchDetails) {
 	      return getView(CartandcheckoutaddonControllerConstants.Views.Pages.Cart.ReplacementItemPopups);
 	}
 	 
-	 @RequestMapping(value = "/cart/checkReplacementProductWithQty", method = RequestMethod.GET, produces = "application/json")
+	 @GetMapping(value = "/cart/checkReplacementProductWithQty", produces = "application/json")
 		public String checkReplacementProductWithQty(final Model model, final HttpServletRequest request,
 				@RequestParam(value = "obsoleteProductList", required = true) String strObsoleteProductList) throws CMSItemNotFoundException {
 			 

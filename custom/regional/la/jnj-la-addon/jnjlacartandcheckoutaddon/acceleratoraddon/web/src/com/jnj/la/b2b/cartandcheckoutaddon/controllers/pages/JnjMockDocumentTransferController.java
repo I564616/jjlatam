@@ -12,9 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
@@ -25,7 +26,6 @@ import com.jnj.core.util.JnjFileUploadToSharedFolderUtil;
 import com.jnj.core.util.JnjSftpFileTransferUtil;
 import com.jnj.la.b2b.cartandcheckoutaddon.forms.JnjMockDocumentTransferForm;
 import com.jnj.la.core.dto.JnjSellOutReportData;
-
 
 
 /**
@@ -47,13 +47,13 @@ public class JnjMockDocumentTransferController extends AbstractPageController
 	JnjFileUploadToSharedFolderUtil jnjFileUploadToSharedFolderUtil;
 
 
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String loadMockOrderSimulatePage(final Model model) throws CMSItemNotFoundException
 	{
 		return "pages/test/mockdocumenttransfer";
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@PostMapping
 	public String processFormOrderSimulate(@ModelAttribute final JnjMockDocumentTransferForm mockForm, final Model model)
 			throws CMSItemNotFoundException
 	{

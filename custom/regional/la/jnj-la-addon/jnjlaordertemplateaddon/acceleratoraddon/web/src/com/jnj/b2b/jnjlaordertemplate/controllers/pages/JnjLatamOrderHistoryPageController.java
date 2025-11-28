@@ -62,22 +62,22 @@ import de.hybris.platform.servicelayer.media.MediaService;
 import de.hybris.platform.servicelayer.session.SessionService;
 import de.hybris.platform.servicelayer.user.UserService;
 import de.hybris.platform.util.Config;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.jnj.facades.services.JnjLatamCommonService;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -681,7 +681,7 @@ public class JnjLatamOrderHistoryPageController extends JnjGTOrderHistoryPageCon
 		return orderTypes;
 	}
 
-	@RequestMapping(value = "/laAddToCart", method = RequestMethod.GET)
+	@GetMapping("/laAddToCart")
 	public String addToCart(@RequestParam("orderCode") final String orderCode, final Model model, final RedirectAttributes redirectAttrs)
 			throws CMSItemNotFoundException {
 
@@ -949,7 +949,7 @@ public class JnjLatamOrderHistoryPageController extends JnjGTOrderHistoryPageCon
 		return getView(Jnjb2bglobalordertemplateControllerConstants.Views.Fragments.Template.OrderHistoryPopups);
 	}
 
-    @RequestMapping(value = "/nfeFile", method = RequestMethod.GET)
+    @GetMapping("/nfeFile")
     public String nfeFile(
     		@RequestParam(value = "invoiceNumber") final String invoiceNumber,
             @RequestParam(value = "orderCode") final String orderCode,

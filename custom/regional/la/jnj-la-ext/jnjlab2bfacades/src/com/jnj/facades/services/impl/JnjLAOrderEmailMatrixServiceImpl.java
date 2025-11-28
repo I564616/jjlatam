@@ -12,7 +12,6 @@ import de.hybris.platform.core.model.order.AbstractOrderEntryModel;
 import de.hybris.platform.core.model.order.OrderModel;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 public class JnjLAOrderEmailMatrixServiceImpl implements JnjLAOrderEmailMatrixService {
 
@@ -41,7 +40,6 @@ public class JnjLAOrderEmailMatrixServiceImpl implements JnjLAOrderEmailMatrixSe
         return result;
     }
 
-    @Required
     public void setJnjLAEmailMatrixDao(final JnjLAEmailMatrixDao jnjLAEmailMatrixDao) {
         this.jnjLAEmailMatrixDao = jnjLAEmailMatrixDao;
     }

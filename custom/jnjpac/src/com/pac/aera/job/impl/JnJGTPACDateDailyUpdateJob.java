@@ -29,12 +29,11 @@ import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
 import de.hybris.platform.util.Config;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -42,7 +41,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -99,7 +98,6 @@ public class JnJGTPACDateDailyUpdateJob extends AbstractJobPerformable<CronJobMo
 	 * @param jnjDeliveryDateUpdateService
 	 *           the jnjDeliveryDateUpdateService to set
 	 */
-	@Required
 	public void setJnjDeliveryDateUpdateService(final JnjDeliveryDateUpdateService jnjDeliveryDateUpdateService)
 	{
 		this.jnjDeliveryDateUpdateService = jnjDeliveryDateUpdateService;
@@ -301,7 +299,6 @@ public class JnJGTPACDateDailyUpdateJob extends AbstractJobPerformable<CronJobMo
 		return fileList;
 	}
 
-	@Required
 	public void setConfigurationService(ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	}
@@ -311,7 +308,6 @@ public class JnJGTPACDateDailyUpdateJob extends AbstractJobPerformable<CronJobMo
 		return jnjGTPacHiveConfigurationService;
 	}
 
-	@Required
 	public void setJnjGTPacHiveConfigurationService(JnjGTPacHiveConfigurationService jnjGTPacHiveConfigurationService)
 	{
 		this.jnjGTPacHiveConfigurationService = jnjGTPacHiveConfigurationService;

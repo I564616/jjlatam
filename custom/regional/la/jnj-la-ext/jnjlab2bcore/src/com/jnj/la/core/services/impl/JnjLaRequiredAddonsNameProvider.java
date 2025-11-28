@@ -2,7 +2,7 @@ package com.jnj.la.core.services.impl;
 
 import de.hybris.bootstrap.config.ExtensionInfo;
 import de.hybris.platform.acceleratorservices.addonsupport.RequiredAddOnsNameProvider;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import java.util.*;

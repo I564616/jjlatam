@@ -16,14 +16,13 @@ package com.jnj.b2b.storefront.controllers.misc;
 import de.hybris.platform.servicelayer.i18n.I18NService;
 import com.jnj.b2b.storefront.controllers.AbstractController;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.context.ThemeSource;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ThemeResolver;
 
 
@@ -65,7 +64,7 @@ public class FavIconController extends AbstractController
 	private I18NService i18nService;
 
 
-	@RequestMapping(value = "/favicon.ico", method = RequestMethod.GET)
+	@GetMapping("/favicon.ico")
 	public String getFavIcon(final HttpServletRequest request)
 	{
 		final String themeName = themeResolver.resolveThemeName(request);

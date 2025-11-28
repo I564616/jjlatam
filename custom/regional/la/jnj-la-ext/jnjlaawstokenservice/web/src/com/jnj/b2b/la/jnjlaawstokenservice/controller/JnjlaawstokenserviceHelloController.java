@@ -15,8 +15,7 @@ import static com.jnj.b2b.la.jnjlaawstokenservice.constants.Jnjlaawstokenservice
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.jnj.b2b.la.jnjlaawstokenservice.service.JnjlaawstokenserviceService;
 
@@ -27,7 +26,7 @@ public class JnjlaawstokenserviceHelloController
 	@Autowired
 	private JnjlaawstokenserviceService jnjlaawstokenserviceService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@GetMapping("/")
 	public String printWelcome(final ModelMap model)
 	{
 		model.addAttribute("logoUrl", jnjlaawstokenserviceService.getHybrisLogoUrl(PLATFORM_LOGO_CODE));

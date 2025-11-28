@@ -10,8 +10,7 @@ package com.jnj.facades.converters.populator;
 
 import java.util.Collection;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.springframework.beans.factory.annotation.Required;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.util.Assert;
 
 import de.hybris.platform.category.model.CategoryModel;
@@ -66,7 +65,6 @@ public class JnjGTProductHierarchyPopulator implements Populator<CategoryModel,C
         return imageConverter;
     }
 
-    @Required
     public void setImageConverter(final Converter<MediaModel, ImageData> imageConverter)
     {
         this.imageConverter = imageConverter;
@@ -76,7 +74,6 @@ public class JnjGTProductHierarchyPopulator implements Populator<CategoryModel,C
         return hierarchyModelUrlResolver;
     }
 
-    @Required
     public void setHierarchyModelUrlResolver(UrlResolver<CategoryModel> hierarchyModelUrlResolver) {
         this.hierarchyModelUrlResolver = hierarchyModelUrlResolver;
     }

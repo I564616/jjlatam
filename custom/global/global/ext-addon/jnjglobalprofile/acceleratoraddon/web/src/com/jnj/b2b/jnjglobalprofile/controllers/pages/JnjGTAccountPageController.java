@@ -36,13 +36,13 @@ import java.util.Set;
 import java.util.Map.Entry;
 import java.util.Arrays;
 import java.util.Collections;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import de.hybris.platform.commercefacades.user.data.AddressData;
 import de.hybris.platform.commercefacades.user.data.CountryData;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -50,8 +50,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -86,7 +86,6 @@ import com.jnj.b2b.jnjglobalprofile.forms.JnjGTAddAccountForm;
 import com.jnj.b2b.jnjglobalprofile.forms.JnjGTDefaultAccAndOrderForm;
 import com.jnj.b2b.jnjglobalprofile.forms.JnjGTProfileForm;
 import com.jnj.b2b.jnjglobalprofile.forms.JnjGTSecretQuestionForm;
-
 
 
 /**
@@ -249,7 +248,7 @@ public class JnjGTAccountPageController extends AccountPageController
 	 * @throws DuplicateUidException
 	 * 
 	 */
-	@RequestMapping(value = "/personalInformation", method = RequestMethod.GET)
+	@GetMapping("/personalInformation")
 	@RequireHardLogIn
 	public String getprofile(final Model model, final HttpServletRequest request) throws CMSItemNotFoundException,
 			DuplicateUidException
@@ -382,7 +381,7 @@ public class JnjGTAccountPageController extends AccountPageController
 	 * @param model
 	 */
 
-	@RequestMapping(value = "/personalInformation", method = RequestMethod.POST)
+	@PostMapping("/personalInformation")
 	@RequireHardLogIn
 	public String saveProfile(@Valid final JnjGTProfileForm jnjGTProfileForm, final BindingResult bindingResult, final Model model,RedirectAttributes redirectAttributes)
 			throws CMSItemNotFoundException, DuplicateUidException
@@ -498,7 +497,7 @@ public class JnjGTAccountPageController extends AccountPageController
 	}
 
 
-	@RequestMapping(value = "/changeSecurityQuestion", method = RequestMethod.GET)
+	@GetMapping("/changeSecurityQuestion")
 	@RequireHardLogIn
 	public String verifyPassword(final Model model) throws CMSItemNotFoundException
 	{
@@ -521,7 +520,7 @@ public class JnjGTAccountPageController extends AccountPageController
 	 
 	}
 
-	@RequestMapping(value = "/verifyCurrentPassword", method = RequestMethod.POST)
+	@PostMapping("/verifyCurrentPassword")
 	@RequireHardLogIn
 	public String verifyPassword(final UpdatePasswordForm form, final Model model,RedirectAttributes redirectAttributes) throws CMSItemNotFoundException
 	{
@@ -583,7 +582,7 @@ public class JnjGTAccountPageController extends AccountPageController
 	}
 
 	
-	@RequestMapping(value = "/getSecurityQuestions", method = RequestMethod.GET)
+	@GetMapping("/getSecurityQuestions")
 	@RequireHardLogIn
 	public String changeSecurityQuestion(final Model model,RedirectAttributes redirectAttributes) throws CMSItemNotFoundException
 	{
@@ -632,7 +631,7 @@ public class JnjGTAccountPageController extends AccountPageController
 		return secretQuestionList;
 	}
 
-	@RequestMapping(value = "/secret-questions", method = RequestMethod.POST)
+	@PostMapping("/secret-questions")
 	public String updateSecretQuestions(@Valid final JnjGTSecretQuestionForm secretQuestionForm,
 			final BindingResult bindingResult, final Model model, final RedirectAttributes redirectAttributes)
 			throws CMSItemNotFoundException
@@ -677,7 +676,7 @@ public class JnjGTAccountPageController extends AccountPageController
 
 
 
-	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
+	@PostMapping("/updatePassword")
 	public String updateCustomerPassword(@Valid final UpdatePasswordForm updatePasswordForm, final BindingResult bindingResult,
 			final Model model, final RedirectAttributes redirectAttributes) throws CMSItemNotFoundException
 	{
@@ -835,7 +834,7 @@ public class JnjGTAccountPageController extends AccountPageController
 
 
 
-	@RequestMapping(value = "/emailPreferences", method = RequestMethod.POST)
+	@PostMapping("/emailPreferences")
 	@RequireHardLogIn
 	public String saveEmailPrefrences(final Model model, @Valid final JnjGTProfileForm jnjGTProfileForm,RedirectAttributes redirectAttributes)
 			throws CMSItemNotFoundException,DuplicateUidException
@@ -907,7 +906,7 @@ public class JnjGTAccountPageController extends AccountPageController
 	}
 
 
-	@RequestMapping(value = "/addNewAccount", method = RequestMethod.POST)
+	@PostMapping("/addNewAccount")
 	public String addNewAccount(@Valid final JnjGTAddAccountForm addaccountForm, final BindingResult bindingResult,
 			final Model model, final RedirectAttributes redirectAttributes) throws CMSItemNotFoundException
 	{
@@ -942,7 +941,7 @@ public class JnjGTAccountPageController extends AccountPageController
 
 	}
 
-	@RequestMapping(value = "/addExistingAccount", method = RequestMethod.POST)
+	@PostMapping("/addExistingAccount")
 	public String addExistingAccount(@Valid final JnjGTAddAccountForm addaccountForm, final BindingResult bindingResult,
 			final Model model, final RedirectAttributes redirectAttributes) throws CMSItemNotFoundException
 	{
@@ -1110,7 +1109,7 @@ public class JnjGTAccountPageController extends AccountPageController
  }
 
 	/* 4659 */
-	@RequestMapping(value = "/updateDefaultAccAndOrder", method = RequestMethod.POST)
+	@PostMapping("/updateDefaultAccAndOrder")
 	public String updateDefaultB2BUnit(@Valid final JnjGTDefaultAccAndOrderForm defaultAccAndOrderForm, final BindingResult bindingResult, 
 			final Model model,RedirectAttributes redirectAttributes) throws CMSItemNotFoundException,DuplicateUidException
 	{

@@ -6,13 +6,14 @@
 package com.jnj.restservice.logic.client;
 
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.core.HttpHeaders;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.ws.rs.core.HttpHeaders;
 
 import org.apache.log4j.Logger;
 import org.springframework.web.context.request.RequestAttributes;
@@ -83,7 +84,7 @@ public abstract class AbstractClient {
 
         try {
             URL url;
-            url = new URL(endpoint);
+            url = URI.create(endpoint).toURL();
             final String userInfo = url.getUserInfo();
             if (userInfo != null) {
                 final String authorizationHeaderValue = "Basic " + java.util.Base64.getEncoder().encodeToString(userInfo.getBytes());

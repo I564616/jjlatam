@@ -23,9 +23,8 @@ import de.hybris.platform.store.BaseStoreModel;
 
 import java.util.List;
 import java.util.Locale;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -322,13 +321,11 @@ public class JnjLAOrderStatusNotificationEmailContext
         return model.getLanguage();
     }
 
-    @Required
     public void setJnjLAEmailOrderConverter(
             final Converter<OrderModel, JnjLAEmailOrderData> jnjLAEmailOrderConverter) {
         this.jnjLAEmailOrderConverter = jnjLAEmailOrderConverter;
     }
     
-	@Required
 	public void setJnjLAOrderService(final JnjLAOrderServiceImpl jnjLAOrderService) {
 		this.jnjLAOrderService = jnjLAOrderService;
 	}

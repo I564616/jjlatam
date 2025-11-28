@@ -28,7 +28,7 @@ import com.jnj.b2b.core.model.btg.OrganizationOrdersReportingCronJobModel;
 import java.util.Collections;
 import java.util.Date;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.junit.Before;
 import org.junit.Ignore;

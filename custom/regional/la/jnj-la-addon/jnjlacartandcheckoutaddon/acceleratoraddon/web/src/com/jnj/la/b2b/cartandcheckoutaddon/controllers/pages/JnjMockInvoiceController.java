@@ -6,8 +6,8 @@ import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.jnj.b2b.storefront.controllers.pages.AbstractPageController;
 
@@ -20,7 +20,7 @@ public class JnjMockInvoiceController extends AbstractPageController
 
 	private static final Logger LOG = Logger.getLogger(JnjMockInvoiceController.class);
 
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String loadMockOrderSimulatePage(final Model model) throws CMSItemNotFoundException
 	{
 		return "pages/test/mockInvoiceFile";

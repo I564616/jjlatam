@@ -21,16 +21,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Required;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -96,6 +96,7 @@ import de.hybris.platform.servicelayer.user.UserService;
 @Controller
 @Scope("tenant")
 @RequireHardLogIn
+// FRAMEWORK_UPDATE - TODO - AntPathMatcher was replaced with PathPatternParser as the new default path parser in Spring 6. Adjust this path to the new matching rules or re-enable deprecated AntPathMatcher. Consult "Adapting to PathPatternParser new default URL Matcher" JDK21 Upgrade Step in SAP Help documentation.
 @RequestMapping(value = "/**/ProductHierarchy")
 public class JnjGTProductHierarchyPageController extends AbstractSearchPageController{
 
@@ -364,7 +365,7 @@ public class JnjGTProductHierarchyPageController extends AbstractSearchPageContr
         return searchPageData;
     }
 
-    @RequestMapping(value = CATEGORY_PRODUCT_LIST_DOWNLOAD, method = RequestMethod.POST)
+    @PostMapping(CATEGORY_PRODUCT_LIST_DOWNLOAD)
     @ResponseBody
     public Boolean category() {
         return jnjGTProductFacade.sendEmailForAllProductsOfCatalog();
@@ -776,77 +777,62 @@ public class JnjGTProductHierarchyPageController extends AbstractSearchPageContr
         return commerceCategoryService;
     }
 
-    @Required
     public void setModelService(ModelService modelService) {
         this.modelService = modelService;
     }
 
-    @Required
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
-    @Required
     public void setFlexibleSearchService(FlexibleSearchService flexibleSearchService) {
         this.flexibleSearchService = flexibleSearchService;
     }
 
-    @Required
     public void setProductConverter(Converter<JnJProductModel, JnjGTProductData> productConverter) {
         this.productConverter = productConverter;
     }
 
-    @Required
     public void setJnjCommonFacadeUtil(JnjCommonFacadeUtil jnjCommonFacadeUtil) {
         this.jnjCommonFacadeUtil = jnjCommonFacadeUtil;
     }
 
-    @Required
     public void setcMSSiteService(CMSSiteService cMSSiteService) {
         this.cMSSiteService = cMSSiteService;
     }
 
-    @Required
     public void setMediaService(MediaService mediaService) {
         this.mediaService = mediaService;
     }
 
-    @Required
     public void setCatalogVersionService(CatalogVersionService catalogVersionService) {
         this.catalogVersionService = catalogVersionService;
     }
 
-    @Required
     public void setSessionService(SessionService sessionService) {
         this.sessionService = sessionService;
     }
 
-    @Required
     public void setJnjGTProductFacade(JnjGTProductFacade jnjGTProductFacade) {
         this.jnjGTProductFacade = jnjGTProductFacade;
     }
 
-    @Required
     public void setJnjGTB2BUnitFacade(JnjGTB2BUnitFacade jnjGTB2BUnitFacade) {
         this.jnjGTB2BUnitFacade = jnjGTB2BUnitFacade;
     }
 
-    @Required
     public void setJnjGTCustomerFacade(JnjGTCustomerFacade jnjGTCustomerFacade) {
         this.jnjGTCustomerFacade = jnjGTCustomerFacade;
     }
 
-    @Required
     public void setJnjGTProductService(JnJGTProductService jnjGTProductService) {
         this.jnjGTProductService = jnjGTProductService;
     }
 
-    @Required
     public void setProductSearchFacade(ProductSearchFacade<ProductData> productSearchFacade) {
         this.productSearchFacade = productSearchFacade;
     }
 
-    @Required
     public void setCommerceCategoryService(CommerceCategoryService commerceCategoryService) {
         this.commerceCategoryService = commerceCategoryService;
     }
@@ -855,27 +841,22 @@ public class JnjGTProductHierarchyPageController extends AbstractSearchPageContr
         return hierarchyModelUrlResolver;
     }
 
-    @Required
     public void setHierarchyModelUrlResolver(UrlResolver<CategoryModel> hierarchyModelUrlResolver) {
         this.hierarchyModelUrlResolver = hierarchyModelUrlResolver;
     }
 
-    @Required
     public void setCustomerLocationService(CustomerLocationService customerLocationService) {
         this.customerLocationService = customerLocationService;
     }
 
-    @Required
     public void setCustomerFacade(CustomerFacade customerFacade) {
         this.customerFacade = customerFacade;
     }
 
-    @Required
     public ConfigurationService getConfigurationService() {
         return configurationService;
     }
 
-    @Required
     public void setConfigurationService(ConfigurationService configurationService) {
         this.configurationService = configurationService;
     }
@@ -884,7 +865,6 @@ public class JnjGTProductHierarchyPageController extends AbstractSearchPageContr
         return jnjGTProductCategoryConverter;
     }
 
-    @Required
     public void setJnjGTProductCategoryConverter(Converter<CategoryModel, CategoryData> jnjGTProductCategoryConverter) {
         this.jnjGTProductCategoryConverter = jnjGTProductCategoryConverter;
     }
@@ -893,7 +873,6 @@ public class JnjGTProductHierarchyPageController extends AbstractSearchPageContr
         return hierarchyBreadcrumbBuilder;
     }
 
-    @Required
     public void setHierarchyBreadcrumbBuilder(HierarchyBreadCrumbBuilder hierarchyBreadcrumbBuilder) {
         this.hierarchyBreadcrumbBuilder = hierarchyBreadcrumbBuilder;
     }

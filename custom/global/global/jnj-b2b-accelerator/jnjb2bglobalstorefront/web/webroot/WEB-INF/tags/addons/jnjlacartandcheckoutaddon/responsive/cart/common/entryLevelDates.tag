@@ -1,7 +1,7 @@
 <%@ taglib prefix="label" uri="/WEB-INF/tld/message.tld"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ attribute name="entry" type="com.jnj.facades.data.JnjGTOrderEntryData" required="true" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <c:choose>

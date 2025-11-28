@@ -7,10 +7,9 @@ import de.hybris.platform.util.Config;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.enums.JnjGTModStatus;
 import com.jnj.core.enums.RecordStatus;
@@ -170,7 +169,6 @@ public class JnjGTProductLocalMapper extends JnjAbstractMapper
 		return jnjGTFeedService;
 	}
 
-	@Required
 	public void setjnjGTFeedService(final JnjGTFeedService jnjGTFeedService)
 	{
 		this.jnjGTFeedService = jnjGTFeedService;
@@ -184,7 +182,6 @@ public class JnjGTProductLocalMapper extends JnjAbstractMapper
 		return jnjGTProductFeedService;
 	}
 
-	@Required
 	public void setjnjGTProductFeedService(final JnjGTProductFeedService jnjGTProductFeedService)
 	{
 		this.jnjGTProductFeedService = jnjGTProductFeedService;

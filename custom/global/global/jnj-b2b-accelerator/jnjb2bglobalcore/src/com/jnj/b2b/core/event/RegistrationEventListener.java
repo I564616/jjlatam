@@ -21,7 +21,6 @@ import de.hybris.platform.commerceservices.model.process.StoreFrontCustomerProce
 import de.hybris.platform.processengine.BusinessProcessService;
 import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.platform.servicelayer.util.ServicesUtil;
-import org.springframework.beans.factory.annotation.Required;
 
 
 /**
@@ -37,7 +36,6 @@ public class RegistrationEventListener extends AbstractSiteEventListener<Registe
 		return businessProcessService;
 	}
 
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;
@@ -48,7 +46,6 @@ public class RegistrationEventListener extends AbstractSiteEventListener<Registe
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;

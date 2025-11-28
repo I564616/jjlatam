@@ -36,15 +36,14 @@ import org.apache.log4j.Logger;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
 import com.jnj.core.model.ProductDocumentsModel;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -321,24 +320,20 @@ public class JnjGTProductDetailsPdfView extends AbstractPdfView
     {
         return jnjCommonFacadeUtil;
     }
-    @Required
     public void setJnjCommonFacadeUtil(final JnjCommonFacadeUtil jnjCommonFacadeUtil)
     {
         this.jnjCommonFacadeUtil = jnjCommonFacadeUtil;
     }
 
-    @Required
     public void setMessageSource(final MessageSource messageSource)
     {
         this.messageSource = messageSource;
     }
 
-    @Required
     public void setJnjCommonUtil(JnJCommonUtil jnjCommonUtil) {
         this.jnjCommonUtil = jnjCommonUtil;
     }
 
-    @Required
     public void setI18nService(final I18NService i18nService)
     {
         this.i18nService = i18nService;

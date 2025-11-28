@@ -7,7 +7,7 @@
 package com.jnj.la.core.predicates.ordersplit;
 
 import com.jnj.core.model.JnjDropShipmentDetailsModel;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.util.Strings;
 import java.util.function.Predicate;
 

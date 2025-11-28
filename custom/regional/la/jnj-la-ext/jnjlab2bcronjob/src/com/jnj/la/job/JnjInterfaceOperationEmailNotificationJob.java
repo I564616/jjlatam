@@ -10,7 +10,6 @@ import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.operationarchitecture.JnjInterfaceOperationArchUtility;
 
@@ -49,7 +48,6 @@ public class JnjInterfaceOperationEmailNotificationJob extends AbstractJobPerfor
 	 * @param jnjInterfaceOperationArchUtility
 	 *           the new jnj interface operation arch utility
 	 */
-	@Required
 	public void setJnjInterfaceOperationArchUtility(final JnjInterfaceOperationArchUtility jnjInterfaceOperationArchUtility)
 	{
 		this.jnjInterfaceOperationArchUtility = jnjInterfaceOperationArchUtility;

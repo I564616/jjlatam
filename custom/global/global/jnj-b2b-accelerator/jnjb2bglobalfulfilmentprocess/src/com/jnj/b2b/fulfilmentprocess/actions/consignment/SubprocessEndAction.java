@@ -18,8 +18,9 @@ import de.hybris.platform.processengine.BusinessProcessService;
 import de.hybris.platform.processengine.action.AbstractProceduralAction;
 import com.jnj.b2b.fulfilmentprocess.constants.Jnjb2bglobalFulfilmentProcessConstants;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 
 /**
@@ -36,7 +37,6 @@ public class SubprocessEndAction extends AbstractProceduralAction<ConsignmentPro
 		return businessProcessService;
 	}
 
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;
@@ -50,7 +50,7 @@ public class SubprocessEndAction extends AbstractProceduralAction<ConsignmentPro
 		try
 		{
 			// simulate different ending times
-			Thread.sleep((long) (Math.random() * 2000));
+			Thread.sleep((long) (ThreadLocalRandom.current().nextDouble() * 2000));
 		}
 		catch (final InterruptedException e)
 		{

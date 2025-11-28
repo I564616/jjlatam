@@ -12,7 +12,6 @@ import de.hybris.platform.cronjob.enums.CronJobResult;
 import de.hybris.platform.cronjob.enums.CronJobStatus;
 import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -53,7 +52,6 @@ public class JnjLaConsolidatedEmailOrderStatusJob extends AbstractJobPerformable
         return new PerformResult(CronJobResult.SUCCESS, CronJobStatus.FINISHED);
     }
 
-    @Required
     public void setService(final JnJLaConsolidatedEmailService service) {
         this.service = service;
     }

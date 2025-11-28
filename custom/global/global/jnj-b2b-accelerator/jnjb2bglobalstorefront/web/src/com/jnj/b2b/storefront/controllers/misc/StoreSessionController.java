@@ -20,10 +20,10 @@ import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
 import com.jnj.b2b.storefront.controllers.AbstractController;
 import com.jnj.b2b.storefront.filters.StorefrontFilter;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -41,7 +41,6 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.client.solrj.response.SpellCheckResponse;
 import org.apache.solr.client.solrj.response.SpellCheckResponse.Collation;
 import org.apache.solr.client.solrj.response.SpellCheckResponse.Suggestion;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants.solrConfig;
 
@@ -65,7 +64,6 @@ public class JnjSolrAutoSuggestService extends DefaultSolrAutoSuggestService
 	public SolrIndexedTypeCodeResolver getSolrIndexedTypeCodeResolver() {
 		return solrIndexedTypeCodeResolver;
 	}
-	@Required
 	public void setSolrIndexedTypeCodeResolver(SolrIndexedTypeCodeResolver solrIndexedTypeCodeResolver) {
 		this.solrIndexedTypeCodeResolver = solrIndexedTypeCodeResolver;
 	}

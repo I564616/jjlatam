@@ -2,7 +2,7 @@
 <%@ attribute name="priceData" required="true" type="de.hybris.platform.commercefacades.product.data.PriceData" %>
 <%@ attribute name="displayFreeForZero" required="false" type="java.lang.Boolean" %>
 <%@ attribute name="hideZeroValue" required="false" type="java.lang.Boolean" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <%--

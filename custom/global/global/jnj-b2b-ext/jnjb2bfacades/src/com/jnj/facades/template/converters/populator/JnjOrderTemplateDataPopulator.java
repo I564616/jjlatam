@@ -14,7 +14,7 @@ import de.hybris.platform.servicelayer.dto.converter.Converter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.util.Assert;
 
 import com.jnj.core.model.JnjOrderTemplateModel;

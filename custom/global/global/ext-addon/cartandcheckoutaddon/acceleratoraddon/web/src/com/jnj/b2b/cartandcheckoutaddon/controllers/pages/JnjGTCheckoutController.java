@@ -15,20 +15,21 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 import de.hybris.platform.commercefacades.product.data.ProductData;
 import de.hybris.platform.commercefacades.product.ProductOption;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -93,6 +94,7 @@ import com.jnj.services.CMSSiteService;
 import de.hybris.platform.servicelayer.media.MediaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import de.hybris.platform.catalog.CatalogVersionService;
+
 /**
  * The JnjGTCheckoutController class contains all the methods related to order confirmation page.
  *
@@ -256,7 +258,7 @@ public class JnjGTCheckoutController extends AbstractCheckoutController
 
 	private String jnjOrderNo = "";
 
-	@RequestMapping(value = "/placeOrder", method = RequestMethod.GET)
+	@GetMapping("/placeOrder")
 	public String createOrderByGet(final Model model, final HttpServletRequest request, final RedirectAttributes redirectModel,
 								   final JnjGTSapWsData sapWsData) throws CMSItemNotFoundException, InvalidCartException
 	{
@@ -286,7 +288,7 @@ public class JnjGTCheckoutController extends AbstractCheckoutController
 	 * @throws InvalidCartException
 	 *            the invalid cart exception
 	 */
-	@RequestMapping(value = "/placeOrder", method = RequestMethod.POST)
+	@PostMapping("/placeOrder")
 	public String createOrder(final Model model, final HttpServletRequest request, final RedirectAttributes redirectModel,
 			final JnjGTSapWsData sapWsData) throws CMSItemNotFoundException, InvalidCartException
 	{
@@ -602,7 +604,7 @@ protected String createERPOrder(final Model model, final HttpServletRequest requ
 	 * @throws InvalidCartException
 	 *            the invalid cart exception
 	 */
-	@RequestMapping(value = "/placeOrder/batch", method = RequestMethod.POST)
+	@PostMapping("/placeOrder/batch")
 	public String createBatchOrder(final HttpServletRequest request) throws CMSItemNotFoundException, InvalidCartException
 	{
 		final String orderCode = jnjCheckoutFacade.placeOrderInHybris(true);
@@ -621,7 +623,7 @@ protected String createERPOrder(final Model model, final HttpServletRequest requ
 	 * @throws CMSItemNotFoundException
 	 *            the cMS item not found exception
 	 */
-	@RequestMapping(value = "/orderConfirmation/" + ORDER_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@GetMapping("/orderConfirmation/" + ORDER_CODE_PATH_VARIABLE_PATTERN)
 	@RequireHardLogIn
 	public String orderConfirmation(@PathVariable("orderCode") final String orderCode, final Model model)
 			throws CMSItemNotFoundException
@@ -725,7 +727,7 @@ protected String createERPOrder(final Model model, final HttpServletRequest requ
 	 * @return the string
 	 * @throws CMSItemNotFoundException the cMS item not found exception
 	 */
-	@RequestMapping(value = "/orderConfirmation/batch/" + ORDER_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@GetMapping("/orderConfirmation/batch/" + ORDER_CODE_PATH_VARIABLE_PATTERN)
 	@RequireHardLogIn
 	public String batchOrderConfirmation(@PathVariable("orderCode") final String orderCode, final Model model)
 			throws CMSItemNotFoundException	{
@@ -798,7 +800,7 @@ protected String createERPOrder(final Model model, final HttpServletRequest requ
 	 *           the download type
 	 * @return the string
 	 */
-	@RequestMapping(value = "/downloadOrderConfirmation/" + ORDER_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@GetMapping("/downloadOrderConfirmation/" + ORDER_CODE_PATH_VARIABLE_PATTERN)
 	@RequireHardLogIn
 	public String downloadData(@PathVariable("orderCode") final String orderCode, final Model model,
 			@RequestParam(value = "downloadType", defaultValue = "None") final String downloadType,
@@ -870,7 +872,7 @@ protected String createERPOrder(final Model model, final HttpServletRequest requ
 		}
 	}
 	
-	@RequestMapping(value = "/orderConfirmationDownload/" + ORDER_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@GetMapping("/orderConfirmationDownload/" + ORDER_CODE_PATH_VARIABLE_PATTERN)
 	@RequireHardLogIn
 	public String downloadPriceInqiryConfirmationData(@PathVariable("orderCode") final String orderCode, final Model model,
 			@RequestParam(value = "downloadType", defaultValue = "None") final String downloadType,
@@ -1008,7 +1010,7 @@ protected String createERPOrder(final Model model, final HttpServletRequest requ
 	 *
 	 * @return view
 	 */
-	@RequestMapping(value = "/signature", method = RequestMethod.POST)
+	@PostMapping("/signature")
 	@ResponseBody
 	public boolean saveTabletSignature(@RequestParam(value = "imageCode") String imageCode,
 			@RequestParam(value = "name") final String name)
@@ -1051,7 +1053,7 @@ protected String createERPOrder(final Model model, final HttpServletRequest requ
 	}
 
 	/** Handler for return order confirmation call **/
-	@RequestMapping(value = "/returnConfirmationPage", method = RequestMethod.POST)
+	@PostMapping("/returnConfirmationPage")
 	public String returnConfirmationPage(final RedirectAttributes redirectModel, final HttpServletRequest request,
 			@RequestParam(value = "skipSAPValidation", defaultValue = "false") final boolean skipSAPValidation)
 			throws CMSItemNotFoundException, IOException
@@ -1206,7 +1208,7 @@ protected String createERPOrder(final Model model, final HttpServletRequest requ
 		return returnString;
 	}
 
-	@RequestMapping(value = "/sendEmail/{orderId}", method = RequestMethod.GET)
+	@GetMapping("/sendEmail/{orderId}")
 	public void sendEmail(final HttpServletRequest request, @PathVariable final String orderId)
 	{
 		sendOrdersStatusEmail(request, orderId);

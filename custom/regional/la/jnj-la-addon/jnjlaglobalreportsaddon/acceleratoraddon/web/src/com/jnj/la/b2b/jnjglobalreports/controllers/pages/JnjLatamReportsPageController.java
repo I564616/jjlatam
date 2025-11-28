@@ -18,17 +18,17 @@ import de.hybris.platform.util.Config;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -314,7 +314,7 @@ public class JnjLatamReportsPageController extends JnjGTReportsPageController {
 	 */
 	@AuthorizedUserGroup(value = REPORTS_GROUP)
 	@Override
-	@RequestMapping(value = "/inventoryAnalysis/backorder", method = RequestMethod.POST)
+	@PostMapping("/inventoryAnalysis/backorder")
 	public String fetchBackOrderReport(final Model model, @ModelAttribute final JnjGTBackorderReportForm jnjGlobalBackorderReportForm)
 			throws CMSItemNotFoundException
 	{
@@ -388,7 +388,7 @@ public class JnjLatamReportsPageController extends JnjGTReportsPageController {
 	 * @return download view
 	 */
 	@Override
-	@RequestMapping(value = "/backorder/downloadReport", method = RequestMethod.POST)
+	@PostMapping("/backorder/downloadReport")
 	public String downloadBackorderReport(final Model model,
 			@ModelAttribute final JnjGTBackorderReportForm jnjGTBackorderReportForm)
 	{
@@ -466,7 +466,7 @@ public class JnjLatamReportsPageController extends JnjGTReportsPageController {
 	}
 	
 	@AuthorizedUserGroup(value = REPORTS_GROUP)		
-	@RequestMapping(value = "/openordersreport", method = RequestMethod.POST)
+	@PostMapping("/openordersreport")
 	public String fetchOpenOrdersReport(final Model model, @ModelAttribute final JnjLaOpenOrdersReportForm jnjLaOpenOrdersReportForm)
 			throws CMSItemNotFoundException
 	{
@@ -501,7 +501,7 @@ public class JnjLatamReportsPageController extends JnjGTReportsPageController {
 	}
 	
 	@AuthorizedUserGroup(value = REPORTS_GROUP)		
-	@RequestMapping(value = "/openordersreport/savetemplate", method = RequestMethod.POST)
+	@PostMapping("/openordersreport/savetemplate")
 	@ResponseBody
 	private String saveOpenOrdersReportTemplate(final Model model,
 												final JnjLaOpenOrdersReportForm jnjLaOpenOrdersReportForm,
@@ -538,7 +538,7 @@ public class JnjLatamReportsPageController extends JnjGTReportsPageController {
 	}
 	
 	@AuthorizedUserGroup(value = REPORTS_GROUP)		
-	@RequestMapping(value = "/openordersreport/deletetemplate", method = RequestMethod.POST)
+	@PostMapping("/openordersreport/deletetemplate")
 	@ResponseBody
 	public String deleteOpenOrdersReportTemplate(final Model model, final String templateName) {
 
@@ -631,7 +631,7 @@ public class JnjLatamReportsPageController extends JnjGTReportsPageController {
 	
 	
 	@AuthorizedUserGroup(value = REPORTS_GROUP)	
-	@RequestMapping(value = "/openordersreport", method = RequestMethod.GET)
+	@GetMapping("/openordersreport")
 	public String getOpenOrdersReport(final Model model) throws CMSItemNotFoundException
 	{
 		final String METHOD_NAME = "getOpenOrdersReportPage()";
@@ -672,7 +672,7 @@ public class JnjLatamReportsPageController extends JnjGTReportsPageController {
 	 * @return download view
 	 */	
 	@AuthorizedUserGroup(value = REPORTS_GROUP)
-	@RequestMapping(value = "/openordersreport/download", method = RequestMethod.POST)
+	@PostMapping("/openordersreport/download")
 	public String downloadOpenOrdersReport(final Model model, @ModelAttribute final JnjLaOpenOrdersReportForm jnjLaOpenOrdersReportForm)
 	{
 		final String methodName = "downloadOpenOrdersReport()";

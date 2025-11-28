@@ -9,12 +9,11 @@ import com.jnj.b2b.storefront.controllers.pages.AbstractPageController;
 import com.jnj.facades.policies.JnjGTPoliciesFacade;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
@@ -23,7 +22,7 @@ public class JnjLACookiePolicyController extends AbstractPageController {
     @Resource(name = "jnjPoliciesFacade")
     private JnjGTPoliciesFacade jnjGTPoliciesFacade;
 
-    @RequestMapping(value = "/cookiePolicy", method = RequestMethod.GET)
+    @GetMapping("/cookiePolicy")
     public String getLACookiePolicy(final HttpServletResponse response) throws CMSItemNotFoundException, IOException {
 
         final String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().replacePath(null).build().toUriString();

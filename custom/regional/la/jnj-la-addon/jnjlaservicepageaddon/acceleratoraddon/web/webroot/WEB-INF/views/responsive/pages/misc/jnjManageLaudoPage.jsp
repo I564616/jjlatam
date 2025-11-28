@@ -1,9 +1,9 @@
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="messageLabel" uri="/WEB-INF/tld/message.tld"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="nav" tagdir="/WEB-INF/tags/desktop/nav"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="laudoPopup"
 	tagdir="/WEB-INF/tags/addons/jnjlaservicepageaddon/responsive/laudo"%>

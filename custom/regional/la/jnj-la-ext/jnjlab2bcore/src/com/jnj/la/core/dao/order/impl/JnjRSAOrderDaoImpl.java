@@ -14,7 +14,6 @@ import de.hybris.platform.util.Config;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.dao.EmptyResultDataAccessException;
 import com.jnj.la.core.util.JnJLaCronjobUtil;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
@@ -61,7 +60,6 @@ public class JnjRSAOrderDaoImpl implements JnjRSAOrderDao
 		return rsaDBConnector;
 	}
 	
-	@Required
 	public void setRsaDBConnector(JNJRSADBConnector rsaDBConnector) {
 		this.rsaDBConnector = rsaDBConnector;
 	}
@@ -70,7 +68,6 @@ public class JnjRSAOrderDaoImpl implements JnjRSAOrderDao
 		return jnjLaCronjobUtil;
 	}
 
-	@Required
 	public void setJnjLaCronjobUtil(JnJLaCronjobUtil jnjLaCronjobUtil) {
 		this.jnjLaCronjobUtil = jnjLaCronjobUtil;
 	}
@@ -79,7 +76,6 @@ public class JnjRSAOrderDaoImpl implements JnjRSAOrderDao
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	}

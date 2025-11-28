@@ -9,7 +9,7 @@ import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.facades.policies.JnjGTPoliciesFacade;
 import de.hybris.platform.catalog.model.CatalogVersionModel;
 import de.hybris.platform.core.model.media.MediaModel;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 public class JnJLaPoliciesFacadeImpl extends JnjGTPoliciesFacadeImpl implements JnjGTPoliciesFacade {

@@ -27,13 +27,12 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.lang.BooleanUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.util.CollectionUtils;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
@@ -1045,7 +1044,7 @@ public class JnjGTProductMasterMapper extends JnjAbstractMapper
 			final String languageCode = jnjGTIntProductDescModel.getLanguageCode();
 			if (languageCode != null)
 			{
-				final Locale local = new Locale(languageCode);
+				final Locale local = Locale.of(languageCode);
 				productModel.setName(description, local);
 				//added for EMEA integration
 				//productModel.setProductDesc2(jnjGTIntProductDescModel.getProdDesc2());
@@ -1546,7 +1545,7 @@ public class JnjGTProductMasterMapper extends JnjAbstractMapper
 
 				if (languageCode != null)
 				{
-					final Locale local = new Locale(languageCode);
+					final Locale local = Locale.of(languageCode);
 					productModel.setMdmDescription(description, local);
 				}
 				else
@@ -2213,7 +2212,6 @@ public class JnjGTProductMasterMapper extends JnjAbstractMapper
 		return jnjGTFeedService;
 	}
 
-	@Required
 	public void setjnjGTFeedService(final JnjGTFeedService jnjGTFeedService)
 	{
 		this.jnjGTFeedService = jnjGTFeedService;
@@ -2227,7 +2225,6 @@ public class JnjGTProductMasterMapper extends JnjAbstractMapper
 		return jnjGTProductFeedService;
 	}
 
-	@Required
 	public void setjnjGTProductFeedService(final JnjGTProductFeedService jnjGTProductFeedService)
 	{
 		this.jnjGTProductFeedService = jnjGTProductFeedService;
@@ -2238,7 +2235,6 @@ public class JnjGTProductMasterMapper extends JnjAbstractMapper
 		return catalogVersionService;
 	}
 
-	@Required
 	public void setCatalogVersionService(final CatalogVersionService catalogVersionService)
 	{
 		this.catalogVersionService = catalogVersionService;
@@ -2249,7 +2245,6 @@ public class JnjGTProductMasterMapper extends JnjAbstractMapper
 		return categoryService;
 	}
 
-	@Required
 	public void setCategoryService(final CategoryService categoryService)
 	{
 		this.categoryService = categoryService;

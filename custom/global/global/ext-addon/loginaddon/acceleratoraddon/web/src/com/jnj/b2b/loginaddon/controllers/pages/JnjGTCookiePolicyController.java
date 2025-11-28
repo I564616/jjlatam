@@ -4,14 +4,13 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jnj.b2b.loginaddon.constants.LoginaddonConstants;
@@ -59,7 +58,7 @@ public class JnjGTCookiePolicyController extends AbstractPageController
 	@Resource(name = "jnjPoliciesFacade")
 	JnjGTPoliciesFacade jnjGTPoliciesFacade;
 	 
-	@RequestMapping(value = "/GTCookiePolicy", method = RequestMethod.GET)
+	@GetMapping("/GTCookiePolicy")
 	@ResponseBody
 	public String getCookiePolicy() throws CMSItemNotFoundException
 	{
@@ -68,7 +67,7 @@ public class JnjGTCookiePolicyController extends AbstractPageController
 	}
 	
 	     
-	@RequestMapping(value = "/GTTermsAndCondition", method = RequestMethod.GET)
+	@GetMapping("/GTTermsAndCondition")
 	@ResponseBody
 	public String getTermsAndCondition(final Model model) throws CMSItemNotFoundException
 	{
@@ -76,7 +75,7 @@ public class JnjGTCookiePolicyController extends AbstractPageController
 		return url;
 	}
 	
-	@RequestMapping(value = "/GTPrivacyPolicy", method = RequestMethod.GET)
+	@GetMapping("/GTPrivacyPolicy")
 	@ResponseBody
 	public String getPrivacyPolicy(final Model model) throws CMSItemNotFoundException
 	{
@@ -85,7 +84,7 @@ public class JnjGTCookiePolicyController extends AbstractPageController
 	
 	}
 	
-	@RequestMapping(value = "/GTLegalNotice", method = RequestMethod.GET)
+	@GetMapping("/GTLegalNotice")
 	@ResponseBody
 	public String getLegalNotice(final Model model) throws CMSItemNotFoundException
 	{
@@ -93,7 +92,7 @@ public class JnjGTCookiePolicyController extends AbstractPageController
 		return url;
 	
 	}
-	@RequestMapping(value = "/GTUsefulLinks", method = RequestMethod.GET)
+	@GetMapping("/GTUsefulLinks")
 	@ResponseBody
 	public String getUsefulLink(final Model model) throws CMSItemNotFoundException
 	{

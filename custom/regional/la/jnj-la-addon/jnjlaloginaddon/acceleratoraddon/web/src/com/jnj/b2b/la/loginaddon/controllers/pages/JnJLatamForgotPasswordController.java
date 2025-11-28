@@ -13,17 +13,17 @@ import com.jnj.jwt.service.exception.JwtServiceException;
 import com.jnj.restservice.exception.RestServiceException;
 import com.jnj.restservice.logic.Response;
 import com.jnj.restservice.util.RestServiceUtil;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import de.hybris.platform.commercefacades.user.exceptions.PasswordMismatchException;
 import de.hybris.platform.commerceservices.customer.TokenInvalidatedException;
@@ -34,8 +34,6 @@ import java.util.Map;
 import java.util.ArrayList;
 
 import org.apache.commons.lang3.BooleanUtils;
-
-import org.springframework.beans.factory.annotation.Required;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -91,7 +89,7 @@ public class JnJLatamForgotPasswordController extends JnjGTForgotPasswordControl
 	 * @param request
 	 * @return String
 	 */
-	@RequestMapping(value = "/emailTokenNotification", method = RequestMethod.POST)
+	@PostMapping("/emailTokenNotification")
 	@ResponseBody
 	public String submitEmailTokenNotification(
 			@RequestParam("email") final String email, final HttpServletRequest request)
@@ -128,7 +126,7 @@ public class JnJLatamForgotPasswordController extends JnjGTForgotPasswordControl
 		return getRestServiceUtil().getMultimodeJsonResponse(false,response.getResponseCode(),response.getResponseMessage());
 	}
 
-	@RequestMapping(value = "/emailTokenVerification", method = RequestMethod.GET)
+	@GetMapping("/emailTokenVerification")
 	@ResponseBody
 	public ModelAndView submitEmailTokenVerification(@RequestParam("token") final String token,
 													 final Model model, final RedirectAttributes redirectAttributes )
@@ -311,7 +309,6 @@ public class JnJLatamForgotPasswordController extends JnjGTForgotPasswordControl
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	}
@@ -368,7 +365,7 @@ public class JnJLatamForgotPasswordController extends JnjGTForgotPasswordControl
 	 * @param email
 	 * @return updateStatus
 	 */
-	@RequestMapping(value = "/latamRevisionVerification", method = RequestMethod.POST)
+	@PostMapping("/latamRevisionVerification")
 	@ResponseBody
 	public String updateCustomerPassword(@RequestParam("password") final String password,
 										 @RequestParam("email") final String email, @RequestParam("token") final String token)

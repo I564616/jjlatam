@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 
 public class JnjLaSftpFileTransferUtil extends JnjSftpFileTransferUtil

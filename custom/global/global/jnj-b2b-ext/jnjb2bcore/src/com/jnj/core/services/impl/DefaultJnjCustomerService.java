@@ -17,11 +17,10 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.util.Assert;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
@@ -128,7 +127,6 @@ public class DefaultJnjCustomerService extends DefaultCustomerAccountService imp
 	 * @param pagedB2BCustomerDao
 	 *           the pagedB2BCustomerDao to set
 	 */
-	@Required
 	public void setPagedB2BCustomerDao(final PagedGenericDao<B2BCustomerModel> pagedB2BCustomerDao) {
 		this.pagedB2BCustomerDao = pagedB2BCustomerDao;
 	}
@@ -370,7 +368,7 @@ public class DefaultJnjCustomerService extends DefaultCustomerAccountService imp
 				lastInterval = Integer.valueOf(noOfDaysToPasswordExpiry + 1); // so that the actual last interval gets added in the headSet
 			}
 		}
-		if (interval.contains(new Integer(noOfDaysToPasswordExpiry))) // if the number of days to password expiry is equal to the last entry in heasSet then send mail
+		if (interval.contains(Integer.valueOf(noOfDaysToPasswordExpiry))) // if the number of days to password expiry is equal to the last entry in heasSet then send mail
 		{
 			return true; //Send Email
 		}

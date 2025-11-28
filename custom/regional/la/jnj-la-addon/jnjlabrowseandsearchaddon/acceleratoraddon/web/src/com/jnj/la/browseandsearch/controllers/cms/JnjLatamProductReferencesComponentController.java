@@ -13,7 +13,7 @@ import com.jnj.b2b.storefront.controllers.cms.ProductReferencesComponentControll
 import com.jnj.la.browseandsearch.controllers.JnjlabrowseandsearchaddonControllerConstants;
 
 import de.hybris.platform.acceleratorcms.model.components.ProductReferencesComponentModel;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class JnjLatamProductReferencesComponentController extends ProductReferencesComponentController {
 

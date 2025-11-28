@@ -7,13 +7,11 @@ import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.jnj.b2b.loginaddon.controllers.LoginaddonControllerConstants;
 //import com.jnj.b2b.storefront.controllers.pages.AbstractPageController;
 import com.jnj.b2b.storefront.controllers.pages.AbstractPageController;
-
 
 
 /**
@@ -23,7 +21,7 @@ import com.jnj.b2b.storefront.controllers.pages.AbstractPageController;
 @Controller
 public class JnjGTTermsAndConditionsController extends AbstractPageController
 {
-	@RequestMapping(value = "/termsAndConditions", method = RequestMethod.GET)
+	@GetMapping("/termsAndConditions")
 	public String getLegalNotice(final Model model) throws CMSItemNotFoundException
 	{
 		storeCmsPageInModel(model, getContentPageForLabelOrId("termsAndConditionsPage"));

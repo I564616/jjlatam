@@ -12,9 +12,8 @@ import de.hybris.platform.core.model.order.OrderModel;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -122,7 +121,6 @@ public class DefaultJnjOrderArchivalDao implements JnjOrderArchivalDao {
     /**
      * @param configurationService the configurationService to set
      */
-    @Required
     public void setConfigurationService(final ConfigurationService configurationService) {
         this.configurationService = configurationService;
     }
@@ -137,7 +135,6 @@ public class DefaultJnjOrderArchivalDao implements JnjOrderArchivalDao {
     /**
      * @param flexibleSearchService the flexibleSearchService to set
      */
-    @Required
     public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService) {
         this.flexibleSearchService = flexibleSearchService;
     }

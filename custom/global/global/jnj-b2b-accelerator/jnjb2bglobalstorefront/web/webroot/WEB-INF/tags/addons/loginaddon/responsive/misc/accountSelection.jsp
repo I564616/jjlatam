@@ -1,6 +1,6 @@
 <%@ page trimDirectiveWhitespaces="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <%@ taglib prefix="messageLabel" uri="/WEB-INF/tld/message.tld"%>
 <%@ taglib prefix="company" tagdir="/WEB-INF/tags/responsive/company"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>

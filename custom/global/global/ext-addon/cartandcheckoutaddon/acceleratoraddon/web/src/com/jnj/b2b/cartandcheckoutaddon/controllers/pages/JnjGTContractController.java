@@ -12,16 +12,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -197,7 +199,7 @@ public class JnjGTContractController extends AbstractSearchPageController
 	 *           the model
 	 * @return the string
 	 */
-	@RequestMapping(value = "/getContracts", method = RequestMethod.GET)
+	@GetMapping("/getContracts")
 	public String showContracts(final Model model)
 	{
 
@@ -244,7 +246,7 @@ public class JnjGTContractController extends AbstractSearchPageController
 	 * @throws CMSItemNotFoundException
 	 *            the cMS item not found exception
 	 */
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String searchContracts(@RequestParam(value = "page", defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "sort", required = false) final String sortCode, final Model model, final ContractForm form)
@@ -328,7 +330,7 @@ public class JnjGTContractController extends AbstractSearchPageController
 	 *           the form
 	 * @return the order details
 	 *///search button click from contract page
-	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	@PostMapping("/search")
 	public String getContractDetails(@RequestParam(value = "page", defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "scrollPos", required = false, defaultValue = "") final String scrollPos,
@@ -402,7 +404,7 @@ public class JnjGTContractController extends AbstractSearchPageController
 	 * @param downloadType
 	 * @return string
 	 */
-	@RequestMapping(value = "/downloadData", method = RequestMethod.POST)
+	@PostMapping("/downloadData")
 	public String downloadContractsList(@RequestParam(value = "page", defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "scrollPos", required = false, defaultValue = "") final String scrollPos,
@@ -487,7 +489,7 @@ public class JnjGTContractController extends AbstractSearchPageController
 	 *           the model
 	 * @return the contract details
 	 */
-	@RequestMapping(value = "/getContractDetails/" + CONTRACT_NUMBER_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@GetMapping("/getContractDetails/" + CONTRACT_NUMBER_PATH_VARIABLE_PATTERN)
 	public String getContractDetails(@PathVariable("contractNumber") final String contractNumber,
 			@RequestParam(value = "entryCount", defaultValue = "30") final int entryCount, final Model model)
 	{
@@ -634,7 +636,7 @@ public class JnjGTContractController extends AbstractSearchPageController
 	 * @throws CMSItemNotFoundException 
 	 */ 
 	@ResponseBody
-	@RequestMapping(value = "/isNonContractProduct", method = RequestMethod.GET,produces = "application/json")
+	@GetMapping(value = "/isNonContractProduct",produces = "application/json")
 	public ContractForm isNonContractProduct(final ContractForm form, final Model model, 
 			@RequestParam(value = "selectedProducts", required = false) String[] selectedProductCatalogIds,
 			@RequestParam(value = "eCCContractNum", required = false) String contractNum) 
@@ -663,7 +665,7 @@ public class JnjGTContractController extends AbstractSearchPageController
 	 * @throws CMSItemNotFoundException
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/removeNonContractProduct", method = RequestMethod.GET)
+	@GetMapping("/removeNonContractProduct")
 	public boolean removeNonContractProduct(final ContractForm form, final Model model,
 											@RequestParam(value = "contractNum", required = false) String contractNum)
 			throws CommerceCartModificationException, CMSItemNotFoundException {
@@ -693,7 +695,7 @@ public class JnjGTContractController extends AbstractSearchPageController
 	 * @param eCCContractNum 
 	 * @return string
 	 */
-	@RequestMapping(value = "/downloadDetailData", method = RequestMethod.POST)
+	@PostMapping("/downloadDetailData")
 	public String downloadDetailData(@RequestParam(value = "page", defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "scrollPos", required = false, defaultValue = "") final String scrollPos,

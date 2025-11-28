@@ -19,7 +19,6 @@ import de.hybris.platform.acceleratorservices.model.cms2.pages.EmailPageModel;
 import de.hybris.platform.commerceservices.model.process.StoreFrontCustomerProcessModel;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -100,7 +99,6 @@ public class JnjLatamTemporaryEmailContext extends CustomerEmailContext
 	public ConfigurationService getConfigurationService() {
 		return configurationService;
 	}
-	@Required
 	public void setConfigurationService(ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	}

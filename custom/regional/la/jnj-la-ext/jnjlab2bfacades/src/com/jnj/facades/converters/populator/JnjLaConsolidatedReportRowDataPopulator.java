@@ -35,12 +35,11 @@ import de.hybris.platform.core.model.user.AddressModel;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.dto.converter.ConversionException;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -372,22 +371,18 @@ public class JnjLaConsolidatedReportRowDataPopulator extends AbstractResultPopul
 		return StringUtils.stripStart(sapOrderlineNumber, "0");
 	}
 
-    @Required
     public void setPriceDataFactory(final JnjLaPriceDataFactory priceDataFactory) {
         this.priceDataFactory = priceDataFactory;
     }
 
-    @Required
     public void setJnjCommonFacadeUtil(final JnjCommonFacadeUtil jnjCommonFacadeUtil) {
         this.jnjCommonFacadeUtil = jnjCommonFacadeUtil;
     }
 
-    @Required
     public void setLoadTranslationService(JnjLoadTranslationService loadTranslationService) {
         this.loadTranslationService = loadTranslationService;
     }
 
-    @Required
     public void setInvoiceService(JnjInvoiceService invoiceService) {
         this.invoiceService = invoiceService;
     }
@@ -396,7 +391,6 @@ public class JnjLaConsolidatedReportRowDataPopulator extends AbstractResultPopul
 		return configurationService;
 	}
     
-	@Required
 	public static void setConfigurationService(final ConfigurationService configurationService) {
 		JnjLaConsolidatedReportRowDataPopulator.configurationService = configurationService;
 	}

@@ -29,7 +29,7 @@ import de.hybris.platform.util.Config;
 
 import com.jnj.facades.data.JnjGTInvoiceClearingReportResponseData;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -112,7 +112,7 @@ import com.jnj.utils.CommonUtil;
 import com.jnj.facades.data.JnjGTInvoicePastDueReportResponseData;
 import com.jnj.gt.outbound.mapper.JnjGTInvoiceClearingReportMapper;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.jnj.facades.data.JnjGTSalesReportResponseOrderEntryData;
 

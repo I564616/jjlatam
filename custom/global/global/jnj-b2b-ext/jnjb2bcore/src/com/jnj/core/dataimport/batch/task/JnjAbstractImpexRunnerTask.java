@@ -19,10 +19,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.util.Assert;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
@@ -52,8 +51,8 @@ public abstract class JnjAbstractImpexRunnerTask extends AbstractImpexRunnerTask
 		LOGGER.debug(Logging.IMPEX_IMPORT + Logging.HYPHEN + "execute()" + Logging.HYPHEN + Logging.BEGIN_OF_METHOD
 				+ Logging.HYPHEN + System.currentTimeMillis());
 
-		Assert.notNull(header);
-		Assert.notNull(header.getEncoding());
+		Assert.notNull(header, "must not be null");
+		Assert.notNull(header.getEncoding(), "must not be null");
 		boolean readSuccessful = false;
 		if (CollectionUtils.isNotEmpty(header.getTransformedFiles()))
 		{
@@ -123,7 +122,6 @@ public abstract class JnjAbstractImpexRunnerTask extends AbstractImpexRunnerTask
 				(readSuccessful) ? RecordStatus.SUCCESS.toString() : RecordStatus.ERROR.toString(), readSuccessful, null);
 	}
 
-	@Required
 	public void setCleanupHelper(final JnjCleanupHelper cleanupHelper)
 	{
 		this.cleanupHelper = cleanupHelper;
@@ -137,7 +135,6 @@ public abstract class JnjAbstractImpexRunnerTask extends AbstractImpexRunnerTask
 		return interfaceOperationArchUtility;
 	}
 
-	@Required
 	public void setInterfaceOperationArchUtility(final JnjInterfaceOperationArchUtility interfaceOperationArchUtility)
 	{
 		this.interfaceOperationArchUtility = interfaceOperationArchUtility;

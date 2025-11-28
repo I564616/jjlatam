@@ -9,10 +9,9 @@ import de.hybris.platform.converters.Populator;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.servicelayer.session.SessionService;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.services.JnJGTProductService;
 import com.jnj.facades.data.JnjGTProductData;
@@ -118,7 +117,6 @@ public class JnjGTOrderEntryProductPopulator extends ProductUrlPopulator
 		return productPrimaryImagePopulator;
 	}
 
-	@Required
 	public void setProductPrimaryImagePopulator(final Populator<ProductModel, ProductData> productPrimaryImagePopulator)
 	{
 		this.productPrimaryImagePopulator = productPrimaryImagePopulator;
@@ -129,7 +127,6 @@ public class JnjGTOrderEntryProductPopulator extends ProductUrlPopulator
 		return productPricePopulator;
 	}
 
-	@Required
 	public void setProductPricePopulator(final Populator<ProductModel, ProductData> productPricePopulator)
 	{
 		this.productPricePopulator = productPricePopulator;

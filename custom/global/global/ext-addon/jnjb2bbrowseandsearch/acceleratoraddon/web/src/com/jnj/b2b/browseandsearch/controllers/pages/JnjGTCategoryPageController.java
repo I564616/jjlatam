@@ -64,21 +64,21 @@ import java.util.Map.Entry;
 import java.util.TimeZone;
 import java.util.TreeMap;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -283,7 +283,7 @@ public class JnjGTCategoryPageController extends CategoryPageController
 	{
 		PDF, EXCEL, NONE;
 	}
-	@RequestMapping(value = CATEGORY_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@GetMapping(CATEGORY_CODE_PATH_VARIABLE_PATTERN)
 	public String showViewForCatalog(@PathVariable("categoryCode") final String categoryCode,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "q", required = false) final String searchQuery, final JnjGTSearchSortForm form,
@@ -448,7 +448,7 @@ public class JnjGTCategoryPageController extends CategoryPageController
 		return getView(view);
 	}
 
-	@RequestMapping(value = CATEGORY_PRODUCT_LIST_DOWNLOAD, method = RequestMethod.POST)
+	@PostMapping(CATEGORY_PRODUCT_LIST_DOWNLOAD)
 	@ResponseBody
 	public Boolean category()
 	{

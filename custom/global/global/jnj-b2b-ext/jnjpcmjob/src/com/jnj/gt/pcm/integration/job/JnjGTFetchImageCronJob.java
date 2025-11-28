@@ -14,7 +14,6 @@ import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.gt.core.model.JnjGTPCMIntegrationCronJobModel;
 import com.jnj.gt.pcm.integration.facade.JnjGTFetchImageFacade;
@@ -63,7 +62,6 @@ public class JnjGTFetchImageCronJob extends AbstractJobPerformable<JnjGTPCMInteg
 		return jnjGTFetchImageFacade;
 	}
 
-	@Required
 	public void setJnjGTFetchImageFacade(final JnjGTFetchImageFacade jnjGTFetchImageFacade)
 	{
 		this.jnjGTFetchImageFacade = jnjGTFetchImageFacade;
@@ -74,7 +72,6 @@ public class JnjGTFetchImageCronJob extends AbstractJobPerformable<JnjGTPCMInteg
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService)
 	{
 		this.configurationService = configurationService;

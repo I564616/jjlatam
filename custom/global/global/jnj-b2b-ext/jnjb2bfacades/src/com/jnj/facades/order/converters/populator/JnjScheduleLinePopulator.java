@@ -13,7 +13,7 @@ import de.hybris.platform.core.model.order.AbstractOrderEntryModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
 
 import com.jnj.core.model.JnjDeliveryScheduleModel;

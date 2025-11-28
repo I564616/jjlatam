@@ -15,7 +15,6 @@ import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.util.JnJCommonUtil;
 import com.jnj.gt.pcm.integration.constants.JnjpcmjobConstants.Logging;
@@ -62,7 +61,6 @@ public class JnjProductDetailToPCMCronJob extends AbstractJobPerformable<CronJob
 		return jnjCCP360IntegrationFacade;
 	}
 
-	@Required
 	public void setJnjCCP360IntegrationFacade(final JnjCCP360IntegrationFacade jnjCCP360IntegrationFacade)
 	{
 		this.jnjCCP360IntegrationFacade = jnjCCP360IntegrationFacade;

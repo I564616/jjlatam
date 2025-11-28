@@ -17,7 +17,6 @@ import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.platform.util.Config;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -142,12 +141,10 @@ public class JnJUpdateCarrierStatusServiceImpl implements JnJUpdateCarrierStatus
         modelService.save(model);
     }
 
-    @Required
     public void setModelService(final ModelService modelService) {
         this.modelService = modelService;
     }
 
-    @Required
     public void setInvoiceDao(final JnjLaInvoiceDao invoiceDao) {
         this.invoiceDao = invoiceDao;
     }

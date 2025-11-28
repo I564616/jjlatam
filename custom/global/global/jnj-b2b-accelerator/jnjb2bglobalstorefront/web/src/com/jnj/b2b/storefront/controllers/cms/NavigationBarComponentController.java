@@ -17,7 +17,7 @@ import de.hybris.platform.acceleratorcms.enums.NavigationBarMenuLayout;
 import de.hybris.platform.acceleratorcms.model.components.NavigationBarComponentModel;
 import com.jnj.b2b.storefront.controllers.ControllerConstants;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;

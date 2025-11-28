@@ -5,5 +5,5 @@
 // Generated on: 2014.02.13 at 03:07:07 PM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://itsusmpl00082.jnj.com/SG910_BtB_IN0504_ElectronicBilling_Hybris_Source_v1.webservices:receiveElectronicBillingWS")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://itsusmpl00082.jnj.com/SG910_BtB_IN0504_ElectronicBilling_Hybris_Source_v1.webservices:receiveElectronicBillingWS")
 package com.jnj.itsusmpl00082.sg910_btb_in0504_electronicbilling_hybris_source_v1_webservices.receiveelectronicbillingws;

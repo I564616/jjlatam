@@ -9,15 +9,16 @@ import de.hybris.platform.servicelayer.session.SessionService;
 
 import java.util.List;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -138,7 +139,7 @@ public class JnjGTResourcesPageController extends AbstractPageController
 	private static final String REDIRECT_PREFIX = "redirect:";
 
 
-	@RequestMapping(value = "/usefullinks", method = RequestMethod.GET)
+	@GetMapping("/usefullinks")
 	public ModelAndView showUsefulLinks(final Model model) throws CMSItemNotFoundException
 	{
 		//Store the CMS page in the model
@@ -168,7 +169,7 @@ public class JnjGTResourcesPageController extends AbstractPageController
 		return new ModelAndView(getView(JnjglobalresourcesControllerConstants.Views.Pages.Resources.ResourcesPage));
 	}
 
-	@RequestMapping(value = "/trainingresources", method = RequestMethod.GET)
+	@GetMapping("/trainingresources")
 	public ModelAndView showTrainingResources(final Model model) throws CMSItemNotFoundException
 	{
 		final Object showChangeAccountLink = sessionService.getAttribute(SHOW_CHANGE_ACCOUNT);
@@ -198,7 +199,7 @@ public class JnjGTResourcesPageController extends AbstractPageController
 		
 	}
 
-	@RequestMapping(value = "/policiesandfees", method = RequestMethod.GET)
+	@GetMapping("/policiesandfees")
 	public String showPoliciesAndFees(final Model model) throws CMSItemNotFoundException
 	{
 		final Object showChangeAccountLink = sessionService.getAttribute(SHOW_CHANGE_ACCOUNT);
@@ -239,7 +240,7 @@ public class JnjGTResourcesPageController extends AbstractPageController
 	}
 
 	
-	@RequestMapping(value = "/termsofsale", method = RequestMethod.GET)
+	@GetMapping("/termsofsale")
 	public String showTermsOfSale(final Model model) throws CMSItemNotFoundException
 	{
 
@@ -285,7 +286,7 @@ public class JnjGTResourcesPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/cpsia", method = RequestMethod.GET)
+	@GetMapping("/cpsia")
 	public ModelAndView getCpsiaPage(@RequestParam(value = SORT_BY, required = false) final String sortBy, final Model model)
 			throws CMSItemNotFoundException
 	{
@@ -337,7 +338,7 @@ public class JnjGTResourcesPageController extends AbstractPageController
 	 * @param model
 	 * @return view
 	 */
-	@RequestMapping(value = "/cpsia", method = RequestMethod.POST)
+	@PostMapping("/cpsia")
 	public String getSortedCpsiaResults(@RequestParam(value = SORT_BY, required = false) final String sortBy, final Model model)
 	{
 		final Object showChangeAccountLink = sessionService.getAttribute(SHOW_CHANGE_ACCOUNT);
@@ -392,7 +393,7 @@ public class JnjGTResourcesPageController extends AbstractPageController
 	}
 
 
-	@RequestMapping(value = "/pcmPrivacyPolicy", method = RequestMethod.GET)
+	@GetMapping("/pcmPrivacyPolicy")
 	public ModelAndView showPcmPrivacyPolicy(final Model model) throws CMSItemNotFoundException
 	{
 		final Object showChangeAccountLink = sessionService.getAttribute(SHOW_CHANGE_ACCOUNT);
@@ -447,7 +448,7 @@ public class JnjGTResourcesPageController extends AbstractPageController
 
 	}
 
-	@RequestMapping(value = "/pcmTermsOfUse", method = RequestMethod.GET)
+	@GetMapping("/pcmTermsOfUse")
 	public ModelAndView showPcmTermsOfUse(final Model model) throws CMSItemNotFoundException
 	{
 		//Setting the value of the site when the site is accessed by a non-logged in user.

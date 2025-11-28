@@ -6,8 +6,7 @@ import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.jnj.b2b.loginaddon.controllers.LoginaddonControllerConstants;
 import com.jnj.b2b.storefront.controllers.pages.AbstractPageController;
@@ -29,7 +28,7 @@ public class JnjGTPrivacyPolicyController extends AbstractPageController
 	protected static final String UPDATED_PRIVACY_POLICY_PAGE = "updatedPrivacyPolicyPage";
 	protected static final Logger LOG = Logger.getLogger(JnjGTPrivacyPolicyController.class);
 
-	@RequestMapping(value = "/privacyPolicy", method = RequestMethod.GET)
+	@GetMapping("/privacyPolicy")
 	public String getPrivacyPolicy(final Model model) throws CMSItemNotFoundException
 	{
 		final String METHOD_NAME = "getPrivacyPolicy()";
@@ -57,7 +56,7 @@ public class JnjGTPrivacyPolicyController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/updatedPrivacyPolicy", method = RequestMethod.GET)
+	@GetMapping("/updatedPrivacyPolicy")
 	public String getUpdatedprivacyPolicy(final Model model) throws CMSItemNotFoundException
 	{
 		final String METHOD_NAME = "getUpdatedprivacyPolicy()";

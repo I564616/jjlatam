@@ -13,11 +13,10 @@ import de.hybris.platform.servicelayer.event.events.AfterCronJobCrashAbortEvent;
 import de.hybris.platform.servicelayer.event.events.AfterCronJobFinishedEvent;
 import de.hybris.platform.servicelayer.event.events.BeforeCronJobStartEvent;
 import de.hybris.platform.servicelayer.event.impl.AbstractEventListener;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.io.IOException;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import io.cronitor.client.CronitorClient;
@@ -117,7 +116,6 @@ public class JnJLaCronjobToCronitorEventListener extends AbstractEventListener {
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService) {
 
 		this.configurationService = configurationService;
@@ -128,7 +126,6 @@ public class JnJLaCronjobToCronitorEventListener extends AbstractEventListener {
 		return cronitorClient;
 	}
 
-	@Required
 	public void setCronitorClient(final CronitorClient cronitorClient) {
 		this.cronitorClient = cronitorClient;
 	}

@@ -10,9 +10,8 @@ import de.hybris.platform.core.model.c2l.CountryModel;
 import de.hybris.platform.core.model.order.AbstractOrderEntryModel;
 import de.hybris.platform.core.model.order.AbstractOrderModel;
 import de.hybris.platform.servicelayer.session.SessionService;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Service;
 import com.jnj.core.model.JnJB2BUnitModel;
 
@@ -80,7 +79,6 @@ public class JnjPeruOrderSplitServiceImpl extends JnjLatamAbstractOrderSplitServ
 		return jnjGTB2BUnitService;
 	}
 
-	@Required
 	public void setJnjGTB2BUnitService(JnjGTB2BUnitService jnjGTB2BUnitService) {
 		this.jnjGTB2BUnitService = jnjGTB2BUnitService;
 	}

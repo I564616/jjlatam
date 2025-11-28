@@ -7,13 +7,13 @@
  */
 package com.jnj.core.services.product.url;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import de.hybris.platform.commerceservices.url.impl.DefaultProductModelUrlResolver;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.servicelayer.session.SessionService;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 

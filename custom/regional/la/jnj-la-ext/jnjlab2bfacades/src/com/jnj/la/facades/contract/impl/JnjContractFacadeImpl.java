@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.fest.util.Collections;
+import org.assertj.core.util.IterableUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
@@ -28,7 +28,6 @@ import com.jnj.facades.cart.impl.DefaultJnjCartFacade;
 import com.jnj.facades.data.JnjContractData;
 import com.jnj.la.core.services.contract.JnjContractService;
 import com.jnj.la.facades.contract.JnjContractFacade;
-
 
 
 /**
@@ -303,7 +302,7 @@ public class JnjContractFacadeImpl implements JnjContractFacade
 			}
 
 
-			if (!(Collections.isEmpty(activeContracts)))
+			if (!(IterableUtil.isNullOrEmpty(activeContracts)))
 			{
 				LOGGER.info(Jnjb2bCoreConstants.Logging.CONTRACTS_FACADE + Logging.HYPHEN + GET_ALL_ACTIVE_CONTRACTS + Logging.HYPHEN
 						+ "Contracts with status [Active] fetched from Hybris.");
@@ -407,7 +406,7 @@ public class JnjContractFacadeImpl implements JnjContractFacade
 			totalNoOfRecords = searchResult.getTotalCount();
 
 			activeContracts = searchResult.getResult();
-			if (!(Collections.isEmpty(activeContracts)))
+			if (!(IterableUtil.isNullOrEmpty(activeContracts)))
 			{
 				LOGGER.info(Jnjb2bCoreConstants.Logging.CONTRACTS_FACADE + Logging.HYPHEN + METHOD_NAME + Logging.HYPHEN
 						+ "Contracts with status [Inactive] fetched from Hybris.");
@@ -528,7 +527,7 @@ public class JnjContractFacadeImpl implements JnjContractFacade
 			totalNoOfRecords = searchResult.getTotalCount();
 
 			activeContracts = searchResult.getResult();
-			if (!(Collections.isEmpty(activeContracts)))
+			if (!(IterableUtil.isNullOrEmpty(activeContracts)))
 			{
 				LOGGER.info(Jnjb2bCoreConstants.Logging.CONTRACTS_FACADE + Logging.HYPHEN + GET_ALL_ACTIVE_CONTRACTS + Logging.HYPHEN
 						+ "Contracts with status [Active] fetched from Hybris.");

@@ -8,7 +8,7 @@
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/responsive/template" %>
 <%@ taglib prefix="analytics" tagdir="/WEB-INF/tags/addons/loginaddon/shared/analytics" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%-- <%@ taglib prefix="templateLogin" tagdir="/WEB-INF/tags/addons/loginaddon/responsive/template" %> --%>
 <spring:eval expression="T(de.hybris.platform.util.Config).getParameter('jnjb2bglobalstorefront.webroot')" var="webroot" scope="session"/>
 <!DOCTYPE html>

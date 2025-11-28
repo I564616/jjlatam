@@ -34,11 +34,10 @@ import de.hybris.platform.store.services.BaseStoreService;
 import de.hybris.platform.util.Config;
 import de.hybris.platform.util.DiscountValue;
 import de.hybris.platform.util.TaxValue;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -482,17 +481,14 @@ public class JnjSAPOrderConverter {
     private static boolean isProductionSite(){
     	return configurationService.getConfiguration().getBoolean(IS_SITE_PRODUCTION);
     }
-    @Required
     public void setBaseSiteService(BaseSiteService baseSiteService) {
         this.baseSiteService = baseSiteService;
     }
 
-    @Required
     public void setBaseStoreService(BaseStoreService baseStoreService) {
         this.baseStoreService = baseStoreService;
     }
     
-    @Required
     public void setCommonI18NService(CommonI18NService commonI18NService) {
         this.commonI18NService = commonI18NService;
     }
@@ -501,7 +497,6 @@ public class JnjSAPOrderConverter {
 		return configurationService;
 	}
      
-	@Required
 	public static void setConfigurationService(final ConfigurationService configurationService) {
 		JnjSAPOrderConverter.configurationService = configurationService;
 	}

@@ -19,8 +19,6 @@ import com.jnj.core.checkout.flow.B2BCheckoutFlowStrategy;
 
 import de.hybris.platform.acceleratorservices.enums.CheckoutFlowEnum;
 
-import org.springframework.beans.factory.annotation.Required;
-
 
 /**
  * 
@@ -38,7 +36,6 @@ public class FixedB2BCheckoutFlowStrategy implements B2BCheckoutFlowStrategy
 		return checkoutFlow;
 	}
 
-	@Required
 	public void setCheckoutFlow(final CheckoutFlowEnum checkoutFlow)
 	{
 		this.checkoutFlow = checkoutFlow;

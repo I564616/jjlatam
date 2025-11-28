@@ -2,10 +2,10 @@ package com.jnj.b2b.storefront.renderer;
 
 import java.io.IOException;
 import com.jnj.core.model.JnjGTSurveyLinkComponentModel;
-import javax.servlet.ServletException;
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.jsp.JspException;
+import jakarta.servlet.jsp.JspWriter;
+import jakarta.servlet.jsp.PageContext;
 import de.hybris.platform.cms2.enums.LinkTargets;
 
 import de.hybris.platform.acceleratorcms.component.renderer.CMSComponentRenderer;

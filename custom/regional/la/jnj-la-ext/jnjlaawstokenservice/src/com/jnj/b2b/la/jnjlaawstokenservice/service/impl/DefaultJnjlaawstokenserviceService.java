@@ -23,7 +23,6 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.b2b.la.jnjlaawstokenservice.service.JnjlaawstokenserviceService;
 
@@ -84,19 +83,16 @@ public class DefaultJnjlaawstokenserviceService implements JnjlaawstokenserviceS
 		return DefaultJnjlaawstokenserviceService.class.getResourceAsStream("/jnjlaawstokenservice/sap-hybris-platform.png");
 	}
 
-	@Required
 	public void setMediaService(final MediaService mediaService)
 	{
 		this.mediaService = mediaService;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
 	}
 
-	@Required
 	public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService)
 	{
 		this.flexibleSearchService = flexibleSearchService;

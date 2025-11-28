@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.dao.customerEligibility.JnjCustomerEligiblityDao;
 
@@ -103,7 +102,6 @@ public class DefaultJnjCustomerEligibilityDao implements JnjCustomerEligiblityDa
 		return flexibleSearchService;
 	}
 
-	@Required
 	public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService)
 	{
 		this.flexibleSearchService = flexibleSearchService;
@@ -117,7 +115,6 @@ public class DefaultJnjCustomerEligibilityDao implements JnjCustomerEligiblityDa
 		return userService;
 	}
 
-	@Required
 	public void setUserService(final UserService userService)
 	{
 		this.userService = userService;
@@ -129,7 +126,6 @@ public class DefaultJnjCustomerEligibilityDao implements JnjCustomerEligiblityDa
 		return sessionService;
 	}
 
-	@Required
 	public void setSessionService(final SessionService sessionService)
 	{
 		this.sessionService = sessionService;

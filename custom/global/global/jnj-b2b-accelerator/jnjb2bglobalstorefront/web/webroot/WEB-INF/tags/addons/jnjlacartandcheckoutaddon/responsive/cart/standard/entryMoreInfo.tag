@@ -1,12 +1,12 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="label" uri="/WEB-INF/tld/message.tld"%>
 <%@ attribute name="entry" required="true" type="com.jnj.facades.data.JnjLaOrderEntryData" %>
 <%@ attribute name="freeGoodOrderLine" required="false" type="com.jnj.facades.data.JnjOutOrderLine" %>
 <%@ attribute name="orderhistoryfreeItem" required="false" type="java.lang.Boolean" %>
 <%@ attribute name="showInfoLbl" required="false" type="java.lang.Boolean" %>
 <%@ attribute name="showDescLbl" required="true" type="java.lang.Boolean" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="laFormat" tagdir="/WEB-INF/tags/addons/jnjlaloginaddon/responsive/shared/format"%>
 

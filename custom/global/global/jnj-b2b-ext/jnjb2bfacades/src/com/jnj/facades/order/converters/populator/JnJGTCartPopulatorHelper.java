@@ -13,7 +13,7 @@ import de.hybris.platform.core.model.order.AbstractOrderModel;
 
 import java.text.DecimalFormat;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.jnj.core.model.JnjGTVariantProductModel;
 

@@ -8,8 +8,8 @@ import de.hybris.platform.util.Config;
 
 import java.util.HashMap;
 
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jnj.core.services.impl.DefaultJnjContactUsService;

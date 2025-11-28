@@ -23,8 +23,6 @@ import de.hybris.platform.core.model.user.CustomerModel;
 import de.hybris.platform.orderprocessing.model.OrderProcessModel;
 import de.hybris.platform.servicelayer.dto.converter.Converter;
 
-import org.springframework.beans.factory.annotation.Required;
-
 
 /**
  * Context (velocity) for email order notification.
@@ -58,7 +56,6 @@ public class OrderNotificationEmailContext extends AbstractEmailContext<OrderPro
 		return orderConverter;
 	}
 
-	@Required
 	public void setOrderConverter(final Converter<OrderModel, OrderData> orderConverter)
 	{
 		this.orderConverter = orderConverter;

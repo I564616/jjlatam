@@ -24,10 +24,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Required;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -334,25 +333,21 @@ public class DefaultJnjDeliveryDateUpdateService implements JnjDeliveryDateUpdat
 		}
 	}
 
-	@Required
 	public void setJnjPacAeraDao(JnjPacAeraDao jnjPacAeraDao)
 	{
 		this.jnjPacAeraDao = jnjPacAeraDao;
 	}
 
-	@Required
 	public void setModelService(ModelService modelService)
 	{
 		this.modelService = modelService;
 	}
 
-	@Required
 	public void setCronJobService(CronJobService cronJobService)
 	{
 		this.cronJobService = cronJobService;
 	}
 
-	@Required
 	public void setConfigurationService(ConfigurationService configurationService)
 	{
 		this.configurationService = configurationService;

@@ -61,23 +61,25 @@ import java.util.Set;
 import java.util.List;
 import java.util.ListIterator;
 
-import javax.annotation.Resource;
-import javax.mail.Session;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.annotation.Resource;
+import jakarta.mail.Session;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import javax.xml.stream.XMLStreamException;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.BooleanUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -169,7 +171,7 @@ import com.jnj.b2b.loginaddon.controllers.LoginaddonControllerConstants;
 import com.jnj.b2b.loginaddon.recaptcha.JnjWebUtil;
 import com.jnj.services.MessageService;
 import org.springframework.web.multipart.MultipartFile;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 
 import com.jnj.core.util.JnjGTOrderTypeComparator;
 
@@ -239,8 +241,8 @@ public class JnjGTCartPageController extends AbstractPageController
 	protected static final String PCM_CART_CONFIGURATION_CMS_PAGE = "cartConfigurationPage";
 	protected static final String PCM_CART_CONFIRMATION_CMS_PAGE = "cartConfirmationPage";
 	protected static final String CONTINUE_URL = "continueUrl";
-	protected static final Integer ERROR_COMES = new Integer(1);
-	protected static final Integer ERROR_NOT_COMES = new Integer(0);
+	protected static final Integer ERROR_COMES = Integer.valueOf(1);
+	protected static final Integer ERROR_NOT_COMES = Integer.valueOf(0);
 	protected static final String US_COUNTRY_CODE = "US";
 	
 	
@@ -427,7 +429,7 @@ public class JnjGTCartPageController extends AbstractPageController
 		this.userService = userService;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String showCart(final Model model,final HttpServletRequest request) throws CMSItemNotFoundException
 	{
 		final Object showChangeAccountLink = sessionService.getAttribute(Jnjb2bCoreConstants.Logging.SHOW_CHANGE_ACCOUNT);
@@ -1599,7 +1601,7 @@ public class JnjGTCartPageController extends AbstractPageController
 		return getView(CartandcheckoutaddonControllerConstants.Views.Pages.Cart.PriceOverridePopUp);
 	}
 
-	@RequestMapping(value = "/updatePriceOverride", method = RequestMethod.POST)
+	@PostMapping("/updatePriceOverride")
 	public String updatePriceOverride(@RequestParam("reasonCode") final String reasonCode,
 			@RequestParam("approver") final String approver, @RequestParam("overridePrice") final double overridePrice,
 			final Model model, @RequestParam("entryNumber") final int entryNumber,final HttpServletRequest request) throws CMSItemNotFoundException
@@ -2083,7 +2085,7 @@ public class JnjGTCartPageController extends AbstractPageController
 		return null;
 	}
 
-	@RequestMapping(value = "/saveCreditCardInfo", method = RequestMethod.POST)
+	@PostMapping("/saveCreditCardInfo")
 	public String saveCreditCardInfo(@ModelAttribute("creditCardDetailsForm") final CreditCardDetailsForm form)
 	{
 
@@ -2203,7 +2205,7 @@ public class JnjGTCartPageController extends AbstractPageController
 		return jnjGTCartFacade.updatePaymentInfo(paymentInfoId);
 	}
 
-	@RequestMapping(value = "/updateShippingAddress", method = RequestMethod.POST)
+	@PostMapping("/updateShippingAddress")
 	public String updateShippingAddress(final Model model, @RequestParam(value = "shippingAddress") final String shippingAddrId,final HttpServletRequest request)
 	{ 
 		 
@@ -2237,7 +2239,7 @@ public class JnjGTCartPageController extends AbstractPageController
 	}
 	
     
-	@RequestMapping(value = "/updateBillingAddress", method = RequestMethod.POST)
+	@PostMapping("/updateBillingAddress")
 	public String updateBillingAddress(final Model model, @RequestParam(value = "billingAddress") final String billingAddrId,final HttpServletRequest request)
 	{ 
 		 
@@ -2397,7 +2399,7 @@ public class JnjGTCartPageController extends AbstractPageController
 	}
 	
 
-	@RequestMapping(value = "/saveSurgeryInfo", method = RequestMethod.POST)
+	@PostMapping("/saveSurgeryInfo")
 
 	public String saveSurgeryInfo(final JnjGTSurgeryInfoData infoForm, final Model model,final HttpServletRequest request) throws CMSItemNotFoundException
 	{
@@ -2406,7 +2408,7 @@ public class JnjGTCartPageController extends AbstractPageController
 		return showCart(model,request);
 	}
 
-	@RequestMapping(value = "/saveOneTimeShipping", method = RequestMethod.POST)
+	@PostMapping("/saveOneTimeShipping")
 	public String saveOneTimeShipping(final OneTimeShippingAddForm shippingAddForm, final Model model,final HttpServletRequest request)
 			throws CMSItemNotFoundException
 	{
@@ -2747,13 +2749,13 @@ public class JnjGTCartPageController extends AbstractPageController
 		return showCart(model,request);
 	}
 
-	@RequestMapping(value = "/surgeonData", method = RequestMethod.POST)
+	@PostMapping("/surgeonData")
 	public String getSurgeonData(final Model model,
 			@RequestParam(value = "loadMoreCounter", defaultValue = "1") final int loadMoreCounter,
 			@RequestParam(value = "searchPattern", required = false) final String searchPattern)
 	{
 		model.addAttribute("pagedSurgeonData", orderFacade.getSurgeonData(searchPattern, loadMoreCounter));
-		model.addAttribute("loadMoreCounter", new Integer(loadMoreCounter));
+		model.addAttribute("loadMoreCounter", Integer.valueOf(loadMoreCounter));
 		model.addAttribute("searchPattern", searchPattern);
 		final Object showChangeAccountLink = sessionService.getAttribute(Jnjb2bCoreConstants.Logging.SHOW_CHANGE_ACCOUNT);
 		LOGGER.info("showChangeAccountLink value : "+showChangeAccountLink);
@@ -2767,7 +2769,7 @@ public class JnjGTCartPageController extends AbstractPageController
 				
 	}
 
-	@RequestMapping(value = "/updateSurgeonData", method = RequestMethod.POST)
+	@PostMapping("/updateSurgeonData")
 	@ResponseBody
 	public String updateSurgeon(final String selectedSurgeonId, final String selectSurgeonName, final String hospitalId)
 			throws CMSItemNotFoundException
@@ -2777,7 +2779,7 @@ public class JnjGTCartPageController extends AbstractPageController
 	}
 /*Added for JJEPIC 720 Start*/
 	
-	@RequestMapping(value = "/deleteDeliveredOrderFile", method = RequestMethod.POST)
+	@PostMapping("/deleteDeliveredOrderFile")
 	@ResponseBody
 	public String deleteDeliveredOrderFile() throws CMSItemNotFoundException
 	{
@@ -2788,7 +2790,7 @@ public class JnjGTCartPageController extends AbstractPageController
 	
 	/*Added for JJEPIC 720 Ends */
 
-	@RequestMapping(value = "/deliveredOrderFileUpload", method = RequestMethod.POST)
+	@PostMapping("/deliveredOrderFileUpload")
 	public String deliveredOrderFileUpload(
 			@RequestParam(value = "deliveredOrderDoc", required = false) final CommonsMultipartFile deliveredOrderDoc,
 			final RedirectAttributes redirectModel)
@@ -2846,7 +2848,7 @@ public class JnjGTCartPageController extends AbstractPageController
 	
 	/*Added for AAOL-4937*/
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value = "/uploadFileforReturn", method = RequestMethod.POST)
+	@PostMapping("/uploadFileforReturn")
 	public String uploadFileforReturn(@ModelAttribute("returnUploadForm") ReturnFileUploadForm returnUploadForm)throws CMSItemNotFoundException
 	{
 		boolean isReturnImageUploaded = false;
@@ -2859,7 +2861,7 @@ public class JnjGTCartPageController extends AbstractPageController
 	}	
 	/*End of AAOL-4937*/
 	
-	@RequestMapping(value = "/updateFreightCost", method = RequestMethod.POST)
+	@PostMapping("/updateFreightCost")
 	public String updateFreightCost(@RequestParam("freightCost") final double freightCost)
 	{
 
@@ -2985,7 +2987,7 @@ public class JnjGTCartPageController extends AbstractPageController
 		return REDIRECT_PREFIX + "/cart/paymentContinue";
 	}
 
-	@RequestMapping(value = "/initiateReplenish", method = RequestMethod.POST)
+	@PostMapping("/initiateReplenish")
 	public String initiateReplenishOrder(final Model model, @RequestParam(value = "orderNum") final String orderNum)
 			throws CMSItemNotFoundException
 	{
@@ -3057,7 +3059,7 @@ public class JnjGTCartPageController extends AbstractPageController
 		return PcmControllerConstants.Views.Pages.Cart.CART_PAGE;
 	}*/
 
-	@RequestMapping(value = "/getConfigPage", method = RequestMethod.GET)
+	@GetMapping("/getConfigPage")
 	public String getCustomExportConfig(final Model model) throws CMSItemNotFoundException
 
 	{
@@ -3141,7 +3143,7 @@ public class JnjGTCartPageController extends AbstractPageController
 		return"";
 	}
 
-	@RequestMapping(value = "/getExportConfirmationPage", method = RequestMethod.POST)
+	@PostMapping("/getExportConfirmationPage")
 	public String getExportConfirmationPage(final Model model,
 			final RedirectAttributes redirectModel) throws CMSItemNotFoundException
 	{
@@ -3220,7 +3222,7 @@ public class JnjGTCartPageController extends AbstractPageController
 		return pageableData;
 	}
 
-	@RequestMapping(value = "/getSAPPrice", method = RequestMethod.POST)
+	@PostMapping("/getSAPPrice")
 	@ResponseBody
 
 	public JnjGTUpdatePriceData getSAPPrice(@RequestParam(value = "entryNumber") final int entryNumber)
@@ -3229,7 +3231,7 @@ public class JnjGTCartPageController extends AbstractPageController
 		return jnjGTCartFacade.updatePriceForEntry(entryNumber);
 	}
 
-	@RequestMapping(value = "/getCartSubTotal", method = RequestMethod.POST)
+	@PostMapping("/getCartSubTotal")
 	@ResponseBody
 
 	public JnjGTUpdatePriceData getCartSubTotal()
@@ -3242,7 +3244,7 @@ public class JnjGTCartPageController extends AbstractPageController
 
 
 
-	@RequestMapping(value = "/addToCartReturn", method = RequestMethod.POST)
+	@PostMapping("/addToCartReturn")
 	public String returnOrderFileUpload(
 			@RequestParam(value = "returnOrderDoc", required = false) final CommonsMultipartFile returnOrderDoc,
 			final RedirectAttributes redirectModel) throws CMSItemNotFoundException
@@ -3319,7 +3321,7 @@ public class JnjGTCartPageController extends AbstractPageController
 	}
 
 
-	@RequestMapping(value = "/pcmCartCancelOrder", method = RequestMethod.GET)
+	@GetMapping("/pcmCartCancelOrder")
 	public String pcmCartCancelOrder(final Model model, final RedirectAttributes redirectModel) throws CMSItemNotFoundException
 	{
 
@@ -3468,7 +3470,7 @@ public class JnjGTCartPageController extends AbstractPageController
 		return getView(jnjGTCartFacade.getPathForView(CartandcheckoutaddonControllerConstants.Views.Pages.Cart.OrderReviewPage, null));
 	}
 	
-	@RequestMapping(value = "/clearCart", method = RequestMethod.GET)
+	@GetMapping("/clearCart")
 	protected String clearCart()
 	{
 		getCartService().removeSessionCart();
@@ -3534,7 +3536,7 @@ public class JnjGTCartPageController extends AbstractPageController
 	}
 	
 
-	@RequestMapping(value = "/simulateOrderFirstSAPCall" , method = RequestMethod.POST)
+	@PostMapping("/simulateOrderFirstSAPCall")
 	public String simulateOrderFirstSAPCall(final Model model, @RequestBody(required=false)  final JnjGTSapWsData wsData, final RedirectAttributes redirectModel)
 			throws CMSItemNotFoundException
 	{
@@ -3642,7 +3644,7 @@ public class JnjGTCartPageController extends AbstractPageController
 	}
 	 
 	 //3088 start
-	 @RequestMapping(value = "/getShippingAjax", method = RequestMethod.POST)
+	 @PostMapping("/getShippingAjax")
 		public String getShippingA(@RequestParam(value = "searchTerm", defaultValue = "", required = false) final String searchTerm,final Model model) throws CMSItemNotFoundException
 		{
 			 List<AddressData> shippingAddressess=null ;
@@ -3665,7 +3667,7 @@ public class JnjGTCartPageController extends AbstractPageController
 		}
 	 
 	 
-	 	@RequestMapping(value = "/getBillingAddressSearch", method = RequestMethod.POST)
+	 	@PostMapping("/getBillingAddressSearch")
 		public String getBillingAddressSearch(@RequestParam(value = "searchTerm", defaultValue = "", required = false) final String searchTerm,final Model model) throws CMSItemNotFoundException
 		{
 			List<AddressData> billingAddresses=null ;

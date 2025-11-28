@@ -22,7 +22,6 @@ import com.jnj.la.core.util.JnjLaInterfaceOperationArchUtility;
 import com.jnj.la.dataload.dao.JnjDropshipmentDataLoadDao;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import com.jnj.la.core.util.JnJLaCronjobUtil;
 import de.hybris.platform.util.Config;
@@ -52,7 +51,6 @@ public class JnjDropshipmentDataLoadDaoImpl implements JnjDropshipmentDataLoadDa
 		return jnjLaCronjobUtil;
 	}
 	
-	@Required
 	public void setJnjLaCronjobUtil(final JnJLaCronjobUtil jnjLaCronjobUtil) {
 		this.jnjLaCronjobUtil = jnjLaCronjobUtil;
 	}
@@ -61,7 +59,6 @@ public class JnjDropshipmentDataLoadDaoImpl implements JnjDropshipmentDataLoadDa
 		return rsaDBConnector;
 	}
 
-	@Required
 	public void setRsaDBConnector(final JNJRSADBConnector rsaDBConnector) {
 		this.rsaDBConnector = rsaDBConnector;
 	}
@@ -70,7 +67,6 @@ public class JnjDropshipmentDataLoadDaoImpl implements JnjDropshipmentDataLoadDa
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	}

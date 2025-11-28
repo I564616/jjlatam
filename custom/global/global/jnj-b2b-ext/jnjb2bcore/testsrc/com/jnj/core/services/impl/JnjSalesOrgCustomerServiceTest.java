@@ -3,7 +3,7 @@
  */
 package com.jnj.core.services.impl;
 
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 
 import de.hybris.bootstrap.annotations.UnitTest;
@@ -86,7 +86,7 @@ public class JnjSalesOrgCustomerServiceTest
 		Mockito.when(jnjGetCurrentDefaultB2BUnitUtil.getDefaultB2BUnit()).thenReturn(unit);
 		final JnJSalesOrgCustomerModel jnjSalesOrgCustomerModel = new JnJSalesOrgCustomerModel();
 		jnjSalesOrgCustomerModel.setCustomerId(unit);
-		Mockito.when(flexibleSearchService.getModelsByExample((JnJSalesOrgCustomerModel) anyObject())).thenReturn(salesOrgList);
+		Mockito.when(flexibleSearchService.getModelsByExample((JnJSalesOrgCustomerModel) any())).thenReturn(salesOrgList);
 		final List<JnJSalesOrgCustomerModel> salesOrgs = jnJsalesOrgCustService.getSalesOrgsForCurrentUser();
 		Assert.assertEquals(1, salesOrgs.size());
 	}
@@ -99,7 +99,7 @@ public class JnjSalesOrgCustomerServiceTest
 		final JnJSalesOrgCustomerModel jnjSalesOrgCustomerModel = new JnJSalesOrgCustomerModel();
 		jnjSalesOrgCustomerModel.setCustomerId(unit);
 
-		Mockito.when(flexibleSearchService.getModelsByExample((JnJSalesOrgCustomerModel) anyObject())).thenReturn(salesOrgList);
+		Mockito.when(flexibleSearchService.getModelsByExample((JnJSalesOrgCustomerModel) any())).thenReturn(salesOrgList);
 		final List<JnJSalesOrgCustomerModel> salesOrgs = jnJsalesOrgCustService.getSalesOrgsForCurrentUser();
 		Assert.assertEquals(0, salesOrgs.size());
 	}
@@ -120,7 +120,7 @@ public class JnjSalesOrgCustomerServiceTest
 		Mockito.when(jnjGetCurrentDefaultB2BUnitUtil.getDefaultB2BUnit()).thenReturn(unit);
 		final JnJSalesOrgCustomerModel jnjSalesOrgCustomerModel = new JnJSalesOrgCustomerModel();
 		jnjSalesOrgCustomerModel.setCustomerId(unit);
-		Mockito.when(flexibleSearchService.getModelsByExample((JnJSalesOrgCustomerModel) anyObject())).thenReturn(salesOrgList);
+		Mockito.when(flexibleSearchService.getModelsByExample((JnJSalesOrgCustomerModel) any())).thenReturn(salesOrgList);
 
 		final Map<String, String> salesOrgMap = jnJsalesOrgCustService.getSectorAndSalesOrgMapping();
 		Assert.assertEquals(2, salesOrgMap.size());
@@ -134,7 +134,7 @@ public class JnjSalesOrgCustomerServiceTest
 		final JnjSalesOrgAndSplProdMapModel salesOrgAndSplProdMap = new JnjSalesOrgAndSplProdMapModel();
 		salesOrgAndSplProdMap.setSalesOrg(TEST_SALES_ORG);
 		salesOrgAndSplProdMap.setHandleColdChain(Boolean.TRUE);
-		Mockito.when(flexibleSearchService.getModelByExample((JnjSalesOrgAndSplProdMapModel) anyObject())).thenReturn(
+		Mockito.when(flexibleSearchService.getModelByExample((JnjSalesOrgAndSplProdMapModel) any())).thenReturn(
 				salesOrgAndSplProdMap);
 		final boolean result = jnJsalesOrgCustService.checkColdChainStorage(TEST_SALES_ORG);
 		Assert.assertTrue(result);
@@ -146,7 +146,7 @@ public class JnjSalesOrgCustomerServiceTest
 		final JnjSalesOrgAndSplProdMapModel salesOrgAndSplProdMap = new JnjSalesOrgAndSplProdMapModel();
 		salesOrgAndSplProdMap.setSalesOrg(TEST_SALES_ORG);
 		salesOrgAndSplProdMap.setHandleColdChain(Boolean.FALSE);
-		Mockito.when(flexibleSearchService.getModelByExample((JnjSalesOrgAndSplProdMapModel) anyObject())).thenReturn(
+		Mockito.when(flexibleSearchService.getModelByExample((JnjSalesOrgAndSplProdMapModel) any())).thenReturn(
 				salesOrgAndSplProdMap);
 		final boolean result = jnJsalesOrgCustService.checkColdChainStorage(TEST_SALES_ORG);
 		Assert.assertFalse(result);

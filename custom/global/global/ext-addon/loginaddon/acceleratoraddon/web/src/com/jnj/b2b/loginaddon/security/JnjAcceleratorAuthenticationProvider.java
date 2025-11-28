@@ -17,10 +17,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
@@ -196,7 +195,6 @@ public class JnjAcceleratorAuthenticationProvider extends CoreAuthenticationProv
 		return userService;
 	}
 
-	@Required
 	public void setUserService(final UserService userService)
 	{
 		this.userService = userService;
@@ -207,7 +205,6 @@ public class JnjAcceleratorAuthenticationProvider extends CoreAuthenticationProv
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;

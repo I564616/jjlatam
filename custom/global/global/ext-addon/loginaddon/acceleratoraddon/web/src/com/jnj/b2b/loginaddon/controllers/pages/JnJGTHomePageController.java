@@ -58,23 +58,25 @@ import de.hybris.platform.servicelayer.session.SessionService;
 import de.hybris.platform.servicelayer.user.UserService;
 import de.hybris.platform.store.services.BaseStoreService;
 import de.hybris.platform.util.Config;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -252,7 +254,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String getHome(final Model model,
 			@RequestParam(value = "firstTimeLogin", defaultValue = "false", required = false) final boolean firstTimeLogin,final HttpServletRequest request)
 			throws CMSItemNotFoundException
@@ -550,7 +552,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @throws CMSItemNotFoundException
 	 *            the cMS item not found exception
 	 */
-	@RequestMapping(value = "/getAccounts", method = RequestMethod.POST)
+	@PostMapping("/getAccounts")
 	public String getAccounts(@RequestParam(value = "page", defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "showMore", defaultValue = "false") final String showMore,
@@ -629,7 +631,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @throws CMSItemNotFoundException
 	 *            the cMS item not found exception
 	 */
-	@RequestMapping(value = "/changeAccount", method = RequestMethod.POST)
+	@PostMapping("/changeAccount")
 	public String changeAccountRequest(@RequestParam(value = "uid") final String selectedAccountUid,
 			@RequestParam(value = "accountName") final String selectedAccountName,
 			@RequestParam(value = "accountGLN") final String selectedAccountGLN, final Model model,final HttpServletRequest request) throws CMSItemNotFoundException
@@ -718,7 +720,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/survey", method = RequestMethod.GET)
+	@GetMapping("/survey")
 	public String getSurveyPopup(final Model model) throws CMSItemNotFoundException
 	{
 
@@ -743,7 +745,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @param model
 	 * @return true / false
 	 */
-	@RequestMapping(value = "/disableSurvey", method = RequestMethod.GET)
+	@GetMapping("/disableSurvey")
 	@ResponseBody
 	public boolean disableSurveyFlag(final Model model)
 	{
@@ -822,7 +824,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 *
 	 * @return true, if successful
 	 */
-	@RequestMapping(value = "/updateLegalPrivacyPolicy", method = RequestMethod.POST)
+	@PostMapping("/updateLegalPrivacyPolicy")
 	@ResponseBody
 	public boolean updateLegalPrivacyPolicy()
 	{
@@ -914,7 +916,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @return String
 	 */
 
-	@RequestMapping(value = "/addTocart", method = RequestMethod.POST)
+	@PostMapping("/addTocart")
 	@ResponseBody
 	public JnjCartModificationData addQuickTocart(@RequestParam("prodId_Qtys") final String prodId_Qtys, final Model model, final HttpServletRequest request)
 			throws CMSItemNotFoundException
@@ -1131,7 +1133,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @throws CMSItemNotFoundException
 	 * @return String
 	 */
-	@RequestMapping(value = "/multiAddToCart", method = RequestMethod.POST)
+	@PostMapping("/multiAddToCart")
 	public String multiAddToCart(@RequestParam("prodIds") final String prodIds, final Model model) throws CMSItemNotFoundException
 	{
 
@@ -1190,7 +1192,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @throws CMSItemNotFoundException
 	 * @return String
 	 */
-	@RequestMapping(value = "/multiAddToCartWithQty", method = RequestMethod.POST)
+	@PostMapping("/multiAddToCartWithQty")
 	public String multiAddToCartWithQty(@RequestParam("prodIds") final String prodIds,@RequestParam("prodQty") String prodQty, final Model model, 
 			@RequestParam(value = "forceNewEntry", required=false) boolean forceNewEntry, @RequestParam(value = "lineNumber", required=false) final String currentLineEntryNumber) throws CMSItemNotFoundException
 	{
@@ -1259,7 +1261,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @return the boolean
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/startReturn", method = RequestMethod.GET)
+	@GetMapping("/startReturn")
 	public boolean startReturn() throws CMSItemNotFoundException	{
 		 
 		return processReturnOrder();
@@ -1292,7 +1294,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @return the String
 	 */
 
-	@RequestMapping(value = "/startReturn", method = RequestMethod.POST)
+	@PostMapping("/startReturn")
 	public String startReturnToCart(@RequestParam("keepItems") final String keepItems,
 			@RequestParam("deleteItems") final String deleteItems) throws CMSItemNotFoundException
 	{
@@ -1314,7 +1316,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @return the boolean
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/startNewOrder", method = RequestMethod.GET)
+	@GetMapping("/startNewOrder")
 	public boolean startNewOrder() throws CMSItemNotFoundException
 	{
 		final String METHOD_NAME = "startReturn()";
@@ -1338,7 +1340,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @return the String
 	 */
 
-	@RequestMapping(value = "/startNewOrder", method = RequestMethod.POST)
+	@PostMapping("/startNewOrder")
 	public String startNewOrderToCart(@RequestParam("keepItems") final String keepItems,
 			@RequestParam("deleteItems") final boolean deleteItems) throws CMSItemNotFoundException
 	{
@@ -1363,7 +1365,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @return the boolean
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/requestPriceQuote", method = RequestMethod.GET)
+	@GetMapping("/requestPriceQuote")
 	public boolean requestNewQuote() throws CMSItemNotFoundException
 	{
 		final String METHOD_NAME = "startReturn()";
@@ -1386,7 +1388,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @return the String
 	 */
 
-	@RequestMapping(value = "/requestPriceQuote", method = RequestMethod.POST)
+	@PostMapping("/requestPriceQuote")
 	public String requestNewQuoteToCart(@RequestParam("keepItems") final String keepItems,
 			@RequestParam("deleteItems") final String deleteItems) throws CMSItemNotFoundException
 	{
@@ -1410,7 +1412,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 */
 
 
-	@RequestMapping(value = "/viewTemplate", method = RequestMethod.POST)
+	@PostMapping("/viewTemplate")
 	public String getTemplateDetails(final JnjGTHomePageForm homePageForm) throws CMSItemNotFoundException
 	{
 		final String METHOD_NAME = "getTemplateDetails()";
@@ -1429,7 +1431,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/addToCartFromTemplate", method = RequestMethod.POST)
+	@PostMapping("/addToCartFromTemplate")
 	public String addToCartFromTemplate(@RequestParam("templateCode") final String templateCode, final Model model)
 			throws CMSItemNotFoundException
 	{
@@ -1464,7 +1466,7 @@ public class JnJGTHomePageController extends AbstractPageController
 		return getView(LoginaddonControllerConstants.Views.Fragments.Cart.AddToCartHomePopup);
 	}
 
-	@RequestMapping(value = "/getBroadCastContent", method = RequestMethod.POST)
+	@PostMapping("/getBroadCastContent")
 	@ResponseBody
 	public Map<String, String> getBroadCastContent(@RequestParam("broadCastId") final String broadCastId)
 			throws CMSItemNotFoundException
@@ -1479,7 +1481,7 @@ public class JnJGTHomePageController extends AbstractPageController
 
 	}
 	//bulk product upload from home page
-	@RequestMapping(value = "/homepageFileUpload", method = RequestMethod.POST)
+	@PostMapping("/homepageFileUpload")
 	@ResponseBody
 	public void homepageFileUpload(final Model model,
 			@RequestParam(value = "uploadmultifilehome", required = false) final List<MultipartFile> uploadmultifilehomeList,
@@ -1678,7 +1680,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	
 	
 	
-	@RequestMapping(value = BUILD_ORDER_RESET_PAGE_URL, method = RequestMethod.GET)
+	@GetMapping(BUILD_ORDER_RESET_PAGE_URL)
 	 @RequireHardLogIn
 	 public String buildOrderReset(final Model model, final HttpSession session) throws CMSItemNotFoundException
 	 {
@@ -1711,7 +1713,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	}
 	
 	
-	@RequestMapping(value = "/getFileUploadQuantity", method = RequestMethod.POST)
+	@PostMapping("/getFileUploadQuantity")
 	@ResponseBody
 	public boolean getFileUploadQuantity(final Model model,
 			@RequestParam(value = "uploadmultifilehome", required = false) final List<MultipartFile> uploadmultifilehomeList,
@@ -1749,7 +1751,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @throws IOException
 	 */
 	@ResponseBody 
-	@RequestMapping(value = "/isNonContractProduct", method = RequestMethod.POST,produces = "application/json")
+	@PostMapping(value = "/isNonContractProduct",produces = "application/json")
 	public JnjGTHomePageForm validateIsNonContractProduct(@RequestParam(value = "uploadmultifilehome", required = false) final List<MultipartFile> uploadmultifilehomeList,
 			final HttpServletResponse response) throws CMSItemNotFoundException, IOException	{
 		LOG.info("validateIsNonContractProduct method invoked in");
@@ -1791,7 +1793,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/autocompleteAccount", method = RequestMethod.GET)
+	@GetMapping("/autocompleteAccount")
 	public List<String> getAutocompleteSuggestionsSecure(@RequestParam("term") final String term){
 		List<String> accAutoSearchList = new ArrayList<String>();
 		
@@ -1808,7 +1810,7 @@ public class JnJGTHomePageController extends AbstractPageController
 	 * @return
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/changeAccountAutoSuggest", method = RequestMethod.POST)
+	@PostMapping("/changeAccountAutoSuggest")
 	public String changeAccountFromAutoSuggest(@RequestParam(value = "uid") final String selectedAccountUid,final Model model,final HttpServletRequest request) throws CMSItemNotFoundException
 	{
 

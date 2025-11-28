@@ -26,14 +26,14 @@ import com.jnj.b2b.storefront.security.B2BUserGroupProvider;
 
 import java.util.Arrays;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 
 /**
@@ -76,7 +76,7 @@ public class MultiStepCheckoutController extends AbstractCheckoutController
 	 * @throws CMSItemNotFoundException
 	 *            - when a CMS page is not found
 	 */
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	@RequireHardLogIn
 	public String gotoFirstStep(final Model model) throws CMSItemNotFoundException
 	{

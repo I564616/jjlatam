@@ -22,10 +22,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -33,6 +33,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -242,7 +243,7 @@ public class JnjGTUserManagementPageController extends JnjGTMyCompanyPageControl
 	 * @param JnjGTBackorderReportForm
 	 * @return download view
 	 */
-	@RequestMapping(value = "/downloadReport", method = RequestMethod.POST)
+	@PostMapping("/downloadReport")
 	public String downloadUserManagementReport(@RequestParam(value = "page", defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "sort", defaultValue = B2BCustomerModel.NAME) String sortCode,final Model model,
@@ -324,7 +325,7 @@ public class JnjGTUserManagementPageController extends JnjGTMyCompanyPageControl
 	 * @throws BusinessException
 	 */ //clicking save user for edit
 	@Override
-	@RequestMapping(value = "/editUser", method = RequestMethod.POST)
+	@PostMapping("/editUser")
 	public String editUser(final String user, final JnjGTB2BCustomerForm b2bCustomerForm, final BindingResult bindingResult,
 			final Model model, final RedirectAttributes redirectModel, final HttpServletRequest request)
 			throws CMSItemNotFoundException, BusinessException
@@ -376,7 +377,7 @@ public class JnjGTUserManagementPageController extends JnjGTMyCompanyPageControl
 		return super.createUser(model);
 	}
 
-	@RequestMapping(value = "/createUser", method = RequestMethod.POST)
+	@PostMapping("/createUser")
 	@RequireHardLogIn
 	public String createUser(@ModelAttribute("jnjGTB2BCustomerForm") final JnjGTB2BCustomerForm jnjGTB2BCurstomerForm,
 			final BindingResult bindingResult, final Model model, final RedirectAttributes redirectModel,final HttpServletRequest request)
@@ -512,7 +513,7 @@ public class JnjGTUserManagementPageController extends JnjGTMyCompanyPageControl
 		return searchDtoList;
 	}
 
-	@RequestMapping(value = "/isUidExists", method = RequestMethod.POST)
+	@PostMapping("/isUidExists")
 	@ResponseBody
 	public boolean isUidExists(final Model model, @RequestParam("email") final String email)
 	{
@@ -528,7 +529,7 @@ public class JnjGTUserManagementPageController extends JnjGTMyCompanyPageControl
 		return jnjgtCustomerFacade.validateUid(email.toLowerCase());
 	}
 
-	@RequestMapping(value = "/accountsSelection", method = RequestMethod.POST)
+	@PostMapping("/accountsSelection")
 	public String getAccountSelection(final Model model, @RequestParam(value = "page", defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "showMore", defaultValue = "false") final String showMore,
@@ -574,7 +575,7 @@ public class JnjGTUserManagementPageController extends JnjGTMyCompanyPageControl
 		return getView(JnjglobalresourcesControllerConstants.Views.Pages.Misc.AccountSelectionPageForUserManagement);
 	}
 
-	@RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
+	@PostMapping("/resetPassword")
 	@ResponseBody
 	public Map<String, String> resetPassword(final Model model, @RequestParam("email") final String email,
 			final HttpServletRequest request) throws DuplicateUidException, UnsupportedEncodingException
@@ -605,7 +606,7 @@ public class JnjGTUserManagementPageController extends JnjGTMyCompanyPageControl
 		return responseMap;
 	}
 
-	@RequestMapping(value = "/addToNotes", method = RequestMethod.POST)
+	@PostMapping("/addToNotes")
 	@ResponseBody
 	public String addToNotes(@RequestParam("existingNotes") final String existingNotes,final Model model)
 	{
@@ -624,7 +625,7 @@ public class JnjGTUserManagementPageController extends JnjGTMyCompanyPageControl
 	
 	
 	
-	@RequestMapping(value = "/enableOrDisableUser", method = RequestMethod.POST)
+	@PostMapping("/enableOrDisableUser")
 	@ResponseBody
 	public String enableOrDisableUser( @RequestParam("status") final boolean status,@RequestParam("emailAddress") final String emailAddress, final Model model)
 	{
@@ -652,7 +653,7 @@ public class JnjGTUserManagementPageController extends JnjGTMyCompanyPageControl
 		return jnjgtCustomerFacade.deleteUser(uid);
 	}*/
 	
-	@RequestMapping(value = "/selectAccount", method = RequestMethod.POST)
+	@PostMapping("/selectAccount")
 	public String getSelectAccountPopup(final Model model, final String[] selectedAccounts, final JnjGTB2BCustomerForm form,
 			@RequestParam(value = "page", defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
@@ -694,7 +695,7 @@ public class JnjGTUserManagementPageController extends JnjGTMyCompanyPageControl
 		return getView(JnjglobalresourcesControllerConstants.Views.Pages.MyCompany.SelectsAccountPopups);
 		
 	}
-	@RequestMapping(value = "/editUserselectAccount", method = RequestMethod.POST)
+	@PostMapping("/editUserselectAccount")
 	public String getSelectAccountEditPopup(final Model model, final String[] selectedAccounts, final JnjGTB2BCustomerForm form,
 			@RequestParam(value = "page", defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,

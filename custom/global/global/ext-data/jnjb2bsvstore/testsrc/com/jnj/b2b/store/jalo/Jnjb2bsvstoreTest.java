@@ -10,7 +10,7 @@
  */
 package com.jnj.b2b.store.jalo;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import de.hybris.platform.testframework.HybrisJUnit4TransactionalTest;

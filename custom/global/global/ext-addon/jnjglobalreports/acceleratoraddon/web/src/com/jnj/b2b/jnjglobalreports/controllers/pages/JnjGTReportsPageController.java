@@ -29,18 +29,19 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.jnj.b2b.jnjglobalreports.forms.JnjGTInvoiceClearingForm;
@@ -108,6 +109,7 @@ import de.hybris.platform.catalog.CatalogVersionService;
 
 import com.jnj.b2b.jnjglobalreports.forms.JnjGlobalFinancialAnalysisReportForm;
 import com.jnj.facades.data.JnjGTFinancePurchaseOrderReportResponseData;
+
 /**
  * This class handles the Back-Order Report Page.
  *
@@ -345,7 +347,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/accountSelection", method = RequestMethod.POST)
+	@PostMapping("/accountSelection")
 	public String getAccountSelection(final Model model,
 			@RequestParam(value = "ucnFlag", defaultValue = "false", required = false) final boolean ucnFlag,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
@@ -406,7 +408,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/inventoryAnalysis/backorder", method = RequestMethod.GET)
+	@GetMapping("/inventoryAnalysis/backorder")
 	public String getBackOrderReportPage(final Model model) throws CMSItemNotFoundException
 	{
 		final String METHOD_NAME = "getBackOrderReportPage()";
@@ -463,7 +465,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/inventoryAnalysis/backorder", method = RequestMethod.POST)
+	@PostMapping("/inventoryAnalysis/backorder")
 	public String fetchBackOrderReport(final Model model, @ModelAttribute final JnjGTBackorderReportForm jnjGlobalBackorderReportForm)
 			throws CMSItemNotFoundException
 	{
@@ -523,7 +525,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @throws CMSItemNotFoundException
 	 */
 	/*AAOL #2419*/
-	@RequestMapping(value = "/financialAnalysis/invoiceReport", method = RequestMethod.GET)
+	@GetMapping("/financialAnalysis/invoiceReport")
 	public String getFinancialAnalysisReportPage(final Model model) throws CMSItemNotFoundException
 	{
 		final String METHOD_NAME = "getFinancialAnalysisReportPage()";
@@ -572,7 +574,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @throws CMSItemNotFoundException
 	 */
 	/*AAOL #2419*/
-	@RequestMapping(value = "/financialAnalysis/financialSummary", method = RequestMethod.GET)
+	@GetMapping("/financialAnalysis/financialSummary")
 	public String getFinancialSummaryReportPage(final Model model) throws CMSItemNotFoundException
 	{
 		final String METHOD_NAME = "getFinancialSummaryReportPage()";
@@ -625,7 +627,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @param accountid
 	 * @return List<String>
 	 */	@ResponseBody
-	@RequestMapping(value = "/financialAnalysis/getPayer", method = RequestMethod.GET)
+	@GetMapping("/financialAnalysis/getPayer")
 	public List<String> getPayerIds(@RequestParam(value = "accountid") final String accountid){
 		
 		/*** Populate Order types only those listed in requirements and not all. ***/
@@ -642,7 +644,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/financialAnalysis/accountAging", method = RequestMethod.POST)
+	@PostMapping("/financialAnalysis/accountAging")
 	public String fetchFinancialSummaryAccountAgingReport(final Model model, @ModelAttribute final JnjGlobalFinancialSummaryReportForm jnjGlobalFinancialSummaryReportForm, 
 			@RequestParam(value = "payer") final String payer, @RequestParam(value = "accountid") final String accountid)
 			throws CMSItemNotFoundException
@@ -703,7 +705,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/financialAnalysis/balanceSummary", method = RequestMethod.POST)
+	@PostMapping("/financialAnalysis/balanceSummary")
 	public String fetchFinancialBalanceSummaryReport(final Model model, @ModelAttribute final JnjGlobalFinancialSummaryReportForm jnjGlobalFinancialSummaryReportForm, 
 			@RequestParam(value = "payer") final String payer, @RequestParam(value = "accountid") final String accountid)
 			throws CMSItemNotFoundException
@@ -767,7 +769,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/financialAnalysis/paymentSummary", method = RequestMethod.POST)
+	@PostMapping("/financialAnalysis/paymentSummary")
 	public String fetchFinancialPaymentSummaryReport(final Model model, @ModelAttribute final JnjGlobalFinancialSummaryReportForm jnjGlobalFinancialSummaryReportForm, 
 			@RequestParam(value = "payer") final String payer, @RequestParam(value = "accountid") final String accountid)
 			throws CMSItemNotFoundException
@@ -829,7 +831,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/financialAnalysis/creditSummary", method = RequestMethod.POST)
+	@PostMapping("/financialAnalysis/creditSummary")
 	public String fetchFinancialCreditSummaryReport(final Model model, @ModelAttribute final JnjGlobalFinancialSummaryReportForm jnjGlobalFinancialSummaryReportForm, 
 			@RequestParam(value = "payer") final String payer, @RequestParam(value = "accountid") final String accountid)
 			throws CMSItemNotFoundException
@@ -894,7 +896,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @throws CMSItemNotFoundException
 	 */
 	/*AAOL #2419*/
-	@RequestMapping(value = "/financialAnalysis/invoiceReport", method = RequestMethod.POST)
+	@PostMapping("/financialAnalysis/invoiceReport")
 	public String fetchFinancialAnalysisReport(final Model model,
 			@ModelAttribute final JnjGlobalFinancialAnalysisReportForm jnjGlobalFinancialAnalysisReportForm)
 			throws CMSItemNotFoundException
@@ -1103,7 +1105,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/financialAnalysis/invoicePastDue", method = RequestMethod.GET)
+	@GetMapping("/financialAnalysis/invoicePastDue")
 	public String getinvoicePastDuefinancialAnalysisReportPage(final Model model) throws CMSItemNotFoundException	{
 	 
 		final String METHOD_NAME = "getinvoicePastDue()";
@@ -1161,7 +1163,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/financialAnalysis/invoicePastDue", method = RequestMethod.POST)
+	@PostMapping("/financialAnalysis/invoicePastDue")
 	public String fetchInvoicePastDueReport(final Model model, @ModelAttribute("jnjGTInvoiceDueReportDueForm") JnjGTInvoiceDueReportDueForm jnjGTInvoiceDueReportDueForm)
 			throws CMSItemNotFoundException
 	{
@@ -1252,7 +1254,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	}
 	
 	
-	@RequestMapping(value = "/financialAnalysis/invoiceClearing", method = RequestMethod.GET)
+	@GetMapping("/financialAnalysis/invoiceClearing")
 	public String getinvoiceCleaningfinancialAnalysisReportPage(final Model model) throws CMSItemNotFoundException	{
 	 
 		final String METHOD_NAME = "getinvoicePastDue()";
@@ -1308,7 +1310,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/financialAnalysis/invoiceClearing", method = RequestMethod.POST)
+	@PostMapping("/financialAnalysis/invoiceClearing")
 	public String fetchInvoiceClearingReport(final Model model, @ModelAttribute("jnjGTInvoiceDueReportDueForm") JnjGTInvoiceClearingForm jnjGTInvoiceClearingForm)
 			throws CMSItemNotFoundException
 	{
@@ -1493,7 +1495,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/inventoryAnalysis/inventoryReport", method = RequestMethod.GET)
+	@GetMapping("/inventoryAnalysis/inventoryReport")
 	public String getInventoryReportPage(final Model model) throws CMSItemNotFoundException
 	{
 		final String METHOD_NAME = "getInventoryReportPage()";
@@ -1560,7 +1562,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/orderAnalysis/single", method = RequestMethod.GET)
+	@GetMapping("/orderAnalysis/single")
 	public String getSinglePurchaseAnalysisReportPage(final Model model) throws CMSItemNotFoundException
 	{
 		final String METHOD_NAME = "getSinglePurchaseAnalysisReportPage()";
@@ -1627,7 +1629,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/orderAnalysis/multi", method = RequestMethod.GET)
+	@GetMapping("/orderAnalysis/multi")
 	public String getMultiPurchaseAnalysisReportPage(final Model model) throws CMSItemNotFoundException
 	{
 	 
@@ -1696,7 +1698,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 *  
 	 * 
 	 */
-	@RequestMapping(value = "/orderAnalysis/salesreport", method = RequestMethod.GET)
+	@GetMapping("/orderAnalysis/salesreport")
 	public String getsalesReportOrderAnalysisPage(final Model model) throws CMSItemNotFoundException
 	{
 	 
@@ -1777,7 +1779,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/orderAnalysis/deliveryList", method = RequestMethod.GET)
+	@GetMapping("/orderAnalysis/deliveryList")
 	public String getOADeliveryListReportPage(final Model model) throws CMSItemNotFoundException
 	{
 	 
@@ -1861,7 +1863,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/orderAnalysis/single", method = RequestMethod.POST)
+	@PostMapping("/orderAnalysis/single")
 	public String fetchSinglePurchaseAnalysisReport(final Model model,
 			@ModelAttribute final JnjGTSinglePurchaseAnalysisReportForm JnjGTSinglePurchaseAnalysisReportForm)
 			throws CMSItemNotFoundException
@@ -1934,7 +1936,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @param productCode
 	 * @return view
 	 */
-	@RequestMapping(value = "/purchaseAnalysis/single/entries", method = RequestMethod.POST)
+	@PostMapping("/purchaseAnalysis/single/entries")
 	public String showEntriesForSinglePurchaseAnalysisReport(final Model model,
 			@RequestParam("periodFrom") final String periodFrom, @RequestParam("periodTo") final String periodTo,
 			@RequestParam("accountId") final String accountId, @RequestParam("productCode") final String productCode,
@@ -2071,7 +2073,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/orderAnalysis/multi", method = RequestMethod.POST)
+	@PostMapping("/orderAnalysis/multi")
 	public String fetchMultiPurchaseAnalysisReport(final Model model,
 			@ModelAttribute final JnjGTMultiPurchaseAnalysisReportForm JnjGTMultiPurchaseAnalysisReportForm)
 			throws CMSItemNotFoundException
@@ -2160,7 +2162,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/orderAnalysis/salesreport", method = RequestMethod.POST)
+	@PostMapping("/orderAnalysis/salesreport")
 	public String fetchSalesReportPageReport(final Model model,
 			@ModelAttribute final JnjGTSalesReportAnalysisForm JnjGTSalesReportAnalysisForm) throws CMSItemNotFoundException
 	{
@@ -2320,7 +2322,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/orderAnalysis/deliveryList", method = RequestMethod.POST)
+	@PostMapping("/orderAnalysis/deliveryList")
 	public String fetchOADeliveryReport(final Model model,
 			@ModelAttribute final JnjGTOADeliveryListReportForm jnjGTOADeliveryListReportForm)
 			throws CMSItemNotFoundException
@@ -2397,7 +2399,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/inventoryAnalysis/inventoryReport", method = RequestMethod.POST)
+	@PostMapping("/inventoryAnalysis/inventoryReport")
 	public String fetchInventoryReport(final Model model, @ModelAttribute final JnjGTInventoryReportForm JnjGTInventoryReportForm)
 			throws CMSItemNotFoundException
 	{
@@ -2467,7 +2469,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/financialSummary", method = RequestMethod.POST)
+	@PostMapping("/financialSummary")
 	public String fetchFinancialSummaryReport(final Model model, @ModelAttribute final JnjGlobalFinancialSummaryReportForm jnjGlobalFinancialSummaryReportForm)
 			throws CMSItemNotFoundException
 	{
@@ -3243,7 +3245,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @param JnjGTBackorderReportForm
 	 * @return download view
 	 */
-	@RequestMapping(value = "/backorder/downloadReport", method = RequestMethod.POST)
+	@PostMapping("/backorder/downloadReport")
 	public String downloadBackorderReport(final Model model,
 			@ModelAttribute final JnjGTBackorderReportForm JnjGTBackorderReportForm)
 	{
@@ -3300,7 +3302,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @param JnjGTInventoryReportForm
 	 * @return download view
 	 */
-	@RequestMapping(value = "/inventory/downloadReport", method = RequestMethod.POST)
+	@PostMapping("/inventory/downloadReport")
 	public String downloadInventoryReport(final Model model,
 			@ModelAttribute final JnjGTInventoryReportForm JnjGTInventoryReportForm)
 	{
@@ -3348,7 +3350,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @param JnjGTBackorderReportForm
 	 * @return download view
 	 */
-	@RequestMapping(value = "/financial/downloadReport", method = RequestMethod.POST)
+	@PostMapping("/financial/downloadReport")
 	public String downloadFinancialReport(final Model model,
 			@ModelAttribute final JnjGlobalFinancialAnalysisReportForm jnjGlobalFinancialAnalysisReportForm)
 	{
@@ -3402,7 +3404,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @param JnjGTBackorderReportForm
 	 * @return download view
 	 */
-	@RequestMapping(value = "/financialSummary/downloadReport", method = RequestMethod.POST)
+	@PostMapping("/financialSummary/downloadReport")
 	public String downloadFinancialSummaryReport(final Model model,
 			@ModelAttribute final JnjGlobalFinancialSummaryReportForm jnjGlobalFinancialAnalysisReportForm)
 	{
@@ -3510,7 +3512,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @param JnjGTBackorderReportForm
 	 * @return download view
 	 */	
-	@RequestMapping(value = "/financial/invoicedownloadReport", method = RequestMethod.POST)
+	@PostMapping("/financial/invoicedownloadReport")
 	public String downloadInvoiceDueReport(final Model model,
 			@ModelAttribute final JnjGTInvoiceDueReportDueForm jnjGTInvoiceDueReportDueForm)
 	{
@@ -3557,7 +3559,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	}
 	
 	//AAOL-2426
-		@RequestMapping(value = "/financial/invoiceClearingdownloadReport", method = RequestMethod.POST)
+		@PostMapping("/financial/invoiceClearingdownloadReport")
 	public String downloadInvoiceClearingReport(final Model model,
 			@ModelAttribute final JnjGTInvoiceClearingForm jnjGTInvoiceClearingForm)
 	{
@@ -3612,7 +3614,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @param JnjGTSinglePurchaseAnalysisReportForm
 	 * @return download view
 	 */
-	@RequestMapping(value = "/purchaseAnalysis/single/downloadReport", method = RequestMethod.POST)
+	@PostMapping("/purchaseAnalysis/single/downloadReport")
 	public String downloadPurchaseAnalysisReport(final Model model,
 			@ModelAttribute final JnjGTSinglePurchaseAnalysisReportForm JnjGTSinglePurchaseAnalysisReportForm)
 	{
@@ -3666,7 +3668,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @param JnjGTMultiPurchaseAnalysisReportForm
 	 * @return download view
 	 */
-	@RequestMapping(value = "/purchaseAnalysis/multi/downloadReport", method = RequestMethod.POST)
+	@PostMapping("/purchaseAnalysis/multi/downloadReport")
 	public String downloadPurchaseAnalysisReport(final Model model,
 			@ModelAttribute final JnjGTMultiPurchaseAnalysisReportForm JnjGTMultiPurchaseAnalysisReportForm)
 	{
@@ -3723,7 +3725,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @param JnjGTMultiPurchaseAnalysisReportForm
 	 * @return download view
 	 */
-	@RequestMapping(value = "/orderAnalysis/dl/downloadReport", method = RequestMethod.POST)
+	@PostMapping("/orderAnalysis/dl/downloadReport")
 	public String downloadoaDeliveryListReport(final Model model,
 			@ModelAttribute final JnjGTOADeliveryListReportForm JnjGTOADeliveryListReportForm)
 	{
@@ -4116,7 +4118,7 @@ public class JnjGTReportsPageController extends AbstractPageController
         return JnjglobalreportsControllerConstants.ADDON_PREFIX + view;
 	}
 	
-	@RequestMapping(value = "/inventoryAnalysis/consignmentInventory", method = RequestMethod.GET)
+	@GetMapping("/inventoryAnalysis/consignmentInventory")
     public String getconsignmentInventoryReportPage(final Model model) throws CMSItemNotFoundException
     {
            final String METHOD_NAME = "getconsignmentInventoryReportPage()";
@@ -4184,7 +4186,7 @@ public class JnjGTReportsPageController extends AbstractPageController
     }
 	
 	
-	@RequestMapping(value = "/inventoryAnalysis/consignmentInventory", method = RequestMethod.POST)
+	@PostMapping("/inventoryAnalysis/consignmentInventory")
     public String fetchConsignmentInventoryReportPage(final Model model, @ModelAttribute final JnjGTConsignmentInventoryReportForm jnjGlobalConsignmentInventoryReportForm) throws CMSItemNotFoundException
     {
 			JnjGTPageableData jnjGTPageableData = populateConsPageableData(jnjGlobalConsignmentInventoryReportForm);
@@ -4246,7 +4248,7 @@ public class JnjGTReportsPageController extends AbstractPageController
     }
 	
 	
-	@RequestMapping(value = "/inventoryAnalysis/consignmentInventory/downloadReport", method = RequestMethod.POST)
+	@PostMapping("/inventoryAnalysis/consignmentInventory/downloadReport")
 	public String downloadConsignmentInventoryReport(final Model model,
 			@ModelAttribute final JnjGTConsignmentInventoryReportForm jnjGlobalConsignmentInventoryReportForm,@RequestParam(value = "downloadType")  String downloadType)
 	{
@@ -4279,7 +4281,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/inventoryAnalysis/cutorder", method = RequestMethod.GET)
+	@GetMapping("/inventoryAnalysis/cutorder")
 	public String getCutOrderReportPage(final Model model) throws CMSItemNotFoundException
 	{
 		final String METHOD_NAME = "getcutOrderReportPage()";
@@ -4328,7 +4330,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @param JnjGTMultiPurchaseAnalysisReportForm
 	 * @return download view
 	 */
-@RequestMapping(value = "/salesReport/downloadReport", method = RequestMethod.POST)
+@PostMapping("/salesReport/downloadReport")
 	public String downloadsalesReport(final Model model,
 			@ModelAttribute final JnjGTSalesReportAnalysisForm JnjGTSalesReportAnalysisForm)
 	{
@@ -4389,7 +4391,7 @@ public class JnjGTReportsPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/inventoryAnalysis/cutorder", method = RequestMethod.POST)
+	@PostMapping("/inventoryAnalysis/cutorder")
 	public String fetchCutReportData(final Model model, @ModelAttribute final JnjGTCutReportForm JnjGTCutReportForm)
 			throws CMSItemNotFoundException
 	{

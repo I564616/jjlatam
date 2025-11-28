@@ -1,6 +1,6 @@
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/addons/loginaddon/responsive/template"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="cart" tagdir="/WEB-INF/tags/addons/cartandcheckoutaddon/responsive/cart"%>
 <%@ taglib prefix="common" tagdir="/WEB-INF/tags/responsive/common"%>
 <%@ taglib prefix="internationalCart" tagdir="/WEB-INF/tags/addons/cartandcheckoutaddon/responsive/cart/international"%>

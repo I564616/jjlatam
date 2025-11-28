@@ -6,12 +6,12 @@
 package com.jnj.b2b.la.loginaddon.controllers.pages;
 
 import com.jnj.la.core.util.JnjLaCommonUtil;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,13 +26,13 @@ public class JnjLAConsumerChatController extends AbstractJnjLAChatController {
     private static final String CMS_PAGE = "login";
     private static final String CHAT_URL = "/p/consumer/chat";
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public String loadPage(final Model model) {
         storeCmsPageInModel(model, CMS_PAGE);
         return CONSUMER_CHAT_PAGE;
     }
 
-    @RequestMapping(value = "/redirect", method = RequestMethod.GET)
+    @GetMapping("/redirect")
     public ModelAndView redirectToChat(@RequestParam String name) {
         if (StringUtils.isBlank(name)) {
             LOGGER.warn(INVALID_NAME);

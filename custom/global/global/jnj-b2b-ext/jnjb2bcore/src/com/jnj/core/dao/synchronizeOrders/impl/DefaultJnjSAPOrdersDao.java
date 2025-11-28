@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.dao.synchronizeOrders.JnjSAPOrdersDao;
@@ -261,7 +260,6 @@ public class DefaultJnjSAPOrdersDao implements JnjSAPOrdersDao
 		return flexibleSearchService;
 	}
 
-	@Required
 	public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService)
 	{
 		this.flexibleSearchService = flexibleSearchService;

@@ -17,7 +17,8 @@ import de.hybris.platform.core.model.user.CustomerModel;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
+import org.springframework.util.ObjectUtils;
+
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.dao.company.impl.JnjLatamPagedB2BCustomerDaoImpl;
 import com.jnj.core.dto.JnjGTPageableData;
@@ -88,7 +89,7 @@ public class JnjLatamB2BCommerceUserServiceImpl extends DefaultJnjGTB2BCommerceU
 			userSectorBuilder.append(SECTOR_DELIMITER);
 		}
 		userSector = userSectorBuilder.toString();
-		if(!StringUtils.isEmpty(userSector)) {
+		if(!ObjectUtils.isEmpty(userSector)) {
 			userSector = userSector.substring(0,userSector.length() - 1);
 		}
 		return userSector;

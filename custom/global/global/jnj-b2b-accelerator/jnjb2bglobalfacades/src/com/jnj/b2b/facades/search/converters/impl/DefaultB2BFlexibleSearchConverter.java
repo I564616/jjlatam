@@ -30,8 +30,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Required;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @deprecated see {@link  de.hybris.platform.b2bacceleratorfacades.search.converters.impl.DefaultB2BFlexibleSearchConverter}
@@ -65,7 +64,6 @@ public class DefaultB2BFlexibleSearchConverter extends AbstractB2BFlexibleSearch
         return new ProductSearchPageData();
     }
 
-    @Required
     public void setProductConfiguredPopulator(
             final ConfigurablePopulator<ProductModel, ProductData, ProductOption> productConfiguredPopulator)
     {

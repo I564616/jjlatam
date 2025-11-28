@@ -16,6 +16,7 @@
 package com.jnj.b2b.loginaddon.recaptcha;
 
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Enumeration;
 import java.util.Properties;
 
@@ -64,8 +65,8 @@ public class ReCaptchaImpl implements ReCaptcha
 	public ReCaptchaResponse checkAnswer(final String remoteAddr, final String challenge, final String response)
 	{
 
-		final String postParameters = "privatekey=" + URLEncoder.encode(privateKey) + "&remoteip=" + URLEncoder.encode(remoteAddr)
-				+ "&challenge=" + URLEncoder.encode(challenge) + "&response=" + URLEncoder.encode(response);
+		final String postParameters = "privatekey=" + URLEncoder.encode(privateKey, StandardCharsets.UTF_8) + "&remoteip=" + URLEncoder.encode(remoteAddr, StandardCharsets.UTF_8)
+				+ "&challenge=" + URLEncoder.encode(challenge, StandardCharsets.UTF_8) + "&response=" + URLEncoder.encode(response, StandardCharsets.UTF_8);
 
 		final String message = httpLoader.httpPost(VERIFY_URL, postParameters);
 
@@ -99,7 +100,7 @@ public class ReCaptchaImpl implements ReCaptcha
 	public String createRecaptchaHtml(final String errorMessage, final Properties options)
 	{
 
-		final String errorPart = (errorMessage == null ? "" : "&amp;error=" + URLEncoder.encode(errorMessage));
+		final String errorPart = (errorMessage == null ? "" : "&amp;error=" + URLEncoder.encode(errorMessage, StandardCharsets.UTF_8));
 
 		String message = fetchJSOptions(options);
 

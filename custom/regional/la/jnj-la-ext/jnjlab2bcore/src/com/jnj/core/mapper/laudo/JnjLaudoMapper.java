@@ -22,13 +22,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.commons.Severity;
 import com.jnj.core.model.JnjLaudoModel;
@@ -93,7 +92,6 @@ public class JnjLaudoMapper
 		return userService;
 	}
 
-	@Required
 	public void setUserService(final UserService userService) {
 		this.userService = userService;
 	}
@@ -231,7 +229,7 @@ public class JnjLaudoMapper
 					try
 					{
 						mediaService.setStreamForMedia(mediaModel, inputStream, pdfFile.getName(),
-								Files.probeContentType(Paths.get(pdfFile.getAbsolutePath()))); //Setting the File into the Media Model
+								Files.probeContentType(Path.of(pdfFile.getAbsolutePath()))); //Setting the File into the Media Model
 					}
 					catch (final MediaIOException mediaIOException)
 					{
@@ -271,9 +269,9 @@ public class JnjLaudoMapper
 					}
 
 					//Setting the Media in the Laudo Model.
-					jnjLaudoModel.setFileMedia(mediaModel, new Locale("es"));
-					jnjLaudoModel.setFileMedia(mediaModel, new Locale("en"));
-					jnjLaudoModel.setFileMedia(mediaModel, new Locale("pt"));
+					jnjLaudoModel.setFileMedia(mediaModel, Locale.of("es"));
+					jnjLaudoModel.setFileMedia(mediaModel, Locale.of("en"));
+					jnjLaudoModel.setFileMedia(mediaModel, Locale.of("pt"));
 					//Calling the Service to save Laudo Model.
 					jnjLaudoService.saveLaudoDetails(jnjLaudoModel);
 				}

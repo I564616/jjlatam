@@ -8,7 +8,7 @@ import de.hybris.platform.commercefacades.user.data.AddressData;
 import de.hybris.platform.core.model.user.AddressModel;
 import de.hybris.platform.servicelayer.dto.converter.ConversionException;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.jnj.facades.data.JnjGTAddressData;
 

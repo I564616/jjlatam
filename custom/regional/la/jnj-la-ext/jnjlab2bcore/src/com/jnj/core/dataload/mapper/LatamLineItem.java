@@ -1,7 +1,7 @@
 
 package com.jnj.core.dataload.mapper;
 
-import javax.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElement;
 
 import com.jnj.la.core.constants.Jnjlab2bcoreConstants;
 

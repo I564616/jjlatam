@@ -16,7 +16,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.google.common.base.Strings;
 import com.jnj.core.util.JnjGTCoreUtil;
@@ -272,7 +271,6 @@ public class DefaultJnjLaInterfaceOperationArchUtility extends DefaultJnjInterfa
 	}
 
 	@Override
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;

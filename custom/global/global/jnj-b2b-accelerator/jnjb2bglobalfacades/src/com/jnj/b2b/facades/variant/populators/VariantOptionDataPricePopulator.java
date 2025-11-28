@@ -25,8 +25,6 @@ import de.hybris.platform.variants.model.VariantProductModel;
 
 import java.math.BigDecimal;
 
-import org.springframework.beans.factory.annotation.Required;
-
 /**
  * @deprecated see {@link de.hybris.platform.b2bacceleratorfacades.product.variant.populators.VariantOptionDataPricePopulator}
  */
@@ -70,7 +68,6 @@ public class VariantOptionDataPricePopulator<SOURCE extends VariantProductModel,
 		return commercePriceService;
 	}
 
-	@Required
 	public void setCommercePriceService(final CommercePriceService commercePriceService)
 	{
 		this.commercePriceService = commercePriceService;
@@ -81,7 +78,6 @@ public class VariantOptionDataPricePopulator<SOURCE extends VariantProductModel,
 		return priceDataFactory;
 	}
 
-	@Required
 	public void setPriceDataFactory(final PriceDataFactory priceDataFactory)
 	{
 		this.priceDataFactory = priceDataFactory;

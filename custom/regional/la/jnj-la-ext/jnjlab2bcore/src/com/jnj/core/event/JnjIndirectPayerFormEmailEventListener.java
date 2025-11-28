@@ -9,7 +9,6 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.dto.JnjLatamAddIndirectPayerDTO;
@@ -52,7 +51,6 @@ public class JnjIndirectPayerFormEmailEventListener extends AbstractSiteEventLis
 		return businessProcessService;
 	}
 
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;
@@ -63,7 +61,6 @@ public class JnjIndirectPayerFormEmailEventListener extends AbstractSiteEventLis
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;

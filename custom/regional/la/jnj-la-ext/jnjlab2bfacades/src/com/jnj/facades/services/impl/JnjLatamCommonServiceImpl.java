@@ -6,7 +6,7 @@ import com.jnj.facades.services.JnjLatamCommonService;
 import com.jnj.la.core.constants.Jnjlab2bcoreConstants;
 import de.hybris.platform.commercefacades.order.data.AbstractOrderData;
 import de.hybris.platform.commercefacades.order.data.OrderEntryData;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 

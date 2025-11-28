@@ -12,7 +12,6 @@ import com.jnj.la.core.util.JnjLaInterfaceOperationArchUtility;
 import de.hybris.platform.category.model.CategoryModel;
 import de.hybris.platform.cronjob.model.CronJobModel;
 import de.hybris.platform.servicelayer.exceptions.ModelSavingException;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -90,7 +89,6 @@ public class JnjCustomerEligiblityDataLoadMapper extends AbstractDataloadMapper<
 		return customerEligibilityService;
 	}
 
-	@Required
 	public void setCustomerEligibilityService(final JnjLaCustomerEligibilityService customerEligibilityService)
 	{
 		this.customerEligibilityService = customerEligibilityService;
@@ -101,7 +99,6 @@ public class JnjCustomerEligiblityDataLoadMapper extends AbstractDataloadMapper<
 		return interfaceOperationArchUtility;
 	}
 
-	@Required
 	public void setInterfaceOperationArchUtility(final JnjLaInterfaceOperationArchUtility interfaceOperationArchUtility)
 	{
 		this.interfaceOperationArchUtility = interfaceOperationArchUtility;

@@ -28,8 +28,7 @@ import com.jnj.b2b.core.search.solrfacetsearch.provider.impl.SolrFirstVariantCat
 
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Required;
+import org.apache.commons.lang3.StringUtils;
 
 
 /**
@@ -112,7 +111,6 @@ public class VariantSearchResultProductPopulator extends SearchResultProductPopu
         return categoryManager;
     }
 
-    @Required
     public void setCategoryManager(final SolrFirstVariantCategoryManager categoryManager)
     {
         this.categoryManager = categoryManager;

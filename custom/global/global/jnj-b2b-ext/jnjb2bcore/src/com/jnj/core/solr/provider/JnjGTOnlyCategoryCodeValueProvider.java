@@ -22,9 +22,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.model.JnJProductModel;
 
@@ -158,7 +157,6 @@ public class JnjGTOnlyCategoryCodeValueProvider extends AbstractPropertyFieldVal
 	 * @param categoriesQualifier
 	 *           the new categories qualifier
 	 */
-	@Required
 	public void setCategoriesQualifier(final String categoriesQualifier)
 	{
 		this.categoriesQualifier = categoriesQualifier;

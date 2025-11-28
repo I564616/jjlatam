@@ -15,7 +15,6 @@ import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.gt.core.model.JnjGTPCMIntegrationCronJobModel;
 import com.jnj.gt.pcm.integration.facade.JnjGTPCMHierarchyUpdateFacade;
@@ -59,7 +58,6 @@ public class JnjGTPCMHierarchyUpdateJob extends AbstractJobPerformable<JnjGTPCMI
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService)
 	{
 		this.configurationService = configurationService;
@@ -70,7 +68,6 @@ public class JnjGTPCMHierarchyUpdateJob extends AbstractJobPerformable<JnjGTPCMI
 		return jnjGTPCMHierarchyUpdateFacade;
 	}
 
-	@Required
 	public void setJnjGTPCMHierarchyUpdateFacade(final JnjGTPCMHierarchyUpdateFacade jnjGTPCMHierarchyUpdateFacade)
 	{
 		this.jnjGTPCMHierarchyUpdateFacade = jnjGTPCMHierarchyUpdateFacade;
@@ -81,7 +78,6 @@ public class JnjGTPCMHierarchyUpdateJob extends AbstractJobPerformable<JnjGTPCMI
 		return catalogVersionService;
 	}
 
-	@Required
 	public void setCatalogVersionService(final CatalogVersionService catalogVersionService)
 	{
 		this.catalogVersionService = catalogVersionService;

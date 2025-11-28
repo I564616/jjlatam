@@ -13,16 +13,17 @@ import de.hybris.platform.servicelayer.session.SessionService;
 
 import java.util.List;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jnj.b2b.jnjselloutaddon.form.JnjSellOutReportsForm;
@@ -40,7 +41,6 @@ import com.jnj.facades.order.JnjLatamOrderFacade;
 import com.jnj.facades.util.JnjLatamCommonFacadeUtil;
 import com.jnj.la.b2b.jnjlaselloutaddon.controllers.JnjlaselloutaddonControllerConstants;
 import com.jnj.la.core.constants.Jnjlab2bcoreConstants;
-
 
 
 @Controller
@@ -100,7 +100,7 @@ public class JnjLatamUploadOrderPageController extends AbstractSearchPageControl
 	 * @return String
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String getUploadOrderData(@ModelAttribute("sellOutReportsForm") final JnjSellOutReportsForm form,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "sort", required = false) String sortCode,
@@ -192,7 +192,7 @@ public class JnjLatamUploadOrderPageController extends AbstractSearchPageControl
 				+ JnjlaselloutaddonControllerConstants.Views.Pages.Account.UploadOrders;
 	}
 
-	@RequestMapping(value = "/loadMore", method = RequestMethod.POST)
+	@PostMapping("/loadMore")
 	public String loadMore(@ModelAttribute("sellOutReportsForm") final JnjSellOutReportsForm form,
 			@RequestParam(value = "scrollPos", required = false, defaultValue = "") final String scrollPos,
 			final Model model) throws CMSItemNotFoundException {
@@ -225,7 +225,7 @@ public class JnjLatamUploadOrderPageController extends AbstractSearchPageControl
 	 * @return String
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/showUploadPopUp", method = RequestMethod.GET)
+	@GetMapping("/showUploadPopUp")
 	public String showUploadPopUp(final Model model) throws CMSItemNotFoundException {
 		jnjLatamCommonFacadeUtil.checkShowChangeAccountLink(model);
 		return JnjlaselloutaddonControllerConstants.ADDON_PREFIX
@@ -242,7 +242,7 @@ public class JnjLatamUploadOrderPageController extends AbstractSearchPageControl
 	 * @return String
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/sort", method = RequestMethod.POST)
+	@PostMapping("/sort")
 	public String sortSellOutReportsData(@ModelAttribute("sellOutReportsForm") final JnjSellOutReportsForm form,
 			final Model model) throws CMSItemNotFoundException {
 
@@ -271,7 +271,7 @@ public class JnjLatamUploadOrderPageController extends AbstractSearchPageControl
 	 * @throws CMSItemNotFoundException
 	 * @author RBatich
 	 */
-	@RequestMapping(value = "/filterBy", method = RequestMethod.POST)
+	@PostMapping("/filterBy")
 	public String filterSellOutReportsData(@ModelAttribute("sortOutReportsForm") final JnjSellOutReportsForm form,
 			final Model model) throws CMSItemNotFoundException {
 
@@ -289,7 +289,7 @@ public class JnjLatamUploadOrderPageController extends AbstractSearchPageControl
 		return REDIRECT_PREFIX + Jnjlab2bcoreConstants.UploadOrder.REDIRECT_TO_MAIN + "?isNewRequest=false";
 	}
 
-	@RequestMapping(value = "/showMore", method = RequestMethod.POST)
+	@PostMapping("/showMore")
 	public String showMore(@ModelAttribute("sellOutReportsForm") final JnjSellOutReportsForm form, final Model model)
 			throws CMSItemNotFoundException {
 
@@ -311,7 +311,7 @@ public class JnjLatamUploadOrderPageController extends AbstractSearchPageControl
 		return REDIRECT_PREFIX + Jnjlab2bcoreConstants.UploadOrder.REDIRECT_TO_MAIN + "?isNewRequest=false";
 	}
 
-	@RequestMapping(value = "/downloadData", method = RequestMethod.POST)
+	@PostMapping("/downloadData")
 	public String downloadUploadOrderData(@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
 			@RequestParam(value = "sort", required = false) String sortCode,
 			@RequestParam(value = "filterBy", required = false) String filterCode,
@@ -428,7 +428,7 @@ public class JnjLatamUploadOrderPageController extends AbstractSearchPageControl
 	 * @throws CMSItemNotFoundException
 	 */
 	// Added for EDI changes
-	@RequestMapping(value = "/uplodedOrderDetails", method = RequestMethod.GET)
+	@GetMapping("/uplodedOrderDetails")
 	public String getUploadOrderDataDetails(@RequestParam(value = "fileNameId") final String fileNameId,
 			final Model model) throws CMSItemNotFoundException {
 

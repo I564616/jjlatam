@@ -27,11 +27,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -205,7 +204,6 @@ public class JnjLaCronJobReportServiceImpl implements JnjLaCronJobReportService
      * @param jnjLaCronJobDao
      *           the jnjLaCronJobDao to set
      */
-    @Required
     public void setJnjLaCronJobDao(final JnjLaCronJobDao jnjLaCronJobDao)
     {
         this.jnjLaCronJobDao = jnjLaCronJobDao;
@@ -216,7 +214,6 @@ public class JnjLaCronJobReportServiceImpl implements JnjLaCronJobReportService
         return commonI18NService;
     }
 
-    @Required
     public void setCommonI18NService(final CommonI18NService commonI18NService)
     {
         this.commonI18NService = commonI18NService;
@@ -227,7 +224,6 @@ public class JnjLaCronJobReportServiceImpl implements JnjLaCronJobReportService
         return eventService;
     }
 
-    @Required
     public void setEventService(final EventService eventService)
     {
         this.eventService = eventService;
@@ -238,7 +234,6 @@ public class JnjLaCronJobReportServiceImpl implements JnjLaCronJobReportService
         return baseStoreService;
     }
 
-    @Required
     public void setBaseStoreService(final BaseStoreService baseStoreService)
     {
         this.baseStoreService = baseStoreService;
@@ -249,7 +244,6 @@ public class JnjLaCronJobReportServiceImpl implements JnjLaCronJobReportService
         return baseSiteService;
     }
 
-    @Required
     public void setBaseSiteService(final BaseSiteService baseSiteService)
     {
         this.baseSiteService = baseSiteService;
@@ -260,7 +254,6 @@ public class JnjLaCronJobReportServiceImpl implements JnjLaCronJobReportService
         return configurationService;
     }
 
-    @Required
     public void setConfigurationService(final ConfigurationService configurationService)
     {
         this.configurationService = configurationService;

@@ -1,5 +1,5 @@
 <%@ page trimDirectiveWhitespaces="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/addons/loginaddon/responsive/template"%>
 <%@ taglib prefix="nav" tagdir="/WEB-INF/tags/responsive/nav"%>
 <%@ taglib prefix="common" tagdir="/WEB-INF/tags/responsive/common"%>
@@ -7,7 +7,7 @@
 <%@ taglib prefix="account" tagdir="/WEB-INF/tags/addons/cartandcheckoutaddon/responsive/account"%>
 <%@ taglib prefix="label" uri="/WEB-INF/tld/message.tld"%>
 <%@ taglib prefix="format" tagdir="/WEB-INF/tags/shared/format" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 
 <template:page pageTitle="${pageTitle}">
 <!-- fixed for 35090  start THis element append out of !DOCTYPE html so put it into page template -->

@@ -11,6 +11,7 @@ package com.jnj.la.cronjobs;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -22,9 +23,8 @@ import java.util.TimeZone;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFFont;
@@ -36,8 +36,7 @@ import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.IndexedColors;
-import org.springframework.beans.factory.annotation.Required;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.jnj.core.event.JnjLaActiveUsersReportEvent;
 import com.jnj.core.model.JnJB2BUnitModel;
@@ -193,7 +192,7 @@ public class JnjLaActiveUsersReportJob extends
 			writeExcel(workbook, filepath + File.separator + fileName);
 			workbook.close();
 			compressFile(filepath + File.separator + fileName, filepath + File.separator+ compressfileName);			
-			Files.delete(Paths.get(filepath + File.separator + fileName));			
+			Files.delete(Path.of(filepath + File.separator + fileName));			
 		} catch (final IOException e) {
 			LOGGER.error("Error occurred while writing to excel", e);
 			throw e;
@@ -260,7 +259,7 @@ public class JnjLaActiveUsersReportJob extends
 	private static void compressFileIntoZip(final FileOutputStream fos, final String fileName, final String filePath) throws IOException{
 		try (ZipOutputStream zos = new ZipOutputStream(fos)){
 			zos.putNextEntry(new ZipEntry(fileName));
-			byte[] bytes = Files.readAllBytes(Paths.get(filePath));
+			byte[] bytes = Files.readAllBytes(Path.of(filePath));
 			zos.write(bytes, 0, bytes.length);
 			zos.closeEntry();
 			} catch (IOException exe) {
@@ -765,7 +764,6 @@ public class JnjLaActiveUsersReportJob extends
 		this.jnjCustomerDataService = jnjCustomerDataService;
 	}
 
-	@Required
 	public static void setConfigurationService(
 			final ConfigurationService configurationService) {
 		JnjLaActiveUsersReportJob.configurationService = configurationService;

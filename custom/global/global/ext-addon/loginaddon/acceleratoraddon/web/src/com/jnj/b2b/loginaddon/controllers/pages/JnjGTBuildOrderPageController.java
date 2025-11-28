@@ -19,14 +19,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpSession;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -82,7 +83,7 @@ public class JnjGTBuildOrderPageController extends AbstractSearchPageController 
 	
 	
 	
-	@RequestMapping(value =BUILD_ORDER_PAGE_URL, method = RequestMethod.GET)
+	@GetMapping(BUILD_ORDER_PAGE_URL)
 	 @RequireHardLogIn
 	 public String buildOrder(final Model model, final HttpSession session) throws CMSItemNotFoundException
 	 {
@@ -117,7 +118,7 @@ public class JnjGTBuildOrderPageController extends AbstractSearchPageController 
 	 }
 	
 	
-	@RequestMapping(value = BUILD_ORDER_ADD_ITEM_PAGE_URL, method = RequestMethod.POST)
+	@PostMapping(BUILD_ORDER_ADD_ITEM_PAGE_URL)
 	@RequireHardLogIn
 	public String quickOrderAddItem(final Model model, @RequestParam("productCode") final String productCode,
 			@RequestParam("qty") final String qtyString, final HttpSession session, final RedirectAttributes redirectModel)
@@ -234,7 +235,7 @@ public class JnjGTBuildOrderPageController extends AbstractSearchPageController 
 	
 	
 	
-	@RequestMapping(value = BUILD_ORDER_REMOVE_ITEM_PAGE_URL, method = RequestMethod.POST)
+	@PostMapping(BUILD_ORDER_REMOVE_ITEM_PAGE_URL)
 	@RequireHardLogIn
 	public String quickOrderDeleteItem(final Model model, @RequestParam("productCode") final String productCode,
 			final HttpSession session) throws CMSItemNotFoundException
@@ -255,7 +256,7 @@ public class JnjGTBuildOrderPageController extends AbstractSearchPageController 
 	}
 	
 	
-	@RequestMapping(value = BUILD_ORDER_SESSION_CLEAR_ITEM_PAGE_URL, method = RequestMethod.GET)
+	@GetMapping(BUILD_ORDER_SESSION_CLEAR_ITEM_PAGE_URL)
 	public void clearSessionItem(final HttpSession session) throws CMSItemNotFoundException
 	{
 		final JnjBuildOrderData buildOrder = jnjBuildOrderFacade.getBuildOrderFromSession(null);
@@ -269,7 +270,7 @@ public class JnjGTBuildOrderPageController extends AbstractSearchPageController 
         return LoginaddonControllerConstants.ADDON_PREFIX + view;
  }
 	/*Added by Vijay*/
- 	@RequestMapping(value = BUILD_ORDER_PRODCT_VALIDATE_URL, method = RequestMethod.POST)
+ 	@PostMapping(BUILD_ORDER_PRODCT_VALIDATE_URL)
  	@ResponseBody()
 	public Boolean productValidate(final Model model, @RequestParam("productCode") final String productCode,@RequestParam("qty") final String qtyString,
 			final HttpSession session){

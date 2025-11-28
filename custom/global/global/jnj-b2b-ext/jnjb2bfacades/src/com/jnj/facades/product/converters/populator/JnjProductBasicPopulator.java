@@ -18,8 +18,6 @@ import de.hybris.platform.servicelayer.dto.converter.ConversionException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Required;
-
 import com.jnj.core.model.JnJProductModel;
 import com.jnj.facades.data.JnjProductData;
 
@@ -109,7 +107,6 @@ public class JnjProductBasicPopulator<SOURCE extends ProductModel, TARGET extend
 		return commerceCategoryService;
 	}
 
-	@Required
 	public void setCommerceCategoryService(final CommerceCategoryService commerceCategoryService)
 	{
 		this.commerceCategoryService = commerceCategoryService;

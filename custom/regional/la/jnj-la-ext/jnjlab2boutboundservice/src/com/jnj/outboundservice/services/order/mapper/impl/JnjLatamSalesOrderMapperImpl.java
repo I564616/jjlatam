@@ -94,16 +94,15 @@ import de.hybris.platform.servicelayer.user.UserService;
 import de.hybris.platform.util.Config;
 import de.hybris.platform.util.DiscountValue;
 import de.hybris.platform.util.TaxValue;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import com.jnj.la.core.constants.Jnjlab2bcoreConstants;
 import de.hybris.platform.core.enums.OrderStatus;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 
-import javax.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBElement;
 import java.math.BigDecimal;
 import java.text.Format;
 import java.text.ParseException;
@@ -226,12 +225,10 @@ public class JnjLatamSalesOrderMapperImpl extends DefaultJnjGTSalesOrderMapper i
 		return configurationService;
 	}
 
-	@Required
 	public static void setConfigurationService(ConfigurationService configurationService) {
 		JnjLatamSalesOrderMapperImpl.configurationService = configurationService;
 	}
 
-	@Required
 	public void setJnjConfigService(final JnjConfigService jnjConfigService)
 	{
 		this.jnjConfigService = jnjConfigService;

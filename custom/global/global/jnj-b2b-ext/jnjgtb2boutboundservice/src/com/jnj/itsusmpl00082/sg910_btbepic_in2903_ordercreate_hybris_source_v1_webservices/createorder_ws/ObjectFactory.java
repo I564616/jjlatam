@@ -8,9 +8,9 @@
 
 package com.jnj.itsusmpl00082.sg910_btbepic_in2903_ordercreate_hybris_source_v1_webservices.createorder_ws;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlElementDecl;
+import jakarta.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
 
 

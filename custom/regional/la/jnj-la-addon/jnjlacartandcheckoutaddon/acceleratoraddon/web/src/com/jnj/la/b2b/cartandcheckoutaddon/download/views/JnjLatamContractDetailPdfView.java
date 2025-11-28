@@ -9,10 +9,10 @@ import java.awt.Color;
 import java.io.InputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.support.MessageSourceAccessor;

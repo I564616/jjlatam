@@ -21,19 +21,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -61,10 +62,6 @@ import com.jnj.core.util.JnjGTCoreUtil;
 import com.jnj.facades.customer.JnjGTCustomerFacade;
 import com.jnj.facades.data.JnjGTAddressData;
 import com.jnj.facades.data.JnjGTCustomerData;
-
-
-
-
 
 
 /**
@@ -149,7 +146,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 	 * @return string
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String getRegister(final Model model, final JnjGTRegistrationForm jnjRegistrationForm) throws CMSItemNotFoundException
 	{
 		//model.addAttribute("emailMismatchErr", jnjCommonFacadeUtil.getMessageFromImpex("text.register.email.match.error"));
@@ -185,7 +182,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 	 * @throws CMSItemNotFoundException
 	 */
 
-	@RequestMapping(value = "/process", method = RequestMethod.POST)
+	@PostMapping("/process")
 	public String getRegister(@ModelAttribute("registrationForm") final JnjGTRegistrationForm registrationForm, final Model model,
 			final HttpServletRequest request, final HttpServletResponse response, final RedirectAttributes redirectModel)
 			throws CMSItemNotFoundException
@@ -249,7 +246,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 	}
 
 
-	@RequestMapping(value = "/activateUser", method = RequestMethod.GET)
+	@GetMapping("/activateUser")
 	public String activateUser(final Model model, final JnjGTUserActivationForm jnjUserForm) throws CMSItemNotFoundException
 	{
 		storeCmsPageInModel(model, getContentPageForLabelOrId(LoginaddonConstants.Register.USER_ACTIVATION_PAGE));
@@ -270,7 +267,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 		model.addAttribute("countryCodes", jnjCustomerFacade.getPhoneCodes());
 	}
 
-	@RequestMapping(value = "/activateUser", method = RequestMethod.POST)
+	@PostMapping("/activateUser")
 	public String activateUser(@ModelAttribute(value = "userActivationForm") final JnjGTUserActivationForm jnjUserForm,
 			final Model model) throws CMSItemNotFoundException
 	{
@@ -413,7 +410,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 	 
 */
 
-	@RequestMapping(value = "/validateProfile", method = RequestMethod.POST)
+	@PostMapping("/validateProfile")
 	public @ResponseBody
 	ProfileValidationData validateProfile(final HttpServletRequest request)
 	{
@@ -679,7 +676,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 
 
 
-	@RequestMapping(value = "/getStates", method = RequestMethod.POST)
+	@PostMapping("/getStates")
 	public @ResponseBody
 	List<RegionData> getStates(@RequestParam("country") final String country)
 	{
@@ -701,14 +698,14 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 
 
 
-	@RequestMapping(value = "/divisions", method = RequestMethod.POST)
+	@PostMapping("/divisions")
 	public @ResponseBody
 	Map<String, String> getDivisions()
 	{
 		return jnjCustomerFacade.getDivisions();
 	}
 
-	@RequestMapping(value = "/companyInfo", method = RequestMethod.POST)
+	@PostMapping("/companyInfo")
 	public @ResponseBody
 	Map<String, Map<String, String>> getCompanyInfoDropdowns()
 	{
@@ -720,7 +717,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 
 	}
 
-	@RequestMapping(value = "/departments", method = RequestMethod.POST)
+	@PostMapping("/departments")
 	public @ResponseBody
 	Map<String, String> getDepartments()
 	{
@@ -728,7 +725,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 		return jnjCustomerFacade.getDepartments();
 	}
 
-	@RequestMapping(value = "/validateUser", method = RequestMethod.POST)
+	@PostMapping("/validateUser")
 	public @ResponseBody
 	Map<String, String> isUserValid(final HttpServletRequest request)
 	{
@@ -756,7 +753,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 	 */
 
 
-	@RequestMapping(value = "/securityQues", method = RequestMethod.POST)
+	@PostMapping("/securityQues")
 	public @ResponseBody
 	List<SecretQuestionData> getSecurityQuestions()
 	{
@@ -784,7 +781,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 	 * @return string
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/successfulRegistration", method = RequestMethod.GET)
+	@GetMapping("/successfulRegistration")
 	public String onSuccessfulRegistration(final Model model) throws CMSItemNotFoundException
 	{
 		storeCmsPageInModel(model, getContentPageForLabelOrId(LoginaddonConstants.Register.REGISTER_SUCCESS));
@@ -812,7 +809,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 	 * @param model 
 	 * @return expired password view
 	 */
-	@RequestMapping(value = "/resetPasswordForNewUser", method = RequestMethod.GET)
+	@GetMapping("/resetPasswordForNewUser")
 	public String resetPasswordForNewUser(
 			@RequestParam(value = "passwordExpireToken", required = true) final String passwordExpireToken,
 			@RequestParam(value = "email", required = true) final String email,
@@ -839,7 +836,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 	
 	
 	
-	@RequestMapping(value = "/emailPreferences", method = RequestMethod.POST)
+	@PostMapping("/emailPreferences")
 	public String fetchSpecificEmailPreferences(
 			@RequestParam(value = "emailPreference", required = true) final String emailPreference,final Model model) {
 		/*Start AAOL 5074*/
@@ -863,7 +860,7 @@ public class JnJGTRegistrationPageController extends AbstractPageController
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = "/validateCaptchaResponse", method = RequestMethod.GET)
+	@GetMapping("/validateCaptchaResponse")
 	@ResponseBody
 	public boolean validateSignUpCaptchaResponse(@RequestParam("captchaResponse") final String captchaResponse , final HttpServletRequest request)
 	{

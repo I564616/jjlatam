@@ -20,8 +20,6 @@ import de.hybris.platform.core.model.order.OrderModel;
 
 import java.math.BigDecimal;
 
-import org.springframework.beans.factory.annotation.Required;
-
 import com.jnj.facades.data.JnjOrderHistoryData;
 
 
@@ -42,7 +40,6 @@ public class JnjOrderHistoryPopulator extends OrderHistoryPopulator
 	}
 
 	@Override
-	@Required
 	public void setPriceDataFactory(final PriceDataFactory priceDataFactory)
 	{
 		this.priceDataFactory = priceDataFactory;

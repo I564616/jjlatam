@@ -21,17 +21,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -117,7 +118,7 @@ public class JnjGTForgotPasswordController extends AbstractPageController
 	 * 
 	 * @return forgot password view
 	 */
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	//AAOL-4915 
 	public String getForgotPasswordPopup(final Model model,@RequestParam(value = "passwordExipred", required = false) final String passwordExipred)
 	{
@@ -139,7 +140,7 @@ public class JnjGTForgotPasswordController extends AbstractPageController
 	 *           - the email entered by the user on the font end
 	 * @return validationStatusString
 	 */
-	@RequestMapping(value = "/emailVerification", method = RequestMethod.GET)
+	@GetMapping("/emailVerification")
 	public @ResponseBody
 	Map<String, String> validateEmailRequest(@RequestParam("email") String email)
 	{
@@ -228,7 +229,7 @@ public class JnjGTForgotPasswordController extends AbstractPageController
 	 * @param email
 	 * @return validation result
 	 */
-	@RequestMapping(value = "/questionsVerification", method = RequestMethod.POST)
+	@PostMapping("/questionsVerification")
 	public @ResponseBody
 	Map<String, String> validateSecurityAnswers(@RequestParam("questionsAndAnswers") final String questionsAndAnswers,
 			@RequestParam("email") final String email)
@@ -274,7 +275,7 @@ public class JnjGTForgotPasswordController extends AbstractPageController
 	 * @param email
 	 * @return updateStatus
 	 */
-	@RequestMapping(value = "/revisionVerification", method = RequestMethod.POST)
+	@PostMapping("/revisionVerification")
 	public @ResponseBody
 	String updateCustomerPassword(@RequestParam("password") final String password, @RequestParam("email") final String email)
 	{
@@ -447,7 +448,7 @@ public class JnjGTForgotPasswordController extends AbstractPageController
 	 * @param email
 	 * @return updateStatus
 	 */
-	@RequestMapping(value = "/passwordToken", method = RequestMethod.POST)
+	@PostMapping("/passwordToken")
 	public @ResponseBody
 	String updateCustomerPasswordByToken(@RequestParam("password") final String password,
 			@RequestParam("email") final String email, @RequestParam("passwordExpireToken") final String passwordExpireToken)
@@ -541,7 +542,7 @@ public class JnjGTForgotPasswordController extends AbstractPageController
 	public String getView(final String view){
         return LoginaddonControllerConstants.ADDON_PREFIX + view;
  }
-	@RequestMapping(value = "/validateRegistrationCaptchaResponse", method = RequestMethod.GET)
+	@GetMapping("/validateRegistrationCaptchaResponse")
 	@ResponseBody
 	public boolean validateRegistrationCaptchaResponse(@RequestParam("captchaResponse") final String captchaResponse , final HttpServletRequest request)
 	{

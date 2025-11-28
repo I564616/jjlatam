@@ -28,8 +28,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Required;
-
 import com.jnj.core.constants.Jnjgtb2bCONSConstants;
 import com.jnj.core.enums.JnjGTModStatus;
 import com.jnj.core.model.JnJB2BUnitModel;
@@ -108,7 +106,6 @@ public class JnjGTIncludedB2BUnitsValueProvider extends AbstractPropertyFieldVal
 		}
 	}
 
-	@Required
 	public void setFieldNameProvider(final FieldNameProvider fieldNameProvider)
 	{
 		this.fieldNameProvider = fieldNameProvider;

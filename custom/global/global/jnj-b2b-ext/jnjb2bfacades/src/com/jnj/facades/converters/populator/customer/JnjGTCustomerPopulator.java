@@ -23,13 +23,12 @@ import java.util.Collection;
 import java.util.List;
 import org.apache.log4j.Logger;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.PredicateUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.PredicateUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.model.JnJB2bCustomerModel;
 import com.jnj.core.constants.Jnjb2bCoreConstants;
@@ -258,7 +257,6 @@ public class JnjGTCustomerPopulator extends CustomerPopulator
 	}
 
 	//@Override
-	@Required
 	public void setAddressConverter(final Converter<AddressModel, AddressData> addressConverter)
 	{
 		this.addressConverter = addressConverter;

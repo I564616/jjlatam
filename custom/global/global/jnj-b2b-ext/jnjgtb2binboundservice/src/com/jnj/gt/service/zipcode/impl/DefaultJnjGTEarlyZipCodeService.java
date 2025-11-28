@@ -11,12 +11,13 @@ import de.hybris.platform.util.Config;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -68,13 +69,13 @@ public class DefaultJnjGTEarlyZipCodeService implements JnjGTEarlyZipCodeService
 			final Date date = new Date();
 			if (isCallForTextFile)
 			{
-				url = new URL(Config.getParameter(Jnjgtb2binboundserviceConstants.EarlyZipCode.TXT_FILE_URL));
+				url = URI.create(Config.getParameter(Jnjgtb2binboundserviceConstants.EarlyZipCode.TXT_FILE_URL)).toURL();
 				path = dir.concat(Jnjgtb2binboundserviceConstants.EarlyZipCode.TXT_FILE_NAME).concat(simpleDateFormat.format(date))
 						.concat(Jnjgtb2binboundserviceConstants.EarlyZipCode.TXT_FILE_EXTENSION);
 			}
 			else
 			{
-				url = new URL(Config.getParameter(Jnjgtb2binboundserviceConstants.EarlyZipCode.EXCEL_FILE_URL));
+				url = URI.create(Config.getParameter(Jnjgtb2binboundserviceConstants.EarlyZipCode.EXCEL_FILE_URL)).toURL();
 				path = dir.concat(Jnjgtb2binboundserviceConstants.EarlyZipCode.EXCEL_FILE_NAME).concat(simpleDateFormat.format(date))
 						.concat(Jnjgtb2binboundserviceConstants.EarlyZipCode.EXCEL_FILE_EXTENSION);
 			}

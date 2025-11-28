@@ -10,8 +10,6 @@ import de.hybris.platform.servicelayer.user.UserService;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Required;
-
 import com.jnj.core.services.search.CustomerProductCodeSearchService;
 import com.jnj.facades.search.CustomerProductCodeSearchFacade;
 
@@ -43,7 +41,6 @@ public class DefaultCustomerProductCodeSearchFacade implements CustomerProductCo
 		return userService;
 	}
 
-	@Required
 	public void setUserService(final UserService userService)
 	{
 		this.userService = userService;
@@ -61,7 +58,6 @@ public class DefaultCustomerProductCodeSearchFacade implements CustomerProductCo
 	 * @param customerProductCodeSearchService
 	 *           the customerProductCodeSearchService to set
 	 */
-	@Required
 	public void setCustomerProductCodeSearchService(final CustomerProductCodeSearchService customerProductCodeSearchService)
 	{
 		this.customerProductCodeSearchService = customerProductCodeSearchService;

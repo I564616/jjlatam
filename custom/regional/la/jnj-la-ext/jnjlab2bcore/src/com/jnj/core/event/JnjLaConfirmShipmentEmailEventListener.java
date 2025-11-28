@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import com.jnj.core.util.JnjGTCoreUtil;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.model.JnJInvoiceOrderModel;
@@ -105,13 +104,11 @@ public class JnjLaConfirmShipmentEmailEventListener extends AbstractSiteEventLis
 	}
 
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
 	}
 
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;

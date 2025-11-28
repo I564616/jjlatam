@@ -4,7 +4,7 @@
 <%@ attribute name="loopIndex" required="true" type="java.lang.Integer"%>
 <%@ attribute name="readOnly" required="false" type="java.lang.Boolean"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="theme" tagdir="/WEB-INF/tags/shared/theme" %>
 <%@ taglib prefix="grid" tagdir="/WEB-INF/tags/responsive/grid" %>

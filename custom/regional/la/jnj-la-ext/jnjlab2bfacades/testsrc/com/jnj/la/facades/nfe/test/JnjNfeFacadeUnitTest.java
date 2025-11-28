@@ -9,14 +9,14 @@ package com.jnj.la.facades.nfe.test;
 
 
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 
 import de.hybris.bootstrap.annotations.UnitTest;
 import de.hybris.platform.servicelayer.exceptions.ModelNotFoundException;
 
 import java.io.File;
 
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBException;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -121,8 +121,8 @@ public class JnjNfeFacadeUnitTest
 		ReflectionTestUtils.setField(jnjNfeFacadeImpl, "jnjNfeMapper", jnjNfeMapper);
 
 		given(jnjInvoiceService.getInvoicebyCode("0090016922")).willReturn(jnJInvoiceOrderModel);
-		given(jnjNfeMapper.mapNfeRequestData((JnJInvoiceOrderModel) anyObject(),
-				(ReceiveElectronicNotaFiscalFromHybrisWrapper) anyObject())).willReturn(electronicNotaFiscalResponse);
+		given(jnjNfeMapper.mapNfeRequestData((JnJInvoiceOrderModel) any(),
+				(ReceiveElectronicNotaFiscalFromHybrisWrapper) any())).willReturn(electronicNotaFiscalResponse);
 
 
 	}

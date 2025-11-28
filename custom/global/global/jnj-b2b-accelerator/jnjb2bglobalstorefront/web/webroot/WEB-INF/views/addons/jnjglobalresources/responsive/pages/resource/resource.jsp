@@ -1,7 +1,7 @@
 <%@ taglib prefix="template"
 	tagdir="/WEB-INF/tags/addons/loginaddon/responsive/template"%>
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="breadcrumb"
 	tagdir="/WEB-INF/tags/responsive/nav/breadcrumb"%>
 <%@ taglib prefix="resource"
@@ -10,7 +10,7 @@
 	uri="/WEB-INF/tld/addons/loginaddon/message.tld"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="jakarta.tags.functions" prefix="fn"%>
 
 <script type="text/javascript">
 	 var captchaSiteKey = "${googleCaptchaKey}";

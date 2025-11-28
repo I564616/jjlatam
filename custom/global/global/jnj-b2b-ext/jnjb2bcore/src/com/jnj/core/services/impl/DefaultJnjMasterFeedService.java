@@ -10,7 +10,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,7 +30,7 @@ import com.jnj.core.util.JnJIntegrationTableUtil;
 import com.jnj.core.util.JnjGTConversionUtils;
 import org.apache.log4j.Logger;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 
 
 /**
@@ -222,7 +222,7 @@ public class DefaultJnjMasterFeedService implements JnjMasterFeedService {
 			case "LOCALE":
 				String fieldWithLocale = entry.getValue();
 				if (fieldWithLocale != null && fieldWithLocale.trim().length() > 0) {
-					itemModel.setProperty(jnjCanonicalDTO.getTargetColumn(), new Locale(fieldWithLocale.substring(fieldWithLocale.indexOf("|") + 1, fieldWithLocale.length()).toLowerCase()), fieldWithLocale.substring(0, fieldWithLocale.indexOf("|")));
+					itemModel.setProperty(jnjCanonicalDTO.getTargetColumn(), Locale.of(fieldWithLocale.substring(fieldWithLocale.indexOf("|") + 1, fieldWithLocale.length()).toLowerCase()), fieldWithLocale.substring(0, fieldWithLocale.indexOf("|")));
 				}
 				break;
 	

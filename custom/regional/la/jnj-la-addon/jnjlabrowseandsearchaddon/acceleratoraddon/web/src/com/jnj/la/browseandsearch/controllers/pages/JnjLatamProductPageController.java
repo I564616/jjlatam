@@ -39,21 +39,19 @@ import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
 import de.hybris.platform.servicelayer.media.MediaService;
 import de.hybris.platform.util.Config;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -258,8 +256,8 @@ public class JnjLatamProductPageController extends JnjGTProductPageController {
         return getView(Jnjb2bbrowseandsearchControllerConstants.Views.Pages.Cart.productDetailPopUp);
     }
 
-    @RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN
-            + "/downloadProductDetails" + FILE_NAME_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+    @GetMapping(PRODUCT_CODE_PATH_VARIABLE_PATTERN
+            + "/downloadProductDetails" + FILE_NAME_PATH_VARIABLE_PATTERN)
     public void getDetailsFile(
             @PathVariable("productCode") final String productCode,
             @PathVariable("mediaCode") final String mediaCode,
@@ -295,8 +293,8 @@ public class JnjLatamProductPageController extends JnjGTProductPageController {
                 final FileInputStream fileInputStream = new FileInputStream(
                         detailsFile);
                 httpServletResponse.setContentType(detailsFileMedia.getMime());
-                httpServletResponse.setContentLength(new Long(detailsFile
-                        .length()).intValue());
+                httpServletResponse.setContentLength(Long.valueOf(detailsFile
+						.length()).intValue());
                 httpServletResponse.setHeader(
                         WebConstants.InvoiceDetails.HEADER_PARAM,
                         WebConstants.InvoiceDetails.HEADER_PARAM_VALUE
@@ -475,7 +473,6 @@ public class JnjLatamProductPageController extends JnjGTProductPageController {
         return configurationService;
     }
 
-    @Required
     public void setConfigurationService(ConfigurationService configurationService) {
         this.configurationService = configurationService;
     }

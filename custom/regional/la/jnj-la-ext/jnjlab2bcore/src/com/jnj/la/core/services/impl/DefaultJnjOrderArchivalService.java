@@ -26,15 +26,14 @@ import de.hybris.platform.core.model.order.payment.PaymentInfoModel;
 import de.hybris.platform.core.model.user.AddressModel;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.model.ModelService;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.ListUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -413,7 +412,6 @@ public class DefaultJnjOrderArchivalService implements JnjOrderArchivalService {
     /**
      * @param modelService the modelService to set
      */
-    @Required
     public void setModelService(final ModelService modelService) {
         this.modelService = modelService;
     }
@@ -429,7 +427,6 @@ public class DefaultJnjOrderArchivalService implements JnjOrderArchivalService {
     /**
      * @param configurationService the configurationService to set
      */
-    @Required
     public void setConfigurationService(final ConfigurationService configurationService) {
         this.configurationService = configurationService;
     }

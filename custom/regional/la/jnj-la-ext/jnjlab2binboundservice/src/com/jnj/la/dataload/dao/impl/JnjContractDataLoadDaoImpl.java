@@ -27,7 +27,6 @@ import com.jnj.la.dataload.dao.JnjContractDataLoadDao;
 import de.hybris.platform.util.Config;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.la.core.util.JnJLaCronjobUtil;	
 import de.hybris.platform.servicelayer.config.ConfigurationService;
@@ -66,7 +65,6 @@ public class JnjContractDataLoadDaoImpl implements JnjContractDataLoadDao
 		return rsaDBConnector;
 	}
 
-	@Required
 	public void setRsaDBConnector(final JNJRSADBConnector rsaDBConnector) {
 		this.rsaDBConnector = rsaDBConnector;
 	}
@@ -76,7 +74,6 @@ public class JnjContractDataLoadDaoImpl implements JnjContractDataLoadDao
 		return jnjLaCronjobUtil;
 	}
 
-	@Required
 	public void setJnjLaCronjobUtil(final JnJLaCronjobUtil jnjLaCronjobUtil) {
 		this.jnjLaCronjobUtil = jnjLaCronjobUtil;
 	}
@@ -85,7 +82,6 @@ public class JnjContractDataLoadDaoImpl implements JnjContractDataLoadDao
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	}

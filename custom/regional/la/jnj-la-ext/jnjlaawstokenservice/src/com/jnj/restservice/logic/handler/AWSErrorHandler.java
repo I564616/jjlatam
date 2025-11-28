@@ -20,7 +20,7 @@ public class AWSErrorHandler implements IResponseHandler {
     private static final Logger LOG = Logger.getLogger(Response.class);
 
     @Override
-    public <T> void handle(final javax.ws.rs.core.Response rawResponse, final Response<T> restResponse, final Class<T> genericType) {
+    public <T> void handle(final jakarta.ws.rs.core.Response rawResponse, final Response<T> restResponse, final Class<T> genericType) {
         try{
             final JsonNode responseNode = rawResponse.readEntity(JsonNode.class);
             final JsonNode messageNode = responseNode.path("message");
@@ -38,7 +38,7 @@ public class AWSErrorHandler implements IResponseHandler {
     }
 
     @Override
-    public <T> boolean canHandle(final javax.ws.rs.core.Response rawResponse, final Response<T> restResponse) {
+    public <T> boolean canHandle(final jakarta.ws.rs.core.Response rawResponse, final Response<T> restResponse) {
         return (rawResponse.getStatus()!= 201 && rawResponse.getStatus()!=204 );
     }
 

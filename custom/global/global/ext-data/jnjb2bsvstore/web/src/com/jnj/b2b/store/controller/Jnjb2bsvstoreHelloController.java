@@ -15,8 +15,7 @@ import static com.jnj.b2b.store.constants.Jnjb2bsvstoreConstants.PLATFORM_LOGO_C
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.jnj.b2b.store.service.Jnjb2bsvstoreService;
 
@@ -27,7 +26,7 @@ public class Jnjb2bsvstoreHelloController
 	@Autowired
 	private Jnjb2bsvstoreService jnjb2bsvstoreService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@GetMapping("/")
 	public String printWelcome(final ModelMap model)
 	{
 		model.addAttribute("logoUrl", jnjb2bsvstoreService.getHybrisLogoUrl(PLATFORM_LOGO_CODE));

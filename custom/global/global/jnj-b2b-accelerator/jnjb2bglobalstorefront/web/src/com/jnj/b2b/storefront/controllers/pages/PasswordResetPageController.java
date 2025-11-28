@@ -24,17 +24,18 @@ import com.jnj.b2b.storefront.forms.ForgottenPwdForm;
 import com.jnj.b2b.storefront.forms.UpdatePwdForm;
 import com.jnj.b2b.storefront.forms.validation.B2BUpdatePwdFormValidator;
 
-import javax.annotation.Resource;
-import javax.validation.Valid;
+import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -72,14 +73,14 @@ public class PasswordResetPageController extends AbstractPageController
 		return b2bUpdatePwdFormValidator;
 	}
 
-	@RequestMapping(value = "/request", method = RequestMethod.GET)
+	@GetMapping("/request")
 	public String getPasswordRequest(final Model model) throws CMSItemNotFoundException
 	{
 		model.addAttribute(new ForgottenPwdForm());
 		return ControllerConstants.Views.Fragments.Password.PasswordResetRequestPopup;
 	}
 
-	@RequestMapping(value = "/request", method = RequestMethod.POST)
+	@PostMapping("/request")
 	public String passwordRequest(@Valid final ForgottenPwdForm form, final BindingResult bindingResult)
 			throws CMSItemNotFoundException
 	{
@@ -101,7 +102,7 @@ public class PasswordResetPageController extends AbstractPageController
 		}
 	}
 
-	@RequestMapping(value = "/change", method = RequestMethod.GET)
+	@GetMapping("/change")
 	public String getChangePassword(@RequestParam(required = false) final String token, final Model model)
 			throws CMSItemNotFoundException
 	{
@@ -118,7 +119,7 @@ public class PasswordResetPageController extends AbstractPageController
 		return ControllerConstants.Views.Pages.Password.PasswordResetChangePage;
 	}
 
-	@RequestMapping(value = "/change", method = RequestMethod.POST)
+	@PostMapping("/change")
 	public String changePassword(@Valid final UpdatePwdForm form, final BindingResult bindingResult, final Model model,
 			final RedirectAttributes redirectModel) throws CMSItemNotFoundException
 	{

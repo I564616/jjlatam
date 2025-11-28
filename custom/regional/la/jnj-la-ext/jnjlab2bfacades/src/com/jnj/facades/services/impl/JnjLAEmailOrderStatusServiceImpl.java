@@ -19,10 +19,9 @@ import de.hybris.platform.core.model.order.OrderModel;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.event.EventService;
 import de.hybris.platform.servicelayer.model.ModelService;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -151,22 +150,18 @@ public class JnjLAEmailOrderStatusServiceImpl implements JnjLAEmailOrderStatusSe
         }
     }
 
-    @Required
     public void setJnjOrderDao(final JnjLaOrderDao jnjOrderDao) {
         this.jnjOrderDao = jnjOrderDao;
     }
 
-    @Required
     public void setEventService(final EventService eventService) {
         this.eventService = eventService;
     }
 
-    @Required
     public void setMatrixService(final JnjLAOrderEmailMatrixService matrixService) {
         this.matrixService = matrixService;
     }
 
-    @Required
     public void setModelService(final ModelService modelService) {
         this.modelService = modelService;
     }
@@ -183,7 +178,6 @@ public class JnjLAEmailOrderStatusServiceImpl implements JnjLAEmailOrderStatusSe
         return modelService;
     }
     
-    @Required
     public void setConfigurationService(final ConfigurationService configurationService) {
         this.configurationService = configurationService;
     }

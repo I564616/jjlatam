@@ -23,7 +23,6 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.b2b.store.service.Jnjb2bsvstoreService;
 
@@ -84,19 +83,16 @@ public class DefaultJnjb2bsvstoreService implements Jnjb2bsvstoreService
 		return DefaultJnjb2bsvstoreService.class.getResourceAsStream("/jnjb2bsvstore/sap-hybris-platform.png");
 	}
 
-	@Required
 	public void setMediaService(final MediaService mediaService)
 	{
 		this.mediaService = mediaService;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
 	}
 
-	@Required
 	public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService)
 	{
 		this.flexibleSearchService = flexibleSearchService;

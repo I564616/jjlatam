@@ -32,7 +32,7 @@ import de.hybris.platform.store.BaseStoreModel;
 import de.hybris.platform.store.services.BaseStoreService;
 import de.hybris.platform.util.Config;
 
-import org.apache.commons.lang.BooleanUtils;
+import org.apache.commons.lang3.BooleanUtils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -47,9 +47,9 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import javax.annotation.Resource;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import jakarta.annotation.Resource;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jnj.core.util.JnJCommonUtil;
@@ -581,7 +581,7 @@ public class DefaultJnjGTOrderDao implements JnjGTOrderDao
 		Map params = new HashMap();
 		params.put("orderTypes", createOrderTypesList());
 		params.put("accountNumbers", b2bUnitListPerUser);
-		params.put("days", new Integer(orderHistoryDays));
+		params.put("days", Integer.valueOf(orderHistoryDays));
 		params.put("lineStatus", createLineStatusList());
 		fQuery.addQueryParameters(params);
 		CommonUtil.logDebugMessage(Jnjb2bCoreConstants.Logging.REPORTS_NAME,
@@ -643,7 +643,7 @@ public class DefaultJnjGTOrderDao implements JnjGTOrderDao
 		Map params = new HashMap();
 		params.put("orderTypes", createOrderTypesList());
 		params.put("accountNumbers", b2bUnitListPerUser);
-		params.put("days", new Integer(orderHistoryDays));
+		params.put("days", Integer.valueOf(orderHistoryDays));
 		//params.put("lineStatus", createLineStatusList());
 
 		DateFormat dateFormat = new SimpleDateFormat(jnjCommonUtil.getDateFormat());

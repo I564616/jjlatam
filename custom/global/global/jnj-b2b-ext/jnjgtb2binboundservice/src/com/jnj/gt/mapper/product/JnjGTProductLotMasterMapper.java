@@ -8,7 +8,6 @@ import java.util.Collection;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.enums.JnjGTSourceSysId;
@@ -200,7 +199,6 @@ public class JnjGTProductLotMasterMapper extends JnjAbstractMapper
 	 * @param jnjGTFeedService
 	 *           the jnjGTFeedService to set
 	 */
-	@Required
 	public void setjnjGTFeedService(final JnjGTFeedService jnjGTFeedService)
 	{
 		this.jnjGTFeedService = jnjGTFeedService;
@@ -210,7 +208,6 @@ public class JnjGTProductLotMasterMapper extends JnjAbstractMapper
 	 * @param jnjGTLotMasterFeedService
 	 *           the jnjGTLotMasterFeedService to set
 	 */
-	@Required
 	public void setjnjGTLotMasterFeedService(final JnjGTLotMasterFeedService jnjGTLotMasterFeedService)
 	{
 		this.jnjGTLotMasterFeedService = jnjGTLotMasterFeedService;

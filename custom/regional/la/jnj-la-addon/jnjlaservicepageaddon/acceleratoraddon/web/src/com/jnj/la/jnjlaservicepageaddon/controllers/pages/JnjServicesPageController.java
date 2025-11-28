@@ -27,21 +27,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -204,7 +205,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
      * @throws CMSItemNotFoundException
      *             the cMS item not found exception
      */
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public String getServices(@RequestParam(value = "download", required = false) final String downloadFlag,
             @RequestParam(value = "downloadError", required = false) final String downloadErrorFlag, final Model model,
             final HttpServletRequest request) throws CMSItemNotFoundException
@@ -394,7 +395,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
     }
 
     @AuthorizedUserGroup(value = INDIRECT_CUSTOMER_FORM_GROUP)
-    @RequestMapping(value = Jnjlab2bcoreConstants.PostRedirectionURI.SERVICES_INDIRECT_CUSTOMER, method = RequestMethod.GET)
+    @GetMapping(Jnjlab2bcoreConstants.PostRedirectionURI.SERVICES_INDIRECT_CUSTOMER)
     public String getAddIndirectCustomerForm(final Model model, final HttpServletRequest request, final RedirectAttributes redirectModel)
             throws CMSItemNotFoundException, BusinessException
     {
@@ -429,7 +430,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
     }
 
     @AuthorizedUserGroup(value = INDIRECT_CUSTOMER_FORM_GROUP)
-    @RequestMapping(value = Jnjlab2bcoreConstants.PostRedirectionURI.SERVICES_INDIRECT_CUSTOMER, method = RequestMethod.POST)
+    @PostMapping(Jnjlab2bcoreConstants.PostRedirectionURI.SERVICES_INDIRECT_CUSTOMER)
     public String sendAddIndirectCustomerForm(final Model model,
             @ModelAttribute final JnjAddIndirectCustomerForm jnjAddIndirectCustomerForm,
             final HttpServletRequest request) throws CMSItemNotFoundException
@@ -502,7 +503,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
     }
 
     @AuthorizedUserGroup(value = ADD_INDIRECT_PAYER_GROUP)
-    @RequestMapping(value = Jnjlab2bcoreConstants.PostRedirectionURI.SERVICES_INDIRECT_PAYER, method = RequestMethod.GET)
+    @GetMapping(Jnjlab2bcoreConstants.PostRedirectionURI.SERVICES_INDIRECT_PAYER)
     public String getAddIndirectPayerForm(final Model model, final HttpServletRequest request)
             throws CMSItemNotFoundException, BusinessException
     {
@@ -538,7 +539,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
     }
 
     @AuthorizedUserGroup(value = ADD_INDIRECT_PAYER_GROUP)
-    @RequestMapping(value = Jnjlab2bcoreConstants.PostRedirectionURI.SERVICES_INDIRECT_PAYER, method = RequestMethod.POST)
+    @PostMapping(Jnjlab2bcoreConstants.PostRedirectionURI.SERVICES_INDIRECT_PAYER)
     public String sendAddIndirectPayerForm(final Model model,
             @ModelAttribute final JnjAddIndirectPayerForm jnjAddIndirectPayerForm, final HttpServletRequest request)
             throws CMSItemNotFoundException
@@ -616,7 +617,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
         return breadcrumbs;
     }
 
-    @RequestMapping(value = "/laudo/download", method = RequestMethod.GET)
+    @GetMapping("/laudo/download")
     private String showDownloadLaudo(@RequestParam(value = "search", required = false) final boolean search,
             final JnjLaudoForm jnjLaudoForm, final Model model, final HttpServletRequest request)
             throws CMSItemNotFoundException
@@ -701,7 +702,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
 		return isLotNumberRequired;
     } 
 	 
-    @RequestMapping(value = "/laudo/download" + LAUDO_FILE_NAME_PATTERN, method = RequestMethod.GET)
+    @GetMapping("/laudo/download" + LAUDO_FILE_NAME_PATTERN)
     public void downloadLaudoFile(@PathVariable("laudoFileName") final String laudoFileName,
             final HttpServletResponse httpServletResponse)
     {
@@ -727,7 +728,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
 
                 final FileInputStream fileInputStream = new FileInputStream(laudoFile);
                 httpServletResponse.setContentType(fileContentType);
-                httpServletResponse.setContentLength(new Long(laudoFile.length()).intValue());
+                httpServletResponse.setContentLength(Long.valueOf(laudoFile.length()).intValue());
                 httpServletResponse.setHeader(WebConstants.InvoiceDetails.HEADER_PARAM,
                         WebConstants.InvoiceDetails.HEADER_PARAM_VALUE + laudoFileName);
                 FileCopyUtils.copy(fileInputStream, httpServletResponse.getOutputStream());
@@ -769,7 +770,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
                 LoginaddonConstants.Logging.END_OF_METHOD, currentClass);
     }
 
-    @RequestMapping(value = "/laudo/manage", method = RequestMethod.GET)
+    @GetMapping("/laudo/manage")
     private String showManageLaudo(final JnjLaudoForm jnjLaudoForm, final Model model, final HttpServletRequest request)
             throws CMSItemNotFoundException
 
@@ -799,7 +800,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
                 + JnjlaservicepageaddonControllerConstants.Views.Pages.Laudo.ManageLaudo;
     }
 
-    @RequestMapping(value = "/laudo/delete", method = RequestMethod.POST)
+    @PostMapping("/laudo/delete")
     private String deleteLaudoEntry(final JnjLaudoForm jnjLaudoForm, final JnjDeleteLaudoForm jnjDeleteLaudoForm,
             final Model model, final HttpServletRequest request) throws CMSItemNotFoundException
     {
@@ -900,7 +901,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
 
     }
 
-    @RequestMapping(value = "/laudo/uploadSingle", method = RequestMethod.POST)
+    @PostMapping("/laudo/uploadSingle")
     public String uploadSingleLaudoFiles(final JnjLaudoFileUploadForm jnjLaudoFileUploadForm,
             final JnjLaudoForm jnjLaudoForm, final Model model, final HttpServletRequest request)
             throws CMSItemNotFoundException
@@ -1168,7 +1169,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
         
     }
 
-    @RequestMapping(value = "/laudo/uploadMultipe", method = RequestMethod.POST)
+    @PostMapping("/laudo/uploadMultipe")
     public String uploadMultipleLaudoFiles(final JnjLaudoFileUploadForm jnjLaudoFileUploadForm,
             final JnjLaudoForm jnjLaudoForm,
             @RequestParam(value = "fileExtension", required = true) final String fileExtension, final Model model,
@@ -1293,7 +1294,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
                 LoginaddonConstants.Logging.END_OF_METHOD, currentClass);
     }
 
-    @RequestMapping(value = Jnjlab2bcoreConstants.PostRedirectionURI.CROSS_REFERENCE_TABLE, method = RequestMethod.GET)
+    @GetMapping(Jnjlab2bcoreConstants.PostRedirectionURI.CROSS_REFERENCE_TABLE)
     public String getCrossReferenceTable(@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
             @ModelAttribute("crossReferenceForm") final CrossReferenceForm form,
             @RequestParam(value = "sort", required = false) final String sortCode,
@@ -1371,7 +1372,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
      * @return String
      */
 
-    @RequestMapping(value = "/crossReferenceTable/downloadCrossReferenceData", method = RequestMethod.POST)
+    @PostMapping("/crossReferenceTable/downloadCrossReferenceData")
     public String downloadData(@ModelAttribute("crossReferenceForm") final CrossReferenceForm form,
             @RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
             @RequestParam(value = "sort", required = false) final String sortCode,
@@ -1452,7 +1453,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
      * @return String
      * @throws CMSItemNotFoundException
      */
-    @RequestMapping(value = "/crossReferenceTable/searchCrossRef", method = RequestMethod.POST)
+    @PostMapping("/crossReferenceTable/searchCrossRef")
     public String doSearch(@ModelAttribute("crossReferenceForm") final CrossReferenceForm form,
             @RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
             @RequestParam(value = "sort", required = false) final String sortCode,
@@ -1496,7 +1497,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
     }
 
     @AuthorizedUserGroup(value=CONSIGNMENT_GROUP)
-	@RequestMapping(value = Jnjb2bCoreConstants.PostRedirectionURI.SERVICES_CONSIGNMENT, method = RequestMethod.GET)
+	@GetMapping(Jnjb2bCoreConstants.PostRedirectionURI.SERVICES_CONSIGNMENT)
 	public String showConsignmentIssue(final Model model, final HttpServletRequest request, final RedirectAttributes redirectModel)
 			throws CMSItemNotFoundException {
 		final String methodName = "showConsignmentIssue()";
@@ -1532,7 +1533,7 @@ public class JnjServicesPageController extends AbstractSearchPageController
 	}
 
     @AuthorizedUserGroup(value=CONSIGNMENT_GROUP)
-	@RequestMapping(value = Jnjb2bCoreConstants.PostRedirectionURI.SERVICES_CONSIGNMENT, method = RequestMethod.POST)
+	@PostMapping(Jnjb2bCoreConstants.PostRedirectionURI.SERVICES_CONSIGNMENT)
 	public String sendConsignmentIssueForm(final Model model,
 			@ModelAttribute final JnjConsignmentIssueForm jnjConsignmentIssueForm, final HttpServletRequest request)
 			throws CMSItemNotFoundException, BusinessException {

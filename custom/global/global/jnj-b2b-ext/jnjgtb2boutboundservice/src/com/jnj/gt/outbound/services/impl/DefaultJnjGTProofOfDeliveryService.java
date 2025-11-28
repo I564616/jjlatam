@@ -5,9 +5,9 @@ package com.jnj.gt.outbound.services.impl;
 
 import de.hybris.platform.util.Config;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.Marshaller;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.Marshaller;
 
 import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.log4j.Logger;

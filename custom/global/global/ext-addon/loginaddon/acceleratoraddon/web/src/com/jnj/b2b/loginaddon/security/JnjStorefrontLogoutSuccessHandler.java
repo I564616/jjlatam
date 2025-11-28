@@ -26,14 +26,13 @@ import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.platform.servicelayer.session.SessionService;
 import de.hybris.platform.servicelayer.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -137,7 +136,6 @@ public class JnjStorefrontLogoutSuccessHandler extends SimpleUrlLogoutSuccessHan
 		this.sessionService = sessionService;
 	}
 
-	@Required
 	public void setGuidCookieStrategy(final GUIDCookieStrategy guidCookieStrategy)
 	{
 		this.guidCookieStrategy = guidCookieStrategy;

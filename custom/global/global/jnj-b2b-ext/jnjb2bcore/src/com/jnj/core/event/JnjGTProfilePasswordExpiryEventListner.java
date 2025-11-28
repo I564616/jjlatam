@@ -14,7 +14,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 //import com.jnj.core.constants.Jnjb2bCoreConstants;
@@ -173,7 +172,6 @@ public class JnjGTProfilePasswordExpiryEventListner extends AbstractSiteEventLis
 	 * @param modelService
 	 *           the modelService to set
 	 */
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
@@ -193,7 +191,6 @@ public class JnjGTProfilePasswordExpiryEventListner extends AbstractSiteEventLis
 	 * @param businessProcessService
 	 *           the businessProcessService to set
 	 */
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService)
 	{
 		this.businessProcessService = businessProcessService;

@@ -12,11 +12,11 @@ import de.hybris.platform.commerceservices.event.AbstractSiteEventListener;
 import de.hybris.platform.processengine.BusinessProcessService;
 import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.platform.store.BaseStoreModel;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import de.hybris.platform.core.model.order.OrderModel;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import com.jnj.la.core.model.JnJLaUserAccountPreferenceModel;
 
 import java.util.List;

@@ -10,11 +10,11 @@ import com.jnj.core.util.JnJCommonUtil;
 import com.jnj.core.util.JnjGetCurrentDefaultB2BUnitUtil;
 import com.jnj.facades.constants.Jnjb2bFacadesConstants;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.ws.rs.core.UriBuilder;
+import jakarta.ws.rs.core.UriBuilder;
 
 abstract class AbstractJnjLAChatController extends AbstractJnjLaBasePageController {
 

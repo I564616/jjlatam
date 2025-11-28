@@ -7,7 +7,6 @@
  */
 package com.jnj.facades.laudo.impl;
 import org.apache.commons.io.FileUtils;
-import org.springframework.beans.factory.annotation.Required;
 import de.hybris.platform.cms2.servicelayer.services.CMSSiteService;
 import com.jnj.core.services.JnjConfigService;
 import de.hybris.platform.catalog.model.CatalogVersionModel;
@@ -34,7 +33,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -108,15 +107,13 @@ public class JnjLaudoFacadeImpl implements JnjLaudoFacade
 	public JnjConfigService getJnjConfigService() {
 		return jnjConfigService;
 	}
-	@Required
-    public void setJnjConfigService(final JnjConfigService jnjConfigService) {
+	public void setJnjConfigService(final JnjConfigService jnjConfigService) {
 		this.jnjConfigService = jnjConfigService;
 	}
 	
 	public CMSSiteService getCmsSiteService() {
 		return cmsSiteService;
 	}
-	@Required
 	public void setCmsSiteService(CMSSiteService cmsSiteService) {
 		this.cmsSiteService = cmsSiteService;
 	}

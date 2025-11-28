@@ -7,10 +7,11 @@
 	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
 
 	<bean name="CustomersCacheRegion"
-		class="de.hybris.platform.regioncache.region.impl.EHCacheRegion">
+		class="de.hybris.platform.regioncache.region.impl.DefaultCacheRegion">
+		<!--FRAMEWORK_UPDATE - TODO - Constructors has been changed. Check if you need to adjust your configuration. Please check update guide for more details.-->
 		<constructor-arg name="name" value="customersCacheRegion" />
 		<constructor-arg name="maxEntries" value="50000" />
-		<constructor-arg name="evictionPolicy" value="LFU" />
+		<!--<constructor-arg name="evictionPolicy" value="LFU" />-->
 		<property name="handledTypes">
 			<array>
 				<value>15002</value> <!--JnJLaB2BUnit type code  -->

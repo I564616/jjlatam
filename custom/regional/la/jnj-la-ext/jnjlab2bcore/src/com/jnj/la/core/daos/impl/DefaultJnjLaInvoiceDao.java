@@ -28,10 +28,9 @@ import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.session.SessionExecutionBody;
 import de.hybris.platform.servicelayer.session.SessionService;
 import de.hybris.platform.servicelayer.user.UserService;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import de.hybris.platform.util.Config;
 import com.jnj.la.core.util.JnJLaCronjobUtil;
 
@@ -132,7 +131,6 @@ public class DefaultJnjLaInvoiceDao extends DefaultJnjInvoiceDao implements JnjL
 		return jnjLaCronjobUtil;
 	}
     
-	@Required
 	public void setJnjLaCronjobUtil(final JnJLaCronjobUtil jnjLaCronjobUtil) {
 		this.jnjLaCronjobUtil = jnjLaCronjobUtil;
 	}
@@ -141,7 +139,6 @@ public class DefaultJnjLaInvoiceDao extends DefaultJnjInvoiceDao implements JnjL
 		return configurationService;
 	}
 
-	@Required
 	public void setConfigurationService(final ConfigurationService configurationService) {
 		this.configurationService = configurationService;
 	}
@@ -163,7 +160,6 @@ public class DefaultJnjLaInvoiceDao extends DefaultJnjInvoiceDao implements JnjL
         return rsaDBConnector;
     }
 
-    @Required
     public void setRsaDBConnector(final JNJRSADBConnector rsaDBConnector)
     {
         this.rsaDBConnector = rsaDBConnector;

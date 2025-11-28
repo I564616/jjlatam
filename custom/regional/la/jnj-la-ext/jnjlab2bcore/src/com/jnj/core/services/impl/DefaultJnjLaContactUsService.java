@@ -7,11 +7,10 @@ package com.jnj.core.services.impl;
 
 import java.util.HashMap;
 
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.apache.log4j.Logger;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
-import org.springframework.beans.factory.annotation.Required;
 import de.hybris.platform.cms2.model.site.CMSSiteModel;
 import com.jnj.services.CMSSiteService;
 import com.jnj.la.core.constants.Jnjlab2bcoreConstants;
@@ -28,7 +27,6 @@ public class DefaultJnjLaContactUsService extends DefaultJnjGTContactUsService
 		return cmsSiteService;
 	}
 
-	@Required
 	public void setCmsSiteService(final CMSSiteService cmsSiteService) {
 		this.cmsSiteService = cmsSiteService;
 	}

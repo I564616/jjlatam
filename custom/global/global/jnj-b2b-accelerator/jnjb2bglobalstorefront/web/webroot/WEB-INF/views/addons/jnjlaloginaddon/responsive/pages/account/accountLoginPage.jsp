@@ -1,5 +1,5 @@
 <%@ page trimDirectiveWhitespaces="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/addons/loginaddon/responsive/template"%>
 <%@ taglib prefix="user" tagdir="/WEB-INF/tags/responsive/user"%>
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags"%>
@@ -9,7 +9,7 @@
 <%@ taglib prefix="header" tagdir="/WEB-INF/tags/responsive/common/header"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="label" uri="/WEB-INF/tld/message.tld"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions"%>
 <spring:eval expression="T(de.hybris.platform.util.Config).getParameter('jnj.la.login.email.regex')" var="allowChars"/>
 <input type="hidden" id="regex-chars" value="${allowChars}"/>
 

@@ -11,8 +11,8 @@ import de.hybris.platform.samlsinglesignon.SSOUserService;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
 import de.hybris.platform.servicelayer.user.UserService;
 import java.util.Collection;
-import javax.annotation.Resource;
-import org.apache.commons.lang.StringUtils;
+import jakarta.annotation.Resource;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 public class JnJLABackofficeSSOService implements SSOUserService

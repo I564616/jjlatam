@@ -30,16 +30,15 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.jnj.b2b.storefront.constants.WebConstants;
@@ -175,7 +174,6 @@ public class UrlEncoderFilter extends OncePerRequestFilter
 		return urlEncoderFacade;
 	}
 
-	@Required
 	public void setUrlEncoderFacade(final UrlEncoderFacade urlEncoderFacade)
 	{
 		this.urlEncoderFacade = urlEncoderFacade;
@@ -186,7 +184,6 @@ public class UrlEncoderFilter extends OncePerRequestFilter
 		return sessionService;
 	}
 
-	@Required
 	public void setSessionService(final SessionService sessionService)
 	{
 		this.sessionService = sessionService;

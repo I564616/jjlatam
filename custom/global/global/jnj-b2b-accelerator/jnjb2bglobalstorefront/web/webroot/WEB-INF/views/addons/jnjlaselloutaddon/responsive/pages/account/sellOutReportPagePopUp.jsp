@@ -1,6 +1,6 @@
 <%@ taglib prefix="label" uri="/WEB-INF/tld/message.tld"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 
 <div class='lightboxtemplate lightboxwidthsize1 sam' id='sellout_popup'>
 	<h2>

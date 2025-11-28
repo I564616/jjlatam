@@ -15,13 +15,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -40,7 +41,6 @@ import com.jnj.facades.data.JnJInvoiceOrderData;
 import com.jnj.facades.invoice.JnjInvoiceFacade;
 import com.jnj.facades.order.JnjInvoiceDocMapper;
 import com.jnj.itsusmpl00082.sg910_btb_in0504_electronicbilling_hybris_source_v1_webservices.receiveelectronicbillingws.ElectronicBillingResponse;
-
 
 
 /**
@@ -141,7 +141,7 @@ public class DefaultJnjInvoiceFacade implements JnjInvoiceFacade
 					newURLOpentext = parseCdataValue(url.replace(hostOpenText, urlOpenText));
 					LOGGER.debug(Jnjb2bFacadesConstants.Logging.GET_INVOICE_DOCUMENT + Logging.HYPHEN + "getInvoiceDocFile()"
 							+ Logging.HYPHEN + " Final OpenText URL: " + newURLOpentext);
-					website = new URL(newURLOpentext);
+					website = URI.create(newURLOpentext).toURL();
 					rbc = Channels.newChannel(website.openStream());
 					invoiceDocFile = new File(sharedFolder + invoiceId + Jnjb2bFacadesConstants.Logging.DOT_STRING + fileType);
 					fos = new FileOutputStream(invoiceDocFile);

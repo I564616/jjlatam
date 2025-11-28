@@ -21,7 +21,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.util.CellRangeAddress;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.io.DataInputStream;
 import java.io.File;
@@ -37,7 +36,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import com.jnj.core.util.JnjGTCoreUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -401,7 +400,6 @@ public class JnjLaConsolidatedReportServiceImpl implements JnjLaConsolidatedRepo
         this.emailService = emailService;
     }
 
-    @Required
     public void setJnjCommonFacadeUtil(JnjCommonFacadeUtil jnjCommonFacadeUtil) {
         this.jnjCommonFacadeUtil = jnjCommonFacadeUtil;
     }

@@ -21,8 +21,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Required;
-
 import com.jnj.core.model.JnJProductModel;
 
 
@@ -93,7 +91,6 @@ public class JnjGTImageAvlIndValueProvider extends AbstractPropertyFieldValuePro
 		}
 	}
 
-	@Required
 	public void setFieldNameProvider(final FieldNameProvider fieldNameProvider)
 	{
 		this.fieldNameProvider = fieldNameProvider;

@@ -23,7 +23,7 @@ import de.hybris.platform.commerceservices.search.pagedata.SearchPageData;
 import de.hybris.platform.core.model.c2l.CountryModel;
 import de.hybris.platform.core.model.order.OrderModel;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ import com.jnj.core.model.JnJB2bCustomerModel;
 import de.hybris.platform.servicelayer.event.EventService;
 import de.hybris.platform.b2b.model.B2BUnitModel;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
 
 

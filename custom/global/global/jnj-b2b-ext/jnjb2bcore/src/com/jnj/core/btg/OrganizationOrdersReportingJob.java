@@ -20,11 +20,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.b2b.core.model.btg.OrganizationOrderStatisticsModel;
 import com.jnj.b2b.core.model.btg.OrganizationOrdersReportingCronJobModel;
@@ -246,19 +245,16 @@ public class OrganizationOrdersReportingJob extends AbstractJobPerformable<Organ
 
 	}
 
-	@Required
 	public void setB2BUnitService(final B2BUnitService<B2BUnitModel, B2BCustomerModel> b2BUnitService)
 	{
 		this.b2BUnitService = b2BUnitService;
 	}
 
-	@Required
 	public void setCommonI18NService(final CommonI18NService commonI18NService)
 	{
 		this.commonI18NService = commonI18NService;
 	}
 
-	@Required
 	public void setCurrencies(final List<String> currencies)
 	{
 		this.currencies = currencies;
@@ -274,7 +270,6 @@ public class OrganizationOrdersReportingJob extends AbstractJobPerformable<Organ
 		this.catalog = catalog;
 	}
 
-	@Required
 	public void setCatalogVersionService(final CatalogVersionService catalogVersionService)
 	{
 		this.catalogVersionService = catalogVersionService;

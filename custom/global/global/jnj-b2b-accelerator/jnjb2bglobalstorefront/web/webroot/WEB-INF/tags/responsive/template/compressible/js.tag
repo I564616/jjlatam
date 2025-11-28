@@ -1,8 +1,8 @@
 <%@ tag body-content="empty" trimDirectiveWhitespaces="true" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="templategt" tagdir="/WEB-INF/tags/responsive/template" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="fn" uri="jakarta.tags.functions" %>
 <templategt:replacejavascriptVariables /> 
 
 <script type="text/javascript" src="${commonResourcePath}/js/jquery-3.5.1.min.js"></script>

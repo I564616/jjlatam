@@ -12,6 +12,7 @@ import de.hybris.platform.cms2.model.pages.ContentPageModel;
 import de.hybris.platform.solrfacetsearch.config.IndexConfig;
 import de.hybris.platform.solrfacetsearch.provider.IdentityProvider;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 
@@ -23,6 +24,7 @@ import java.io.Serializable;
  */
 public class JnjContentIdentityProvider implements IdentityProvider<ContentPageModel>, Serializable
 {
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	/*

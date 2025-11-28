@@ -26,16 +26,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -262,7 +261,7 @@ public class JnjLatamCartPageController extends JnjGTCartPageController
 		return getView(viewPath);
 	}
 
-	@RequestMapping(value = "/laAddTocart", method = RequestMethod.POST)
+	@PostMapping("/laAddTocart")
 	public String laAddQuickTocart(@RequestParam("prodId_Qtys") final String prodId_Qtys, final Model model,
 			final HttpServletRequest request) throws CMSItemNotFoundException
 	{
@@ -317,7 +316,7 @@ public class JnjLatamCartPageController extends JnjGTCartPageController
 		return REDIRECT_PREFIX + "/cart/reviseOrder";
 	}
 
-	@RequestMapping(value = "/laReviseOrder", method = RequestMethod.GET)
+	@GetMapping("/laReviseOrder")
 	public String reviseCart(final Model model, final HttpServletRequest request, final RedirectAttributes redirectModel)
 			throws CMSItemNotFoundException
 	{
@@ -327,7 +326,7 @@ public class JnjLatamCartPageController extends JnjGTCartPageController
 	}
 
 
-	@RequestMapping(value = "/laAddToCartOrderTemplate", method = RequestMethod.POST)
+	@PostMapping("/laAddToCartOrderTemplate")
 	public String laAddToCartOrderTemplate(@RequestParam("prodId_Qtys") final String prodId_Qtys,
 			@RequestParam(value = "isTemplateAdd", required = false) final String isTemplateAdd, final Model model,
 			final HttpServletRequest request, final RedirectAttributes redirectModel) throws CMSItemNotFoundException
@@ -944,7 +943,7 @@ public class JnjLatamCartPageController extends JnjGTCartPageController
 		}
 	}
 
-	@RequestMapping(value = "/reviewOrder", method = RequestMethod.POST)
+	@PostMapping("/reviewOrder")
 	public String reviewOrder(@RequestParam(value = "deliveredOrderDoc", required = false) final CommonsMultipartFile[] files,
 			final Model model, final JnjGTSapWsData wsData, final RedirectAttributes redirectModel) throws CMSItemNotFoundException
 	{
@@ -1171,7 +1170,7 @@ public class JnjLatamCartPageController extends JnjGTCartPageController
 		return REDIRECT_PREFIX + "/cart";
 	}
 
-	@RequestMapping(value = "/getIndirectCustomerName", method = RequestMethod.GET, produces = "text/plain")
+	@GetMapping(value = "/getIndirectCustomerName", produces = "text/plain")
 	@ResponseBody
 	@RequireHardLogIn
 	public String getIndirectCustomerName(@RequestParam("indirectCustomer") final String indirectCustomer,
@@ -1203,7 +1202,7 @@ public class JnjLatamCartPageController extends JnjGTCartPageController
 		return indirectCustName;
 	}
 
-	@RequestMapping(value = "/getIndirectPayerName", method = RequestMethod.GET, produces = "text/plain")
+	@GetMapping(value = "/getIndirectPayerName", produces = "text/plain")
 	@ResponseBody
 	@RequireHardLogIn
 	public String getIndirectPayerName(@RequestParam("indirectPayer") final String indirectPayer,
@@ -1235,7 +1234,7 @@ public class JnjLatamCartPageController extends JnjGTCartPageController
 		return indirectPayerName;
 	}
 
-	@RequestMapping(value = "/getIndirectCustomerOrPayerData", method = RequestMethod.GET)
+	@GetMapping("/getIndirectCustomerOrPayerData")
 	@ResponseBody
 	public List<String> getIndirectCustomerOrPayerData(@RequestParam("indirectType") final String indirectType,
 			@RequestParam("term") final String term)
@@ -1261,7 +1260,7 @@ public class JnjLatamCartPageController extends JnjGTCartPageController
 		return indirectDataList;
 	}
 
-	@RequestMapping(value = "/getIndirectNameForModal", method = RequestMethod.GET, produces = "text/plain")
+	@GetMapping(value = "/getIndirectNameForModal", produces = "text/plain")
 	@ResponseBody
 	public String getIndirectNameForModal(@RequestParam("indirectNumber") final String indirectNumber,
 			@RequestParam(value = "searchType", required = false) final String searchType)
@@ -1462,7 +1461,7 @@ public class JnjLatamCartPageController extends JnjGTCartPageController
 		JnjGTCoreUtil.logDebugMessage(CART_CMS_PAGE, methodName, Logging.END_OF_METHOD, JnjLatamCartPageController.class);
 	}
 
-	@RequestMapping(value = "/replaceProducts", method = RequestMethod.POST)	
+	@PostMapping("/replaceProducts")	
 	public String replaceProducts(final Model model, final HttpServletRequest request, final JnjLaProductReplacementForm jnjLaProductReplacementForm)
 			throws CMSItemNotFoundException
 	{
@@ -1565,7 +1564,7 @@ public class JnjLatamCartPageController extends JnjGTCartPageController
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/updateComplementaryInfo", method = RequestMethod.GET)
+	@GetMapping("/updateComplementaryInfo")
 	public boolean updateComplementaryInfo(final Model model, @RequestParam("complementaryInfo") final String complementaryInfo)
 	{
 		final Object showChangeAccountLink = sessionService.getAttribute(Jnjb2bCoreConstants.Logging.SHOW_CHANGE_ACCOUNT);
@@ -1582,7 +1581,6 @@ public class JnjLatamCartPageController extends JnjGTCartPageController
 		return jnjConfigService;
 	}
 
-	@Required
 	public void setJnjConfigService(JnjConfigService jnjConfigService) {
 		this.jnjConfigService = jnjConfigService;
 	}

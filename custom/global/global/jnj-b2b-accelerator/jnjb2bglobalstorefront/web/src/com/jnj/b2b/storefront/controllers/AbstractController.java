@@ -15,7 +15,7 @@ package com.jnj.b2b.storefront.controllers;
 
 import de.hybris.platform.acceleratorservices.util.SpringHelper;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ModelAttribute;

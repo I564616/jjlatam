@@ -9,7 +9,7 @@ import de.hybris.platform.util.Config;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

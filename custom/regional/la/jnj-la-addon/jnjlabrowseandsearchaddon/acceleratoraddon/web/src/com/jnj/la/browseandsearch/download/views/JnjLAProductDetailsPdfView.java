@@ -25,10 +25,9 @@ import org.apache.log4j.Logger;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
-import org.springframework.beans.factory.annotation.Required;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -212,7 +211,6 @@ public class JnjLAProductDetailsPdfView extends JnjGTProductDetailsPdfView {
         return siteBaseUrlResolutionService;
     }
 
-    @Required
     public void setSiteBaseUrlResolutionService(final SiteBaseUrlResolutionService siteBaseUrlResolutionService)
     {
         this.siteBaseUrlResolutionService = siteBaseUrlResolutionService;
@@ -222,7 +220,6 @@ public class JnjLAProductDetailsPdfView extends JnjGTProductDetailsPdfView {
         return baseSiteService;
     }
 
-    @Required
     public void setBaseSiteService(BaseSiteService baseSiteService) {
         this.baseSiteService = baseSiteService;
     }

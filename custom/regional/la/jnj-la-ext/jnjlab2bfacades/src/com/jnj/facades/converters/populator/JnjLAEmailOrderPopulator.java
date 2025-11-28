@@ -27,10 +27,9 @@ import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.dto.converter.ConversionException;
 import de.hybris.platform.store.BaseStoreModel;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -388,17 +387,14 @@ public class JnjLAEmailOrderPopulator extends AbstractResultPopulator<OrderModel
         return lineModel.getQty().compareTo(0L) > ZERO_QUANTITY;
     }
 
-    @Required
     public void setPriceDataFactory(final JnjLaPriceDataFactory priceDataFactory) {
         this.priceDataFactory = priceDataFactory;
     }
 
-    @Required
     public void setJnjCommonFacadeUtil(final JnjCommonFacadeUtil jnjCommonFacadeUtil) {
         this.jnjCommonFacadeUtil = jnjCommonFacadeUtil;
     }
 
-    @Required
     public void setJnjLatamInvoiceFacade(final JnjLatamInvoiceFacade jnjLatamInvoiceFacade) {
         this.jnjLatamInvoiceFacade = jnjLatamInvoiceFacade;
     }
@@ -407,7 +403,6 @@ public class JnjLAEmailOrderPopulator extends AbstractResultPopulator<OrderModel
 		return configurationService;
 	}
     
-	@Required
 	public static void setConfigurationService(final ConfigurationService configurationService) {
 		JnjLAEmailOrderPopulator.configurationService = configurationService;
 	}
@@ -415,7 +410,6 @@ public class JnjLAEmailOrderPopulator extends AbstractResultPopulator<OrderModel
     public static JnjGTB2BUnitService getJnjGTB2BUnitService() {
         return jnjGTB2BUnitService;
     }
-    @Required
     public void setJnjGTB2BUnitService(final JnjGTB2BUnitService jnjGTB2BUnitService) {
         this.jnjGTB2BUnitService = jnjGTB2BUnitService;
     }

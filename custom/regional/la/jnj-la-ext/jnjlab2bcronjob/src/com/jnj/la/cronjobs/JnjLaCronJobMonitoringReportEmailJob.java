@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.la.core.dto.JnjLaCronJobMonitoringEmailDto;
 import com.jnj.facades.data.JnjLaCronJobMonitoringReportData;
@@ -65,7 +64,6 @@ public class JnjLaCronJobMonitoringReportEmailJob extends AbstractJobPerformable
      * @param jobMonitoringReportsFacade
      *           the jobMonitoringReportsFacade to set
      */
-    @Required
     public void setJobMonitoringReportsFacade(final JnjLaCronJobMonitoringReportsFacade jobMonitoringReportsFacade)
     {
         this.jobMonitoringReportsFacade = jobMonitoringReportsFacade;

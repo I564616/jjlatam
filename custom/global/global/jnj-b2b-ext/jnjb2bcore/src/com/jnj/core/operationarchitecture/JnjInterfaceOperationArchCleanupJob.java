@@ -14,7 +14,6 @@ import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 
 /**
@@ -49,7 +48,6 @@ public class JnjInterfaceOperationArchCleanupJob extends AbstractJobPerformable<
 		return result;
 	}
 
-	@Required
 	public void setJnjInterfaceOperationArchUtility(final JnjInterfaceOperationArchUtility jnjInterfaceOperationArchUtility)
 	{
 		this.jnjInterfaceOperationArchUtility = jnjInterfaceOperationArchUtility;

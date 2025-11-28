@@ -16,7 +16,6 @@ import de.hybris.platform.core.initialization.SystemSetupParameter;
 import de.hybris.platform.core.initialization.SystemSetupParameterMethod;
 import de.hybris.platform.servicelayer.i18n.CommonI18NService;
 import de.hybris.platform.util.Config;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -178,17 +177,14 @@ public class JnjlamasterstoreSystemSetup extends AbstractSystemSetup {
                 toArray(new String[MAP_OF_COUNTRIES_ISO.size()]) : countries;
     }
 
-    @Required
     public void setCommonI18NService(CommonI18NService commonI18NService) {
         this.commonI18NService = commonI18NService;
     }
 
-    @Required
     public void setDefaultSetupSolrIndexerService(DefaultSetupSolrIndexerService defaultSetupSolrIndexerService) {
         this.defaultSetupSolrIndexerService = defaultSetupSolrIndexerService;
     }
 
-    @Required
     public void setSyncCatalogService(JnJLaSyncCatalogService syncCatalogService) {
         this.syncCatalogService = syncCatalogService;
     }

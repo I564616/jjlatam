@@ -5,5 +5,5 @@
 // Generated on: 2014.06.20 at 10:59:17 AM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_ViewConsStock_v1/viewConsignmentStockWebservice")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_ViewConsStock_v1/viewConsignmentStockWebservice")
 package com.jnj.hcswmd01.mu007_epic_viewconsstock_v1.viewconsignmentstockwebservice;

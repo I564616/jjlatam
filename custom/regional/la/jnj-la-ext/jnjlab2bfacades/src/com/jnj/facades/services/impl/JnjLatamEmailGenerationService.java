@@ -22,7 +22,6 @@ import de.hybris.platform.processengine.model.BusinessProcessModel;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 import de.hybris.platform.servicelayer.model.ModelService;
 
 import java.io.File;
@@ -34,7 +33,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import javax.activation.MimetypesFileTypeMap;
+import jakarta.activation.MimetypesFileTypeMap;
 
 public class JnjLatamEmailGenerationService extends DefaultEmailGenerationService implements EmailGenerationService{
 
@@ -46,7 +45,6 @@ public class JnjLatamEmailGenerationService extends DefaultEmailGenerationServic
     private ModelService modelService;
     private static final String ALWAYS_NEW_EMAIL_ADDRESS_CREATION = "jnj.latam.email.always.newaddressmodel";
     
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
@@ -232,7 +230,6 @@ public class JnjLatamEmailGenerationService extends DefaultEmailGenerationServic
         return configurationService;
     }
 
-    @Required
     public void setConfigurationService(final ConfigurationService configurationService) {
         this.configurationService = configurationService;
     }

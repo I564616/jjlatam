@@ -19,9 +19,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -37,7 +37,7 @@ import com.jnj.core.services.b2bunit.JnjGTB2BUnitService;
 import com.jnj.core.services.customer.JnjGTCustomerService;
 import com.jnj.core.services.territory.JnjGTTerritoryService;
 import com.jnj.core.util.JnjGTCoreUtil;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author komal.sehgal

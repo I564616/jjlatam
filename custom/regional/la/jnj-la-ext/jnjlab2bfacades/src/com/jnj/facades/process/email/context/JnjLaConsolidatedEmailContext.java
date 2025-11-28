@@ -26,7 +26,6 @@ import de.hybris.platform.servicelayer.dto.converter.Converter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -146,12 +145,10 @@ public class JnjLaConsolidatedEmailContext extends AbstractJnjLaEmailContext<Jnj
         return data;
     }
 
-    @Required
     public void setJnjLaConsolidatedReportRowDataConverter(final Converter<AbstractOrderEntryModel, JnjLAConsolidatedReportRowData> jnjLaConsolidatedReportRowDataConverter) {
         this.jnjLaConsolidatedReportRowDataConverter = jnjLaConsolidatedReportRowDataConverter;
     }
 
-    @Required
     public void setJnjLaConsolidatedReportService(final JnjLaConsolidatedReportService jnjLaConsolidatedReportService) {
         this.jnjLaConsolidatedReportService = jnjLaConsolidatedReportService;
     }

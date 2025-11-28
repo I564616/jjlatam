@@ -20,14 +20,13 @@ import com.jnj.la.core.services.JnjLaInvoiceService;
 import com.jnj.la.core.util.JnjLaUploadedInvoiceDateExcelUtil;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.model.ModelService;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.configuration.Configuration;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.configuration2.Configuration;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,7 +35,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -288,7 +286,7 @@ public class JnJUpdateInvoiceServiceImpl implements JnJUpdateInvoiceService {
     private Path getPathByStatus(final JnJUploadedFileStatus status, final String... subFolders) {
         final String fileRoot = getConfiguration().getString(Jnjlab2bcoreConstants.FEED_FILEPATH_ROOT);
         final String uploadedFilePath = getConfiguration().getString(Jnjlab2bcoreConstants.UploadedInvoiceFile.UPLOADED_FILE_FOLDER);
-        Path path = Paths.get(fileRoot, uploadedFilePath, status.toString().toLowerCase());
+        Path path = Path.of(fileRoot, uploadedFilePath, status.toString().toLowerCase());
 
         for (final String folder: subFolders) {
             path = path.resolve(folder);
@@ -302,22 +300,18 @@ public class JnJUpdateInvoiceServiceImpl implements JnJUpdateInvoiceService {
         return configurationService.getConfiguration();
     }
 
-    @Required
     public void setInvoiceService(JnjLaInvoiceService invoiceService) {
         this.invoiceService = invoiceService;
     }
 
-    @Required
     public void setModelService(ModelService modelService) {
         this.modelService = modelService;
     }
 
-    @Required
     public void setUploadedInvoiceDateDao(JnJUploadedInvoiceDateDao uploadedInvoiceDateDao) {
         this.uploadedInvoiceDateDao = uploadedInvoiceDateDao;
     }
 
-    @Required
     public void setConfigurationService(ConfigurationService configurationService) {
         this.configurationService = configurationService;
     }

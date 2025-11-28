@@ -28,8 +28,6 @@ import com.jnj.b2b.facades.search.AbstractB2BProductSearchFacade;
 import java.util.Collection;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Required;
-
 /**
  * @deprecated see {@link de.hybris.platform.b2bacceleratorfacades.search.impl.DefaultB2BSolrProductSearchFacade}
  * @param <ITEM>
@@ -120,7 +118,6 @@ public class DefaultB2BSolrProductSearchFacade<ITEM extends ProductData> extends
 		return this.productSearchFacade;
 	}
 
-	@Required
 	public void setProductSearchFacade(final ProductSearchFacade<ProductData> productSearchFacade)
 	{
 		this.productSearchFacade = productSearchFacade;

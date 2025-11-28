@@ -13,7 +13,6 @@ import de.hybris.platform.cronjob.enums.CronJobResult;
 import de.hybris.platform.cronjob.enums.CronJobStatus;
 import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
-import org.springframework.beans.factory.annotation.Required;
 
 import static com.jnj.la.core.constants.Jnjlab2bcoreConstants.Logging.BEGIN_OF_METHOD;
 import static com.jnj.la.core.constants.Jnjlab2bcoreConstants.Logging.END_OF_METHOD;
@@ -34,7 +33,6 @@ public class JnjLaImmediateEmailOrderStatusJob extends AbstractJobPerformable<Jn
         return new PerformResult(CronJobResult.SUCCESS, CronJobStatus.FINISHED);
     }
 
-    @Required
     public void setService(final JnjLAEmailOrderStatusService service) {
         this.service = service;
     }

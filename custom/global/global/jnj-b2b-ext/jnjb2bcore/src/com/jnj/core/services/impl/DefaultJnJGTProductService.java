@@ -40,7 +40,7 @@ import de.hybris.platform.workflow.model.WorkflowActionModel;
 import de.hybris.platform.workflow.model.WorkflowModel;
 import de.hybris.platform.workflow.model.WorkflowTemplateModel;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -49,7 +49,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,10 +62,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.BooleanUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -75,7 +75,6 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Font;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
@@ -266,7 +265,6 @@ public class DefaultJnJGTProductService extends DefaultJnJProductService impleme
 		return productModelUrlResolver;
 	}
 
-	@Required
 	public void setProductModelUrlResolver(final UrlResolver<ProductModel> productModelUrlResolver)
 	{
 		this.productModelUrlResolver = productModelUrlResolver;
@@ -1299,7 +1297,7 @@ public class DefaultJnJGTProductService extends DefaultJnJProductService impleme
 			modelService.saveAll(mediaModel);
 			LOGGER.info("Media saved with the code:" + mediaModel.getCode());
 			mediaService.setStreamForMedia(mediaModel, inputStream, file.getName(),
-					Files.probeContentType(Paths.get(file.getAbsolutePath()))); //Setting the File into the Media Model
+					Files.probeContentType(Path.of(file.getAbsolutePath()))); //Setting the File into the Media Model
 			modelService.save(mediaModel);
 			LOGGER.info("Media saved with the code:" + mediaModel.getCode() + " with the Pk for File: " + mediaModel.getDataPK()
 					+ " with the location:" + mediaModel.getLocation());
@@ -2165,7 +2163,6 @@ public class DefaultJnJGTProductService extends DefaultJnJProductService impleme
 	public JnJCommonUtil getJnjCommonUtil() {
 		return jnjCommonUtil;
 	}
-	@Required
 	public void setJnjCommonUtil(JnJCommonUtil jnjCommonUtil) {
 		this.jnjCommonUtil = jnjCommonUtil;
 	}

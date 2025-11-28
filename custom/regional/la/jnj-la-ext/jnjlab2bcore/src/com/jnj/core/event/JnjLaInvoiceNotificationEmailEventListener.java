@@ -22,7 +22,7 @@ import java.util.Date;
 import com.jnj.la.core.constants.Jnjlab2bcoreConstants;
 import com.jnj.la.core.services.order.JnjLAOrderService;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import com.jnj.la.core.model.JnjOrderTypeModel;
 import org.apache.log4j.Logger;
 import com.jnj.core.constants.Jnjb2bCoreConstants;
@@ -34,7 +34,7 @@ import de.hybris.platform.core.model.user.AddressModel;
 import de.hybris.platform.core.model.order.OrderModel;
 import de.hybris.platform.core.model.order.AbstractOrderEntryModel;
 import com.jnj.core.model.JnjDeliveryScheduleModel;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import com.jnj.la.core.util.JnjLaCommonUtil;

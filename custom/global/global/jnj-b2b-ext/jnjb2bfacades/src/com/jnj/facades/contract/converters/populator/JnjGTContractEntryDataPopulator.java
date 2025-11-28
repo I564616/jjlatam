@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collections;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jnj.core.dto.JnjUomDTO;

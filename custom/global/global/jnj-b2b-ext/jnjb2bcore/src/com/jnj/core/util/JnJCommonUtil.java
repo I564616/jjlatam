@@ -27,10 +27,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
@@ -42,6 +41,7 @@ import com.jnj.services.CMSSiteService;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URI;
 import java.net.URL;
 import com.granule.json.JSONObject;
 import java.nio.charset.Charset;
@@ -454,7 +454,7 @@ public class JnJCommonUtil
 		        String url = "https://www.google.com/recaptcha/api/siteverify?"
 		                + "secret=" + secretKey
 		                + "&response=" + response;
-		        InputStream res = new URL(url).openStream();
+		        InputStream res = URI.create(url).toURL().openStream();
 		        BufferedReader rd = new BufferedReader(new InputStreamReader(res, Charset.forName("UTF-8")));
 		        StringBuilder sb = new StringBuilder();
 		        int cp;
@@ -518,7 +518,6 @@ public class JnJCommonUtil
 		return userService;
 	}
     
-	@Required
 	public void setUserService(final UserService userService) {
 		this.userService = userService;
 	}

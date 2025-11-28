@@ -1,11 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags" %>
 <%@ taglib prefix="product" tagdir="/WEB-INF/tags/responsive/product" %>
 <%@ attribute name="entry" type="com.jnj.facades.data.JnjGTOrderEntryData" required="true" %>
 <%@ attribute name="showRemoveLink" type="java.lang.Boolean" required="false" %>
 <%@ attribute name="showExpectedDeliveryDate" type="java.lang.Boolean" required="false" %>
 <%@ taglib prefix="label" uri="/WEB-INF/tld/message.tld"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <c:url value="${entry.product.url}" var="productUrl"/>

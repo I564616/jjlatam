@@ -18,7 +18,6 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 import com.jnj.core.enums.RecordStatus;
@@ -300,7 +299,6 @@ public class DefaultJnjInterfaceOperationArchUtility implements JnjInterfaceOper
 		jnjEmailNotificationService.sendEmailNotification();
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;

@@ -14,10 +14,9 @@ import de.hybris.platform.commerceservices.event.AbstractSiteEventListener;
 import de.hybris.platform.processengine.BusinessProcessService;
 import de.hybris.platform.servicelayer.i18n.I18NService;
 import de.hybris.platform.servicelayer.model.ModelService;
-import org.apache.commons.lang.LocaleUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.LocaleUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -157,7 +156,6 @@ public class JnjLAResetPasswordEventListener extends AbstractSiteEventListener<J
 	/**
 	 * @param businessProcessService
 	 */
-	@Required
 	public void setBusinessProcessService(final BusinessProcessService businessProcessService) {
 		this.businessProcessService = businessProcessService;
 	}
@@ -172,13 +170,11 @@ public class JnjLAResetPasswordEventListener extends AbstractSiteEventListener<J
 	/**
 	 * @param modelService
 	 */
-	@Required
 	public void setModelService(final ModelService modelService) {
 		this.modelService = modelService;
 	}
 
 	
-	@Required
 	public void setI18nService(final I18NService i18nService) {
 		this.i18nService = i18nService;
 	}
@@ -193,7 +189,6 @@ public class JnjLAResetPasswordEventListener extends AbstractSiteEventListener<J
 	/**
 	 * @param messageFacade the messageFacade to set
 	 */
-	@Required
 	public void setMessageFacade(MessageFacadeUtill messageFacade) {
 		this.messageFacade = messageFacade;
 	}

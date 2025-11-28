@@ -16,20 +16,21 @@ import de.hybris.platform.util.Config;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -165,7 +166,7 @@ public class JnjGTHelpPageController extends AbstractPageController
 	 * @return view
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String getHelpPage(final Model model, final HttpServletRequest request, final HttpServletResponse response,
 			final HttpSession session) throws CMSItemNotFoundException
 	{
@@ -205,7 +206,7 @@ public class JnjGTHelpPageController extends AbstractPageController
 	 * @throws CMSItemNotFoundException
 	 */
 
-	@RequestMapping(value = "/contactUs", method = RequestMethod.GET)
+	@GetMapping("/contactUs")
 	public String getContactUsPage(final Model model, final HttpServletRequest request, final HttpServletResponse response,
 			final HttpSession session) throws CMSItemNotFoundException
 	{
@@ -241,7 +242,7 @@ public class JnjGTHelpPageController extends AbstractPageController
 	 * @param model
 	 * @throws CMSItemNotFoundException
 	 */
-	@RequestMapping(value = "/contactUs", method = RequestMethod.POST)
+	@PostMapping("/contactUs")
 	@ResponseBody
 	public void sendEmail(final JnjGTContactUsForm JnjGTContactUsForm, final BindingResult bindingResult, final Model model,
 			final HttpServletRequest request) throws CMSItemNotFoundException
@@ -404,7 +405,7 @@ public class JnjGTHelpPageController extends AbstractPageController
 	
 	
 	
-	@RequestMapping(value = "/validateCaptchaResponse", method = RequestMethod.GET)
+	@GetMapping("/validateCaptchaResponse")
 	@ResponseBody
 	public boolean validateContactUsCaptchaResponse(@RequestParam("captchaResponse") final String captchaResponse , final HttpServletRequest request)
 	{

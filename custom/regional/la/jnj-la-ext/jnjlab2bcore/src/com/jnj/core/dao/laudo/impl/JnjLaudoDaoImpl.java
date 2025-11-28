@@ -20,7 +20,6 @@ import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
 import de.hybris.platform.servicelayer.search.SearchResult;
 import de.hybris.platform.servicelayer.util.ServicesUtil;
-import org.springframework.beans.factory.annotation.Required;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -28,7 +27,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jnj.commons.Severity;
@@ -409,7 +408,6 @@ public class JnjLaudoDaoImpl implements JnjLaudoDao
 
 		return laudo;
 	}
-	@Required
 	public void setJnjCommonFacadeUtil(JnjCommonFacadeUtil jnjCommonFacadeUtil) {
 		this.jnjCommonFacadeUtil = jnjCommonFacadeUtil;
 	}
@@ -422,11 +420,9 @@ public class JnjLaudoDaoImpl implements JnjLaudoDao
 	public JnjConfigService getJnjConfigService() {
 		return this.jnjConfigService;
 	}
-    @Required
-	public void setJnjConfigService(final JnjConfigService jnjConfigService) {
+    public void setJnjConfigService(final JnjConfigService jnjConfigService) {
 		this.jnjConfigService = jnjConfigService;
 	}
-    @Required
     public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService) {
         this.flexibleSearchService = flexibleSearchService;
     }

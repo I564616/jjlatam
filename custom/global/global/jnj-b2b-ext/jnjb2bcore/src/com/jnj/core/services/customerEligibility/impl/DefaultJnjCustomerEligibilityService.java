@@ -23,7 +23,6 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants;
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
@@ -187,7 +186,6 @@ public class DefaultJnjCustomerEligibilityService implements JnjCustomerEligibil
 		return modelService;
 	}
 
-	@Required
 	public void setModelService(final ModelService modelService)
 	{
 		this.modelService = modelService;
@@ -201,7 +199,6 @@ public class DefaultJnjCustomerEligibilityService implements JnjCustomerEligibil
 		return companyB2BCommerceService;
 	}
 
-	@Required
 	public void setCompanyB2BCommerceService(final B2BCommerceUnitService companyB2BCommerceService)
 	{
 		this.companyB2BCommerceService = companyB2BCommerceService;
@@ -215,7 +212,6 @@ public class DefaultJnjCustomerEligibilityService implements JnjCustomerEligibil
 		return commerceCategoryService;
 	}
 
-	@Required
 	public void setCommerceCategoryService(final CommerceCategoryService commerceCategoryService)
 	{
 		this.commerceCategoryService = commerceCategoryService;
@@ -229,7 +225,6 @@ public class DefaultJnjCustomerEligibilityService implements JnjCustomerEligibil
 		return catalogService;
 	}
 
-	@Required
 	public void setCatalogService(final CatalogService catalogService)
 	{
 		this.catalogService = catalogService;
@@ -243,7 +238,6 @@ public class DefaultJnjCustomerEligibilityService implements JnjCustomerEligibil
 		return catalogVersionService;
 	}
 
-	@Required
 	public void setCatalogVersionService(final CatalogVersionService catalogVersionService)
 	{
 		this.catalogVersionService = catalogVersionService;
@@ -257,7 +251,6 @@ public class DefaultJnjCustomerEligibilityService implements JnjCustomerEligibil
 		return categoryService;
 	}
 
-	@Required
 	public void setCategoryService(final CategoryService categoryService)
 	{
 		this.categoryService = categoryService;
@@ -268,7 +261,6 @@ public class DefaultJnjCustomerEligibilityService implements JnjCustomerEligibil
 		return customerEligiblityDao;
 	}
 
-	@Required
 	public void setCustomerEligiblityDao(final JnjCustomerEligiblityDao customerEligiblityDao)
 	{
 		this.customerEligiblityDao = customerEligiblityDao;

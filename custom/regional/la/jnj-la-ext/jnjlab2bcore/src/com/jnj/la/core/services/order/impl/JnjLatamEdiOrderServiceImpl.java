@@ -38,16 +38,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -2789,7 +2789,7 @@ public class JnjLatamEdiOrderServiceImpl implements JnjLatamEdiOrderService
 		jnjUploadOrderSHAModel.setUserFileName(fileName);
 		jnjUploadOrderSHAModel.setUserFileTS(new Date());
 		jnjUploadOrderSHAModel.setUser(currentUser);
-		jnjUploadOrderSHAModel.setNodeId(new Integer(Config.getParameter(Jnjlab2bcoreConstants.CLUSTER_ID)));
+		jnjUploadOrderSHAModel.setNodeId(Integer.valueOf(Config.getParameter(Jnjlab2bcoreConstants.CLUSTER_ID)));
 		jnjUploadOrderSHAModel.setXmlFileCount(Integer.valueOf(0));
 		jnjUploadOrderSHAModel.setXmlFileStatus(RecordStatus.PENDING);
 		jnjUploadOrderSHAModel.setB2bUnitId(jnjGetCurrentDefaultB2BUnitUtil.getDefaultB2BUnit());

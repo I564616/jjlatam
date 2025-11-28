@@ -5,5 +5,5 @@
 // Generated on: 2014.06.20 at 10:59:53 AM IST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_OrderCancel_v1/requestOrderChangeWebservice")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://hcswmd01.jnj.com/MU007_EPIC_OrderCancel_v1/requestOrderChangeWebservice")
 package com.jnj.hcswmd01.mu007_epic_ordercancel_v1.requestorderchangewebservice;

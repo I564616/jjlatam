@@ -13,7 +13,7 @@
  */
 package com.jnj.b2b.storefront.filters.btg.support;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 
 /**

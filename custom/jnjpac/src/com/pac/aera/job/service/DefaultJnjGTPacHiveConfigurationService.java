@@ -12,9 +12,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Required;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.Arrays;
 import java.util.Set;
 
@@ -239,7 +238,6 @@ public class DefaultJnjGTPacHiveConfigurationService implements JnjGTPacHiveConf
 		return result;
 	}
 
-	@Required
 	public void setConfigurationService(ConfigurationService configurationService)
 	{
 		this.configurationService = configurationService;

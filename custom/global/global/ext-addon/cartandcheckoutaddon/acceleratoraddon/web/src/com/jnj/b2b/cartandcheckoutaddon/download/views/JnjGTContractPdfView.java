@@ -7,8 +7,8 @@ import java.util.Map;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;

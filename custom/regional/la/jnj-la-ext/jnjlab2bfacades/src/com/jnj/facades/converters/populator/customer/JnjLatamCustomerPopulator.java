@@ -14,7 +14,7 @@ import com.jnj.la.core.model.JnJLaUserAccountPreferenceModel;
 import de.hybris.platform.commercefacades.user.data.CustomerData;
 import de.hybris.platform.core.model.user.CustomerModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.Objects;
 import java.util.Collections;

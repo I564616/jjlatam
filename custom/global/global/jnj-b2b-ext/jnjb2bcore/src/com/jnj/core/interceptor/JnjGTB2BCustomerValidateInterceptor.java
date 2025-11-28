@@ -18,10 +18,9 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.PredicateUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.PredicateUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 
 /**
@@ -58,7 +57,7 @@ public class JnjGTB2BCustomerValidateInterceptor implements ValidateInterceptor
 
 		final Set groups = new HashSet((customer.getGroups() != null) ? customer.getGroups() : Collections.EMPTY_SET);
 
-		CollectionUtils.filter(groups, PredicateUtils.instanceofPredicate(B2BUnitModel.class));
+		groups.removeIf(Predicate.not(PredicateUtils.instanceofPredicate(B2BUnitModel.class)));
 		if (customer.getApprovers() != null)
 		{
 			final Set<B2BCustomerModel> approvers = new HashSet(customer.getApprovers());
@@ -120,7 +119,6 @@ public class JnjGTB2BCustomerValidateInterceptor implements ValidateInterceptor
 		return this.b2bUnitService;
 	}
 
-	@Required
 	public void setB2bUnitService(final B2BUnitService<B2BUnitModel, B2BCustomerModel> b2bUnitService)
 	{
 		this.b2bUnitService = b2bUnitService;
@@ -131,7 +129,6 @@ public class JnjGTB2BCustomerValidateInterceptor implements ValidateInterceptor
 		return this.userService;
 	}
 
-	@Required
 	public void setUserService(final UserService userService)
 	{
 		this.userService = userService;
@@ -142,7 +139,6 @@ public class JnjGTB2BCustomerValidateInterceptor implements ValidateInterceptor
 		return this.l10NService;
 	}
 
-	@Required
 	public void setL10NService(final L10NService l10NService)
 	{
 		this.l10NService = l10NService;

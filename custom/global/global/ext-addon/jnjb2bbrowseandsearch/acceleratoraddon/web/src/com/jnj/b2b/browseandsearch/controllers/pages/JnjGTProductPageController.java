@@ -36,22 +36,23 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.LocaleUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.LocaleUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -77,6 +78,7 @@ import com.jnj.core.model.JnJProductModel;
 import com.jnj.core.model.ProductDocumentsModel;
 import com.jnj.facades.customer.JnjGTCustomerFacade;
 import com.jnj.facades.company.JnjGTB2BUnitFacade;
+
 /*import com.jnj.pcm.constants.JnjPCMCoreConstants;*/
 
 
@@ -179,7 +181,7 @@ public class JnjGTProductPageController extends ProductPageController
 
 	@Override
 	@RequireHardLogIn
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@GetMapping(PRODUCT_CODE_PATH_VARIABLE_PATTERN)
 	public String productDetail(@PathVariable("productCode") final String productCode, final Model model,
 			final HttpServletRequest request, final HttpServletResponse response) throws CMSItemNotFoundException,
 			UnsupportedEncodingException
@@ -263,7 +265,7 @@ public class JnjGTProductPageController extends ProductPageController
 		model.addAttribute("languages", languages);
 	}
 
-	@RequestMapping(value = "/productDetailPopUp", method = RequestMethod.GET)
+	@GetMapping("/productDetailPopUp")
 	public String productDetailPopUP(@RequestParam("productCode") final String productCode, final Model model,
 			final HttpServletRequest request, final HttpServletResponse response) throws CMSItemNotFoundException,
 			UnsupportedEncodingException
@@ -347,7 +349,7 @@ public class JnjGTProductPageController extends ProductPageController
 		return galleryImages;
 	}
 
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/zoomImage", method = RequestMethod.GET)
+	@GetMapping(PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/zoomImage")
 	public String showZoomImages(@PathVariable("productCode") final String productCode,
 			@RequestParam(value = "galleryPosition", required = false) final String galleryPosition, final Model model)
 	{
@@ -408,7 +410,7 @@ public class JnjGTProductPageController extends ProductPageController
 		return getView(Jnjb2bbrowseandsearchControllerConstants.Views.Pages.Product.ProductDetails);
 	}
 
-	@RequestMapping(value = "/sendMultipleEmail/PDP", method = RequestMethod.POST)
+	@PostMapping("/sendMultipleEmail/PDP")
 	public @ResponseBody
 	boolean sendMultipleEmail(final HttpServletRequest request)
 	{
@@ -443,12 +445,12 @@ public class JnjGTProductPageController extends ProductPageController
     }
 
 	@ResponseBody
-	@RequestMapping(value = "/getTogetherBoughtProducts", method = RequestMethod.GET,produces = "application/json")
+	@GetMapping(value = "/getTogetherBoughtProducts",produces = "application/json")
 	public List<JnjProductCarouselData> productsBoughtTogether(@RequestParam("productCode") final String productCode){
 		return jnjGTProductFacade.getProductsBoughtTogether(productCode, getCurrentCatalog());
 	}
 	
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN+"/generateProductDetailsPDF", method = RequestMethod.GET)
+	@GetMapping(PRODUCT_CODE_PATH_VARIABLE_PATTERN+"/generateProductDetailsPDF")
 	@RequireHardLogIn
 	public String generateProductDetailsPDF(@PathVariable("productCode") final String productCode, final Model model,final HttpServletRequest request) throws CMSItemNotFoundException
 	{

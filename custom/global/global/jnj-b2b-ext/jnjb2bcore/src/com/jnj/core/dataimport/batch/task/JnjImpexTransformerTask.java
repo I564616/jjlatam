@@ -23,7 +23,6 @@ import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.constants.Jnjb2bCoreConstants.Logging;
 import com.jnj.core.enums.RecordStatus;
@@ -138,7 +137,6 @@ public class JnjImpexTransformerTask extends ImpexTransformerTask
 		return jnjInterfaceOperationArchUtility;
 	}
 
-	@Required
 	public void setJnjInterfaceOperationArchUtility(final JnjInterfaceOperationArchUtility jnjInterfaceOperationArchUtility)
 	{
 		this.jnjInterfaceOperationArchUtility = jnjInterfaceOperationArchUtility;

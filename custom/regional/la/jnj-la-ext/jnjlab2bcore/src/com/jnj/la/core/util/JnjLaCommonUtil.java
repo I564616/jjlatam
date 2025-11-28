@@ -30,8 +30,8 @@ import de.hybris.platform.store.BaseStoreModel;
 import de.hybris.platform.util.Config;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.LocaleUtils;
 import org.apache.log4j.Logger;
 

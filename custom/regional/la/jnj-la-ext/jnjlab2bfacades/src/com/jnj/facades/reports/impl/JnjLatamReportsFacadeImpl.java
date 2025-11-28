@@ -30,7 +30,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.HashMap;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.ObjectUtils;
 
 import com.gt.pac.aera.PacHiveException;
@@ -55,9 +55,8 @@ import de.hybris.platform.servicelayer.dto.converter.Converter;
 import com.jnj.facades.data.JnjLaOpenOrdersReportReponseData;
 import com.jnj.la.core.model.JnjOrderTypeModel;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.core.util.JnJCommonUtil;
 
@@ -584,7 +583,6 @@ public class JnjLatamReportsFacadeImpl extends DefaultJnjGTReportsFacade impleme
 	public CatalogVersionService getCatalogVersionService() {
 		return catalogVersionService;
 	}
-	@Required
 	public void setCatalogVersionService(final CatalogVersionService catalogVersionService) {
 		this.catalogVersionService = catalogVersionService;
 	}
@@ -592,7 +590,6 @@ public class JnjLatamReportsFacadeImpl extends DefaultJnjGTReportsFacade impleme
 	public CategoryService getCategoryService() {
 		return categoryService;
 	}
-	@Required
 	public void setCategoryService(final CategoryService categoryService) {
 		this.categoryService = categoryService;
 	}
@@ -600,7 +597,6 @@ public class JnjLatamReportsFacadeImpl extends DefaultJnjGTReportsFacade impleme
 	public JnjGetCurrentDefaultB2BUnitUtil getJnjGetCurrentDefaultB2BUnitUtil() {
 		return jnjGetCurrentDefaultB2BUnitUtil;
 	}
-	@Required
 	public final void setJnjGetCurrentDefaultB2BUnitUtil(final JnjGetCurrentDefaultB2BUnitUtil jnjGetCurrentDefaultB2BUnitUtil) {
 		this.jnjGetCurrentDefaultB2BUnitUtil = jnjGetCurrentDefaultB2BUnitUtil;
 	}
@@ -608,14 +604,12 @@ public class JnjLatamReportsFacadeImpl extends DefaultJnjGTReportsFacade impleme
 	public JnjGTB2BUnitService getJnjGTB2BUnitService() {
 		return jnjGTB2BUnitService;
 	}
-	@Required
 	public void setJnjGTB2BUnitService(final JnjGTB2BUnitService jnjGTB2BUnitService) {
 		this.jnjGTB2BUnitService = jnjGTB2BUnitService;
 	}
 	public JnjLatamCommonFacadeUtilImpl getJnjLatamCommonFacadeUtil() {
 		return jnjLatamCommonFacadeUtil;
 	}
-	@Required
 	public void setJnjLatamCommonFacadeUtil(final JnjLatamCommonFacadeUtilImpl jnjLatamCommonFacadeUtil) {
 		this.jnjLatamCommonFacadeUtil = jnjLatamCommonFacadeUtil;
 	}
@@ -625,7 +619,6 @@ public class JnjLatamReportsFacadeImpl extends DefaultJnjGTReportsFacade impleme
 		return jnjGTPacHiveConfigurationService;
 	}
 
-	@Required
 	public void setJnjGTPacHiveConfigurationService(final JnjGTPacHiveConfigurationService jnjGTPacHiveConfigurationService)
 	{
 		this.jnjGTPacHiveConfigurationService = jnjGTPacHiveConfigurationService;

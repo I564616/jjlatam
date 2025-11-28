@@ -34,8 +34,8 @@ import java.util.Locale;
 
 import de.hybris.platform.cms2.servicelayer.services.CMSSiteService;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
 
 /**
  * This class represents the email context for the Invoice-Notification Email process.

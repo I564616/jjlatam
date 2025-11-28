@@ -13,16 +13,15 @@ import de.hybris.platform.b2b.company.B2BCommerceUnitService;
 import de.hybris.platform.core.Registry;
 import de.hybris.platform.core.model.user.UserModel;
 import de.hybris.platform.util.config.ConfigIntf;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
@@ -163,12 +162,10 @@ public class JnjLACMSSiteFilter extends CMSSiteFilter {
         }
     }
 
-    @Required
     public void setIncludeUrls(Set<String> includeUrls) {
         this.includeUrls = includeUrls;
     }
 
-    @Required
     public void setB2bCommerceUnitService(final B2BCommerceUnitService b2bCommerceUnitService) {
         this.b2bCommerceUnitService = b2bCommerceUnitService;
     }

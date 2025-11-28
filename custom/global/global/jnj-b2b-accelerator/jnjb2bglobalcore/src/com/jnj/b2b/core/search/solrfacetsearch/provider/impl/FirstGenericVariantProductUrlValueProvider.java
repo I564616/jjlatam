@@ -24,8 +24,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.springframework.beans.factory.annotation.Required;
+import org.apache.commons.collections4.CollectionUtils;
 
 import com.jnj.b2b.core.search.solrfacetsearch.provider.AbstractMultidimensionalProductFieldValueProvider;
 
@@ -75,7 +74,6 @@ public class FirstGenericVariantProductUrlValueProvider extends AbstractMultidim
 		return productModelUrlResolver;
 	}
 
-	@Required
 	public void setProductModelUrlResolver(final UrlResolver<ProductModel> productModelUrlResolver)
 	{
 		this.productModelUrlResolver = productModelUrlResolver;
@@ -86,7 +84,6 @@ public class FirstGenericVariantProductUrlValueProvider extends AbstractMultidim
 		return genericVariantProductModelComparator;
 	}
 
-	@Required
 	public void setGenericVariantProductModelComparator(
 			final Comparator<GenericVariantProductModel> genericVariantProductModelComparator)
 	{

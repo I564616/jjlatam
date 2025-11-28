@@ -10,7 +10,7 @@
  */
 package com.jnj.b2b.store.service.impl;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static com.jnj.b2b.store.constants.Jnjb2bsvstoreConstants.PLATFORM_LOGO_CODE;
 
 import de.hybris.bootstrap.annotations.IntegrationTest;
@@ -19,7 +19,7 @@ import de.hybris.platform.servicelayer.ServicelayerBaseTest;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -45,7 +45,7 @@ import de.hybris.platform.servicelayer.util.ServicesUtil;
 import de.hybris.platform.tx.Transaction;
 import de.hybris.platform.util.DiscountValue;
 import de.hybris.platform.util.TaxValue;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;

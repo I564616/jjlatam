@@ -15,8 +15,6 @@ import de.hybris.platform.processengine.BusinessProcessService;
 import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.platform.store.BaseStoreModel;
 
-import org.springframework.beans.factory.annotation.Required;
-
 public class JnjLAOrderStatusNotificationEventListener extends AbstractSiteEventListener<JnjLAOrderStatusNotificationEvent> {
 
     private static final String ORDER_STATUS_CHANGE_PROCESS = "JnjLAOrderStatusChangeProcess";
@@ -63,12 +61,10 @@ public class JnjLAOrderStatusNotificationEventListener extends AbstractSiteEvent
         return true;
     }
 
-    @Required
     public void setModelService(ModelService modelService) {
         this.modelService = modelService;
     }
 
-    @Required
     public void setBusinessProcessService(BusinessProcessService businessProcessService) {
         this.businessProcessService = businessProcessService;
     }
@@ -78,8 +74,7 @@ public class JnjLAOrderStatusNotificationEventListener extends AbstractSiteEvent
 		return commerceCommonI18NService;
 	}
 
-    @Required
-	public void setCommerceCommonI18NService(final CommerceCommonI18NService commerceCommonI18NService) {
+    public void setCommerceCommonI18NService(final CommerceCommonI18NService commerceCommonI18NService) {
 		this.commerceCommonI18NService = commerceCommonI18NService;
 	}
 }

@@ -13,14 +13,15 @@ import com.jnj.facades.util.JnjLatamCommonFacadeUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -99,7 +100,7 @@ public class JnjLatamRegistrationPageController extends JnJGTRegistrationPageCon
 		}
 	}
 
-	@RequestMapping(value = "/laprocess", method = RequestMethod.POST)
+	@PostMapping("/laprocess")
 	public String getRegister(@ModelAttribute(REGISTRATION_FORM) final JnjLatamRegistrationForm registrationForm,
 			final Model model, final HttpServletRequest request, final HttpServletResponse response,
 			final RedirectAttributes redirectModel) throws CMSItemNotFoundException
@@ -238,7 +239,7 @@ public class JnjLatamRegistrationPageController extends JnJGTRegistrationPageCon
 		return list;
 	}
 
-	@RequestMapping(value = "/getCodes", method = RequestMethod.POST)
+	@PostMapping("/getCodes")
 	public @ResponseBody List<String> getCodes(@RequestParam("country") final String country)
 	{
 		List<String> list = new ArrayList<>();
@@ -246,7 +247,7 @@ public class JnjLatamRegistrationPageController extends JnJGTRegistrationPageCon
 		return list;
 	}
 
-	@RequestMapping(value = "/laResetPasswordForNewUser", method = RequestMethod.GET)
+	@GetMapping("/laResetPasswordForNewUser")
 	public String resetPasswordForNewUser(
 			@RequestParam(value = "passwordExpireToken", required = true) final String passwordExpireToken,
 			@RequestParam(value = "email", required = true) final String email, Model model)

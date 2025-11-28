@@ -1,5 +1,5 @@
 <%@ taglib prefix="format" tagdir="/WEB-INF/tags/shared/format"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="label" uri="/WEB-INF/tld/message.tld"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!-- <div class="total marLeft224">         	 -->

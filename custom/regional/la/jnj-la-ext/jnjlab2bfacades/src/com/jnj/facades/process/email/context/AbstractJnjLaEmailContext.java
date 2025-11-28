@@ -15,8 +15,7 @@ import de.hybris.platform.cms2.model.site.CMSSiteModel;
 import de.hybris.platform.commerceservices.model.process.StoreFrontCustomerProcessModel;
 import de.hybris.platform.servicelayer.media.MediaService;
 import de.hybris.platform.util.Config;
-import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Required;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Collections;
 import java.util.List;
@@ -92,12 +91,10 @@ public abstract class AbstractJnjLaEmailContext<T extends StoreFrontCustomerProc
         return Collections.emptyList();
     }
 
-    @Required
     public void setMediaService(MediaService mediaService) {
         this.mediaService = mediaService;
     }
 
-    @Required
     public void setJnjConfigService(final JnjConfigService jnjConfigService) {
         this.jnjConfigService = jnjConfigService;
     }

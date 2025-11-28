@@ -2,12 +2,12 @@ package com.jnj.b2b.storefront.interceptors;
 
 import java.util.Collections;
 import java.util.Optional;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.HandlerInterceptor;
 import com.jnj.core.annotations.AuthorizedUserGroup;
 import de.hybris.platform.core.model.user.UserModel;
 import de.hybris.platform.servicelayer.user.UserService;
@@ -18,7 +18,7 @@ import de.hybris.platform.servicelayer.user.UserService;
  * user is part of.
  *
  */
-public class AuthorizedUserHandlerInterceptor extends HandlerInterceptorAdapter {
+public class AuthorizedUserHandlerInterceptor implements HandlerInterceptor {
 
     private static final Logger LOG = Logger.getLogger(AuthorizedUserHandlerInterceptor.class);
     private static final String STORE_PATH = "/store";

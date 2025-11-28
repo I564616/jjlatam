@@ -9,7 +9,7 @@ package com.jnj.facades.nfe;
 
 import java.io.File;
 
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBException;
 
 import com.jnj.exceptions.BusinessException;
 import com.jnj.exceptions.IntegrationException;

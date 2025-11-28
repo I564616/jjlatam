@@ -23,15 +23,14 @@ import de.hybris.platform.servicelayer.internal.service.AbstractService;
 import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.platform.servicelayer.user.UserService;
 import de.hybris.platform.util.Config;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -180,17 +179,14 @@ public class JnjLACustomSSOService extends AbstractService implements SSOUserSer
         }
     }
 
-    @Required
     public void setModelService(final ModelService modelService) {
         this.modelService = modelService;
     }
 
-    @Required
     public void setUserService(final UserService userService) {
         this.userService = userService;
     }
 
-    @Required
     public void setCommonI18NService(final CommonI18NService commonI18NService) {
         this.commonI18NService = commonI18NService;
     }

@@ -22,8 +22,6 @@ import de.hybris.platform.ordersplitting.model.StockLevelModel;
 import de.hybris.platform.servicelayer.dto.converter.ConversionException;
 import de.hybris.platform.variants.model.VariantProductModel;
 
-import org.springframework.beans.factory.annotation.Required;
-
 /**
  * @deprecated see {@link de.hybris.platform.b2bacceleratorfacades.product.variant.populators.VariantOptionDataUrlPopulator}
  */
@@ -51,7 +49,6 @@ public class VariantOptionDataUrlPopulator<SOURCE extends VariantProductModel, T
 	}
 
 
-	@Required
 	public void setProductModelUrlResolver(final UrlResolver<ProductModel> productModelUrlResolver)
 	{
 		this.productModelUrlResolver = productModelUrlResolver;

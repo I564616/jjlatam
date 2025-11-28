@@ -18,10 +18,10 @@ import java.util.Map;
 import java.util.Set;
 import java.text.DateFormat;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -59,7 +59,6 @@ import com.lowagie.text.pdf.PdfTemplate;
 import com.lowagie.text.pdf.PdfWriter;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.facades.data.JnjLaOrderData;
 import com.jnj.b2b.jnjlaordertemplate.constants.JnjlaordertemplateaddonConstants;
@@ -79,7 +78,7 @@ import com.jnj.la.core.util.JnJLALanguageDateFormatUtil;
 
 import de.hybris.platform.servicelayer.i18n.CommonI18NService;
 
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 
 import de.hybris.platform.servicelayer.session.SessionService;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
@@ -87,7 +86,7 @@ import de.hybris.platform.servicelayer.config.ConfigurationService;
 import java.text.ParseException;
 
 import com.jnj.core.util.JnjGTCoreUtil;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Class responsible to create PDF view for Order detail.
@@ -113,8 +112,7 @@ public class JnjLatamOrderDetailPdfView extends AbstractPdfView {
     public SessionService getSessionService() {
 		return sessionService;
 	}
-    @Required
-	public void setSessionService(final SessionService sessionService) {
+    public void setSessionService(final SessionService sessionService) {
 		this.sessionService = sessionService;
 	}
 
@@ -325,23 +323,23 @@ public class JnjLatamOrderDetailPdfView extends AbstractPdfView {
 		boolean showTotalPrice = false, showTotalFee = false, showTotalTax = false, showDiscountTotal = false,
 				showTotalGrossPrice = false;
 		if (orderDetails.getSubTotal() != null
-				&& orderDetails.getSubTotal().getValue().doubleValue() > new Double(0).doubleValue()) {
+				&& orderDetails.getSubTotal().getValue().doubleValue() > Double.valueOf(0).doubleValue()) {
 			showTotalPrice = true;
 		}
 		if (orderDetails.getTotalFees() != null
-				&& orderDetails.getTotalFees().getValue().doubleValue() > new Double(0).doubleValue()) {
+				&& orderDetails.getTotalFees().getValue().doubleValue() > Double.valueOf(0).doubleValue()) {
 			showTotalFee = true;
 		}
 		if (orderDetails.getTotalTax() != null
-				&& orderDetails.getTotalTax().getValue().doubleValue() > new Double(0).doubleValue()) {
+				&& orderDetails.getTotalTax().getValue().doubleValue() > Double.valueOf(0).doubleValue()) {
 			showTotalTax = true;
 		}
 		if (orderDetails.getTotalDiscounts() != null
-				&& orderDetails.getTotalDiscounts().getValue().doubleValue() > new Double(0).doubleValue()) {
+				&& orderDetails.getTotalDiscounts().getValue().doubleValue() > Double.valueOf(0).doubleValue()) {
 			showDiscountTotal = true;
 		}
 		if (orderDetails.getTotalGrossPrice() != null
-				&& orderDetails.getTotalGrossPrice().getValue().doubleValue() > new Double(0).doubleValue()) {
+				&& orderDetails.getTotalGrossPrice().getValue().doubleValue() > Double.valueOf(0).doubleValue()) {
 			showTotalGrossPrice = true;
 		}
 

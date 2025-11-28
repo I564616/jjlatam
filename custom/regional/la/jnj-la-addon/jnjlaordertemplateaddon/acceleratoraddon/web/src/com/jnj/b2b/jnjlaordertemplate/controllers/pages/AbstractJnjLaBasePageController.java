@@ -39,14 +39,13 @@ import org.springframework.ui.Model;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.annotation.Resource;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -151,7 +150,7 @@ public abstract class AbstractJnjLaBasePageController extends AbstractSearchPage
         if (DownloadType.EXCEL.equals(downloadType)) {
             final String mediaDirBase = Config.getParameter(Jnjb2bCoreConstants.MediaFolder.MEDIA_DIR_KEY);
             final CatalogVersionModel currentCatalog = catalog.getActiveCatalogVersion();
-            final Path siteLogoPath = Paths.get(mediaDirBase, SYS_MASTER, mediaService.getMedia(currentCatalog, EPIC_EMAIL_LOGO_IMAGE_ONE).getLocation());
+            final Path siteLogoPath = Path.of(mediaDirBase, SYS_MASTER, mediaService.getMedia(currentCatalog, EPIC_EMAIL_LOGO_IMAGE_ONE).getLocation());
             model.addAttribute(SITE_LOGO_PATH, siteLogoPath.toString());
             model.addAttribute(Jnjlab2bcoreConstants.SITE_LOGO_PROPERTY, mediaService.getStreamFromMedia(mediaService.getMedia(currentCatalog, EPIC_EMAIL_LOGO_IMAGE_ONE)));
         } else if (DownloadType.PDF.equals(downloadType)) {

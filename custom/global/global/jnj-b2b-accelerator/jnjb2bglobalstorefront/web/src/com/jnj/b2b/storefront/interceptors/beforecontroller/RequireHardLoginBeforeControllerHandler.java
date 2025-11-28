@@ -20,13 +20,12 @@ import com.jnj.core.model.JnJB2bCustomerModel;
 
 import java.lang.annotation.Annotation;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.web.method.HandlerMethod;
@@ -126,7 +125,6 @@ public class RequireHardLoginBeforeControllerHandler implements BeforeController
         return loginUrl;
     }
 
-    @Required
     public void setLoginUrl(final String loginUrl) {
         this.loginUrl = loginUrl;
     }
@@ -135,7 +133,6 @@ public class RequireHardLoginBeforeControllerHandler implements BeforeController
         return redirectStrategy;
     }
 
-    @Required
     public void setRedirectStrategy(final RedirectStrategy redirectStrategy) {
         this.redirectStrategy = redirectStrategy;
     }
@@ -144,7 +141,6 @@ public class RequireHardLoginBeforeControllerHandler implements BeforeController
         return cookieGenerator;
     }
 
-    @Required
     public void setCookieGenerator(final CookieGenerator cookieGenerator) {
         this.cookieGenerator = cookieGenerator;
     }
@@ -153,7 +149,6 @@ public class RequireHardLoginBeforeControllerHandler implements BeforeController
         return userService;
     }
 
-    @Required
     public void setUserService(final UserService userService) {
         this.userService = userService;
     }
@@ -162,7 +157,6 @@ public class RequireHardLoginBeforeControllerHandler implements BeforeController
         return loginAndCheckoutUrl;
     }
 
-    @Required
     public void setLoginAndCheckoutUrl(final String loginAndCheckoutUrl) {
         this.loginAndCheckoutUrl = loginAndCheckoutUrl;
     }

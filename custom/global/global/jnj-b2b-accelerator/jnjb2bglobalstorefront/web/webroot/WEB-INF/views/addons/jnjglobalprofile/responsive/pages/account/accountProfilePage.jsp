@@ -1,5 +1,5 @@
 <%@ page trimDirectiveWhitespaces="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="template"
 	tagdir="/WEB-INF/tags/addons/loginaddon/responsive/template"%>
 <%@ taglib prefix="theme" tagdir="/WEB-INF/tags/shared/theme"%>
@@ -8,8 +8,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions"%>
 <%@ taglib prefix="common" tagdir="/WEB-INF/tags/responsive/common"%>
 <%@ taglib prefix="pagination"
 	tagdir="/WEB-INF/tags/responsive/nav/pagination"%>
@@ -24,7 +24,7 @@
 	tagdir="/WEB-INF/tags/addons/loginaddon/responsive/form"%>
 <%@ taglib prefix="registration"
 	tagdir="/WEB-INF/tags/addons/loginaddon/responsive/registration"%>
-	<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+	<%@taglib prefix="fn" uri="jakarta.tags.functions" %>
 
 <template:page pageTitle="${pageTitle}">
 

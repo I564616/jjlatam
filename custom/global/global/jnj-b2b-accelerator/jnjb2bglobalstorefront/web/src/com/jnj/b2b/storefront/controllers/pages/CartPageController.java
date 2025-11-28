@@ -30,15 +30,15 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import javax.annotation.Resource;
-import javax.validation.Valid;
+import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -129,14 +129,14 @@ public class CartPageController extends AbstractPageController
 		return productFacade;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public String showCart(final Model model) throws CMSItemNotFoundException
 	{
 		prepareDataForPage(model);
 		return Views.Pages.Cart.CartPage;
 	}
 
-	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
+	@GetMapping("/checkout")
 	@RequireHardLogIn
 	public String cartCheck(final Model model, final RedirectAttributes redirectModel) throws CommerceCartModificationException
 	{
@@ -161,7 +161,7 @@ public class CartPageController extends AbstractPageController
 		return REDIRECT_PREFIX + "/checkout";
 	}
 
-	@RequestMapping(value = "/getProductVariantMatrix", method = RequestMethod.GET)
+	@GetMapping("/getProductVariantMatrix")
 	@RequireHardLogIn
 	public String getProductVariantMatrix(@RequestParam("productCode") final String productCode, final Model model)
 	{
@@ -190,7 +190,7 @@ public class CartPageController extends AbstractPageController
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@PostMapping("/update")
 	public CartData updateCartQuantities(@RequestParam("entryNumber") final Integer entryNumber,
 			@RequestParam("productCode") final String productCode, final Model model, @Valid final UpdateQuantityForm form,
 			final BindingResult bindingErrors) throws CMSItemNotFoundException

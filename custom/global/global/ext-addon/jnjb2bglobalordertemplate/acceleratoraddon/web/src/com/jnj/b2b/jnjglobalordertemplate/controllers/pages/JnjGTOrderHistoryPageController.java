@@ -16,12 +16,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.activation.MimetypesFileTypeMap;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.activation.MimetypesFileTypeMap;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
@@ -32,7 +32,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -691,14 +693,14 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		}
 	}
 	
-	@RequestMapping(value = ORDER_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.POST)
+	@PostMapping(ORDER_CODE_PATH_VARIABLE_PATTERN)
 	public String orderDetailPost(@PathVariable("orderCode") final String orderCode, final JnjGTSearchSortForm form,
 			final Model model, final HttpServletRequest request) throws CMSItemNotFoundException
 	{
 		return orderDetail(orderCode, form, model, request, true);
 	}
 
-	@RequestMapping(value = ORDER_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@GetMapping(ORDER_CODE_PATH_VARIABLE_PATTERN)
 	public String orderDetail(@PathVariable("orderCode") final String orderCode, final JnjGTSearchSortForm form,
 			final Model model, final HttpServletRequest request, final boolean ignoreRestriction) throws CMSItemNotFoundException
 	{
@@ -772,7 +774,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		return SHIPPING_DETAIL_EXCEL;
 		/*System.out.println("Controller"+shippingDetails);*/
 	}
-	@RequestMapping(value = "/refineOrderDetail", method = RequestMethod.GET)
+	@GetMapping("/refineOrderDetail")
 	public String refineSearchResult(@RequestParam("orderCode") final String orderCode, final JnjGTSearchSortForm form,
 			final Model model) throws CMSItemNotFoundException
 	{
@@ -870,7 +872,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 	 * @throws CMSItemNotFoundException
 	 *            the cMS item not found exception
 	 */
-	@RequestMapping(value = CMOD_PATH, method = RequestMethod.GET)
+	@GetMapping(CMOD_PATH)
 	public String isCmodRgaCall(@PathVariable("orderCode") final String orderCode,
 			@PathVariable("sapOrderNumber") final String sapOrderNumber, @PathVariable("callCmod") final String callCmodRga,
 			@PathVariable("pageName") final String pageName, final Model model, final RedirectAttributes redirectModel, final HttpServletRequest request, final HttpServletResponse httpServletResponse)
@@ -934,7 +936,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 			for (final Map.Entry<String, byte[]> entry : byteArrayInMap.entrySet())
 			{
 				byteArray = entry.getValue();
-				httpServletResponse.setContentLength(new Long(byteArray.length).intValue());
+				httpServletResponse.setContentLength(Long.valueOf(byteArray.length).intValue());
 				final InputStream inputStream = new ByteArrayInputStream(byteArray);
 				// if the file type is xml then set the content type and header for the xml file
 
@@ -984,7 +986,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 
 	
 	
-	@RequestMapping(value = INVOICE_DETAIL_PATH, method = RequestMethod.GET)
+	@GetMapping(INVOICE_DETAIL_PATH)
 	public String invoiceDetails(@PathVariable("orderCode") final String orderCode, final Model model,
 			final HttpServletRequest request, final boolean ignoreRestriction) throws CMSItemNotFoundException
 	{
@@ -1054,7 +1056,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		return REDIRECT_ORDER_HISTORY;
 	}
 }
-	@RequestMapping(value = INVOICE_DETAIL_PATH, method = RequestMethod.POST)
+	@PostMapping(INVOICE_DETAIL_PATH)
 	public String invoiceDetailsPOST(@PathVariable("orderCode") final String orderCode, final Model model,
 			final HttpServletRequest request) throws CMSItemNotFoundException
 	{
@@ -1062,7 +1064,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		return invoiceDetails(orderCode, model, request, true);
 	}
 
-	@RequestMapping(value = "/order/surgeonInformation", method = RequestMethod.GET)
+	@GetMapping("/order/surgeonInformation")
 	public String getSurgeonInformationPopup(final String orderCode, final Model model)
 	{
 		model.addAttribute("surgeonInfo", orderFacade.getSurgeonInformation(orderCode));
@@ -1078,7 +1080,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		return "";
 	}
 
-	@RequestMapping(value = INVOICE_DETAIL_DOWNLOAD_PATH, method = RequestMethod.POST)
+	@PostMapping(INVOICE_DETAIL_DOWNLOAD_PATH)
 	public String invoiceDetailsDownload(@RequestParam("invoiceNumber") final String invoiceNumber,
 			@RequestParam("downloadType") final String downloadType, final Model model) throws CMSItemNotFoundException
 	{
@@ -1102,7 +1104,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		return (DOWNLOAD_TYPE.PDF.toString().equals(downloadType)) ? INVOICE_DETAIL_PDF : INVOICE_DETAIL_EXCEL;
 	}
 
-	@RequestMapping(value = "/addToCart", method = RequestMethod.POST)
+	@PostMapping("/addToCart")
 	public String addToCart(@RequestParam("prodIds") final String prodIds, final Model model) throws CMSItemNotFoundException
 	{
 		boolean forceNewEntry = orderUtil.isForceNewEntryEnabled();
@@ -1159,7 +1161,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		
 	}
 
-	@RequestMapping(value = "/selectAccount", method = RequestMethod.POST)
+	@PostMapping("/selectAccount")
 	public String getSelectAccountPopup(final Model model, final String[] selectedAccounts, final JnjGTOrderHistoryForm form,
 			@RequestParam(value = "page", defaultValue = "0") final int page,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
@@ -1200,7 +1202,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		return getView(Jnjb2bglobalordertemplateControllerConstants.Views.Fragments.Template.OrderHistoryPopups);
 	}
 
-	@RequestMapping(value = "/updatePurchaseOrder", method = RequestMethod.GET)
+	@GetMapping("/updatePurchaseOrder")
 	public String getPurchaseOrderPopup(final Model model)
 	{
 		model.addAttribute("popUpType", POP_UP_TYPE.UPDATE_PO);
@@ -1215,7 +1217,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		return getView(Jnjb2bglobalordertemplateControllerConstants.Views.Fragments.Order.OrderHistoryPopup);
 	}
 
-	@RequestMapping(value = "/updatePurchaseOrderRequest", method = RequestMethod.POST)
+	@PostMapping("/updatePurchaseOrderRequest")
 	@ResponseBody
 	public boolean updatePurchaseOrderNumber(final String orderNumber, final String purchaseOrderNumber)
 	{
@@ -1232,13 +1234,13 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		}
 	}
 
-	@RequestMapping(value = "/surgeonData", method = RequestMethod.POST)
+	@PostMapping("/surgeonData")
 	public String getSurgeonData(final Model model,
 			@RequestParam(value = "loadMoreCounter", defaultValue = "1") final int loadMoreCounter,
 			@RequestParam(value = "searchPattern", required = false) final String searchPattern)
 	{
 		model.addAttribute("pagedSurgeonData", orderFacade.getSurgeonData(searchPattern, loadMoreCounter));
-		model.addAttribute("loadMoreCounter", new Integer(loadMoreCounter + 1));
+		model.addAttribute("loadMoreCounter", Integer.valueOf(loadMoreCounter + 1));
 		model.addAttribute("popUpType", POP_UP_TYPE.UPDATE_SURGEON);
 		final Object showChangeAccountLink = sessionService.getAttribute(Jnjb2bglobalordertemplateConstants.Logging.SHOW_CHANGE_ACCOUNT);
 		LOGGER.info("showChangeAccountLink value : "+showChangeAccountLink);
@@ -1251,7 +1253,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		return "";
 	}
 
-	@RequestMapping(value = "/updateSurgeonGTRequest", method = RequestMethod.POST)
+	@PostMapping("/updateSurgeonGTRequest")
 	@ResponseBody
 	public String updateSurgeonRequest(final String selectedSurgeonId, final String orderNumber,final String selectSurgeonName,
 			final String hospitalId) throws CMSItemNotFoundException
@@ -1270,7 +1272,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 
 	
 /*<AAOL-3681>	*/
-	@RequestMapping(value = DISPUTE_ORDER_PATH, method = RequestMethod.GET)
+	@GetMapping(DISPUTE_ORDER_PATH)
 	public String disputeDetails(@RequestParam(value = "orderCode") final String orderCode, final Model model,
 			final HttpServletRequest request, final boolean ignoreRestriction) throws CMSItemNotFoundException
 	{
@@ -1301,7 +1303,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		return getView(Jnjb2bglobalordertemplateControllerConstants.Views.Fragments.Template.DisputeOrderAndItemPage);
 	}
 
-	@RequestMapping(value = "/submitDisputeOrdInq", method = RequestMethod.POST)
+	@PostMapping("/submitDisputeOrdInq")
 	public String submitDisputeOrderInquiry(final JnjGTDisputeOrderInquiryForm form, final Model model,
 			final RedirectAttributes redirectAttributes, final HttpServletRequest request) throws CMSItemNotFoundException
 	{
@@ -1341,7 +1343,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 	}
 
 	/*<AAOL-3648>	*/
-	@RequestMapping(value = DISPUTE_ITEM_PATH, method = RequestMethod.GET)
+	@GetMapping(DISPUTE_ITEM_PATH)
 	public String disputeLine(@RequestParam(value = "orderCode") final String orderCode,
 			@RequestParam(value = "productCode") final String productCode,
 			@RequestParam(value = "contractNum") final String contractNum,
@@ -1377,7 +1379,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		return getView(Jnjb2bglobalordertemplateControllerConstants.Views.Fragments.Template.DisputeOrderAndItemPage);
 	}
 
-	@RequestMapping(value = "/submitDisputeItemInq", method = RequestMethod.POST)
+	@PostMapping("/submitDisputeItemInq")
 	@ResponseBody
 	public boolean submitDisputeItemInquiry(final JnjGTDisputeItemInquiryForm form, final Model model)
 	{
@@ -1395,7 +1397,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 	
 	/*Implementing DisputeItems from Invoice */
 	/*AAOL-4059*/
-	@RequestMapping(value = INVOICE_DISPUTE_ITEM_PATH, method = RequestMethod.GET)
+	@GetMapping(INVOICE_DISPUTE_ITEM_PATH)
 	public String disputeLine(@RequestParam(value = "orderCode") final String orderCode,
 			@RequestParam(value = "productCode") final String productCode,
 			@RequestParam(value = "contractNum") final String contractNum,
@@ -1443,7 +1445,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 	}
 
 	
-	@RequestMapping(value = "/invoiceSubmitDisputeItemInq", method = RequestMethod.POST)
+	@PostMapping("/invoiceSubmitDisputeItemInq")
 	public String submitDisputeItemInquiry(final JnjGTDisputeItemInquiryForm form, final Model model,
 			final RedirectAttributes redirectAttributes, final HttpServletRequest request)
 	{
@@ -1478,7 +1480,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 		return getOrderHistory(new JnjGTOrderHistoryForm(), model,request);
 	}
 
-	@RequestMapping(value = "/deliveryProof", method = RequestMethod.GET)
+	@GetMapping("/deliveryProof")
 	public void getDeliveryProof(@RequestParam(value = "trackingId") final String trackingId,
 			@RequestParam(value = "shipDate") final String shipDate, final HttpServletResponse response)
 	{
@@ -2673,7 +2675,7 @@ private static final String INVOICED = "Orderhistory.status.invoiced";
 	 * @param orderNumber
 	 * @return
 	 */
-	@RequestMapping(value = "/surgeryInfoOrderData", method = RequestMethod.GET)
+	@GetMapping("/surgeryInfoOrderData")
 	public String getOrderSurgeryInfo(final Model model, final String orderNumber)
 	{
 		final JnjGTOrderData orderData = (JnjGTOrderData) orderFacade.getOrderDetailsForCode(orderNumber);

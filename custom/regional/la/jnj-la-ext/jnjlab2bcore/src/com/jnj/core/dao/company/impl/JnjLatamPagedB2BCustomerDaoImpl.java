@@ -20,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.jnj.core.model.JnJB2bCustomerModel;
 import com.jnj.core.model.JnJB2BUnitModel;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;

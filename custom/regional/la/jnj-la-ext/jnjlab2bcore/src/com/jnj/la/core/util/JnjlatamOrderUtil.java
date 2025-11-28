@@ -26,8 +26,8 @@ import de.hybris.platform.core.model.order.CartModel;
 import de.hybris.platform.servicelayer.session.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.PostConstruct;
-import javax.xml.bind.DatatypeConverter;
+import jakarta.annotation.PostConstruct;
+import jakarta.xml.bind.DatatypeConverter;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -360,9 +360,9 @@ public class JnjlatamOrderUtil extends JnjOrderUtil
 	{
 		if (jnJB2bCustomerModel != null && jnJB2bCustomerModel.getSessionLanguage() != null)
 		{
-			return new Locale(jnJB2bCustomerModel.getSessionLanguage().getIsocode());
+			return Locale.of(jnJB2bCustomerModel.getSessionLanguage().getIsocode());
 		}
-		return new Locale(Jnjlab2bcoreConstants.LANGUAGE_ISOCODE_PT.toLowerCase());
+		return Locale.of(Jnjlab2bcoreConstants.LANGUAGE_ISOCODE_PT.toLowerCase());
 	}
 
 	public static void stringBuilderMethod(final StringBuilder stringBuilder, final String inputString)

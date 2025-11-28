@@ -20,13 +20,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.springframework.beans.factory.annotation.Required;
 
 import com.jnj.la.core.dto.JnjLaCronJobMonitoringEmailDto;
 import com.jnj.facades.data.JnjLaCronJobMonitoringReportData;
@@ -74,7 +73,6 @@ public class JnjLaCronJobMonitoringReportsFacadeImpl implements JnjLaCronJobMoni
         return jnjLaCronJobReportService;
     }
 
-    @Required
     public void setJnjLaCronJobReportService(final JnjLaCronJobReportService jnjLaCronJobReportService)
     {
         this.jnjLaCronJobReportService = jnjLaCronJobReportService;
