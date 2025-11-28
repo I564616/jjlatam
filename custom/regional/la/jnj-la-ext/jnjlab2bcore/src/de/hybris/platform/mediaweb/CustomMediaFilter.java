@@ -26,7 +26,8 @@ import de.hybris.platform.util.MediaUtil;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.validator.GenericValidator;
+//import org.apache.commons.validator.GenericValidator;
+//Replacing Features from the Removed Apache Commons Validator
 import org.apache.log4j.Logger;
 
 import jakarta.servlet.FilterChain;
@@ -175,7 +176,7 @@ public class CustomMediaFilter extends MediaFilter
 	private static String getResourcePath(final HttpServletRequest httpRequest)
 	{
 		String resourcePath = httpRequest.getServletPath();
-		if (GenericValidator.isBlankOrNull(resourcePath))
+		if (StringUtils.isBlank(resourcePath))
 		{
 			//ok, it's maybe Websphere, because on websphere the getServletPath() is always null or ''
 			final String reqURI = httpRequest.getRequestURI();
@@ -471,7 +472,7 @@ public class CustomMediaFilter extends MediaFilter
 
 	private static Iterable<String> createLocalMediawebUrlContext(final String encodedMediaCtx)
 	{
-		Preconditions.checkArgument(!GenericValidator.isBlankOrNull(encodedMediaCtx), "incorrect media context in request");
+		Preconditions.checkArgument(!StringUtils.isBlank(encodedMediaCtx), "incorrect media context in request");
 		final Iterable<String> mediaContext = CTX_SPLITTER.split(decodeBase64(encodedMediaCtx));
 		Preconditions.checkArgument(Iterables.size(mediaContext) == 6, "incorrect media context in request");
 		return mediaContext;
