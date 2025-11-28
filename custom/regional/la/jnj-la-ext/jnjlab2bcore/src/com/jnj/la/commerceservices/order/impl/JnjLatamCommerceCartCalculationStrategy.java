@@ -84,7 +84,7 @@ public class JnjLatamCommerceCartCalculationStrategy extends DefaultCommerceCart
 			catch (final CalculationException calculationException)
 			{
 				JnjGTCoreUtil.logDebugMessage(Logging.CART_CALCULATE, methodName,
-						"Cart model " + cartModel.getCode() + " was not calculated due to: " + ExceptionUtils.getFullStackTrace(calculationException),
+						"Cart model " + cartModel.getCode() + " was not calculated due to: " + ExceptionUtils.getStackTrace(calculationException),
 						JnjLatamCommerceCartCalculationStrategy.class);
 			}
 			catch (final Exception exception)
@@ -135,7 +135,7 @@ public class JnjLatamCommerceCartCalculationStrategy extends DefaultCommerceCart
 		catch (final CalculationException calculationException)
 		{
 			JnjGTCoreUtil.logDebugMessage(Logging.CART_RECALCULATE, methodName,
-					"Cart model " + cartModel.getCode() + " was not calculated due to: " + ExceptionUtils.getFullStackTrace(calculationException),
+					"Cart model " + cartModel.getCode() + " was not calculated due to: " + ExceptionUtils.getStackTrace(calculationException),
 					JnjLatamCommerceCartCalculationStrategy.class);
 		}
 		catch (final Exception exception)
