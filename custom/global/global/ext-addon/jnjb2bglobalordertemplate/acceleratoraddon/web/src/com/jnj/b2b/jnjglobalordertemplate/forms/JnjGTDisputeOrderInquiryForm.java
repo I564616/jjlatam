@@ -5,8 +5,7 @@ package com.jnj.b2b.jnjglobalordertemplate.forms;
 
 import de.hybris.platform.commercefacades.user.data.AddressData;
 
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Form class responsible to display/capture data attributes for/from Dispute Order inquiry.
@@ -75,7 +74,7 @@ public class JnjGTDisputeOrderInquiryForm
 	/**
 	 * Tax exempt certificate file upload.
 	 */
-	private CommonsMultipartFile taxExemptCertificate;
+	private MultipartFile taxExemptCertificate;
 
 	/**
 	 * Indicates if incorrect address dispute is checked.
@@ -238,7 +237,7 @@ public class JnjGTDisputeOrderInquiryForm
 	/**
 	 * @return the taxExemptCertificate
 	 */
-	public CommonsMultipartFile getTaxExemptCertificate()
+	public MultipartFile getTaxExemptCertificate()
 	{
 		return taxExemptCertificate;
 	}
@@ -247,7 +246,7 @@ public class JnjGTDisputeOrderInquiryForm
 	 * @param taxExemptCertificate
 	 *           the taxExemptCertificate to set
 	 */
-	public void setTaxExemptCertificate(final CommonsMultipartFile taxExemptCertificate)
+	public void setTaxExemptCertificate(final MultipartFile taxExemptCertificate)
 	{
 		this.taxExemptCertificate = taxExemptCertificate;
 	}

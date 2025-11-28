@@ -7,8 +7,7 @@
  */
 package com.jnj.storefront.forms;
 
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * This form is used for storing all attributes of the file that is being uploaded.
@@ -19,7 +18,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 public class FileUploadForm
 {
 	private String name = null;
-	private CommonsMultipartFile file = null;
+	private MultipartFile file = null;
 	private String date;
 	private String hour;
 	private String company;
@@ -51,12 +50,12 @@ public class FileUploadForm
 		this.name = name;
 	}
 
-	public CommonsMultipartFile getFile()
+	public MultipartFile getFile()
 	{
 		return file;
 	}
 
-	public void setFile(final CommonsMultipartFile file)
+	public void setFile(final MultipartFile file)
 	{
 		this.file = file;
 		this.name = file.getOriginalFilename();
