@@ -62,20 +62,21 @@
         <security:session-management session-authentication-strategy-ref="fixation" invalid-session-url="/login"/>
 
         <!-- SSL / AUTHENTICATED pages -->
-        <security:intercept-url pattern="/checkout/j_spring_security_check" requires-channel="https"/>
-        <security:intercept-url pattern="/checkout*" access="hasRole('ROLE_CUSTOMERGROUP')" requires-channel="https"/>
-        <security:intercept-url pattern="/checkout/**" access="hasRole('ROLE_CUSTOMERGROUP')" requires-channel="https"/>
+<!--        Updating Spring Security Intercept-URL Configuration for Empty Expression Strings-->
+        <security:intercept-url pattern="/checkout/j_spring_security_check" access="permitAll()" requires-channel="https"/>
+        <security:intercept-url pattern="/checkout*" access="hasRole('ROLE_CUSTOMERGROUP')"  requires-channel="https"/>
+        <security:intercept-url pattern="/checkout/**" access="hasRole('ROLE_CUSTOMERGROUP')"  requires-channel="https"/>
 		<security:csrf token-repository-ref="csrfTokenRepository" request-matcher-ref="csrfProtectionMatcher" />
 		<security:custom-filter before="CSRF_FILTER" ref="logoutFilter" />
-		
+
 		<security:form-login
 				login-page="/login/checkout"
 				authentication-failure-handler-ref="loginCheckoutAuthenticationFailureHandler"
 				authentication-success-handler-ref="loginCheckoutGuidAuthenticationSuccessHandler"
-				username-parameter="j_username" 
+				username-parameter="j_username"
 				password-parameter="j_password"
 				login-processing-url="/checkout/j_spring_security_check"/>
-				 
+
 
         <!-- <security:logout logout-url="/logout" success-handler-ref="logoutSuccessHandler"/> -->
         <security:logout logout-url="/logout" success-handler-ref="logoutSuccessHandler" invalidate-session="true" delete-cookies="jsessionid"/>
@@ -92,7 +93,7 @@
 		<security:headers>
 			<security:frame-options policy="DENY"/>
 	   </security:headers>
-		
+
 
 	</security:http>
 
@@ -123,19 +124,19 @@
 		<security:custom-filter before="CSRF_FILTER" ref="logoutFilter" />
 
         <!-- SSL / AUTHENTICATED pages -->
-        <security:intercept-url pattern="/my-account*" access="hasRole('ROLE_CUSTOMERGROUP')" requires-channel="https"/>
+        <security:intercept-url pattern="/my-account*" access="hasRole('ROLE_CUSTOMERGROUP')"  requires-channel="https"/>
         <security:intercept-url pattern="/my-account/**" access="hasRole('ROLE_CUSTOMERGROUP')" requires-channel="https"/>
 
         <!-- SSL / AUTHENTICATED pages Organization management pages-->
-        <security:intercept-url pattern="/my-company*" access="hasRole('ROLE_B2BADMINGROUP')" requires-channel="https"/>
-        <security:intercept-url pattern="/my-company/**" access="hasRole('ROLE_B2BADMINGROUP')" requires-channel="https"/>
+        <security:intercept-url pattern="/my-company*" access="hasRole('ROLE_B2BADMINGROUP')"  requires-channel="https"/>
+        <security:intercept-url pattern="/my-company/**" access="hasRole('ROLE_B2BADMINGROUP')"  requires-channel="https"/>
 
 	        <!-- SSL / ANONYMOUS pages Login pages need to be SSL, but occur before authentication -->
-        <security:intercept-url pattern="/login" requires-channel="https"/>
-        <security:intercept-url pattern="/login/**" requires-channel="https"/>
-        <security:intercept-url pattern="/**" requires-channel="https" access="hasRole('ROLE_CUSTOMERGROUP')"/>
-        <security:intercept-url pattern="/j_spring_security_check" requires-channel="https"/>
-        <security:intercept-url pattern="/logout" requires-channel="https"/>
+        <security:intercept-url pattern="/login" access="permitAll()" requires-channel="https"/>
+        <security:intercept-url pattern="/login/**" access="permitAll()" requires-channel="https"/>
+        <security:intercept-url pattern="/**"  requires-channel="https" access="hasRole('ROLE_CUSTOMERGROUP')"/>
+        <security:intercept-url pattern="/j_spring_security_check" access="permitAll()" requires-channel="https"/>
+        <security:intercept-url pattern="/logout" access="permitAll()" requires-channel="https"/>
         <security:intercept-url pattern="/global" requires-channel="any"/>
 
 
@@ -143,7 +144,7 @@
         <security:intercept-url pattern="/cart/rollover/*" requires-channel="any"/>
         <security:intercept-url pattern="/cart/miniCart/*" requires-channel="any"/>
 
-		<security:intercept-url pattern="/search/autocompleteSecure/**" requires-channel="https"/>
+		<security:intercept-url pattern="/search/autocompleteSecure/**" access="permitAll()" requires-channel="https"/>
 
         <!-- Only allow logged in customers to see the ordering form page -->
         <!-- FRAMEWORK_UPDATE - TODO - AntPathMatcher was replaced with PathPatternParser as the new default path parser in Spring 6. Adjust this path to the new matching rules or re-enable deprecated AntPathMatcher. Consult "Adapting to PathPatternParser new default URL Matcher" JDK21 Upgrade Step in SAP Help documentation.-->
@@ -452,5 +453,5 @@
 	<bean id="defaultCsrfProtectionMatcher" class="com.jnj.b2b.storefront.security.CsrfProtectionMatcher">
 		<property name="csrfAllowedUrlPatterns" ref="csrfAllowedUrlPatternsList"/>
 	</bean>    
-    
+
 </beans>
