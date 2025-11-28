@@ -51,7 +51,8 @@ public class BeforeViewHandlerInterceptor implements HandlerInterceptor
 
 	protected boolean isIncludeRequest(final HttpServletRequest request)
 	{
-		return request.getAttribute("javax.servlet.include.request_uri") != null;
+        //Migrating from javax to jakarta:
+		return request.getAttribute("jakarta.servlet.include.request_uri") != null;
 	}
 
 	protected boolean isSupportedView(final ModelAndView modelAndView)
