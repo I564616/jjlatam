@@ -14,7 +14,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.jnj.core.data.JnjGTUpdatePriceData;
 import com.jnj.core.dto.JnjGTSurgeryInfoData;
