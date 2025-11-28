@@ -230,24 +230,25 @@ public class JnjGTCustomerPopulator extends CustomerPopulator
 
 	protected void populateB2BUnits(final B2BCustomerModel source, final JnjGTCustomerData target)
 	{
-		final Collection<B2BUnitModel> b2bUnits = CollectionUtils.select(source.getGroups(),
-				PredicateUtils.instanceofPredicate(B2BUnitModel.class));
-		final List<B2BUnitData> unitDataList = new ArrayList<B2BUnitData>(b2bUnits.size());
+        //TODO FIX JDK-21 Upgrade Issue
+//		final Collection<B2BUnitModel> b2bUnits = CollectionUtils.select(source.getGroups(),
+//				PredicateUtils.instanceofPredicate(B2BUnitModel.class));
+//		final List<B2BUnitData> unitDataList = new ArrayList<B2BUnitData>(b2bUnits.size());
+//
+//		for (final B2BUnitModel unit : b2bUnits)
+//		{
+//			if (!Jnjb2bCoreConstants.B2BUnit.JNJDUMMYUNIT.equals(unit.getUid()))
+//			{
+//				final B2BUnitData b2BUnitData = new B2BUnitData();
+//				b2BUnitData.setUid(unit.getUid());
+//				b2BUnitData.setName(unit.getLocName());
+//				b2BUnitData.setActive(Boolean.TRUE.equals(unit.getActive()));
+//
+//				unitDataList.add(b2BUnitData);
+//			}
+//		}
 
-		for (final B2BUnitModel unit : b2bUnits)
-		{
-			if (!Jnjb2bCoreConstants.B2BUnit.JNJDUMMYUNIT.equals(unit.getUid()))
-			{
-				final B2BUnitData b2BUnitData = new B2BUnitData();
-				b2BUnitData.setUid(unit.getUid());
-				b2BUnitData.setName(unit.getLocName());
-				b2BUnitData.setActive(Boolean.TRUE.equals(unit.getActive()));
-
-				unitDataList.add(b2BUnitData);
-			}
-		}
-
-		target.setB2bUnits(unitDataList);
+		//target.setB2bUnits(unitDataList);
 	}
 
 	//	@Override
