@@ -37,9 +37,10 @@
 			<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 		</filter>-->
 
+    <!-- Replacing HttpPutFormContentFilter with FormContentFilter -->
 	<filter>
 		<filter-name>httpPutFormFilter</filter-name>
-		<filter-class>org.springframework.web.filter.HttpPutFormContentFilter</filter-class>
+		<filter-class>org.springframework.web.filter.FormContentFilter</filter-class>
 	</filter>
 
 	<filter>
