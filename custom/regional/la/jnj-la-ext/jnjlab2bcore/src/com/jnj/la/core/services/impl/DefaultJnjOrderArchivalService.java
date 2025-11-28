@@ -36,13 +36,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.Collection;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Set;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
@@ -338,7 +332,7 @@ public class DefaultJnjOrderArchivalService implements JnjOrderArchivalService {
                         .collect(Collectors.toList());
             }
         }
-        return ListUtils.EMPTY_LIST;
+        return Collections.emptyList();
     }
 
     protected static <T> Predicate<T> distinctByKey(
