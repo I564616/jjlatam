@@ -27,7 +27,7 @@ import de.hybris.platform.promotions.model.PromotionGroupModel;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.time.TimeService;
 import de.hybris.platform.site.BaseSiteService;
-import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;
