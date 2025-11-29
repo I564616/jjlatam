@@ -100,10 +100,11 @@ public class DefaultJnjPCMCommonFacadeUtil implements JnjPCMCommonFacadeUtil
 					return true;
 				}
 			};
-			final SSLConnectionSocketFactory sslsf = createSSLCSocketFactoryObject(trustStrategy);
-			final CloseableHttpClient client = HttpClients.custom().setSSLSocketFactory(sslsf).build();
-
-			Unirest.setHttpClient(client);
+            //TODO FIX JDK-21 Upgrade Issue
+//			final SSLConnectionSocketFactory sslsf = createSSLCSocketFactoryObject(trustStrategy);
+//			final CloseableHttpClient client = HttpClients.custom().setSSLSocketFactory(sslsf).build();
+//
+//			Unirest.setHttpClient(client);
 
 			final HttpResponse<String> tokenResponse = Unirest
 					.post(authurl).header("content-type", "application/x-www-form-urlencoded").body("grant_type=password&username="
