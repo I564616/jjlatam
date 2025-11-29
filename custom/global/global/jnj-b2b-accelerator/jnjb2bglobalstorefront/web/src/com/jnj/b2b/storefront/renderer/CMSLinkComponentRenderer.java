@@ -26,6 +26,7 @@ import com.jnj.b2b.storefront.tags.Functions;
 import java.io.IOException;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.jsp.JspException;
 import jakarta.servlet.jsp.JspWriter;
 import jakarta.servlet.jsp.PageContext;
@@ -71,7 +72,9 @@ public class CMSLinkComponentRenderer implements CMSComponentRenderer<CMSLinkCom
 		try
 		{
 			final String url = getUrl(component);
-			final String encodedUrl = UrlSupport.resolveUrl(url, null, pageContext);
+			//final String encodedUrl = UrlSupport.resolveUrl(url, null, pageContext);
+            final HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
+            final String encodedUrl = response.encodeURL(url);
 
 			// <a href="${encodedUrl}" title="${component.linkName}" ${component.target == null || component.target == 'SAMEWINDOW' ? '' : 'target="_blank"'}>${component.linkName}</a>
 
