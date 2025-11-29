@@ -94,6 +94,7 @@ public class CMSLinkComponentRenderer implements CMSComponentRenderer<CMSLinkCom
 		catch (final JspException ignore)
 		{
 			// ignore
+            ignore.printStackTrace();
 		}
 	}
 }
