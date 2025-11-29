@@ -67,34 +67,25 @@ public class CMSLinkComponentRenderer implements CMSComponentRenderer<CMSLinkCom
 	}
 
 	@Override
-	public void renderComponent(final PageContext pageContext, final CMSLinkComponentModel component) throws ServletException, IOException
-	{
-		try
-		{
-			final String url = getUrl(component);
-			//final String encodedUrl = UrlSupport.resolveUrl(url, null, pageContext);
-            final HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
-            final String encodedUrl = response.encodeURL(url);
+	public void renderComponent(final PageContext pageContext, final CMSLinkComponentModel component) throws ServletException, IOException {
+        final String url = getUrl(component);
+        //final String encodedUrl = UrlSupport.resolveUrl(url, null, pageContext);
+        final HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
+        final String encodedUrl = response.encodeURL(url);
 
-			// <a href="${encodedUrl}" title="${component.linkName}" ${component.target == null || component.target == 'SAMEWINDOW' ? '' : 'target="_blank"'}>${component.linkName}</a>
+        // <a href="${encodedUrl}" title="${component.linkName}" ${component.target == null || component.target == 'SAMEWINDOW' ? '' : 'target="_blank"'}>${component.linkName}</a>
 
-			final JspWriter out = pageContext.getOut();
-			out.write("<a href=\"");
-			out.write(encodedUrl);
-			out.write("\" title=\"");
-			out.write(component.getLinkName());
-			if (component.getTarget() != null && !LinkTargets.SAMEWINDOW.equals(component.getTarget()))
-			{
-				out.write("\" target=\"_blank");
-			}
-			out.write("\">");
-			out.write(component.getLinkName());
-			out.write("</a>");
-		}
-		catch (final JspException ignore)
-		{
-			// ignore
-            ignore.printStackTrace();
-		}
-	}
+        final JspWriter out = pageContext.getOut();
+        out.write("<a href=\"");
+        out.write(encodedUrl);
+        out.write("\" title=\"");
+        out.write(component.getLinkName());
+        if (component.getTarget() != null && !LinkTargets.SAMEWINDOW.equals(component.getTarget()))
+        {
+            out.write("\" target=\"_blank");
+        }
+        out.write("\">");
+        out.write(component.getLinkName());
+        out.write("</a>");
+    }
 }
