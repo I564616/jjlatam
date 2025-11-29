@@ -86,9 +86,13 @@ public class JnjLinkComponentRenderer implements CMSComponentRenderer<JnjLinkCom
         else
         {
             /** Else setting URL as normal URL **/
-            //encodedUrl = UrlSupport.resolveUrl(url, null, pageContext);
-            final HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
-            encodedUrl = response.encodeURL(url);
+            try {
+                encodedUrl = UrlSupport.resolveUrl(url, null, pageContext);
+            } catch (JspException e) {
+                throw new RuntimeException(e);
+            }
+//            final HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
+//            encodedUrl = response.encodeURL(url);
                     }
 
         final JspWriter out = pageContext.getOut();

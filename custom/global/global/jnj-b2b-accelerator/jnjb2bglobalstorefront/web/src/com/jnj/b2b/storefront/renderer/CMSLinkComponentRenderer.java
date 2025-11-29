@@ -69,9 +69,14 @@ public class CMSLinkComponentRenderer implements CMSComponentRenderer<CMSLinkCom
 	@Override
 	public void renderComponent(final PageContext pageContext, final CMSLinkComponentModel component) throws ServletException, IOException {
         final String url = getUrl(component);
-        //final String encodedUrl = UrlSupport.resolveUrl(url, null, pageContext);
-        final HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
-        final String encodedUrl = response.encodeURL(url);
+        final String encodedUrl;
+        try {
+            encodedUrl = UrlSupport.resolveUrl(url, null, pageContext);
+        } catch (JspException e) {
+            throw new RuntimeException(e);
+        }
+//        final HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
+//        final String encodedUrl = response.encodeURL(url);
 
         // <a href="${encodedUrl}" title="${component.linkName}" ${component.target == null || component.target == 'SAMEWINDOW' ? '' : 'target="_blank"'}>${component.linkName}</a>
 
