@@ -11,11 +11,9 @@
  */
 package com.jnj.gt.pcm.integration.util.impl;
 
-import com.google.gson.JsonObject;
 import de.hybris.platform.catalog.CatalogVersionService;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 
-import java.nio.charset.StandardCharsets;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -23,19 +21,14 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
-import org.apache.hc.client5.http.entity.UrlEncodedFormEntity;
-import org.apache.hc.client5.http.impl.classic.*;
-import org.apache.hc.core5.http.config.Registry;
-import org.apache.hc.core5.http.config.RegistryBuilder;
 import org.apache.hc.core5.ssl.TrustStrategy;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
 import org.apache.hc.core5.ssl.SSLContextBuilder;
-import org.apache.hc.client5.http.socket.ConnectionSocketFactory;
 import org.apache.log4j.Logger;
 
 import com.google.gson.JsonElement;
@@ -44,22 +37,6 @@ import com.jnj.gt.pcm.integration.constants.JnjpcmfacadeConstants;
 import com.jnj.gt.pcm.integration.util.JnjPCMCommonFacadeUtil;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
-import org.apache.hc.client5.http.classic.methods.HttpPost;
-import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
-import org.apache.hc.client5.http.impl.classic.HttpClients;
-
-import org.apache.hc.client5.http.socket.PlainConnectionSocketFactory;
-import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
-import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
-
-import org.apache.hc.core5.ssl.SSLContexts;
-import org.apache.hc.core5.http.NameValuePair;
-import org.apache.hc.core5.http.message.BasicNameValuePair;
-import org.apache.hc.core5.http.io.entity.EntityUtils;
-
-import javax.net.ssl.SSLContext;
-
-import static com.google.gson.JsonParser.*;
 
 
 /**
@@ -97,81 +74,56 @@ public class DefaultJnjPCMCommonFacadeUtil implements JnjPCMCommonFacadeUtil
 		return startDate;
 	}
 
-    @Override
-    public String getAccessToken()
-    {
-        String accessToken = "";
+	@Override
+	public String getAccessToken()
+	{
 
-        final String username = configurationService.getConfiguration()
-                .getString(JnjpcmfacadeConstants.PCMIntegration.PCM_INTEGRATION_JOB_USERNAME);
-        final String password = configurationService.getConfiguration()
-                .getString(JnjpcmfacadeConstants.PCMIntegration.PCM_INTEGRATION_JOB_PASSWORD);
-        final String clientId = configurationService.getConfiguration()
-                .getString(JnjpcmfacadeConstants.PCMIntegration.PCM_INTEGRATION_JOB_CLIENT_ID);
-        final String clientSecret = configurationService.getConfiguration()
-                .getString(JnjpcmfacadeConstants.PCMIntegration.PCM_INTEGRATION_JOB_CLIENT_SECRET);
-        final String authUrl = configurationService.getConfiguration()
-                .getString(JnjpcmfacadeConstants.PCMIntegration.PCM_INTEGRATION_JOB_ACCESS_TOKEN_URL);
+		String accessToken = "";
+		final String username = configurationService.getConfiguration()
+				.getString(JnjpcmfacadeConstants.PCMIntegration.PCM_INTEGRATION_JOB_USERNAME);
+		final String password = configurationService.getConfiguration()
+				.getString(JnjpcmfacadeConstants.PCMIntegration.PCM_INTEGRATION_JOB_PASSWORD);
+		final String clientId = configurationService.getConfiguration()
+				.getString(JnjpcmfacadeConstants.PCMIntegration.PCM_INTEGRATION_JOB_CLIENT_ID);
+		final String clientSecret = configurationService.getConfiguration()
+				.getString(JnjpcmfacadeConstants.PCMIntegration.PCM_INTEGRATION_JOB_CLIENT_SECRET);
+		final String authurl = configurationService.getConfiguration()
+				.getString(JnjpcmfacadeConstants.PCMIntegration.PCM_INTEGRATION_JOB_ACCESS_TOKEN_URL);
 
-        try
-        {
-            // 1. Trust-all SSL context
-            SSLContext sslContext = SSLContexts.custom()
-                    .loadTrustMaterial((chain, authType) -> true)
-                    .build();
+		try
+		{
 
-            // 2. Create SSL factory for HttpClient 5
-            SSLConnectionSocketFactory sslFactory =
-                    new SSLConnectionSocketFactory(sslContext);
+			final TrustStrategy trustStrategy = new TrustStrategy()
+			{
+				public boolean isTrusted(final X509Certificate[] chain, final String authType) throws CertificateException
+				{
+					return true;
+				}
+			};
+			final SSLConnectionSocketFactory sslsf = createSSLCSocketFactoryObject(trustStrategy);
+			final CloseableHttpClient client = HttpClients.custom().setSSLSocketFactory(sslsf).build();
 
-            // 3. Register http + https handling
-            Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory>create()
-                    .register("https", sslFactory)
-                    .register("http", PlainConnectionSocketFactory.INSTANCE)
-                    .build();
+			Unirest.setHttpClient(client);
 
-            // 4. Connection manager
-            PoolingHttpClientConnectionManager cm =
-                    new PoolingHttpClientConnectionManager(registry);
+			final HttpResponse<String> tokenResponse = Unirest
+					.post(authurl).header("content-type", "application/x-www-form-urlencoded").body("grant_type=password&username="
+							+ username + "&password=" + password + "&client_id=" + clientId + "&client_secret=" + clientSecret)
+					.asString();
 
-            // 5. Build HttpClient with the connection manager
-            try (CloseableHttpClient httpClient = HttpClients.custom()
-                    .setConnectionManager(cm)
-                    .build())
-            {
-                HttpPost post = new HttpPost(authUrl);
-                post.setHeader("Content-Type", "application/x-www-form-urlencoded");
+			final JsonElement je = new JsonParser().parse(tokenResponse.getBody());
 
-                List<NameValuePair> params = new ArrayList<>();
-                params.add(new BasicNameValuePair("grant_type", "password"));
-                params.add(new BasicNameValuePair("username", username));
-                params.add(new BasicNameValuePair("password", password));
-                params.add(new BasicNameValuePair("client_id", clientId));
-                params.add(new BasicNameValuePair("client_secret", clientSecret));
+			accessToken = je.getAsJsonObject().get(JnjpcmfacadeConstants.PCMIntegration.ACCESS_TOKEN).toString().replace("\"",
+					JnjpcmfacadeConstants.PCMIntegration.EMPTY_STRING);
 
-                post.setEntity(new UrlEncodedFormEntity(params, StandardCharsets.UTF_8));
+		}
+		catch (final Exception e)
+		{
+			LOGGER.error("error while getting access token " + e);
+		}
+		return accessToken;
+	}
 
-                try (CloseableHttpResponse response = httpClient.execute(post))
-                {
-                    String json = EntityUtils.toString(response.getEntity());
-                    JsonParser parser = new JsonParser();
-                    JsonElement element = parser.parse(json);
-                    JsonObject obj = element.getAsJsonObject();
-
-                    accessToken = obj.get("access_token").getAsString();
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            LOGGER.error("Error fetching access token", e);
-        }
-
-        return accessToken;
-    }
-
-
-    protected SSLConnectionSocketFactory createSSLCSocketFactoryObject(final TrustStrategy trustStrategy)
+	protected SSLConnectionSocketFactory createSSLCSocketFactoryObject(final TrustStrategy trustStrategy)
 	{
 		SSLConnectionSocketFactory sslsf = null;
 		try
