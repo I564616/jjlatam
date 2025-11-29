@@ -76,10 +76,11 @@ public class AcceleratorCompressTag extends BodyTagSupport
 		}
 		try
 		{
-			final CompressTagHandler compressor = new CompressTagHandler(id, method, options, basepath);
-			final RealRequestProxy runtimeRequest = new RealRequestProxy(httpRequest);
-			final String newBody = compressor.handleTag(runtimeRequest, runtimeRequest, oldBody);
-			getPreviousOut().print(newBody);
+            ////TODO FIX JDK-21 Upgrade Issue
+//			final CompressTagHandler compressor = new CompressTagHandler(id, method, options, basepath);
+//			final RealRequestProxy runtimeRequest = new RealRequestProxy(httpRequest);
+//			final String newBody = compressor.handleTag(runtimeRequest, runtimeRequest, oldBody);
+//			getPreviousOut().print(newBody);
 		}
 		catch (final Exception e)
 		{
