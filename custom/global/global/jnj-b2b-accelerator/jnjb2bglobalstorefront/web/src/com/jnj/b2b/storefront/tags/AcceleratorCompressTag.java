@@ -25,9 +25,11 @@ import com.granule.CompressTag;
 import com.granule.CompressTagHandler;
 import com.granule.CompressorSettings;
 import com.granule.RealRequestProxy;
+import jakarta.servlet.jsp.tagext.BodyTagSupport;
 
 
-public class AcceleratorCompressTag extends CompressTag
+
+public class AcceleratorCompressTag extends BodyTagSupport
 {
 	public static final String COMPREST_TAG_CONTENT = CompressTag.class.getName() + "Content";
 	public static final String COMPREST_TAG_JS = CompressTag.class.getName() + "js";
