@@ -24,6 +24,7 @@ import de.hybris.platform.servicelayer.dto.converter.Converter;
 import java.io.IOException;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.jsp.JspException;
 import jakarta.servlet.jsp.JspWriter;
 import jakarta.servlet.jsp.PageContext;
@@ -73,52 +74,47 @@ public class JnjLinkComponentRenderer implements CMSComponentRenderer<JnjLinkCom
 	public void renderComponent(final PageContext pageContext, final JnjLinkComponentModel component) throws ServletException,
 			IOException
 	{
-		try
-		{
-			final String url = getUrl(component);
-			String encodedUrl = null;
+        final String url = getUrl(component);
+        String encodedUrl = null;
 
-			/** Checking if the URL is null and media is attached to the link component **/
-			if (StringUtils.isEmpty(url) && null != component.getDetails())
-			{
-				/** Setting URL as media URL **/
-				encodedUrl = component.getDetails().getURL();
-			}
-			else
-			{
-				/** Else setting URL as normal URL **/
-				encodedUrl = UrlSupport.resolveUrl(url, null, pageContext);
-			}
+        /** Checking if the URL is null and media is attached to the link component **/
+        if (StringUtils.isEmpty(url) && null != component.getDetails())
+        {
+            /** Setting URL as media URL **/
+            encodedUrl = component.getDetails().getURL();
+        }
+        else
+        {
+            /** Else setting URL as normal URL **/
+            //encodedUrl = UrlSupport.resolveUrl(url, null, pageContext);
+final HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
+encodedUrl = response.encodeURL(url);
+        }
 
-			final JspWriter out = pageContext.getOut();
-			out.write("<a href=\"");
-			out.write(encodedUrl);
-			out.write("\"");
-			if(null != component.getDetails() && !component.getDetails().equals("Continue Shopping")){
-			out.write(" title=\"");
-			out.write(component.getLinkName());
-			}
-			out.write("\" ");
-			if (component.getTarget() != null && !LinkTargets.SAMEWINDOW.equals(component.getTarget()))
-			{
-				out.write(" target=\"_blank\" ");
-			}
-			// Write additional attributes onto the link
-			if (component.getStyleAttributes() != null)
-			{
-				out.write(component.getStyleAttributes());
-			}
-			else if (BooleanUtils.isTrue(component.getShiftRight()))
-			{
-				out.write(" class=\"activeSub\" ");
-			}
-			out.write(">");
-			out.write(component.getLinkName());
-			out.write("</a>");
-		}
-		catch (final JspException ignore)
-		{
-			// ignore
-		}
-	}
+        final JspWriter out = pageContext.getOut();
+        out.write("<a href=\"");
+        out.write(encodedUrl);
+        out.write("\"");
+        if(null != component.getDetails() && !component.getDetails().equals("Continue Shopping")){
+        out.write(" title=\"");
+        out.write(component.getLinkName());
+        }
+        out.write("\" ");
+        if (component.getTarget() != null && !LinkTargets.SAMEWINDOW.equals(component.getTarget()))
+        {
+            out.write(" target=\"_blank\" ");
+        }
+        // Write additional attributes onto the link
+        if (component.getStyleAttributes() != null)
+        {
+            out.write(component.getStyleAttributes());
+        }
+        else if (BooleanUtils.isTrue(component.getShiftRight()))
+        {
+            out.write(" class=\"activeSub\" ");
+        }
+        out.write(">");
+        out.write(component.getLinkName());
+        out.write("</a>");
+    }
 }
