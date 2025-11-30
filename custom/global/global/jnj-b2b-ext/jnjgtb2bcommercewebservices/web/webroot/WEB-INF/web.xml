@@ -18,13 +18,13 @@
 	<display-name>jnjgtb2bcommercewebservices</display-name>
 
 	<!-- spring based filter chain -->
-	<filter>
-		<description>
-			Spring configured chain of spring filter beans
-		</description>
-		<filter-name>commerceWebServicesFilterChain</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-	</filter>
+<!--	<filter>-->
+<!--		<description>-->
+<!--			Spring configured chain of spring filter beans-->
+<!--		</description>-->
+<!--		<filter-name>commerceWebServicesFilterChain</filter-name>-->
+<!--		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+<!--	</filter>-->
 
 	<!-- provides support for ETag and If-None-Match, shallow -->
 	<filter>
@@ -105,10 +105,10 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<filter-mapping>
-		<filter-name>commerceWebServicesFilterChain</filter-name>
-		<servlet-name>springmvc</servlet-name>
-	</filter-mapping>
+<!--	<filter-mapping>-->
+<!--		<filter-name>commerceWebServicesFilterChain</filter-name>-->
+<!--		<servlet-name>springmvc</servlet-name>-->
+<!--	</filter-mapping>-->
 
 	<!-- Uncomment to make v1 version available -->
 	<!--
@@ -160,20 +160,24 @@
 	-->
 	<!-- END Uncomment to make v1 version available -->
 
-	<servlet>
-		<servlet-name>springmvc</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>WEB-INF/config/common/springmvc-servlet.xml</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
+<!--	<servlet>-->
+<!--		<servlet-name>springmvc</servlet-name>-->
+<!--		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+<!--        <init-param>-->
+<!--            <param-name>detectAllHandlerExceptionResolvers</param-name>-->
+<!--            <param-value>false</param-value>-->
+<!--        </init-param>-->
+<!--		<init-param>-->
+<!--			<param-name>contextConfigLocation</param-name>-->
+<!--			<param-value></param-value>-->
+<!--		</init-param>-->
+<!--		<load-on-startup>1</load-on-startup>-->
+<!--	</servlet>-->
 
-	<servlet-mapping>
-		<servlet-name>springmvc</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+<!--	<servlet-mapping>-->
+<!--		<servlet-name>springmvc</servlet-name>-->
+<!--		<url-pattern>/</url-pattern>-->
+<!--	</servlet-mapping>-->
 
 	<!-- Uncomment to make v2 available -->
 	<filter>
@@ -219,13 +223,22 @@
 				org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 			</param-value>
 		</init-param>
+        <init-param>
+            <param-name>detectAllHandlerExceptionResolvers</param-name>
+            <param-value>false</param-value>
+        </init-param>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				com.jnj.gt.core.v2.config.WebConfig
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+        <multipart-config>
+            <location></location>
+            <max-file-size>10485760</max-file-size>
+            <max-request-size>-1</max-request-size>
+            <file-size-threshold>0</file-size-threshold>
+        </multipart-config>
 	</servlet>
 
 	<servlet-mapping>
