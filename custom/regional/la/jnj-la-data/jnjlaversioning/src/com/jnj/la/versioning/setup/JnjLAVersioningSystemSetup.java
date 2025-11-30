@@ -14,8 +14,8 @@ import de.hybris.platform.core.initialization.SystemSetup;
 import de.hybris.platform.core.initialization.SystemSetupContext;
 import de.hybris.platform.core.initialization.SystemSetupParameter;
 import de.hybris.platform.core.initialization.SystemSetupParameterMethod;
-import org.apache.commons.lang.ArrayUtils;
-import org.springframework.beans.factory.annotation.Required;
+import org.apache.commons.lang3.ArrayUtils;
+import org.springframework.beans.factory.InitializingBean;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import static com.jnj.la.versioning.constants.JnjlaversioningConstants.VERSION;
 import static com.jnj.la.versioning.constants.JnjlaversioningConstants.VERSION_LABEL;
 
 @SystemSetup(extension = "jnjlaversioning")
-public class JnjLAVersioningSystemSetup extends AbstractSystemSetup {
+public class JnjLAVersioningSystemSetup extends AbstractSystemSetup implements InitializingBean {
 
     private JnJLaVersionService versionService;
 
@@ -124,18 +124,31 @@ public class JnjLAVersioningSystemSetup extends AbstractSystemSetup {
         return left.getCode() > right.getCode();
     }
 
-    @Required
+    
     public void setVersionService(JnJLaVersionService versionService) {
         this.versionService = versionService;
     }
 
-    @Required
+    
     public void setJnjLAVersionFolderUtils(JnjLAVersionFolderUtils jnjLAVersionFolderUtils) {
         this.jnjLAVersionFolderUtils = jnjLAVersionFolderUtils;
     }
 
-    @Required
+    
     public void setSyncCatalogService(JnJLaSyncCatalogService syncCatalogService) {
         this.syncCatalogService = syncCatalogService;
+    }
+
+    @Override
+    public void afterPropertiesSet() {
+        if (versionService == null) {
+            throw new IllegalArgumentException("versionService must be set");
+        }
+        if (jnjLAVersionFolderUtils == null) {
+            throw new IllegalArgumentException("jnjLAVersionFolderUtils must be set");
+        }
+        if (syncCatalogService == null) {
+            throw new IllegalArgumentException("syncCatalogService must be set");
+        }
     }
 }
