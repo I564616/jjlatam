@@ -15,7 +15,7 @@ import de.hybris.platform.webservicescommons.cache.CacheControl;
 import de.hybris.platform.webservicescommons.cache.CacheControlDirective;
 import de.hybris.platform.webservicescommons.swagger.ApiBaseSiteIdParam;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
