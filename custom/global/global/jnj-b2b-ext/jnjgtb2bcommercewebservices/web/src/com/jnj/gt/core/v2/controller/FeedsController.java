@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;

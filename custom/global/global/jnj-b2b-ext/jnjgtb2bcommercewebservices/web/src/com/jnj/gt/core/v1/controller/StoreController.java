@@ -19,7 +19,7 @@ import com.jnj.gt.core.storesession.data.LanguageDataList;
 import com.jnj.gt.core.user.data.CountryDataList;
 import com.jnj.gt.core.user.data.TitleDataList;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

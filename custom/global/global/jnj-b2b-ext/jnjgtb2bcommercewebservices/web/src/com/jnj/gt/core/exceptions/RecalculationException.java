@@ -12,7 +12,7 @@ package com.jnj.gt.core.exceptions;
 
 import de.hybris.platform.order.exceptions.CalculationException;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 
 
 /**

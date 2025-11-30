@@ -12,7 +12,7 @@ package com.jnj.gt.core.exceptions;
 
 import de.hybris.platform.core.model.c2l.CurrencyModel;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 
 
 /**

@@ -15,7 +15,7 @@ import de.hybris.platform.commercefacades.voucher.exceptions.VoucherOperationExc
 import de.hybris.platform.commercewebservicescommons.dto.voucher.VoucherWsDTO;
 import de.hybris.platform.webservicescommons.swagger.ApiBaseSiteIdParam;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;

@@ -12,9 +12,9 @@ package com.jnj.gt.core.queues.util;
 
 import com.jnj.gt.core.queues.data.ProductExpressUpdateElementData;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.base.Predicate;
 

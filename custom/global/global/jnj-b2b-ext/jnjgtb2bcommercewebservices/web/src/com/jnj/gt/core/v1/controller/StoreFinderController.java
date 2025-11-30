@@ -23,8 +23,8 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Nullable;
-import javax.annotation.Resource;
+import jakarta.annotation.Nullable;
+import jakarta.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 

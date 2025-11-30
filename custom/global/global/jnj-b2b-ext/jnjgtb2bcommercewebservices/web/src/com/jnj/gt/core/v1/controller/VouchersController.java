@@ -14,7 +14,7 @@ import de.hybris.platform.commercefacades.voucher.VoucherFacade;
 import de.hybris.platform.commercefacades.voucher.data.VoucherData;
 import de.hybris.platform.commercefacades.voucher.exceptions.VoucherOperationException;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;

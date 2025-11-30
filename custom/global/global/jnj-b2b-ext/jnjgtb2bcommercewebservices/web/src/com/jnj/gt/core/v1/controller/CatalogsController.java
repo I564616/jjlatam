@@ -21,7 +21,7 @@ import de.hybris.platform.commercefacades.catalog.data.CategoryHierarchyData;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

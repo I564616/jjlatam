@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;

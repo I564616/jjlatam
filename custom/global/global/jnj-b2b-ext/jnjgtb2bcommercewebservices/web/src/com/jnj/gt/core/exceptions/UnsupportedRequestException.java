@@ -10,7 +10,7 @@
  */
 package com.jnj.gt.core.exceptions;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 
 
 /**

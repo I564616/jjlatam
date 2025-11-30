@@ -27,8 +27,8 @@ import com.jnj.gt.core.exceptions.PaymentAuthorizationException;
 import com.jnj.gt.core.strategies.OrderCodeIdentificationStrategy;
 import com.jnj.gt.core.v2.helper.OrdersHelper;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.cache.annotation.Cacheable;
