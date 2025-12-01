@@ -167,18 +167,18 @@
 	<bean id="requestConfig" factory-bean="requestConfigBuilder"
 		factory-method="build" />
 
-	<bean id="interceptedHttpClientBuilder"
-		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-		<property name="targetObject" ref="httpClientBuilder" />
-		<property name="targetMethod" value="addInterceptorFirst">
-		</property>
-		<property name="arguments">
-			<list>
-				<bean
-					class="org.springframework.ws.transport.http.HttpComponentsMessageSender.RemoveSoapHeadersInterceptor" />
-			</list>
-		</property>
-	</bean>
+<!--	<bean id="interceptedHttpClientBuilder"-->
+<!--		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">-->
+<!--		<property name="targetObject" ref="httpClientBuilder" />-->
+<!--		<property name="targetMethod" value="addInterceptorFirst">-->
+<!--		</property>-->
+<!--		<property name="arguments">-->
+<!--			<list>-->
+<!--				<bean-->
+<!--					class="org.springframework.ws.transport.http.HttpComponentsMessageSender.RemoveSoapHeadersInterceptor" />-->
+<!--			</list>-->
+<!--		</property>-->
+<!--	</bean>-->
 
 	<!-- FRAMEWORK_UPDATE - TODO - The builder of the http client has changed and may fail in the runtime. Adjust existing configuration to the new API -->
 <!--	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"-->
@@ -193,9 +193,10 @@
 
 <!--    <bean id="httpClient" factory-bean="httpClientBuilder" factory-method="build"/>-->
 
-    <bean id="httpClientBuilder" class="org.apache.hc.client5.http.impl.classic.HttpClientBuilder">
+    <bean id="httpClientBuilder" class="org.apache.hc.client5.http.impl.classic.HttpClientBuilder"
+          factory-method="create">
         <property name="defaultRequestConfig" ref="requestConfig" />
-        <property name="credentialsProvider" ref="lacredentialsProvider"/>
+        <property name="defaultCredentialsProvider" ref="lacredentialsProvider"/>
     </bean>
 
     <bean id="httpClient" factory-bean="httpClientBuilder" factory-method="build"/>

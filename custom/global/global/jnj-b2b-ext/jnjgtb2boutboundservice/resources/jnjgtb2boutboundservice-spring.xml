@@ -171,18 +171,18 @@
 	 <property name="connectionTimeout" value="#{configurationService.configuration.getProperty('jnj.webservice.connectionTimeOut')}" />
 </bean>
 
-	<bean id="interceptedHttpClientBuilder"
-		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-		<property name="targetObject" ref="httpClientBuilder" />
-		<property name="targetMethod" value="addInterceptorFirst">
-		</property>
-		<property name="arguments">
-			<list>
-				<bean
-					class="org.springframework.ws.transport.http.HttpComponentsMessageSender.RemoveSoapHeadersInterceptor" />
-			</list>
-		</property>
-	</bean>
+<!--	<bean id="interceptedHttpClientBuilder"-->
+<!--		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">-->
+<!--		<property name="targetObject" ref="httpClientBuilder" />-->
+<!--		<property name="targetMethod" value="addInterceptorFirst">-->
+<!--		</property>-->
+<!--		<property name="arguments">-->
+<!--			<list>-->
+<!--				<bean-->
+<!--					class="org.springframework.ws.transport.http.HttpComponentsMessageSender.RemoveSoapHeadersInterceptor" />-->
+<!--			</list>-->
+<!--		</property>-->
+<!--	</bean>-->
 
 	<!-- FRAMEWORK_UPDATE - TODO - The builder of the http client has changed and may fail in the runtime. Adjust existing configuration to the new API -->
 <!--	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"-->
