@@ -97,33 +97,63 @@
 	<oxm:jaxb2-marshaller id="unmarshallerForProofOfDelivery"
 		context-path="com.fedex.ws.track.v8" />
 		
-	<bean id="httpClientParams" class="org.apache.commons.httpclient.params.HttpClientParams">
-		<property name="authenticationPreemptive" value="true"/>
-		<property name="connectionManagerClass" value="org.apache.commons.httpclient.MultiThreadedHttpConnectionManager"/>
-	</bean>
+<!--	<bean id="httpClientParams" class="org.apache.commons.httpclient.params.HttpClientParams">-->
+<!--		<property name="authenticationPreemptive" value="true"/>-->
+<!--		<property name="connectionManagerClass" value="org.apache.commons.httpclient.MultiThreadedHttpConnectionManager"/>-->
+<!--	</bean>-->
 	
-	<bean id="httpClient" class="org.apache.commons.httpclient.HttpClient">
-		<constructor-arg ref="httpClientParams"/>
-	</bean>
+<!--	<bean id="httpClient" class="org.apache.commons.httpclient.HttpClient">-->
+<!--		<constructor-arg ref="httpClientParams"/>-->
+<!--	</bean>-->
 
-	<bean id="messageSender" class="org.springframework.ws.transport.http.HttpComponentsMessageSender">
-		<constructor-arg ref="httpClient"/>
-		 <property name="credentials" ref="credentials"/>	
-	</bean>
-	
-	<bean id="credentials" class="org.apache.http.auth.UsernamePasswordCredentials">
-		<constructor-arg index="0" value="#{configurationService.configuration.getProperty('jnj.webservice.order.user')}"/>
-		<constructor-arg index="1" value="#{configurationService.configuration.getProperty('jnj.webservice.order.password')}"/>
-	</bean>	
-	
-	<bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig"
+
+    <bean id="credentials" class="org.apache.hc.client5.http.auth.UsernamePasswordCredentials">
+        <constructor-arg index="0" value="#{configurationService.configuration.getProperty('jnj.webservice.order.user')}"/>
+        <constructor-arg index="1" value="#{configurationService.configuration.getProperty('jnj.webservice.order.password')}"/>
+    </bean>
+
+    <bean id="credentialsProvider" class="org.apache.hc.client5.http.impl.auth.BasicCredentialsProvider">
+        <property name="credentials">
+            <map>
+                <entry key="null">
+                    <ref bean="credentials"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="requestConfig" factory-bean="requestConfigBuilder"
+          factory-method="build" />
+
+    <bean id="httpClientBuilder"
+          class="org.apache.hc.client5.http.impl.classic.HttpClientBuilder"
+          factory-method="create">
+
+        <property name="defaultRequestConfig" ref="requestConfig"/>
+        <property name="defaultCredentialsProvider" ref="credentialsProvider"/>
+
+    </bean>
+
+    <bean id="httpClient"
+          class="org.apache.hc.client5.http.impl.classic.CloseableHttpClient"
+          factory-bean="httpClientBuilder"
+          factory-method="build"/>
+
+    <bean id="messageSender" class="org.springframework.ws.transport.http.HttpComponents5MessageSender">
+        <constructor-arg ref="httpClient"/>
+    </bean>
+
+<!--    <bean id="credentials" class="org.apache.http.auth.UsernamePasswordCredentials">-->
+<!--		<constructor-arg index="0" value="#{configurationService.configuration.getProperty('jnj.webservice.order.user')}"/>-->
+<!--		<constructor-arg index="1" value="#{configurationService.configuration.getProperty('jnj.webservice.order.password')}"/>-->
+<!--	</bean>	-->
+
+
+    <bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig"
 	factory-method="custom">
 	 <property name="readTimeout" value="#{configurationService.configuration.getProperty('jnj.webservice.readTimeOut')}" />
 	 <property name="connectionTimeout" value="#{configurationService.configuration.getProperty('jnj.webservice.connectionTimeOut')}" />
 </bean>
-
-	<bean id="requestConfig" factory-bean="requestConfigBuilder"
-		factory-method="build" />
 
 	<bean id="interceptedHttpClientBuilder"
 		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
@@ -139,10 +169,10 @@
 	</bean>
 
 	<!-- FRAMEWORK_UPDATE - TODO - The builder of the http client has changed and may fail in the runtime. Adjust existing configuration to the new API -->
-	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"
-		factory-method="create">
-		<property name="defaultRequestConfig" ref="requestConfig" />
-	</bean>
+<!--	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"-->
+<!--		factory-method="create">-->
+<!--		<property name="defaultRequestConfig" ref="requestConfig" />-->
+<!--	</bean>-->
 		
 	
 	<!-- Bean defined for Simulate Order Out bound service --> 
