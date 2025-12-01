@@ -151,7 +151,7 @@
 
     <bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig"
 	factory-method="custom">
-	 <property name="readTimeout" value="#{configurationService.configuration.getProperty('jnj.webservice.readTimeOut')}" />
+	 <property name="socketTimeout" value="#{configurationService.configuration.getProperty('jnj.webservice.readTimeOut')}" />
 	 <property name="connectionTimeout" value="#{configurationService.configuration.getProperty('jnj.webservice.connectionTimeOut')}" />
 </bean>
 
