@@ -19,7 +19,7 @@
            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
            http://www.springframework.org/schema/aop
            http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
-           http://www.springframework.org/schema/oxm 
+           http://www.springframework.org/schema/oxm
 		   http://www.springframework.org/schema/oxm/spring-oxm-3.1.xsd">
 
 
@@ -107,20 +107,36 @@
 <!--	</bean>-->
 
 
-    <bean id="credentials" class="org.apache.hc.client5.http.auth.UsernamePasswordCredentials">
-        <constructor-arg index="0" value="#{configurationService.configuration.getProperty('jnj.webservice.order.user')}"/>
-        <constructor-arg index="1" value="#{configurationService.configuration.getProperty('jnj.webservice.order.password')}"/>
-    </bean>
+<!--    <bean id="credentials" class="org.apache.hc.client5.http.auth.UsernamePasswordCredentials">-->
+<!--        <constructor-arg index="0" value="#{configurationService.configuration.getProperty('jnj.webservice.order.user')}"/>-->
+<!--        <constructor-arg index="1" value="#{configurationService.configuration.getProperty('jnj.webservice.order.password')}"/>-->
+<!--    </bean>-->
 
-    <bean id="credentialsProvider" class="org.apache.hc.client5.http.impl.auth.BasicCredentialsProvider">
-        <property name="credentials">
-            <map>
-                <entry key="null">
-                    <ref bean="credentials"/>
-                </entry>
-            </map>
+    <bean id="credentials" class="org.apache.hc.client5.http.impl.auth.BasicCredentialsProvider"/>
+
+    <!-- Add credentials using setCredentials(...) -->
+    <bean id="credentialsConfigurer"
+          class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"
+          depends-on="credentials">
+        <property name="targetObject" ref="credentials"/>
+        <property name="targetMethod" value="setCredentials"/>
+        <property name="arguments">
+            <list>
+                <bean class="org.apache.hc.client5.http.auth.AuthScope">
+                    <constructor-arg index="0" type="java.lang.String"><null/></constructor-arg>
+                    <constructor-arg index="1" type="int" value="-1"/>
+                </bean>
+                <bean class="org.apache.hc.client5.http.auth.UsernamePasswordCredentials">
+                    <constructor-arg index="0"
+                                     value="#{configurationService.configuration.getProperty('jnj.webservice.order.user')}"/>
+                    <constructor-arg index="1"
+                                     value="#{configurationService.configuration.getProperty('jnj.webservice.order.password')}"/>
+                </bean>
+            </list>
         </property>
     </bean>
+
+
 
     <bean id="requestConfig" factory-bean="requestConfigBuilder"
           factory-method="build" />
@@ -130,7 +146,7 @@
           factory-method="create">
 
         <property name="defaultRequestConfig" ref="requestConfig"/>
-        <property name="defaultCredentialsProvider" ref="credentialsProvider"/>
+        <property name="defaultCredentialsProvider" ref="credentials"/>
 
     </bean>
 
