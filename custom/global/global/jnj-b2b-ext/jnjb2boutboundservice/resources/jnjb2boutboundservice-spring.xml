@@ -89,11 +89,11 @@
 		<constructor-arg value="btbuser"/>
 		<constructor-arg value="btbuser"/>
 	</bean>
-	<bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig"
-	factory-method="custom">
-	<property name="readTimeout" value="60000" />
-	<property name="connectTimeout" value="60000" />
-</bean>
+<!--	<bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig"-->
+<!--	factory-method="custom">-->
+<!--	<property name="readTimeout" value="60000" />-->
+<!--	<property name="connectTimeout" value="60000" />-->
+<!--</bean>-->
 
 	<bean id="requestConfig" factory-bean="requestConfigBuilder"
 		factory-method="build" />
