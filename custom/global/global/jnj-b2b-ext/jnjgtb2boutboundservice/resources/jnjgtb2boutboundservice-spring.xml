@@ -97,14 +97,14 @@
 	<oxm:jaxb2-marshaller id="unmarshallerForProofOfDelivery"
 		context-path="com.fedex.ws.track.v8" />
 		
-<!--	<bean id="httpClientParams" class="org.apache.commons.httpclient.params.HttpClientParams">-->
-<!--		<property name="authenticationPreemptive" value="true"/>-->
-<!--		<property name="connectionManagerClass" value="org.apache.commons.httpclient.MultiThreadedHttpConnectionManager"/>-->
-<!--	</bean>-->
-<!--	-->
-<!--	<bean id="httpClient" class="org.apache.commons.httpclient.HttpClient">-->
-<!--		<constructor-arg ref="httpClientParams"/>-->
-<!--	</bean>-->
+	<bean id="httpClientParams" class="org.apache.commons.httpclient.params.HttpClientParams">
+		<property name="authenticationPreemptive" value="true"/>
+		<property name="connectionManagerClass" value="org.apache.commons.httpclient.MultiThreadedHttpConnectionManager"/>
+	</bean>
+	
+	<bean id="httpClient" class="org.apache.commons.httpclient.HttpClient">
+		<constructor-arg ref="httpClientParams"/>
+	</bean>
 
 	<bean id="messageSender" class="org.springframework.ws.transport.http.HttpComponentsMessageSender">
 		<constructor-arg ref="httpClient"/>
@@ -118,46 +118,34 @@
 	
 	<bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig"
 	factory-method="custom">
-	 <property name="socketTimeout" value="#{configurationService.configuration.getProperty('jnj.webservice.readTimeOut')}" />
+	 <property name="readTimeout" value="#{configurationService.configuration.getProperty('jnj.webservice.readTimeOut')}" />
 	 <property name="connectionTimeout" value="#{configurationService.configuration.getProperty('jnj.webservice.connectionTimeOut')}" />
 </bean>
 
 	<bean id="requestConfig" factory-bean="requestConfigBuilder"
 		factory-method="build" />
 
-<!--	<bean id="interceptedHttpClientBuilder"-->
-<!--		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">-->
-<!--		<property name="targetObject" ref="httpClientBuilder" />-->
-<!--		<property name="targetMethod" value="addInterceptorFirst">-->
-<!--		</property>-->
-<!--		<property name="arguments">-->
-<!--			<list>-->
-<!--				<bean-->
-<!--					class="org.springframework.ws.transport.http.HttpComponentsMessageSender.RemoveSoapHeadersInterceptor" />-->
-<!--			</list>-->
-<!--		</property>-->
-<!--	</bean>-->
+	<bean id="interceptedHttpClientBuilder"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject" ref="httpClientBuilder" />
+		<property name="targetMethod" value="addInterceptorFirst">
+		</property>
+		<property name="arguments">
+			<list>
+				<bean
+					class="org.springframework.ws.transport.http.HttpComponentsMessageSender.RemoveSoapHeadersInterceptor" />
+			</list>
+		</property>
+	</bean>
 
 	<!-- FRAMEWORK_UPDATE - TODO - The builder of the http client has changed and may fail in the runtime. Adjust existing configuration to the new API -->
-<!--	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"-->
-<!--		factory-method="create">-->
-<!--		<property name="defaultRequestConfig" ref="requestConfig" />-->
-<!--	</bean>-->
-
-    <bean id="httpClientBuilder"
-          class="org.apache.http.impl.client.HttpClientBuilder"
-          factory-method="create">
-        <property name="defaultRequestConfig" ref="requestConfig"/>
-    </bean>
-
-    <bean id="httpClient"
-          class="org.apache.http.impl.client.CloseableHttpClient"
-          factory-bean="httpClientBuilder"
-          factory-method="build"/>
-
-
-
-    <!-- Bean defined for Simulate Order Out bound service -->
+	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"
+		factory-method="create">
+		<property name="defaultRequestConfig" ref="requestConfig" />
+	</bean>
+		
+	
+	<!-- Bean defined for Simulate Order Out bound service --> 
 	<bean id="webserviceTemplateForSimulate" name="webserviceTemplateForSimulate"
 		class="org.springframework.ws.client.core.WebServiceTemplate">
 		<property name="marshaller" ref="marshallerForSimulate" />
