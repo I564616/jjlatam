@@ -491,22 +491,23 @@
         <property name="jnjConfigService" ref="jnjConfigService" />
     </bean>
 
-    <bean id="jnjLAEmailOrderPopulator" class="com.jnj.facades.converters.populator.JnjLAEmailOrderPopulator" parent="abstractResultPopulator">
-        <property name="priceDataFactory" ref="jnjLaPriceDataFactory" />
-        <property name="jnjCommonFacadeUtil" ref="JnjCommonFacadeUtil" />
-        <property name="jnjLatamInvoiceFacade" ref="jnjLatamInvoiceFacade"/>
-        <property name="configurationService" ref="configurationService" />
-        <property name="jnjGTB2BUnitService" ref="jnjGTB2BUnitService" />
-    </bean>
+    <!--JDK-21 ISSUE -->
+<!--    <bean id="jnjLAEmailOrderPopulator" class="com.jnj.facades.converters.populator.JnjLAEmailOrderPopulator" parent="abstractResultPopulator">-->
+<!--        <property name="priceDataFactory" ref="jnjLaPriceDataFactory" />-->
+<!--        <property name="jnjCommonFacadeUtil" ref="JnjCommonFacadeUtil" />-->
+<!--        <property name="jnjLatamInvoiceFacade" ref="jnjLatamInvoiceFacade"/>-->
+<!--        <property name="configurationService" ref="configurationService" />-->
+<!--        <property name="jnjGTB2BUnitService" ref="jnjGTB2BUnitService" />-->
+<!--    </bean>-->
 
-    <bean id="jnjLAEmailOrderConverter" parent="abstractPopulatingConverter">
-        <property name="targetClass" value="com.jnj.la.core.data.order.JnjLAEmailOrderData"/>
-        <property name="populators">
-            <list>
-                <ref bean="jnjLAEmailOrderPopulator"/>
-            </list>
-        </property>
-    </bean>
+<!--    <bean id="jnjLAEmailOrderConverter" parent="abstractPopulatingConverter">-->
+<!--        <property name="targetClass" value="com.jnj.la.core.data.order.JnjLAEmailOrderData"/>-->
+<!--        <property name="populators">-->
+<!--            <list>-->
+<!--                <ref bean="jnjLAEmailOrderPopulator"/>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
 
     <bean id="jnjLaConsolidatedEmailService" class="com.jnj.facades.services.impl.JnJLaConsolidatedEmailServiceImpl" parent="jnjLAEmailOrderStatusService" >
         <property name="configurationService" ref="configurationService" />
