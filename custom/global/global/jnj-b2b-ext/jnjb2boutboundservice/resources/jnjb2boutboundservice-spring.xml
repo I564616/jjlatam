@@ -9,7 +9,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:oxm="http://www.springframework.org/schema/oxm"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/aop
            http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
            http://www.springframework.org/schema/oxm 
@@ -76,14 +76,14 @@
         <property name="credentials" ref="credentials"/>
     </bean>
 	
-	<bean id="httpClientParams" class="org.apache.commons.httpclient.params.HttpClientParams">
-		<property name="authenticationPreemptive" value="true"/>
-		<property name="connectionManagerClass" value="org.apache.commons.httpclient.MultiThreadedHttpConnectionManager"/>
-	</bean>
-	
-	<bean id="httpClient" class="org.apache.commons.httpclient.HttpClient">
-		<constructor-arg ref="httpClientParams"/>
-	</bean>
+<!--	<bean id="httpClientParams" class="org.apache.commons.httpclient.params.HttpClientParams">-->
+<!--		<property name="authenticationPreemptive" value="true"/>-->
+<!--		<property name="connectionManagerClass" value="org.apache.commons.httpclient.MultiThreadedHttpConnectionManager"/>-->
+<!--	</bean>-->
+<!--	-->
+<!--	<bean id="httpClient" class="org.apache.commons.httpclient.HttpClient">-->
+<!--		<constructor-arg ref="httpClientParams"/>-->
+<!--	</bean>-->
 	
 	<bean id="credentials" class="org.apache.http.auth.UsernamePasswordCredentials">
 		<constructor-arg value="btbuser"/>
@@ -98,26 +98,44 @@
 	<bean id="requestConfig" factory-bean="requestConfigBuilder"
 		factory-method="build" />
 
-	<bean id="interceptedHttpClientBuilder"
-		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-		<property name="targetObject" ref="httpClientBuilder" />
-		<property name="targetMethod" value="addInterceptorFirst">
-		</property>
-		<property name="arguments">
-			<list>
-				<bean
-					class="org.springframework.ws.transport.http.HttpComponentsMessageSender.RemoveSoapHeadersInterceptor" />
-			</list>
-		</property>
-	</bean>
+<!--	<bean id="interceptedHttpClientBuilder"-->
+<!--		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">-->
+<!--		<property name="targetObject" ref="httpClientBuilder" />-->
+<!--		<property name="targetMethod" value="addInterceptorFirst">-->
+<!--		</property>-->
+<!--		<property name="arguments">-->
+<!--			<list>-->
+<!--				<bean-->
+<!--					class="org.springframework.ws.transport.http.HttpComponentsMessageSender.RemoveSoapHeadersInterceptor" />-->
+<!--			</list>-->
+<!--		</property>-->
+<!--	</bean>-->
 
 	<!-- FRAMEWORK_UPDATE - TODO - The builder of the http client has changed and may fail in the runtime. Adjust existing configuration to the new API -->
-	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"
-		factory-method="create">
-		<property name="defaultRequestConfig" ref="requestConfig" />
-	</bean>
-		
-	<oxm:jaxb2-marshaller id="marshaller"
+<!--	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"-->
+<!--		factory-method="create">-->
+<!--		<property name="defaultRequestConfig" ref="requestConfig" />-->
+<!--	</bean>-->
+
+    <bean id="requestConfigBuilder"
+          class="org.apache.http.client.config.RequestConfig"
+          factory-method="custom">
+        <property name="connectTimeout" value="60000"/>
+        <property name="socketTimeout" value="60000"/>
+    </bean>
+
+    <bean id="httpClientBuilder"
+          class="org.apache.http.impl.client.HttpClientBuilder"
+          factory-method="create">
+        <property name="defaultRequestConfig" ref="requestConfig"/>
+    </bean>
+
+    <bean id="httpClient"
+          class="org.apache.http.impl.client.CloseableHttpClient"
+          factory-bean="httpClientBuilder"
+          factory-method="build"/>
+
+    <oxm:jaxb2-marshaller id="marshaller"
 		context-path="com.jnj.itsusmpl00082.sg910_btb_in0498_salesorder_global_source_v1_webservice.salesorderws" />
 	<oxm:jaxb2-marshaller id="unmarshaller"
 		context-path="com.jnj.itsusmpl00082.sg910_btb_in0498_salesorder_global_source_v1_webservice.salesorderws" />
