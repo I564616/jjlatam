@@ -62,6 +62,11 @@
 		<property name="unmarshaller" ref="unmarshaller" />
 		<!--<property name="messageSender" ref="messageSender"/>-->
 	</bean>
+
+    <bean id="messageSender" class="org.springframework.ws.transport.http.HttpComponentsMessageSender">
+        <constructor-arg ref="httpClient"/>
+        <property name="credentials" ref="credentials"/>
+    </bean>
 	
 	<bean id="webserviceTemplateForNfe" name="webserviceTemplateForNfe" class="org.springframework.ws.client.core.WebServiceTemplate">
 		<property name="defaultUri"
@@ -70,11 +75,6 @@
 		<property name="unmarshaller" ref="unmarshallerNFe" />
 		<property name="messageSender" ref="messageSender"/>
 	</bean>
-
-    <bean id="messageSender" class="org.springframework.ws.transport.http.HttpComponentsMessageSender">
-        <constructor-arg ref="httpClient"/>
-        <property name="credentials" ref="credentials"/>
-    </bean>
 	
 <!--	<bean id="httpClientParams" class="org.apache.commons.httpclient.params.HttpClientParams">-->
 <!--		<property name="authenticationPreemptive" value="true"/>-->
