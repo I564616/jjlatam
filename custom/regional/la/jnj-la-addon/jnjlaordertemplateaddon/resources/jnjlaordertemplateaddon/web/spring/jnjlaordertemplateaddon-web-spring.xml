@@ -23,7 +23,7 @@
         <property name="messageSource" ref="defaultJnjlaordertemplateaddonJavaScriptMessageResourceAccessor"/>
     </bean>
 
-    <bean id="getJnjlaordertemplateaddonBeforeViewHandler" parent="beforeViewHandlerAdapter">
+    <bean id="getJnjlaordertemplateaddonBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
         <property name="adaptee">
             <ref bean="defaultJnjlaordertemplateaddonBeforeViewJsPropsHandlerAdaptee"/>
         </property>

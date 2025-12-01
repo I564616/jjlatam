@@ -39,7 +39,7 @@
 		<property name="messageSource" ref="defaultCartandcheckoutaddonJavaScriptMessageResourceAccessor"/>
 	</bean>
 
-	<bean id="getCartandcheckoutaddonBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getCartandcheckoutaddonBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultCartandcheckoutaddonBeforeViewJsPropsHandlerAdaptee"/>
 		</property>

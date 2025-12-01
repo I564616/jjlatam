@@ -22,7 +22,7 @@
         <property name="messageSource" ref="defaultEnvribbonaddonJavaScriptMessageResourceAccessor"/>
     </bean>
 
-    <bean id="getEnvribbonaddonBeforeViewHandler" parent="beforeViewHandlerAdapter">
+    <bean id="getEnvribbonaddonBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
         <property name="adaptee">
             <ref bean="defaultEnvribbonaddonBeforeViewJsPropsHandlerAdaptee"/>
         </property>

@@ -35,7 +35,7 @@
 		<property name="messageSource" ref="defaultJnjglobalreportsJavaScriptMessageResourceAccessor"/>
 	</bean>
 
-	<bean id="getJnjglobalreportsBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getJnjglobalreportsBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultJnjglobalreportsBeforeViewJsPropsHandlerAdaptee"/>
 		</property>

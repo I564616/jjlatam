@@ -40,7 +40,7 @@
 		<property name="messageSource" ref="defaultJnjglobalprofileJavaScriptMessageResourceAccessor"/>
 	</bean>
 
-	<bean id="getJnjglobalprofileBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getJnjglobalprofileBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultJnjglobalprofileBeforeViewJsPropsHandlerAdaptee"/>
 		</property>

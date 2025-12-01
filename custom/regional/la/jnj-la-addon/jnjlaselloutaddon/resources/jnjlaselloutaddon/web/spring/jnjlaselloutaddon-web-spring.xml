@@ -28,7 +28,7 @@
 	<bean id="uploadPageController" class="com.jnj.la.b2b.jnjlaselloutaddon.controllers.pages.JnjLatamUploadOrderPageController"/>
 	
 
-	<bean id="getJnjlaselloutaddonBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getJnjlaselloutaddonBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultJnjlaselloutaddonBeforeViewJsPropsHandlerAdaptee"/>
 		</property>

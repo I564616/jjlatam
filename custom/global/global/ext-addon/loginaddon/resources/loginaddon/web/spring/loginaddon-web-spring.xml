@@ -30,7 +30,7 @@
 			ref="defaultLoginaddonJavaScriptMessageResourceAccessor" />
 	</bean>
 
-	<bean id="getLoginaddonBeforeViewHandler" parent="beforeViewHandlerAdapter"> 
+	<bean id="getLoginaddonBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee"> <ref bean="defaultLoginaddonBeforeViewJsPropsHandlerAdaptee"/> 
 		</property>
 	</bean>

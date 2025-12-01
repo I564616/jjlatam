@@ -24,7 +24,7 @@
 		<property name="messageSource" ref="defaultJnjlabrowseandsearchaddonJavaScriptMessageResourceAccessor"/>
 	</bean>
 
-	<bean id="getJnjlabrowseandsearchaddonBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getJnjlabrowseandsearchaddonBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultJnjlabrowseandsearchaddonBeforeViewJsPropsHandlerAdaptee"/>
 		</property>

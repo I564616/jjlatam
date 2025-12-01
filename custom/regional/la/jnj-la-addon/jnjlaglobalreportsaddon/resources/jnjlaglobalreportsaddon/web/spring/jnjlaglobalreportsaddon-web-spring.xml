@@ -20,7 +20,7 @@
 		<property name="messageSource" ref="defaultJnjlaglobalreportsaddonJavaScriptMessageResourceAccessor"/>
 	</bean>
 
-	<bean id="getJnjlaglobalreportsaddonBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getJnjlaglobalreportsaddonBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultJnjlaglobalreportsaddonBeforeViewJsPropsHandlerAdaptee"/>
 		</property>

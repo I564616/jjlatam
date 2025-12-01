@@ -26,7 +26,7 @@
 
 	<bean id="clsPageController" class="com.jnj.la.jnjlaservicepageaddon.controllers.pages.JnjLaClsPageController" />
 
-	<bean id="getJnjlaservicepageaddonBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getJnjlaservicepageaddonBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultJnjlaservicepageaddonBeforeViewJsPropsHandlerAdaptee"/>
 		</property>

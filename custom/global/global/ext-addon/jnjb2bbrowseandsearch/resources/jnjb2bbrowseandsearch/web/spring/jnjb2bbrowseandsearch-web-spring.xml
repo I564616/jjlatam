@@ -32,7 +32,7 @@
 		<property name="messageSource" ref="defaultJnjb2bbrowseandsearchJavaScriptMessageResourceAccessor"/>
 	</bean>
 
-	<bean id="getJnjb2bbrowseandsearchBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getJnjb2bbrowseandsearchBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultJnjb2bbrowseandsearchBeforeViewJsPropsHandlerAdaptee"/>
 		</property>

@@ -23,7 +23,7 @@
 		<property name="messageSource" ref="defaultJnjlaloginaddonJavaScriptMessageResourceAccessor"/>
 	</bean>
 
-	<bean id="getJnjlaloginaddonBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getJnjlaloginaddonBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultJnjlaloginaddonBeforeViewJsPropsHandlerAdaptee"/>
 		</property>

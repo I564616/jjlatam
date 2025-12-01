@@ -21,7 +21,7 @@
 		<property name="messageSource" ref="defaultJnjlaprofileaddonJavaScriptMessageResourceAccessor"/>
 	</bean>
 
-	<bean id="getJnjlaprofileaddonBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getJnjlaprofileaddonBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultJnjlaprofileaddonBeforeViewJsPropsHandlerAdaptee"/>
 		</property>

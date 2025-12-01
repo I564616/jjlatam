@@ -36,7 +36,7 @@
 		<property name="messageSource" ref="defaultJnjb2bglobalordertemplateJavaScriptMessageResourceAccessor"/>
 	</bean>
 
-	<bean id="getJnjb2bglobalordertemplateBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getJnjb2bglobalordertemplateBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultJnjb2bglobalordertemplateBeforeViewJsPropsHandlerAdaptee"/>
 		</property>

@@ -22,7 +22,7 @@
 		<property name="messageSource" ref="defaultJnjlaresourcesJavaScriptMessageResourceAccessor"/>
 	</bean>
 
-	<bean id="getJnjlaresourcesBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getJnjlaresourcesBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultJnjlaresourcesBeforeViewJsPropsHandlerAdaptee"/>
 		</property>

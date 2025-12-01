@@ -22,7 +22,7 @@
 		<property name="messageSource" ref="defaultJnjlacartandcheckoutaddonJavaScriptMessageResourceAccessor"/>
 	</bean>
 
-	<bean id="getJnjlacartandcheckoutaddonBeforeViewHandler" parent="beforeViewHandlerAdapter">
+	<bean id="getJnjlacartandcheckoutaddonBeforeViewHandler" parent="jnjBeforeViewHandlerAdapter">
 		<property name="adaptee">
 			<ref bean="defaultJnjlacartandcheckoutaddonBeforeViewJsPropsHandlerAdaptee"/>
 		</property>
