@@ -121,7 +121,7 @@
 		factory-method="custom">
 		<property name="socketTimeout"
 			value="#{configurationService.configuration.getProperty('jnj.webservice.readTimeOut')}" />
-		<property name="connectionTimeout"
+		<property name="connectionRequestTimeout"
 			value="#{configurationService.configuration.getProperty('jnj.webservice.connectionTimeOut')}" />
 	</bean>
 
