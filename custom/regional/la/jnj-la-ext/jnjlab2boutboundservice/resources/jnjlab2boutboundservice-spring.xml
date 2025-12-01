@@ -105,7 +105,7 @@
 	 <oxm:jaxb2-marshaller id="lamarshaller"
 		context-path="com.jnj.itsusmpl00082.sg910_btb_in0498_salesorder_global_source_v1_webservice.salesorderws" />
 
-	<bean id="lamessageSender" class="org.springframework.ws.transport.http.HttpComponentsMessageSender">
+	<bean id="lamessageSender" class="org.springframework.ws.transport.http.HttpComponents5MessageSender">
 		<constructor-arg ref="httpClient"/>
 		<property name="credentials" ref="lacredentials"/>		
 	</bean>
@@ -117,12 +117,19 @@
 		<constructor-arg index="1"
 			value="#{configurationService.configuration.getProperty('jnj.webservice.order.password')}" />
 	</bean>
-	<bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig"
+	<bean id="requestConfigBuilder" class="org.apache.hc.client5.http.config.RequestConfig"
 		factory-method="custom">
-		<property name="socketTimeout"
-			value="#{configurationService.configuration.getProperty('jnj.webservice.readTimeOut')}" />
-		<property name="connectionRequestTimeout"
-			value="#{configurationService.configuration.getProperty('jnj.webservice.connectionTimeOut')}" />
+        <property name="responseTimeout">
+            <bean class="org.apache.hc.core5.util.Timeout" factory-method="ofMilliseconds">
+                <constructor-arg value="#{configurationService.configuration.getProperty('jnj.webservice.readTimeOut')}"/>
+            </bean>
+        </property>
+
+        <property name="connectTimeout">
+            <bean class="org.apache.hc.core5.util.Timeout" factory-method="ofMilliseconds">
+                <constructor-arg value="#{configurationService.configuration.getProperty('jnj.webservice.connectionTimeOut')}"/>
+            </bean>
+        </property>
 	</bean>
 
 	<bean id="requestConfig" factory-bean="requestConfigBuilder"
@@ -142,12 +149,21 @@
 	</bean>
 
 	<!-- FRAMEWORK_UPDATE - TODO - The builder of the http client has changed and may fail in the runtime. Adjust existing configuration to the new API -->
-	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"
-		factory-method="create">
-		<property name="defaultRequestConfig" ref="requestConfig" />
-	</bean>
-				
-		<bean id="orderUtil" class="com.jnj.core.order.util.JnjOrderUtil"/>
+<!--	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"-->
+<!--		factory-method="create">-->
+<!--		<property name="defaultRequestConfig" ref="requestConfig" />-->
+<!--	</bean>-->
+
+    <bean id="httpClientBuilder"
+          class="org.apache.hc.client5.http.impl.classic.HttpClientBuilder">
+        <property name="defaultRequestConfig" ref="requestConfig" />
+    </bean>
+
+    <bean id="httpClient" factory-bean="httpClientBuilder" factory-method="build"/>
+
+
+
+    <bean id="orderUtil" class="com.jnj.core.order.util.JnjOrderUtil"/>
 		
 		<bean id="jnjLaNfeService" class="com.jnj.la.outboundservice.services.nfe.impl.JnjLaNfeServiceImpl"/>
 		
