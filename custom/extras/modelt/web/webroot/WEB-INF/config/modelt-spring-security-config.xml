@@ -19,7 +19,7 @@
     <security:http access-decision-manager-ref="accessDecisionManager" use-expressions="true" use-authorization-manager="false">
         <security:session-management session-authentication-strategy-ref="fixation"/>
         <security:intercept-url pattern="/login.jsp"  access="permitAll()"/>
-        <security:intercept-url pattern="/**" access="hasAnyRole('CUSTOMERGROUP')"/>
+        <security:intercept-url pattern="/**" access="hasAnyRole('HYBRIS_NOT_INITIALIZED','ROLE_CUSTOMERGROUP')"/>
         <security:http-basic />
         <security:form-login
         	always-use-default-target="false" 
