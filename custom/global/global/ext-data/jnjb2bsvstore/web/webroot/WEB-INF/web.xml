@@ -125,20 +125,20 @@
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
 
-<!--    <servlet>-->
-<!--        <servlet-name>springmvc</servlet-name>-->
-<!--        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
-<!--        <init-param>-->
-<!--            <param-name>contextConfigLocation</param-name>-->
-<!--            <param-value>WEB-INF/config/jnjb2bsvstore-spring-mvc-config.xml</param-value>-->
-<!--        </init-param>-->
-<!--        <load-on-startup>1</load-on-startup>-->
-<!--    </servlet>-->
+    <servlet>
+        <servlet-name>springmvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>WEB-INF/config/jnjb2bsvstore-spring-mvc-config.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>springmvc</servlet-name>-->
-<!--        <url-pattern>/</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
     
     <session-config>
 		<session-timeout>120</session-timeout>
