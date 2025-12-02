@@ -22,11 +22,14 @@
 		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<context:component-scan
-		base-package="com.jnj.gt.core.v1, com.jnj.gt.core.auth, com.jnj.gt.core.context, com.jnj.gt.core.conv, com.jnj.gt.core.errors, com.jnj.gt.core.exceptions, com.jnj.gt.core.filter, com.jnj.gt.core.formatters, com.jnj.gt.core.oauth2, com.jnj.gt.core.resolver, com.jnj.gt.core.util.ws, com.jnj.gt.core.xstream"
+		base-package="com.jnj.gt.core.v1, com.jnj.gt.core.auth, com.jnj.gt.core.context, com.jnj.gt.core.conv, com.jnj.gt.core.errors, com.jnj.gt.core.exceptions, com.jnj.gt.core.filter, com.jnj.gt.core.formatters, com.jnj.gt.core.resolver, com.jnj.gt.core.util.ws, com.jnj.gt.core.xstream"
 		scope-resolver="de.hybris.platform.spring.IgnoreTenantScopeMetadataResolver" />
 
-	<security:global-method-security order="-2147483648" secured-annotations="enabled" pre-post-annotations="enabled" proxy-target-class="true"/>
-	<mvc:resources mapping="**/swagger-ui.html" location="classpath:/META-INF/resources/"/>	
+    <security:method-security
+            secured-enabled="true"
+            pre-post-enabled="true"
+            proxy-target-class="true"/>
+    <mvc:resources mapping="**/swagger-ui.html" location="classpath:/META-INF/resources/"/>
 	<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
 
 
