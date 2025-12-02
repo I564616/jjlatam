@@ -18,7 +18,7 @@
 
     <!-- Commerce Webservices V1 – Updated to new OAuth2/JWT Security -->
     <security:http pattern="/v1/**"
-                   use-authorization-manager="true"
+                   use-authorization-manager="false"
                    use-expressions="true"
                    create-session="stateless">
 
@@ -34,7 +34,7 @@
 
         <security:intercept-url pattern="/**"
                                 requires-channel="https"
-                                access="permitAll"/>
+                                access="permitAll()"/>
 
         <!-- Port mappings -->
         <security:port-mappings>

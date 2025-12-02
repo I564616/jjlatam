@@ -23,14 +23,14 @@
 
     <!-- Commerce Webservices V2 – New OAuth2 / JWT Based -->
     <security:http pattern="/v2/**"
-                   use-authorization-manager="true"
+                   use-authorization-manager="false"
                    use-expressions="true"
                    create-session="stateless">
 
         <security:anonymous username="anonymous" granted-authority="ROLE_ANONYMOUS"/>
 
         <!-- Enforce HTTPS -->
-        <security:intercept-url pattern="/**" requires-channel="https" access="permitAll"/>
+        <security:intercept-url pattern="/**" requires-channel="https" access="permitAll()"/>
 
         <!-- Port mappings -->
         <security:port-mappings>

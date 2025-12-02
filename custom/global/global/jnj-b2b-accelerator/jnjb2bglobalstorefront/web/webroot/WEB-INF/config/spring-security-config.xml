@@ -137,12 +137,12 @@
         <security:intercept-url pattern="/**"  requires-channel="https" access="hasRole('ROLE_CUSTOMERGROUP')"/>
         <security:intercept-url pattern="/j_spring_security_check" access="permitAll()" requires-channel="https"/>
         <security:intercept-url pattern="/logout" access="permitAll()" requires-channel="https"/>
-        <security:intercept-url pattern="/global" requires-channel="any"/>
+        <security:intercept-url pattern="/global" requires-channel="any"  access="permitAll()"/>
 
 
         <!-- MiniCart and CartPopup can occur on either secure or insecure pages -->
-        <security:intercept-url pattern="/cart/rollover/*" requires-channel="any"/>
-        <security:intercept-url pattern="/cart/miniCart/*" requires-channel="any"/>
+        <security:intercept-url pattern="/cart/rollover/*" requires-channel="any"  access="permitAll()"/>
+        <security:intercept-url pattern="/cart/miniCart/*" requires-channel="any"  access="permitAll()"/>
 
 		<security:intercept-url pattern="/search/autocompleteSecure/**" access="permitAll()" requires-channel="https"/>
 
@@ -152,9 +152,9 @@
 
 		<!-- OPEN / ANONYMOUS pages Run all other (public) pages openly. Note that while credentials are secure, the session id can be sniffed.
 			If this is a security concern, then this line should be re-considered -->
-		<security:intercept-url pattern="/**" requires-channel="any" method="POST"/>
+		<security:intercept-url pattern="/**" requires-channel="any" method="POST"  access="permitAll()"/>
 		<!-- Allow posts on either secure or insecure -->
-		<security:intercept-url pattern="/**" requires-channel="${storefront.security.default.required.channel}"/>
+		<security:intercept-url pattern="/**" requires-channel="${storefront.security.default.required.channel}"  access="permitAll()"/>
 		<!-- Everything else should be insecure -->
 
 		<security:form-login
