@@ -27,7 +27,10 @@
 
 	 <context:component-scan base-package="com.jnj.b2b.loginaddon.security" scope-resolver="de.hybris.platform.spring.IgnoreTenantScopeMetadataResolver"/>
 
-<security:intercept-url pattern="/search/autocompleteSecure/**" requires-channel="https" />
+    <security:http auto-config="true">
+        <security:intercept-url pattern="/some/path/**" access="permitAll()"/>
+    </security:http>
+<!--<security:intercept-url pattern="/search/autocompleteSecure/**" requires-channel="https" access="permitAll()" />-->
 
     <security:headers>
 			<security:frame-options policy="DENY"/>
